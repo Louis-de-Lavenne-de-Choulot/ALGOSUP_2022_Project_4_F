@@ -102,44 +102,44 @@ These scenarios must stay fairly simplistic.
 
 	#  Personaes
 - Users :
-	-Student (Female/Male)
-	-Investors
-	-Franck
-	-Parents
+	- Student (Female/Male)
+	- Investors
+	- Franck
+	- Parents
 
 - Characters :
-	-Student F/M
-		-Move from class to class
-		-Is seated when in “Project time”, “Computer science class”
-		-Move erratically in the room when in “Soft Skill” (may change layout of table)
-		-Stand in group when in “Freetime”
-		-Try to find a seat when in “Freetime”
-		-Chance of exiting the building when “Lunch” otherwise go to cafetaria
-		-Access women's toilets
-		-Access men’s toilets
-		-Rush for the exit when “end day”
+	- Student F/M
+		- Move from class to class
+		-	Is seated when in “Project time”, “Computer science class”
+		- Move erratically in the room when in “Soft Skill” (may change layout of table)
+		- Stand in group when in “Freetime”
+		- Try to find a seat when in “Freetime”
+		- Chance of exiting the building when “Lunch” otherwise go to cafetaria
+		- Access women's toilets
+		- Access men’s toilets
+		- Rush for the exit when “end day”
 		
 - Teachers
-	-Goes from project room to another project room during “Project time”
-	-Coffee break
-	-Lunch break
-	-Courses on screen (remote work)
-	-Stand/Sit at their desk during “Computer Science class” and “Soft skill”
-	-Switch slides when in “Computer Science class” and “soft skill”
-	-Chance of exiting the building when “Lunch” otherwise go to cafetaria
+	- Goes from project room to another project room during “Project time”
+	- Coffee break
+	- Lunch break
+	- Courses on screen (remote work)
+	- Stand/Sit at their desk during “Computer Science class” and “Soft skill”
+	- Switch slides when in “Computer Science class” and “soft skill”
+	- Chance of exiting the building when “Lunch” otherwise go to cafetaria
 - Franck
-	-Can move whenever and  wherever he wants
-	-Can open all doors and lock them too
-	-Key to open the building
-	-Roam the building
-	-Otherwise sit at his desk
-	-Count people in “Fire Alarm” scenario
+	- Can move whenever and  wherever he wants
+	- Can open all doors and lock them too
+	- Key to open the building
+	- Roam the building
+	- Otherwise sit at his desk
+	- Count people in “Fire Alarm” scenario
 - Cleaning staff
-		-Roaming the building, only access empty room
-		-Exit when “lunch time”
-		-Continue their action when “end day”
-		-Regularly go to Cleaning Room
-		-Mimic cleaning ground
+	- Roaming the building, only access empty room
+	- Exit when “lunch time”
+	- Continue their action when “end day”
+	- Regularly go to Cleaning Room
+	- Mimic cleaning ground
 
  # Minimum Viable Product	
 We should have a high quality 3D Visualisation of the B3 with a playable character and non specific npcs roaming around. The user should be able to move and look around and open dors.
