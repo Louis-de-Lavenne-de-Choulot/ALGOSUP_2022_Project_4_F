@@ -25,8 +25,8 @@ Finally, the school Staff could use the simulation to see if they like the way t
 	- Height controls:
 		- Set user height
 	- Movement controls:
-		- Snap turn / Smooth turn / No-mode
-		- Teleportation / locomotion
+		- Snap turn[^1] / Smooth turn[^2] / No-mode[^3]
+		- Teleportation[^4] / locomotion[^5]
 	- Sound controls:
 		- Slider
 	- NPC limit (if multiplatform):
@@ -90,3 +90,14 @@ These scenarios must stay fairly simplistic.
 ## Generic Use case
 
 ## Scenario specific use cases
+
+
+# Footnotes
+
+## Definitions
+
+[^1]: Snap turn : camera rotation in step of 10°, controlled by a joystick
+[^2]: Smooth turn : smooth camera rotation, controlled by a joystick
+[^3]: No-mode : smooth camera rotation, controlled by the VR headset
+[^4]: Teleportation : Move instantly to the point you are aiming at on the ground
+[^5]: Locomotion : Move like a traditional 1st person game using the joystick
