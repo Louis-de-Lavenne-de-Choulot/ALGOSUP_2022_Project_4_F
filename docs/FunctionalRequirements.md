@@ -87,6 +87,64 @@ These scenarios must stay fairly simplistic.
 
 # Use cases
 
+# In-simulation
+- Move around:
+	The user must be capable of moving around
+- Select / change personae:
+	The users must be able to select the character they impersonate in-simulation
+	This must be done at the reception desc
+	The available scenarios must be changed depending on the personae
+- Interact with doors and certain objects:
+		Doors, keycards, and other interactive objects must be accessible for the user
+		Objects that can be interacted with are highlighted
+- Launch scenario
+	The user must be able to launch their preferred scenario from their starting  points
+
+	#  Personaes
+- Users :
+	-Student (Female/Male)
+	-Investors
+	-Franck
+	-Parents
+
+- Characters :
+	-Student F/M
+		-Move from class to class
+		-Is seated when in “Project time”, “Computer science class”
+		-Move erratically in the room when in “Soft Skill” (may change layout of table)
+		-Stand in group when in “Freetime”
+		-Try to find a seat when in “Freetime”
+		-Chance of exiting the building when “Lunch” otherwise go to cafetaria
+		-Access women's toilets
+		-Access men’s toilets
+		-Rush for the exit when “end day”
+		
+- Teachers
+	-Goes from project room to another project room during “Project time”
+	-Coffee break
+	-Lunch break
+	-Courses on screen (remote work)
+	-Stand/Sit at their desk during “Computer Science class” and “Soft skill”
+	-Switch slides when in “Computer Science class” and “soft skill”
+	-Chance of exiting the building when “Lunch” otherwise go to cafetaria
+- Franck
+	-Can move whenever and  wherever he wants
+	-Can open all doors and lock them too
+	-Key to open the building
+	-Roam the building
+	-Otherwise sit at his desk
+	-Count people in “Fire Alarm” scenario
+- Cleaning staff
+		-Roaming the building, only access empty room
+		-Exit when “lunch time”
+		-Continue their action when “end day”
+		-Regularly go to Cleaning Room
+		-Mimic cleaning ground
+
+ # Minimum Viable Product	
+We should have a high quality 3D Visualisation of the B3 with a playable character and non specific npcs roaming around. The user should be able to move and look around and open dors.
+
+
 ## Generic Use case
 
 ## Scenario specific use cases
