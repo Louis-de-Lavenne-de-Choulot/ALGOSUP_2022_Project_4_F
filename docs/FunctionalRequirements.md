@@ -65,6 +65,12 @@ The user must not be able to change his character mid-scenario.
     - Their and only their project room
     - Their respective toilettes
 
+- Handicapped:
+  - Has a wheelchaire
+  - Can not use the staircases but has access to the lift
+  - Moves a bit slower
+  - They are a normal student otherwise
+
 - Orator ("intervenant" in french):
   - A bit older looking character
   - The orator can access to the following rooms:
@@ -118,7 +124,8 @@ Simulates lunchtime. Most students tries to access the food facilitest (Microwav
 <details>
 <summary>Characters this scenario is available for</summary>
 
-- Students (needs to eat with students)
+- Student (needs to eat with students)
+- Handicapped (needs to eat with students)
 - Orator (needs to eat with staff)
 - Franck (Roams free and observes)
 
@@ -141,7 +148,8 @@ None
 <details>
 <summary>Characters this scenario is available for</summary>
 
-- Students (Takes class)
+- Student (Takes class)
+- Handicapped (Takes class)
 - Orator (Gives class)
 - Franck (Roams free and observes)
 
@@ -164,7 +172,8 @@ None
 <details>
 <summary>Characters this scenario is available for</summary>
 
-- Students (Takes class)
+- Student (Takes class)
+- Handicapped (Takes class)
 - Orator (Gives class)
 - Franck (Roams free and observes)
 
@@ -187,7 +196,8 @@ None
 <details>
 <summary>Characters this scenario is available for</summary>
 
-- Students (Works on a project)
+- Student (Works on a project)
+- Handicapped (Works on a project)
 - Franck (Roams free and observes)
 
 </details>
@@ -210,7 +220,8 @@ None
 <details>
 <summary>Characters this scenario is available for</summary>
 
-- Students (Drives drone)
+- Student (Drives drone)
+- Handicapped (Drives drone)
 
 </details>
 
@@ -234,7 +245,8 @@ The user experiences a fire emergency and needs to go trought the emergency moti
 <details>
 <summary>Characters this scenario is available for</summary>
 
-- Students (user needs to exit the building then gets the amunt of time they took)
+- Student (user needs to exit the building then gets the amunt of time they took)
+- Handycapped (user needs to exit the building then gets the amunt of time they took)
 - Franck (user needs can observe as everyone exits and gets the total amount of time it took)
 
 </details>
@@ -259,7 +271,8 @@ A particularly high number of students needs to use the toilets at the same time
 <details>
 <summary>Characters this scenario is available for</summary>
 
-- Students (Has to use the bathroom)
+- Student (Has to use the bathroom)
+- Handycapped (Has to use the bathroom)
 - Franck (Roams free and observes)
 </details>
 
@@ -279,6 +292,11 @@ They must also be able to pathfind without bumping into each other.
   - Characters enter the school building in the morning and leaves at night.
   - They roam the school during breaks, pretend to socialize and visit the bathroom from time to time.
   - They got to classrooms / projectrooms (in teams of 4-8) during work hours.
+
+- Hapndycapped students:
+  - A rare, wheelchaired version of students
+  - Can not use the staircases but has access to the lift
+  - Moves a bit slower
 
 - Orators ("intervenants" in french):
   - There should be 1 orator for each class given to students that are not on projet-time.
@@ -326,7 +344,7 @@ They must also be able to pathfind without bumping into each other.
 		- Try to find a seat when in “Freetime”
 		- Chance of exiting the building when “Lunch” otherwise go to cafeteria
 		- Access women's toilets
-		- Access men’s toilets
+		- Access men's toilets
 		- Rush for the exit when “end day”
 		
 - Teachers
@@ -390,7 +408,7 @@ We should have a high quality 3D Visualization of the B3 with a playable charact
   - student NPCs go in project room in groups of 8
   - use card to open room
   - student NPCs lock the room by scanning card
-  - as student player can't enter the room if card was not scanned before dor was locked
+  - as student player can not enter the room if card was not scanned before dor was locked
   - student NPCs sit behind computer
   - Slide change on the room's TV
   - Teacher NPC can enter the room at some point with card
