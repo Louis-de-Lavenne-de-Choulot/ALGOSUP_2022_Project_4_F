@@ -107,7 +107,7 @@ The objective of these scenarios is to simulate specific events from the peerspe
 Simulates lunchtime. Most students tries to access the food facilitest (Microwaves, refrigerators, etc) at the same time.
 
 <br>
-<img src="img/PNGS FUNCTIONAL/LunchRush_PL.png">
+<img src="img/PNGS FUNCTIONAL/LunchRush_PL.drawio.png">
 
 <details>
 <summary>Scenario settings</summary>
