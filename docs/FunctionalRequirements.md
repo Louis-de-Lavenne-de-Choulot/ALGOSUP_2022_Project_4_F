@@ -107,7 +107,7 @@ The objective of these scenarios is to simulate specific events from the peerspe
 Simulates lunchtime. Most students tries to access the food facilitest (Microwaves, refrigerators, etc) at the same time.
 
 <br>
-<img src="img/LunchRush.png">
+<img src="img/PNGS FUNCTIONAL/LunchRush_PL.png">
 
 <details>
 <summary>Scenario settings</summary>
@@ -139,7 +139,7 @@ Simulates lunchtime. Most students tries to access the food facilitest (Microwav
 In this scenario the user can experience a normal computer science class.
 
 <br>
-
+<img src="img/PNGS FUNCTIONAL/Computer science class_PL.drawio.png">
 <details>
 <summary>Scenario settings</summary>
 
@@ -163,6 +163,7 @@ None
 In this scenario the user can experience a normal softskills class.
 
 <br>
+<img src="img/PNGS FUNCTIONAL/Soft skills_PL.drawio.png">
 
 <details>
 <summary>Scenario settings</summary>
@@ -187,7 +188,7 @@ None
 The user goes trought a simple exercise to simulate project work.
 
 <br>
-
+<img src="img/PNGS FUNCTIONAL/Project time_PL.png">
 <details>
 <summary>Scenario settings</summary>
 None
@@ -211,7 +212,7 @@ None
 The user gets an opportunity to try out the drone in its intended area.
 
 <br>
-
+<img src="img/PNGS FUNCTIONAL/Drone_PL.png">
 <details>
 <summary>Scenario settings</summary>
 None
@@ -234,6 +235,7 @@ None
 The user experiences a fire emergency and needs to go trought the emergency motions.
 
 <br>
+
 
 <details>
 <summary>Scenario settings</summary>
@@ -260,7 +262,7 @@ The user experiences a fire emergency and needs to go trought the emergency moti
 A particularly high number of students needs to use the toilets at the same time.
 
 <br>
-
+<img src="img/PNGS FUNCTIONAL/ToiletRush_PL.drawio.png">
 <details>
 <summary>Scenario settings</summary>
 
