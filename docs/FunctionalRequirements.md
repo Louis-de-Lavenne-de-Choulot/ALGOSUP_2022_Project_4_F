@@ -373,9 +373,14 @@ They must also be able to pathfind without bumping into each other.
  
 # Minimum Viable Product	
 
-We should have a high quality 3D Visualization of the B3 with a playable character and non specific npcs roaming around. The user should be able to move and look around and open dors.
+The criterias for the minimal viable product are:
+* The entire B3 modelled with basic materials.
+* Functionnal doors.
+* A single (articulated) playable character that can roam the schoolbuilding.
+* VR compatibility.
 
 
+<!-- ------------------------------------------------------------------ -->
 ## Generic Use case
 
 
