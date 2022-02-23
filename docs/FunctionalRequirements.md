@@ -101,6 +101,7 @@ The objective of these scenarios is to simulate specific events from the peerspe
 Simulates lunchtime. Most students tries to access the food facilitest (Microwaves, refrigerators, etc) at the same time.
 
 <br>
+<img src="img/LunchRush.png">
 
 <details>
 <summary>Scenario settings</summary>
@@ -389,10 +390,11 @@ We should have a high quality 3D Visualization of the B3 with a playable charact
   - student NPCs go in project room in groups of 8
   - use card to open room
   - student NPCs lock the room by scanning card
+  - as student player can't enter the room if card was not scanned before dor was locked
   - student NPCs sit behind computer
   - Slide change on the room's TV
   - Teacher NPC can enter the room at some point with card
-  - as student player can't enter the room if card was not scanned before dor was locked
+  - after sometime students leave room and go in "free time" mode
 
 - Soft Skill :
   - students NPC go to soft skills room
@@ -420,6 +422,15 @@ We should have a high quality 3D Visualization of the B3 with a playable charact
   - after some time drone lands, "free time" NPC resume normal activity
   - Group student pickup the drone and put it back in storage room
   - Student group go back to project room
+
+- Free time : 
+  - some student will roam the school in groups
+  - some NPC will go on the terrasse and stand in group, sit and/or smoke
+  - some NPC will go sit in rec room and look at their phone
+  - some NPC will go sit in the cafeteria and drink
+  - some NPC will sit on bench in the corridors and look at their phone
+  - after some times NPC will go in "class" or "project time" mode if rooms are available
+
 
 # Footnotes
 
