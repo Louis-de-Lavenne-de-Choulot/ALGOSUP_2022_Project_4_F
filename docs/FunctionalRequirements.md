@@ -91,6 +91,65 @@ These scenarios must stay fairly simplistic.
 
 ## Scenario specific use cases
 
+### As Student
+
+- Lunch rush :
+  - most Student and Orator NPCs immediately go to the cafeteria
+  - remaining Student and Orator NPCs exit the building
+  - Once in the cafeteria NPCs get lunch from fridge
+  - NPCs go microwave, if no microwave available NPCs go sit
+  - NPC eat
+  - Outside NPC get back inside
+  - NPCs exit cafeteria and go in "free time" mode
+
+- Toilet rush :
+  - many student leave class to go to the nearest toilets
+  - NPCs wait in line for the toilet to be free
+  - When they exit NPC resume previews activity
+
+- Computer Science class :
+  - Student and a Teacher NPCs move toward the amphitheater
+  - Teacher stand behind his desk
+  - Student sits at random desk
+  - Teacher switch slides a few time
+  - Student all try to leave at once
+  - Student go in "free time" mode
+
+- Project time :
+  - student NPCs go in project room in groups of 8
+  - use card to open room
+  - student NPCs lock the room by scanning card
+  - student NPCs sit behind computer
+  - Slide change on the room's TV
+  - Teacher NPC can enter the room at some point with card
+  - as student player can't enter the room if card was not scanned before dor was locked
+
+- Soft Skill :
+  - students NPC go to soft skills room
+  - teacher NPC Stand in the middle of the room
+  - some student move erratically around the room
+  - remaining student stand in circle
+  - Student all try to leave at once
+  - Student go in "free time" mode
+
+- Drone :
+  - One of the NPC group in "project time" mode leave their room
+  - students go to teacher
+  - teacher and student go to teacher computer
+  - student give teacher access card
+  - teacher manipulate card (supposed to represent allowing access to storage)
+  - teacher give back card to student NPC
+  - teacher resume previews activity
+  - student go to secured storage room
+  - scan card on drone shelf (confirm that student is allowed to take drone)
+  - take drone
+  - exit room and close dor
+  - go to drone testing area, lay drone on the ground and sit on bench
+  - NPC in "free time" mode near the drone testing may sit on bench or look at the cage
+  - Drone fly around the cage in pattern 
+  - after some time drone lands, "free time" NPC resume normal activity
+  - Group student pickup the drone and put it back in storage room
+  - Student group go back to project room
 
 # Footnotes
 
