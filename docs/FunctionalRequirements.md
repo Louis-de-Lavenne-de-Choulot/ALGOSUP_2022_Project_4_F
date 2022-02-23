@@ -78,10 +78,6 @@ The user must not be able to change his character mid-scenario.
   - A very Franck looking character
   - Has access to every part of the school
 
-- Staff:
-  - Character in uniform for cleaning staff, maintenance, etc..
-  - Character can access most parts of the school, except for securty rooms such as the safe storage.
-
 ## Time
 
 The simulation must follow a sequence of timed events during which the user could roam the school building (only the parts available for the character in question).
@@ -109,7 +105,6 @@ Simulates lunchtime. Most students tries to access the food facilitest (Microwav
 <details>
 <summary>Scenario settings</summary>
 
-- Character to be played as
 - Number of students
 - Number of staff members
 - Ratio of students that decides to eat outside of schoolgrounds
@@ -123,7 +118,7 @@ Simulates lunchtime. Most students tries to access the food facilitest (Microwav
 <summary>Characters this scenario is available for</summary>
 
 - Students (needs to eat with students)
-- Orator(needs to eat with staff)
+- Orator (needs to eat with staff)
 - Franck (Roams free and observes)
 
 </details>
@@ -133,6 +128,142 @@ Simulates lunchtime. Most students tries to access the food facilitest (Microwav
 
 #### **Computer science class**
 
+In this scenario the user can experience a normal computer science class.
+
+<br>
+
+<details>
+<summary>Scenario settings</summary>
+
+</details>
+None
+<details>
+<summary>Characters this scenario is available for</summary>
+
+- Students (Takes class)
+- Orator (Gives class)
+- Franck (Roams free and observes)
+
+</details>
+
+<u>scenario script</u>
+<!-- TODO -->
+
+#### **Softskills class**
+
+In this scenario the user can experience a normal softskills class.
+
+<br>
+
+<details>
+<summary>Scenario settings</summary>
+
+</details>
+None
+<details>
+<summary>Characters this scenario is available for</summary>
+
+- Students (Takes class)
+- Orator (Gives class)
+- Franck (Roams free and observes)
+
+</details>
+
+<u>scenario script</u>
+<!-- TODO -->
+
+#### **Project time**
+
+The user goes trought a simple exercise to simulate project work.
+
+<br>
+
+<details>
+<summary>Scenario settings</summary>
+None
+</details>
+
+<details>
+<summary>Characters this scenario is available for</summary>
+
+- Students (Works on a project)
+- Franck (Roams free and observes)
+
+</details>
+
+<u>scenario script</u>
+<!-- TODO -->
+
+
+#### **The drone**
+
+The user gets an opportunity to try out the drone in its intended area.
+
+<br>
+
+<details>
+<summary>Scenario settings</summary>
+None
+</details>
+
+<details>
+<summary>Characters this scenario is available for</summary>
+
+- Students (Drives drone)
+
+</details>
+
+<u>scenario script</u>
+<!-- TODO -->
+
+
+#### **Emergency**
+
+The user experiences a fire emergency and needs to go trought the emergency motions.
+
+<br>
+
+<details>
+<summary>Scenario settings</summary>
+
+- Number of students
+- Organisation level (some student might waste time on gathering their holdings, going in the wrong direction, etc..)
+</details>
+
+<details>
+<summary>Characters this scenario is available for</summary>
+
+- Students (user needs to exit the building then gets the amunt of time they took)
+- Franck (user needs can observe as everyone exits and gets the total amount of time it took)
+
+</details>
+
+<u>scenario script</u>
+<!-- TODO -->
+
+
+#### **Toilet rush**
+
+A particularly high number of students needs to use the toilets at the same time.
+
+<br>
+
+<details>
+<summary>Scenario settings</summary>
+
+- Number of students
+- The amount of time each student takes
+</details>
+
+<details>
+<summary>Characters this scenario is available for</summary>
+
+- Students (Has to use the bathroom)
+- Franck (Roams free and observes)
+</details>
+
+<u>scenario script</u>
+<!-- TODO -->
 
 
 ## Non-playable characters
