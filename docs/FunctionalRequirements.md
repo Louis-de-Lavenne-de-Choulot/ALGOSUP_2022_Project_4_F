@@ -101,7 +101,7 @@ The objective of these scenarios is to simulate specific events from the peerspe
 Simulates lunchtime. Most students tries to access the food facilitest (Microwaves, refrigerators, etc) at the same time.
 
 <br>
-![lunchrush](img/LunchRush.png)
+<img src="img/LunchRush.png">
 
 <details>
 <summary>Scenario settings</summary>
