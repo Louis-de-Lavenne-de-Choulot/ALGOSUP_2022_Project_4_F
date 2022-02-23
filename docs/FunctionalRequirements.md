@@ -81,7 +81,15 @@ The user must not be able to change his character mid-scenario.
 - Staff:
   - Character in uniform for cleaning staff, maintenance, etc..
   - Character can access most parts of the school, except for securty rooms such as the safe storage.
-  
+
+## Time
+
+The simulation must follow a sequence of timed events during which the user could roam the school building (only the parts available for the character in question).
+
+During each event the non-playable characters must live out a generic schoolday.
+The non-playable characters timetable is as follows:
+
+<!-- TODO -->
 
 ## Predefined scenarios
 
@@ -92,9 +100,40 @@ The objective of these scenarios is to simulate specific events from the peerspe
 
 ### Planned scenarios:
 
-#### **Luchtime**
+#### **Lunchtime**
 
-Simulates lunchtime. Every student tries access the 
+Simulates lunchtime. Most students tries to access the food facilitest (Microwaves, refrigerators, etc) at the same time.
+
+<br>
+
+<details>
+<summary>Scenario settings</summary>
+
+- Character to be played as
+- Number of students
+- Number of staff members
+- Ratio of students that decides to eat outside of schoolgrounds
+- Amount of time microwaves take for each npc
+- Amount of time charcters need to eat
+- Number of microwaves
+
+</details>
+
+<details>
+<summary>Characters this scenario is available for</summary>
+
+- Students (needs to eat with students)
+- Orator(needs to eat with staff)
+- Franck (Roams free and observes)
+
+</details>
+
+<u>scenario script</u>
+<!-- TODO -->
+
+#### **Computer science class**
+
+
 
 ## Non-playable characters
 
