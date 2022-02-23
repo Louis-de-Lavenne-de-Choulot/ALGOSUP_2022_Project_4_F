@@ -57,7 +57,7 @@ The user must not be able to change his character mid-scenario.
 
 ### Planned characters:
 
-- Male / Female student:
+- Student (m/f):
   - Young looking characters, preferably with a similar nut distinguishable model to that of the other student npc's
   - The student characters must have access to the following rooms:
     - Common rooms (ex: the relaxation room(s))
@@ -78,14 +78,52 @@ The user must not be able to change his character mid-scenario.
   - A very Franck looking character
   - Has access to every part of the school
 
+- Staff:
+  - Character in uniform for cleaning staff, maintenance, etc..
+  - Character can access most parts of the school, except for securty rooms such as the safe storage.
+  
+
 ## Predefined scenarios
 
 The simulation must contain a list of predefined scenarios.
 These scenarios must stay fairly simplistic.
 
-<!-- WIP -->
+The objective of these scenarios is to simulate specific events from the peerspective of different characters.
+
+### Planned scenarios:
+
+#### **Luchtime**
+
+Simulates lunchtime. Every student tries access the 
+
+## Non-playable characters
+
+Non playable characters must be able to pathfind and perform prescripted actions such as sit down, stand up, grabbing objects, etc.
+They must also be able to pathfind without bumping into each other.
+
+### Planned non player characters:
+
+- Students (m/f):
+  - They make up the bulk of the available non-playable characters.
+  - Characters enter the school building in the morning and leaves at night.
+  - They roam the school during breaks, pretend to socialize and visit the bathroom from time to time.
+  - They got to classrooms / projectrooms (in teams of 4-8) during work hours.
+
+- Orators ("intervenants" in french):
+  - There should be 1 orator for each class given to students that are not on projet-time.
+  - They should roam the scool freely during breaktimes but should mainly be in the staff-specific relaxation areas.
+  - They should give lectures during workhours.
+
+- Cleaning / Maintenance staff:
+  - They should came in specific hours.
+  - They should "do work".
+
+- Administration staff:
+  - Specific characters that follow strick scripts instead of automatically generated-agendas.
 
 # Use cases
+
+<!-- Revisit this -->
 
 # In-simulation
 - Move around:
@@ -100,9 +138,10 @@ These scenarios must stay fairly simplistic.
 - Launch scenario
 	The user must be able to launch their preferred scenario from their starting  points
 
-	#  Personaes
+#  Personaes
+
 - Users :
-	- Student (Female/Male)
+	- Student
 	- Investors
 	- Franck
 	- Parents
@@ -110,7 +149,7 @@ These scenarios must stay fairly simplistic.
 - Characters :
 	- Student F/M
 		- Move from class to class
-		-	Is seated when in “Project time”, “Computer science class”
+		- Is seated when in “Project time”, “Computer science class”
 		- Move erratically in the room when in “Soft Skill” (may change layout of table)
 		- Stand in group when in “Freetime”
 		- Try to find a seat when in “Freetime”
@@ -140,8 +179,9 @@ These scenarios must stay fairly simplistic.
 	- Continue their action when “end day”
 	- Regularly go to Cleaning Room
 	- Mimic cleaning ground
+ 
+# Minimum Viable Product	
 
- # Minimum Viable Product	
 We should have a high quality 3D Visualization of the B3 with a playable character and non specific npcs roaming around. The user should be able to move and look around and open dors.
 
 
