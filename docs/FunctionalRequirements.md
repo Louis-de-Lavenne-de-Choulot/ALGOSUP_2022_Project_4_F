@@ -155,7 +155,7 @@ None
 </details>
 
 <u>scenario script</u>
-<img src="img/PNGS FUNCTIONAL/Computer science class_PL.drawio.png">
+<img src="img/PNGS FUNCTIONAL/Computer science class_PL.png">
 
 #### **Softskills class**
 
@@ -179,7 +179,7 @@ None
 </details>
 
 <u>scenario script</u>
-<img src="img/PNGS FUNCTIONAL/Soft skills_PL.drawio.png">
+<img src="img/PNGS FUNCTIONAL/Soft skills_PL.png">
 
 #### **Project time**
 
@@ -276,7 +276,7 @@ A particularly high number of students needs to use the toilets at the same time
 </details>
 
 <u>scenario script</u>
-<img src="img/PNGS FUNCTIONAL/ToiletRush_PL.drawio.png">
+<img src="img/PNGS FUNCTIONAL/ToiletRush_PL.png">
 
 
 ## Non-playable characters
