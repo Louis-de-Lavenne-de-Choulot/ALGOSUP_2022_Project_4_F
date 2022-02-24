@@ -357,17 +357,11 @@ They must also be able to pathfind without bumping into each other.
 - Administration staff:
   - Specific characters that follow strick scripts instead of automatically generated-agendas.
 
-# Use cases
 
-## Generic Use case
+
+# Generic Use case
 
 <img src="img/PNGS FUNCTIONAL/4F_general_usecase.drawio.png">
-
-## Scenario specific use cases
-
-<!-- ------------------------------------------------------------------ -->
-<!-- -------------------------- Revisit this -------------------------- -->
-<!-- ------------------------------------------------------------------ -->
 
 #  Personaes
 
@@ -391,6 +385,7 @@ They must also be able to pathfind without bumping into each other.
     - Want to see what the B3 will be like
     - Want to look for potential flow in the current design
     - Want to get idea for future accommodation and system in the B3
+    - He wants to see how different materials and colors work together (or not) in the new building
 
 - Parents
   	- Never used VR before
