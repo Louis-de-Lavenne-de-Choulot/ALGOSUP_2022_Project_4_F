@@ -107,7 +107,6 @@ The objective of these scenarios is to simulate specific events from the peerspe
 Simulates lunchtime. Most students tries to access the food facilitest (Microwaves, refrigerators, etc) at the same time.
 
 <br>
-<img src="img/PNGS FUNCTIONAL/LunchRush_PL.drawio.png">
 
 <details>
 <summary>Scenario settings</summary>
@@ -132,7 +131,7 @@ Simulates lunchtime. Most students tries to access the food facilitest (Microwav
 </details>
 
 <u>scenario script</u>
-<!-- TODO -->
+<img src="img/PNGS FUNCTIONAL/LunchRush_PL.drawio.png">
 
 #### **Computer science class**
 
@@ -377,11 +376,9 @@ The criterias for the minimal viable product are:
 * A single (articulated) playable character that can roam the schoolbuilding.
 * VR compatibility.
 
-
 <!-- ------------------------------------------------------------------ -->
+
 ## Generic Use case
-
-
 
 ## Scenario specific use cases
 
