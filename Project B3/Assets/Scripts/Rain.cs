@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class Rain : MonoBehaviour
 {
+    public Transform goal;
     public GameObject toInit;
     public Transform recept;
     // Start is called before the first frame update
     void Start()
     {
         //float myRand = Random.Range();
-        InvokeRepeating("Baba", 2F, 0.6F);
+        Invoke("Baba", 2F);
     }
 
     // Update is called once per frame
@@ -19,6 +20,14 @@ public class Rain : MonoBehaviour
     }
 
     private void Baba(){
-        Instantiate(toInit, recept.position, Quaternion.identity);
+        // foreach (Transform go in goal){
+        foreach (Transform child in goal)
+        {
+            Debug.Log(child);
+            GameObject obj = Instantiate(toInit, new Vector3(Random.Range(recept.   position.x-20, recept.position.x+20), recept.position.y,Random.Range    (recept.position.z-20, recept.position.z+20)),Quaternion.identity) as GameObject;
+            UnityEngine.AI.NavMeshAgent nobj = obj.GetComponent<UnityEngine.AI.NavMeshAgent>();
+            nobj.speed = 5;
+            nobj.destination = child.position;
+        }
     }
 }
