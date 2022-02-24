@@ -310,20 +310,49 @@ They must also be able to pathfind without bumping into each other.
   - Characters enter the school building in the morning and leaves at night.
   - They roam the school during breaks, pretend to socialize and visit the bathroom from time to time.
   - They got to classrooms / project rooms (in teams of 4-8) during work hours.
+	- Move from class to class
+	- Is seated when in “Project time”, “Computer science class”
+	- Move erratically in the room when in “Soft Skill” (may change layout of table)
+	- Stand in group when in “Freetime”
+	- Try to find a seat when in “Freetime”
+	- Chance of exiting the building when “Lunch” otherwise go to cafeteria
+	- Access women's toilets
+	- Access men's toilets
+	- Rush for the exit when “end day”
 
 - Handicapped students:
   - A rare, wheelchair version of students
   - Can not use the staircases but has access to the lift
   - Moves a bit slower
 
+  - Franck
+	- Can move whenever and  wherever he wants
+	- Can open all doors and lock them too
+	- Key to open the building
+	- Roam the building
+	- Otherwise sit at his desk
+	- Count people in “Fire Alarm” scenario
+
 - Orators ("intervenants" in french):
   - There should be 1 orator for each class given to students that are not on project-time.
   - They should roam the school freely during break-times but should mainly be in the staff-specific relaxation areas.
   - They should give lectures during work hours.
+	- Goes from project room to another project room during “Project time”
+	- Coffee break
+	- Lunch break
+	- Courses on screen (remote work)
+	- Stand/Sit at their desk during “Computer Science class” and “Soft skill”
+	- Switch slides when in “Computer Science class” and “soft skill”
+	- Chance of exiting the building when “Lunch” otherwise go to cafeteria
 
 - Cleaning / Maintenance staff:
   - They should came in specific hours.
-  - They should "do work".
+  - They should "do work"
+	- Roaming the building, only access empty room
+	- Exit when “lunch time”
+	- Continue their action when “end day”
+	- Regularly go to Cleaning Room
+	- Mimic cleaning ground.
 
 - Administration staff:
   - Specific characters that follow strick scripts instead of automatically generated-agendas.
@@ -348,60 +377,25 @@ They must also be able to pathfind without bumping into each other.
   	- Want it to be accommodating
   	- Is interested in seeing how things are layed out
   
-	- Future Student
+- Future Student
     - Want to know how things are layed out
     - want to experience what studying at Algosup will be like
     - want to see what other student did
 
-	- Investors
+- Investors
     - Want to see what the B3 will be like
     - Want to see if building is future proof
     - Want to see if the school look at the future
 
-	- Franck
+- Franck
     - Want to see what the B3 will be like
     - Want to look for potential flow in the current design
     - Want to get idea for future accommodation and system in the B3
 
-	- Parents
+- Parents
   	- Never used VR before
     - Want to know how things are layed out
     - Need to be convinced that Algosup is a good school
-
-- Characters :
-	- Student F/M
-		- Move from class to class
-		- Is seated when in “Project time”, “Computer science class”
-		- Move erratically in the room when in “Soft Skill” (may change layout of table)
-		- Stand in group when in “Freetime”
-		- Try to find a seat when in “Freetime”
-		- Chance of exiting the building when “Lunch” otherwise go to cafeteria
-		- Access women's toilets
-		- Access men's toilets
-		- Rush for the exit when “end day”
-		
-- Teachers
-	- Goes from project room to another project room during “Project time”
-	- Coffee break
-	- Lunch break
-	- Courses on screen (remote work)
-	- Stand/Sit at their desk during “Computer Science class” and “Soft skill”
-	- Switch slides when in “Computer Science class” and “soft skill”
-	- Chance of exiting the building when “Lunch” otherwise go to cafeteria
-- Franck
-	- Can move whenever and  wherever he wants
-	- Can open all doors and lock them too
-	- Key to open the building
-	- Roam the building
-	- Otherwise sit at his desk
-	- Count people in “Fire Alarm” scenario
-- Cleaning staff
-	- Roaming the building, only access empty room
-	- Exit when “lunch time”
-	- Continue their action when “end day”
-	- Regularly go to Cleaning Room
-	- Mimic cleaning ground
- 
 # Minimum Viable Product	
 
 The criteria for the minimal viable product are:
