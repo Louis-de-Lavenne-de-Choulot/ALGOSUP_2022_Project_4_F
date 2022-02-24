@@ -13,7 +13,7 @@ Finally, the school Staff could use the simulation to see if they like the way t
 
 ## Menus
 <sup>* Menus must be interactive <sup>
-<!-- Came back here to specify how menus are accesed, how it should look etc.. -->
+<!-- Came back here to specify how menus are accessed, how it should look etc.. -->
 
 - Main menu:
 	- Start button
@@ -113,9 +113,9 @@ Simulates lunchtime. Most students tries to access the food facilities (Microwav
 
 - Number of students
 - Number of staff members
-- Ratio of students that decides to eat outside of schoolgrounds
+- Ratio of students that decides to eat outside of school grounds
 - Amount of time microwaves take for each npc
-- Amount of time charcters need to eat
+- Amount of time characters need to eat
 - Number of microwaves
 
 </details>
@@ -238,7 +238,7 @@ The user experiences a fire emergency and needs to go through the emergency moti
 <summary>Scenario settings</summary>
 
 - Number of students
-- Organisation level (some student might waste time on gathering their holdings, going in the wrong direction, etc..)
+- Organization level (some student might waste time on gathering their holdings, going in the wrong direction, etc..)
 </details>
 
 <details>
@@ -282,7 +282,7 @@ A particularly high number of students needs to use the toilets at the same time
 
 ## Non-playable characters
 
-Non playable characters must be able to pathfind and perform prescripted actions such as sit down, stand up, grabbing objects, etc.
+Non playable characters must be able to pathfind and perform pre-scripted actions such as sit down, stand up, grabbing objects, etc.
 They must also be able to pathfind without bumping into each other.
 
 ### Planned non player characters:
@@ -294,7 +294,7 @@ They must also be able to pathfind without bumping into each other.
   - They got to classrooms / project rooms (in teams of 4-8) during work hours.
 
 - Handicapped students:
-  - A rare, wheelchaired version of students
+  - A rare, wheelchair version of students
   - Can not use the staircases but has access to the lift
   - Moves a bit slower
 
@@ -325,10 +325,30 @@ They must also be able to pathfind without bumping into each other.
 #  Personaes
 
 - Users :
-	- Student
+	- Student :
+  	- Want to see what the B3 will be like
+  	- Want it to be accommodating
+  	- Is interested in seeing how things are layed out
+  
+	- Future Student
+    - Want to know how things are layed out
+    - want to experience what studying at Algosup will be like
+    - want to see what other student did
+
 	- Investors
+    - Want to see what the B3 will be like
+    - Want to see if building is future proof
+    - Want to see if the school look at the future
+
 	- Franck
+    - Want to see what the B3 will be like
+    - Want to look for potential flow in the current design
+    - Want to get idea for future accommodation and system in the B3
+
 	- Parents
+  	- Never used VR before
+    - Want to know how things are layed out
+    - Need to be convinced that Algosup is a good school
 
 - Characters :
 	- Student F/M
@@ -372,11 +392,27 @@ The criteria for the minimal viable product are:
 * A single (articulated) playable character that can roam the school building.
 * VR compatibility.
 
+
 <!-- ------------------------------------------------------------------ -->
 
 
+# Footnotes
 
-### As Student
+## Definitions
+
+[^1]: Snap turn : camera rotation in step of 10°, controlled by a joystick
+[^2]: Smooth turn : smooth camera rotation, controlled by a joystick
+[^3]: No-mode : smooth camera rotation, controlled by the VR headset
+[^4]: Teleportation : Move instantly to the point you are aiming at on the ground
+[^5]: Locomotion : Move like a traditional 1st person game using the joystick
+
+
+<!-- ------------------------------------------------------------------ -->
+<!-- ---------------------Discarded for now---------------------------- -->
+<!-- ------------------------------------------------------------------ -->
+
+
+<!-- ## As Student
 
 - Lunch rush :
   - most Student and Orator NPCs immediately go to the cafeteria
@@ -442,18 +478,7 @@ The criteria for the minimal viable product are:
   - some NPC will go on the terraces and stand in group, sit and/or smoke
   - some NPC will go sit in rec room and look at their phone
   - some NPC will go sit in the cafeteria and drink
-  - some NPC will sit on bench in the corridors and look at their phone
-  - a 
+  - some NPC will sit on bench in the corridors and look at their phone -->
 
+<!-- - Emergency : -->
 <!-- Revisit end -->
-
-
-# Footnotes
-
-## Definitions
-
-[^1]: Snap turn : camera rotation in step of 10°, controlled by a joystick
-[^2]: Smooth turn : smooth camera rotation, controlled by a joystick
-[^3]: No-mode : smooth camera rotation, controlled by the VR headset
-[^4]: Teleportation : Move instantly to the point you are aiming at on the ground
-[^5]: Locomotion : Move like a traditional 1st person game using the joystick
