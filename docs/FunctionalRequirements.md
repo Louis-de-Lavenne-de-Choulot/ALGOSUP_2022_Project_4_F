@@ -149,7 +149,7 @@ Simulates lunchtime. Most students tries to access the food facilities (Microwav
 
 </details>
 
-<u>scenario script</u>
+<u>scenario script</u><br>
 <img src="img/PNGS FUNCTIONAL/LunchRush_PL.drawio.png">
 
 #### **Computer science class**
@@ -160,9 +160,9 @@ In this scenario the user can experience a normal computer science class.
 
 <details>
 <summary>Scenario settings</summary>
-
-</details>
 None
+</details>
+
 <details>
 <summary>Characters this scenario is available for</summary>
 
@@ -173,7 +173,7 @@ None
 
 </details>
 
-<u>scenario script</u>
+<u>scenario script</u><br>
 <img src="img/PNGS FUNCTIONAL/Computer science class_PL.png">
 
 #### **Softskills class**
@@ -184,9 +184,9 @@ In this scenario the user can experience a normal softskills class.
 
 <details>
 <summary>Scenario settings</summary>
-
-</details>
 None
+</details>
+
 <details>
 <summary>Characters this scenario is available for</summary>
 
@@ -197,7 +197,7 @@ None
 
 </details>
 
-<u>scenario script</u>
+<u>scenario script</u><br>
 <img src="img/PNGS FUNCTIONAL/Soft skills_PL.png">
 
 #### **Project time**
@@ -220,7 +220,7 @@ None
 
 </details>
 
-<u>scenario script</u>
+<u>scenario script</u><br>
 <img src="img/PNGS FUNCTIONAL/Project time_PL.png">
 
 
@@ -243,7 +243,7 @@ None
 
 </details>
 
-<u>scenario script</u>
+<u>scenario script</u><br>
 <img src="img/PNGS FUNCTIONAL/Drone_PL.png">
 
 
@@ -269,9 +269,8 @@ The user experiences a fire emergency and needs to go through the emergency moti
 
 </details>
 
-<u>scenario script</u>
+<u>scenario script</u><br>
 <img src="img\PNGS FUNCTIONAL\Emergency_PL.drawio.png">
-<!-- TODO -->
 
 
 #### **Toilet rush**
@@ -295,7 +294,7 @@ A particularly high number of students needs to use the toilets at the same time
 - Franck (Roams free and observes)
 </details>
 
-<u>scenario script</u>
+<u>scenario script</u><br>
 <img src="img/PNGS FUNCTIONAL/ToiletRush_PL.png">
 
 
