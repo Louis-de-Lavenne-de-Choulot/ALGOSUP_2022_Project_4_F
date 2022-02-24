@@ -247,11 +247,12 @@ The user experiences a fire emergency and needs to go through the emergency moti
 
 - Student (user needs to exit the building then gets the amount of time they took)
 - Handicapped (user needs to exit the building then gets the amount of time they took)
-- Franck (user needs can observe as everyone exits and gets the total amount of time it took)
+- Franck (user has to observe as everyone exits and gets the total amount of time it took)
 
 </details>
 
 <u>scenario script</u>
+<img src="img\PNGS FUNCTIONAL\Emergency_PL.drawio.png">
 <!-- TODO -->
 
 
