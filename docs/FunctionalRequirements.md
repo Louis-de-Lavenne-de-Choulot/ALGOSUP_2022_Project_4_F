@@ -45,9 +45,9 @@ Finally, the school Staff could use the simulation to see if they like the way t
 - There must be a list of available scenarios and other similar points of interest (ex: character selection).
 - There must be a legend detailing the significations of the pins on the map.
 
-Legend:
+<img src="img/PNGS FUNCTIONAL/map_with.pins.png">
 
-<!-- map imgs goes here -->
+Legend:
 
 1. [Change character](#playable-characters)
 2. [Elevator](#the-elevator)
