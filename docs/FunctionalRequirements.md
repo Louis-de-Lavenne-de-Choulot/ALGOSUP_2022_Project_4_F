@@ -107,7 +107,6 @@ The objective of these scenarios is to simulate specific events from the perspec
 Simulates lunchtime. Most students tries to access the food facilities (Microwaves, refrigerators, etc) at the same time.
 
 <br>
-<img src="img/PNGS FUNCTIONAL/LunchRush_PL.drawio.png">
 
 <details>
 <summary>Scenario settings</summary>
@@ -132,7 +131,7 @@ Simulates lunchtime. Most students tries to access the food facilities (Microwav
 </details>
 
 <u>scenario script</u>
-<!-- TODO -->
+<img src="img/PNGS FUNCTIONAL/LunchRush_PL.drawio.png">
 
 #### **Computer science class**
 
@@ -156,7 +155,7 @@ None
 </details>
 
 <u>scenario script</u>
-<img src="img/PNGS FUNCTIONAL/Computer science class_PL.drawio.png">
+<img src="img/PNGS FUNCTIONAL/Computer science class_PL.png">
 
 #### **Softskills class**
 
@@ -180,7 +179,7 @@ None
 </details>
 
 <u>scenario script</u>
-<img src="img/PNGS FUNCTIONAL/Soft skills_PL.drawio.png">
+<img src="img/PNGS FUNCTIONAL/Soft skills_PL.png">
 
 #### **Project time**
 
@@ -278,7 +277,7 @@ A particularly high number of students needs to use the toilets at the same time
 </details>
 
 <u>scenario script</u>
-<img src="img/PNGS FUNCTIONAL/ToiletRush_PL.drawio.png">
+<img src="img/PNGS FUNCTIONAL/ToiletRush_PL.png">
 
 
 ## Non-playable characters
@@ -313,20 +312,15 @@ They must also be able to pathfind without bumping into each other.
 
 # Use cases
 
-<!-- Revisit this -->
+## Generic Use case
 
-# In-simulation
-- Move around:
-	The user must be capable of moving around
-- Select / change personae:
-	The users must be able to select the character they impersonate in-simulation
-	This must be done at the reception desc
-	The available scenarios must be changed depending on the personae
-- Interact with doors and certain objects:
-		Doors, keycards, and other interactive objects must be accessible for the user
-		Objects that can be interacted with are highlighted
-- Launch scenario
-	The user must be able to launch their preferred scenario from their starting  points
+<img src="img/PNGS FUNCTIONAL/4F_general_usecase.drawio.png">
+
+## Scenario specific use cases
+
+<!-- ------------------------------------------------------------------ -->
+<!-- -------------------------- Revisit this -------------------------- -->
+<!-- ------------------------------------------------------------------ -->
 
 #  Personaes
 
@@ -378,13 +372,9 @@ The criteria for the minimal viable product are:
 * A single (articulated) playable character that can roam the school building.
 * VR compatibility.
 
-
 <!-- ------------------------------------------------------------------ -->
-## Generic Use case
 
 
-
-## Scenario specific use cases
 
 ### As Student
 
@@ -454,6 +444,8 @@ The criteria for the minimal viable product are:
   - some NPC will go sit in the cafeteria and drink
   - some NPC will sit on bench in the corridors and look at their phone
   - a 
+
+<!-- Revisit end -->
 
 
 # Footnotes
