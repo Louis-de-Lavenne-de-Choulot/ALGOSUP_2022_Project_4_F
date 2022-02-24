@@ -5,7 +5,7 @@ The project is given by Algosup and monitored by Sebastien Goisbeault, VR and XR
 
 Links: 
 
-[Functional Specifications](https://docs.google.com/document/d/18_erM9m8PEBjJmEYpxYaVHUaxr7eKTyVuFOFUfGc27g/edit?usp=sharing)
+[Functional Specifications](https://github.com/Louis-de-Lavenne-de-Choulot/ALGOSUP_2022_Project_4_F/blob/main/docs/FunctionalRequirements.md)
 
 [Technical Specifications](https://docs.google.com/document/d/1AASnp5fpEp1c6ySJ31eARn-vy9yszXoeVi-UUlCt23c/edit?usp=sharing)
 
