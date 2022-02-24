@@ -108,9 +108,6 @@ The user must not be able to change his character mid-scenario.
 The simulation must follow a sequence of timed events during which the user could roam the school building (only the parts available for the character in question).
 
 During each event the non-playable characters must live out a generic school day.
-The non-playable characters timetable is as follows:
-
-<!-- TODO -->
 
 ## Predefined scenarios
 
@@ -328,13 +325,12 @@ They must also be able to pathfind without bumping into each other.
 - Administration staff:
   - Specific characters that follow strick scripts instead of automatically generated-agendas.
 
-# Use cases
 
-## Generic Use case
+# Generic Use case
 
 <img src="img/PNGS FUNCTIONAL/4F_general_usecase.drawio.png">
 
-##  Personaes
+#  Personaes
 
 - Students :
     - They want to see what the B3 will be like
@@ -362,7 +358,7 @@ They must also be able to pathfind without bumping into each other.
     - Want to know how things are layed out
     - Need to be convinced that Algosup is the way to go for their children
 
-## Scenario specific use cases
+<!-- ## Scenario specific use cases -->
 
 <!-- ------------------------------------------------------------------ -->
 <!-- -------------------------- Revisit this -------------------------- -->
