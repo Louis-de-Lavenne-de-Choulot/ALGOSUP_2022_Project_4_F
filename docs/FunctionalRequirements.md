@@ -15,35 +15,54 @@ Finally, the school Staff could use the simulation to see if they like the way t
 <sup>* Menus must be interactive <sup>
 <!-- Came back here to specify how menus are accessed, how it should look etc.. -->
 
-- Main menu:
-	- Start button
-	- Settings button
-	- Quit button
+### Main menu:
+- Start button
+- Settings button
+- Quit button
 
 
-- Settings menu:
-	- Height controls:
-		- Set user height
-	- Movement controls:
-		- Snap turn[^1] / Smooth turn[^2] / No-mode[^3]
-		- Teleportation[^4] / locomotion[^5]
-	- Sound controls:
-		- Slider
-	- NPC limit (if multi-platform):
-		- The ability to set a npc limit for weaker computers
-	- Respawn access:
-		- A security respawn button
-    - Stop scenario:
-        - A button that stops the current scenario (must be inactive if user is not mid-scenario)
-	- Back to main menu button:
-		- A link back to the main menu
+### Settings menu:
+- Height controls:
+  - Set user height
+- Movement controls:
+  - Snap turn[^1] / Smooth turn[^2] / No-mode[^3]
+  - Teleportation[^4] / locomotion[^5]
+- Sound controls:
+  - Slider
+- NPC limit (if multi-platform):
+  - The ability to set a npc limit for weaker computers
+- Respawn access:
+  - A security respawn button
+- Stop scenario:
+  - A button that stops the current scenario (must be inactive if user is not mid-scenario)
+- Back to main menu button:
+  - A link back to the main menu
 
 
-- Map:
-	- The user must be able to access the map at all times.
-	- The user must be able to see their position on the map.
-	- There must be a list of available scenarios and other similar points of interest (ex: character selection).
-	- There must be a legend detailing the significations of the pins on the map.
+### Map:
+- The user must be able to access the map at all times.
+- The user must be able to see their position on the map.
+- There must be a list of available scenarios and other similar points of interest (ex: character selection).
+- There must be a legend detailing the significations of the pins on the map.
+
+Legend:
+
+<!-- map imgs goes here -->
+
+1. [Change character](#playable-characters)
+2. [Elevator](#the-elevator)
+3. [Scenario lunchtime](#lunchtime)
+4. [Scenario computer science class](#computer-science-class)
+5. [Scenario softskills class](#softskills-class)
+6. [Scenario project time](#project-time)
+7. [Scenario the drone](#the-drone)
+8. [Scenario emergency](#emergency)
+9. [Scenario toilet rush](#toilet-rush)
+
+#### The elevator
+
+There is currently a elevator that can be found aproximatively in the middle of the building.
+This elevator must be made functional.
 
 ## Playable characters
 
