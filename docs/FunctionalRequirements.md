@@ -334,40 +334,40 @@ They must also be able to pathfind without bumping into each other.
 
 <img src="img/PNGS FUNCTIONAL/4F_general_usecase.drawio.png">
 
+##  Personaes
+
+- Students :
+    - They want to see what the B3 will be like
+    - They want it to be accommodating
+    - They are interested in seeing the layeout of the building
+
+- Future Student
+    - They want to know the layeout of the building
+    - They want to experience what studying at Algosup will be like
+    - They want to see what other student are capable of / leanred to do during their studies at Algosup
+
+- Investors
+    - They want to see what the B3 will be like
+    - They want to see if the building is efficient enought
+    - They are interrested in the future look of the school
+
+- Franck
+    - He want to see what the B3 will be like
+    - He is interrested in simulating the efficiency of the B3
+    - Want to get idea for future accommodation and system in the B3
+    - He wants to see how different materials and colors work together (or not) in the new building
+
+- Parents
+    - Never used VR before
+    - Want to know how things are layed out
+    - Need to be convinced that Algosup is the way to go for their children
+
 ## Scenario specific use cases
 
 <!-- ------------------------------------------------------------------ -->
 <!-- -------------------------- Revisit this -------------------------- -->
 <!-- ------------------------------------------------------------------ -->
-
-#  Personaes
-
-- Users :
-	- Student :
-  	- Want to see what the B3 will be like
-  	- Want it to be accommodating
-  	- Is interested in seeing how things are layed out
-  
-	- Future Student
-    - Want to know how things are layed out
-    - want to experience what studying at Algosup will be like
-    - want to see what other student did
-
-	- Investors
-    - Want to see what the B3 will be like
-    - Want to see if building is future proof
-    - Want to see if the school look at the future
-
-	- Franck
-    - Want to see what the B3 will be like
-    - Want to look for potential flow in the current design
-    - Want to get idea for future accommodation and system in the B3
-
-	- Parents
-  	- Never used VR before
-    - Want to know how things are layed out
-    - Need to be convinced that Algosup is a good school
-
+_______________________________________________________________________
 - Characters :
 	- Student F/M
 		- Move from class to class
