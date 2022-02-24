@@ -6,7 +6,7 @@ The project is given by Algosup and monitored by Sebastien Goisbeault, VR and XR
 # Target audience
 We target potential future students as well as their parents. 
 This project could also be useful for current students and potential investors to help them visualize the future look of AlgoSup.
-Finally, the school Staff could use the simulation to see if they like the way the B3 is arranged and predict possible complications in advance.
+Finally, the school staff could use the simulation to see if they like the way the B3 is arranged and predict possible complications in advance.
 
 
 # In-simulation mechanics
@@ -307,49 +307,46 @@ They must also be able to pathfind without bumping into each other.
   - Characters enter the school building in the morning and leaves at night.
   - They roam the school during breaks, pretend to socialize and visit the bathroom from time to time.
   - They got to classrooms / project rooms (in teams of 4-8) during work hours.
-	- Move from class to class
-	- Is seated when in “Project time”, “Computer science class”
-	- Move erratically in the room when in “Soft Skill” (may change layout of table)
-	- Stand in group when in “Freetime”
-	- Try to find a seat when in “Freetime”
-	- Chance of exiting the building when “Lunch” otherwise go to cafeteria
-	- Access women's toilets
-	- Access men's toilets
-	- Rush for the exit when “end day”
+  - Move from and to class
+  - Are seated when in “Project time”, “Computer science class”, etc..
+  - Move around erratically in the room when in “Soft Skill” (may change layout of table)
+  - Stand in groups when in “Freetime”
+  - Tries to find a seat when in “Freetime”
+  - Chance of exiting the building during “Lunch”, otherwise go to cafeteria
+  - Access respective toilets
 
 - Handicapped students:
   - A rare, wheelchair version of students
   - Can not use the staircases but has access to the lift
   - Moves a bit slower
 
-  - Franck
-	- Can move whenever and  wherever he wants
-	- Can open all doors and lock them too
-	- Key to open the building
-	- Roam the building
-	- Otherwise sit at his desk
-	- Count people in “Fire Alarm” scenario
+- Franck
+  - Disappers and reappears when user switches to/from the "Franck" playable character
+  - Can open and lock all doors
+  - can open and close the building
+  - Freely roams the building
+  - Otherwise sits at his desk
+  - Counts people during the “Fire Alarm” scenario
 
 - Orators ("intervenants" in french):
   - There should be 1 orator for each class given to students that are not on project-time.
   - They should roam the school freely during break-times but should mainly be in the staff-specific relaxation areas.
   - They should give lectures during work hours.
-	- Goes from project room to another project room during “Project time”
-	- Coffee break
-	- Lunch break
-	- Courses on screen (remote work)
-	- Stand/Sit at their desk during “Computer Science class” and “Soft skill”
-	- Switch slides when in “Computer Science class” and “soft skill”
-	- Chance of exiting the building when “Lunch” otherwise go to cafeteria
+  - Moves between project rooms during “Project time”
+  - Takes coffee break
+  - Gives on screen courses (remote work)
+  - Stands/Sits at their desk during “Computer Science class” and “Soft skills”
+  - Switches slides during “Computer Science class” and “soft skill”
+  - Chance of exiting the building when “Lunch” otherwise go to cafeteria
 
 - Cleaning / Maintenance staff:
   - They should came in specific hours.
   - They should "do work"
-	- Roaming the building, only access empty room
-	- Exit when “lunch time”
-	- Continue their action when “end day”
-	- Regularly go to Cleaning Room
-	- Mimic cleaning ground.
+  - They roam the building, only accessing empty rooms
+  - Exits during “lunch time”
+  - Continues their actions even after “end day”
+  - Regularly goes to storage rooms
+  - Mimics cleaning the ground.
 
 - Administration staff:
   - Specific characters that follow strick scripts instead of automatically generated-agendas.
@@ -361,32 +358,33 @@ They must also be able to pathfind without bumping into each other.
 
 #  Personaes
 
-- Users :
-	- Student :
-  	- Want to see what the B3 will be like
-  	- Want it to be accommodating
-  	- Is interested in seeing how things are layed out
-  
+- Students :
+    - They want to see what the B3 will be like
+    - They want it to be accommodating
+    - They are interested in seeing the layeout of the building
+
 - Future Student
-    - Want to know how things are layed out
-    - want to experience what studying at Algosup will be like
-    - want to see what other student did
+    - They want to know the layeout of the building
+    - They want to experience what studying at Algosup will be like
+    - They want to see what other student are capable of / leanred to do during their studies at Algosup
 
 - Investors
-    - Want to see what the B3 will be like
-    - Want to see if building is future proof
-    - Want to see if the school look at the future
+    - They want to see what the B3 will be like
+    - They want to see if the building is efficient enought
+    - They are interrested in the future look of the school
 
 - Franck
-    - Want to see what the B3 will be like
-    - Want to look for potential flow in the current design
+    - He want to see what the B3 will be like
+    - He is interrested in simulating the efficiency of the B3
     - Want to get idea for future accommodation and system in the B3
     - He wants to see how different materials and colors work together (or not) in the new building
 
 - Parents
-  	- Never used VR before
+    - Never used VR before
     - Want to know how things are layed out
-    - Need to be convinced that Algosup is a good school
+    - Need to be convinced that Algosup is the way to go for their children
+  
+  
 # Minimum Viable Product	
 
 The criteria for the minimal viable product are:
