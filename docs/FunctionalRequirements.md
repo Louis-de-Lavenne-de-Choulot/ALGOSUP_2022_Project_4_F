@@ -66,7 +66,7 @@ The user must not be able to change his character mid-scenario.
     - Their respective toilettes
 
 - Handicapped:
-  - Has a wheelchaire
+  - Has a wheelchair
   - Can not use the staircases but has access to the lift
   - Moves a bit slower
   - They are a normal student otherwise
@@ -88,7 +88,7 @@ The user must not be able to change his character mid-scenario.
 
 The simulation must follow a sequence of timed events during which the user could roam the school building (only the parts available for the character in question).
 
-During each event the non-playable characters must live out a generic schoolday.
+During each event the non-playable characters must live out a generic school day.
 The non-playable characters timetable is as follows:
 
 <!-- TODO -->
@@ -98,13 +98,13 @@ The non-playable characters timetable is as follows:
 The simulation must contain a list of predefined scenarios.
 These scenarios must stay fairly simplistic.
 
-The objective of these scenarios is to simulate specific events from the peerspective of different characters.
+The objective of these scenarios is to simulate specific events from the perspective of different characters.
 
 ### Planned scenarios:
 
 #### **Lunchtime**
 
-Simulates lunchtime. Most students tries to access the food facilitest (Microwaves, refrigerators, etc) at the same time.
+Simulates lunchtime. Most students tries to access the food facilities (Microwaves, refrigerators, etc) at the same time.
 
 <br>
 <img src="img/PNGS FUNCTIONAL/LunchRush_PL.drawio.png">
@@ -185,7 +185,7 @@ None
 
 #### **Project time**
 
-The user goes trought a simple exercise to simulate project work.
+The user goes through a simple exercise to simulate project work.
 
 <br>
 <img src="img/PNGS FUNCTIONAL/Project time_PL.png">
@@ -232,7 +232,7 @@ None
 
 #### **Emergency**
 
-The user experiences a fire emergency and needs to go trought the emergency motions.
+The user experiences a fire emergency and needs to go through the emergency motions.
 
 <br>
 
@@ -247,8 +247,8 @@ The user experiences a fire emergency and needs to go trought the emergency moti
 <details>
 <summary>Characters this scenario is available for</summary>
 
-- Student (user needs to exit the building then gets the amunt of time they took)
-- Handycapped (user needs to exit the building then gets the amunt of time they took)
+- Student (user needs to exit the building then gets the amount of time they took)
+- Handicapped (user needs to exit the building then gets the amount of time they took)
 - Franck (user needs can observe as everyone exits and gets the total amount of time it took)
 
 </details>
@@ -274,7 +274,7 @@ A particularly high number of students needs to use the toilets at the same time
 <summary>Characters this scenario is available for</summary>
 
 - Student (Has to use the bathroom)
-- Handycapped (Has to use the bathroom)
+- Handicapped (Has to use the bathroom)
 - Franck (Roams free and observes)
 </details>
 
@@ -293,17 +293,17 @@ They must also be able to pathfind without bumping into each other.
   - They make up the bulk of the available non-playable characters.
   - Characters enter the school building in the morning and leaves at night.
   - They roam the school during breaks, pretend to socialize and visit the bathroom from time to time.
-  - They got to classrooms / projectrooms (in teams of 4-8) during work hours.
+  - They got to classrooms / project rooms (in teams of 4-8) during work hours.
 
-- Hapndycapped students:
+- Handicapped students:
   - A rare, wheelchaired version of students
   - Can not use the staircases but has access to the lift
   - Moves a bit slower
 
 - Orators ("intervenants" in french):
-  - There should be 1 orator for each class given to students that are not on projet-time.
-  - They should roam the scool freely during breaktimes but should mainly be in the staff-specific relaxation areas.
-  - They should give lectures during workhours.
+  - There should be 1 orator for each class given to students that are not on project-time.
+  - They should roam the school freely during break-times but should mainly be in the staff-specific relaxation areas.
+  - They should give lectures during work hours.
 
 - Cleaning / Maintenance staff:
   - They should came in specific hours.
@@ -373,10 +373,10 @@ They must also be able to pathfind without bumping into each other.
  
 # Minimum Viable Product	
 
-The criterias for the minimal viable product are:
+The criteria for the minimal viable product are:
 * The entire B3 modelled with basic materials.
-* Functionnal doors.
-* A single (articulated) playable character that can roam the schoolbuilding.
+* Functional doors.
+* A single (articulated) playable character that can roam the school building.
 * VR compatibility.
 
 
@@ -450,11 +450,11 @@ The criterias for the minimal viable product are:
 
 - Free time : 
   - some student will roam the school in groups
-  - some NPC will go on the terrasse and stand in group, sit and/or smoke
+  - some NPC will go on the terraces and stand in group, sit and/or smoke
   - some NPC will go sit in rec room and look at their phone
   - some NPC will go sit in the cafeteria and drink
   - some NPC will sit on bench in the corridors and look at their phone
-  - after some times NPC will go in "class" or "project time" mode if rooms are available
+  - a 
 
 
 # Footnotes
