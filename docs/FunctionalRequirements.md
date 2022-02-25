@@ -59,7 +59,19 @@ Legend:
 8. [Scenario emergency](#emergency)
 9. [Scenario toilet rush](#toilet-rush)
 
-#### The elevator
+## The school building 
+
+### Reworking the B3
+
+The 3D model of the building of the B3 is provided at the start of the project, however it was made by an architect and is not optimised for a simulation.
+
+The model must be reworked, unnecerary meshes needs to be removed, parts of the building that were built using a large number of small meshes needs to be regrouped and materials as well as textures are complietelly missing.
+
+The building also needs to be decorated. It is currently complietelly empty.
+A computer museum needs to be added to the library and a gift shop must also be added somewhere in the building.
+Do not hesitate to apply tasteful amounts of creativity during the decorative process.
+
+### The elevator
 
 There is currently a elevator that can be found approximately in the middle of the building.
 This elevator must be made functional.
