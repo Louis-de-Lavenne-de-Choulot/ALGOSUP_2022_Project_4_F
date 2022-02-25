@@ -35,7 +35,6 @@ public class Movements : MonoBehaviour
     // Update is called once per frame
     void Update(){
         isground = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.2f + 0.2f, ground);
-        Debug.DrawRay(transform.position, new Vector3(0, -1f, 1), Color.green);
         if(Input.GetKeyDown("k")){
             if (Time.timeScale == 0){
                 Time.timeScale = 1;

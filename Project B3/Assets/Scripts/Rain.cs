@@ -17,14 +17,14 @@ public class Rain : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.DrawRay(transform.position, new Vector3(0, -1f, 1), Color.green);
     }
 
     private void Baba(){
         // foreach (Transform go in goal){
         foreach (Transform child in goal)
         {
-            Debug.Log(child);
-            GameObject obj = Instantiate(toInit, new Vector3(Random.Range(recept.   position.x-20, recept.position.x+20), recept.position.y,Random.Range    (recept.position.z-20, recept.position.z+20)),Quaternion.identity) as GameObject;
+            GameObject obj = Instantiate(toInit, new Vector3(Random.Range(recept.   position.x-12, recept.position.x+12), recept.position.y,Random.Range    (recept.position.z-12, recept.position.z+12)),Quaternion.identity) as GameObject;
             UnityEngine.AI.NavMeshAgent nobj = obj.GetComponent<UnityEngine.AI.NavMeshAgent>();
             nobj.speed = 5;
             nobj.destination = child.position;

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1638506721271366283}
   - component: {fileID: 4687429829395918834}
   - component: {fileID: 2190672368704519830}
+  - component: {fileID: 8495020078026471997}
   m_Layer: 3
   m_Name: CapsuleBot
   m_TagString: Untagged
@@ -125,7 +126,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 4865486172796532406}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.7
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -138,3 +139,16 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &8495020078026471997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4865486172796532406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2c8f5acd8d6d4944ad1de851d24fbc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gg: {fileID: 8112307426295088259}
