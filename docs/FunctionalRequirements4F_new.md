@@ -27,7 +27,6 @@ The building must be fitted with signs and a map somewhere that is easy to spot.
 
 The top floor of the building is not part of the school and therefore it can be ignored, however the elevator must still be made functional.
 
- ## Menus
 ## Menus
 <sup>* Menus must be interactive <sup>
 <!-- Came back here to specify how menus are accessed, how it should look etc.. -->
@@ -41,9 +40,6 @@ The top floor of the building is not part of the school and therefore it can be 
 ### Settings menu:
 - Height controls:
   - Set user height
-- Movement controls:
-  - Snap turn[^1] / Smooth turn[^2] / No-mode[^3]
-  - Teleportation[^4] / locomotion[^5]
 - Sound controls:
   - Slider
 - NPC limit (if multi-platform):
@@ -55,12 +51,6 @@ The top floor of the building is not part of the school and therefore it can be 
 - Back to main menu button:
   - A link back to the main menu
 
-
- # Non-Player characters
-    Students
-    Speakers
-    Specials
-    Scenarios
 
 ### **Computer science class**
 
