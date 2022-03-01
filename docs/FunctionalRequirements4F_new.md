@@ -56,6 +56,8 @@ The top floor of the building is not part of the school and therefore it can be 
 
 <sup>* Non-Player characters</sup> [^2]
 
+# Scenarios
+
 ### **Computer science class**
 
 In this scenario the user can experience a normal computer science class.
@@ -144,13 +146,10 @@ The criteria for the minimal viable product are:
 
 ## Definitions
 
-[^1] VR: Virtual reality (VR) is a simulated experience that can be similar to or completely different from the real world.
-
-[^2] NPC(Non player character): A non-player character (NPC) is any character in a game or simulation that is not controlled by a player/user.
-
-[^3] ALGOSUP: Computer science school from France (The B3 will be the main building of the school)
-
-[^4] B3 : The school building the simulation must take place in. A 3D model of the building is provided at the start of the projectA
+[^1]: VR: Virtual reality (VR) is a simulated experience that can be similar to or completely different from the real world.
+[^2]: NPC(Non player character): A non-player character (NPC) is any character in a game or simulation that is not controlled by a player/user.
+[^3]: ALGOSUP: Computer science school from France (The B3 will be the main building of the school)
+[^4]: B3 : The school building the simulation must take place in. A 3D model of the building is provided at the start of the projectA.
 
 
 
