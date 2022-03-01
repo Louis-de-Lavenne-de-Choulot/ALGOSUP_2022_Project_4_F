@@ -56,6 +56,8 @@ The top floor of the building is not part of the school and therefore it can be 
 
 <sup>* Non-Player characters</sup> [^2]
 
+# Scenarios
+
 ### **Computer science class**
 
 In this scenario the user can experience a normal computer science class.
