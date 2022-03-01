@@ -131,6 +131,14 @@ A particularly high number of students needs to use the toilets at the same time
 <img src="img/PNGS FUNCTIONAL/ToiletRush_PL.png">
 
 
+# Minimum Viable Product	
+
+The criteria for the minimal viable product are:
+* The entire B3[^4] modelled with basic materials.
+* Functional doors.
+* A single (articulated) playable character that can roam the school building.
+* VR compatibility.
+
 
 # Footnotes
 
