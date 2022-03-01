@@ -18,3 +18,13 @@
 |---      |---      |---            |---        |---                |---                          |---                                              |
 |Robert   |31y/o    |Drive          |Eat inside |football,beer      |books, the color red         |Forget his pass often, ask students to let him in|
 |Sarah    |38 y/o   |Walk           |Eat outside|fancy cars and dogs|tractors and all noisy things|Confident, arrives before everyone
+
+#### Speakers NPC
+
+|**Name** |**Age**  |**Locomotion** |**Eat**    |**Like**|**Dislike**   |**Details**  |**Job**|
+|---      |---      |---            |---        |---     |---           |---          |---    |
+|Kenny    |34y/o    |Carpooling     |Eat outside|Disney princesses|animals,Russia|Is a bit hard to understand, needs a screen to display courses
+|Theresa  |48y/o    |Driving  |Eat in, orders food|Food and soccer|Cheating and git copilot|  Is overweight|C#/github
+|Chad     |30y/o    |Bicycle|Eat healthy at “Au healthy”|beautiful things| Bells and ukrainian|Self overconfidence, chad behavior|Self Confidence
+|Branden  |25y/o    |Codriver  |eat on site|Nobody and monster drinks|Everyone, spiders|Long hair, big black coat, glasses|GO
+|Louisa  |29y/o    |Driving |Eat outside |wine, competition|people that are lacking skills|Crazy hair, checked shirt and always broken glasses|Problem solving
