@@ -1,6 +1,6 @@
 
 #### Students NPC
-| Name - Gender   | Age | Locomotion                    | Eat                               | Morning   | Afternoon | Likes                         | Dislikes                          | Details                               |
+| Name - Gender   | Age | Locomotion                    | Lunch                             | Morning   | Afternoon | Likes                         | Dislikes                          | Details                               |
 |:---------------:|:---:|:-----------------------------:|:---------------------------------:|:---------:|:---------:|:-----------------------------:|:---------------------------------:|:-------------------------------------:|
 | Johnny - M      | 19  | Walks                         | Orders food                       | EN        | PR        | Rabbits, to play with drones  | Smoking people, loud noise        | Easily distracted                     |
 | Steph - F       | 21  | Drives, co-driving with Nick  | Eats in school                    | CS        | CS        | Boys Band, mushrooms          | Heated food                       | Has a small bladder, smokes           |
@@ -10,8 +10,8 @@
 | Lindzy - F      | 17  | Bus                           | Eats outside                      | CS        | EN        | Music and arts                | Sports and small places           | Always wears headphone and is late    |
 | Denis - M       | 20  | Drives                        | Eats in school                    | EN        | CS        | Video games and anime         | Hard work and noobs               | Speaks way too much                   |
 | Lana - F        | 22  | Drives                        | Goes out to buy than comes back   | EN        | SS        | Nature, tofu                  | Meat, fast food                   | Vegan, ric                            |
-| Sam - H         | 15  |
-| Gen-Eric - N/A  | 18  |
+| Sam - M         | 25  | Cames in on a motorbike       | Uses kitchen and eats in school   | CS        | PR        | POH-TAH-TOES, unique jewelry  | Being hungry, bad hygiene         | Loves to eat, he is very short, likes to adventure    |
+| Gen-Eric - N/A  | 18  | Walks                         | Eats in school                    | PR        | CS        | Normal things                 | Strange things                    | Gen-Erics are normal students. Not aliens. Don't ask  |
 
 #### CNAM NPC
 |**Name** |**Age**  |**Locomotion** |**Eat**    |**Like**           |**Dislike**                  |**Details**                                      |
