@@ -52,6 +52,8 @@ The top floor of the building is not part of the school and therefore it can be 
   - A link back to the main menu
 
 
+# Non-Player characters
+
 ### **Computer science class**
 
 In this scenario the user can experience a normal computer science class.
@@ -61,16 +63,6 @@ In this scenario the user can experience a normal computer science class.
 <details>
 <summary>Scenario settings</summary>
 None
-</details>
-
-<details>
-<summary>Characters this scenario is available for</summary>
-
-- Student (Takes class)
-- Handicapped (Takes class)
-- Orator (Gives class)
-- Franck (Roams free and observes)
-
 </details>
 
 <u>scenario script</u><br>
@@ -87,15 +79,6 @@ In this scenario the user can experience a normal softskills class.
 None
 </details>
 
-<details>
-<summary>Characters this scenario is available for</summary>
-
-- Student (Takes class)
-- Handicapped (Takes class)
-- Orator (Gives class)
-- Franck (Roams free and observes)
-
-</details>
 
 <u>scenario script</u><br>
 <img src="img/PNGS FUNCTIONAL/Soft skills_PL.png">
@@ -109,15 +92,6 @@ The user goes through a simple exercise to simulate project work.
 <details>
 <summary>Scenario settings</summary>
 None
-</details>
-
-<details>
-<summary>Characters this scenario is available for</summary>
-
-- Student (Works on a project)
-- Handicapped (Works on a project)
-- Franck (Roams free and observes)
-
 </details>
 
 <u>scenario script</u><br>
@@ -135,14 +109,6 @@ The user gets an opportunity to try out the drone in its intended area.
 None
 </details>
 
-<details>
-<summary>Characters this scenario is available for</summary>
-
-- Student (Drives drone)
-- Handicapped (Drives drone)
-
-</details>
-
 <u>scenario script</u><br>
 <img src="img/PNGS FUNCTIONAL/Drone_PL.png">
 
@@ -157,14 +123,6 @@ A particularly high number of students needs to use the toilets at the same time
 
 - Number of students
 - The amount of time each student takes
-</details>
-
-<details>
-<summary>Characters this scenario is available for</summary>
-
-- Student (Has to use the bathroom)
-- Handicapped (Has to use the bathroom)
-- Franck (Roams free and observes)
 </details>
 
 <u>scenario script</u><br>
