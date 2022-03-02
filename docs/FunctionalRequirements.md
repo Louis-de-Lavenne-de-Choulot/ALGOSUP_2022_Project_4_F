@@ -1,12 +1,12 @@
 # General Description
 
-The objective of the project is to create a realistic simulation of the school life in B3, a building that is currently being built for AlgoSup. The project will need to be realized in VR (Virtual Reality). 
+The objective of the project is to create a realistic simulation of the school life in B3[^6], a building that is currently being built for AlgoSup. The project will need to be realized in VR (Virtual Reality). 
 The project is given by Algosup and monitored by Sebastien Goisbeault, VR and XR consultant.
 
 # Target audience
 We target potential future students as well as their parents. 
 This project could also be useful for current students and potential investors to help them visualize the future look of AlgoSup.
-Finally, the school Staff could use the simulation to see if they like the way the B3 is arranged and predict possible complications in advance.
+Finally, the school Staff could use the simulation to see if they like the way the B3[^6] is arranged and predict possible complications in advance.
 
 
 # In-simulation mechanics
@@ -59,7 +59,19 @@ Legend:
 8. [Scenario emergency](#emergency)
 9. [Scenario toilet rush](#toilet-rush)
 
-#### The elevator
+## The school building 
+
+### Reworking the B3
+
+The 3D model of the building of the B3[^6] is provided at the start of the project, however it was made by an architect and is not optimised for a simulation.
+
+The model must be reworked, unnecerary meshes needs to be removed, parts of the building that were built using a large number of small meshes needs to be regrouped and materials as well as textures are complietelly missing.
+
+The building also needs to be decorated. It is currently complietelly empty.
+A computer museum needs to be added to the library and a gift shop must also be added somewhere in the building.
+Do not hesitate to apply tasteful amounts of creativity during the decorative process.
+
+### The elevator
 
 There is currently a elevator that can be found approximately in the middle of the building.
 This elevator must be made functional.
@@ -364,7 +376,7 @@ They must also be able to pathfind without bumping into each other.
 
 - Users :
 	- Student :
-  	- Want to see what the B3 will be like
+  	- Want to see what the B3[^6] will be like
   	- Want it to be accommodating
   	- Is interested in seeing how things are layed out
   
@@ -379,7 +391,7 @@ They must also be able to pathfind without bumping into each other.
     - Want to see if the school look at the future
 
 - Franck
-    - Want to see what the B3 will be like
+    - Want to see what the B3[^6] will be like
     - Want to look for potential flow in the current design
     - Want to get idea for future accommodation and system in the B3
     - He wants to see how different materials and colors work together (or not) in the new building
@@ -391,7 +403,7 @@ They must also be able to pathfind without bumping into each other.
 # Minimum Viable Product	
 
 The criteria for the minimal viable product are:
-* The entire B3 modelled with basic materials.
+* The entire B3[^6] modelled with basic materials.
 * Functional doors.
 * A single (articulated) playable character that can roam the school building.
 * VR compatibility.
@@ -409,7 +421,7 @@ The criteria for the minimal viable product are:
 [^3]: No-mode : smooth camera rotation, controlled by the VR headset
 [^4]: Teleportation : Move instantly to the point you are aiming at on the ground
 [^5]: Locomotion : Move like a traditional 1st person game using the joystick
-
+[^6]: B3 : The school building the simulation must take place in. A 3D model of the building is provided at the start of the project
 
 <!-- ------------------------------------------------------------------ -->
 <!-- ---------------------Discarded for now---------------------------- -->
