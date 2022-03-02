@@ -1,6 +1,6 @@
 # General description
 
-The objective of the simulation is to highlight possible problems that may arise within ALGOSUPs new shoolbuilding, the B3[^4].
+The objective of the simulation is to highlight possible problems that may arise within ALGOSUPs new shool building, the B3[^4].
 
 The simulation must take place within the new school building, must contain characters (controlled by simple AI) to simulate students, speakers, teachers and administrative staff.
 It also needs to be able to launch various scenarios which could highlight the more foreseeable problems that may appear in the future.
@@ -30,8 +30,8 @@ The top floor of the building is not part of the school and therefore it can be 
 ## The map
 
 This is the map of the starting points for the different scenarios.
-This map currently only exist for developement purposes.
-A simplified version of this map must be added to the schoolbuilding somewhere easy to spot.
+This map currently only exist for development purposes.
+A simplified version of this map must be added to the school building somewhere easy to spot.
 
 <img src="img/PNGS FUNCTIONAL/map_with.pins.png">
 
@@ -41,7 +41,7 @@ Legend:
 2. [Elevator](#the-school-building)
 3. [Scenario lunchtime](#lunchtime)
 4. [Scenario computer science class](#computer-science-class)
-5. [Scenario softskills class](#softskills-class)
+5. [Scenario soft-skills class](#softskills-class)
 6. [Scenario project time](#project-time)
 7. [Scenario the drone](#the-drone)
 8. [Scenario toilet rush](#toilet-rush)
@@ -85,9 +85,9 @@ Legend:
 | Alexandre - M   | 18  | Bicycle                       | Eats outside                      | PR        | PR        | Italian food                  | Famous clothe brands, Crayfishes  | Always late                           |
 | Nick - M        | 27  | Is co-driven by Steph         | Bring his own meal                | PR        | PR        | Old tech, steam engines       | Smartphones, social medias        | Has a really old phone, wants to work in green energy, Eats a lot and very slowly |
 | Lindzy - F      | 17  | Bus                           | Eats outside                      | CS        | EN        | Music and arts                | Sports and small places           | Always wears headphone and is late    |
-| Denis - M       | 20  | Drives                        | Eats in school                    | EN        | CS        | Video games and anime         | Hard work and noobs               | Speaks way too much                   |
+| Denis - M       | 20  | Drives                        | Eats in school                    | EN        | CS        | Video games and anime         | Hard work and amateurs               | Speaks way too much                   |
 | Lana - F        | 22  | Drives                        | Goes out to buy than comes back   | EN        | SS        | Nature, tofu                  | Meat, fast food                   | Vegan, ric                            |
-| Sam - M         | 25  | Cames in on a motorbike       | Uses kitchen and eats in school   | CS        | PR        | POH-TAH-TOES, unique jewelry  | Being hungry, bad hygiene         | Loves to eat, he is very short, likes to adventure    |
+| Sam - M         | 25  | Comes in a motorbike       | Uses kitchen and eats in school   | CS        | PR        | POH-TAH-TOES, unique jewelry  | Being hungry, bad hygiene         | Loves to eat, he is very short, likes to adventure    |
 | Gen-Eric - N/A  | 18  | Walks                         | Eats in school                    | PR        | CS        | Normal things                 | Strange things                    | Gen-Erics are normal students. Not aliens. Don't ask  |
 
 ## CNAM NPC
@@ -103,7 +103,7 @@ Legend:
 |Kenny    |34y/o    |Carpooling     |Eat outside|Disney princesses|animals,Russia|Is a bit hard to understand, needs a screen to display courses|Importance of life
 |Theresa  |48y/o    |Driving        |Eat in, orders food|Food and soccer|Cheating and git copilot|  Is overweight|C#/github
 |Chad     |30y/o    |Bicycle        |Eat healthy at “Au healthy”|beautiful things| Bells and ukrainian|Self overconfidence, chad behavior|Self Confidence
-|Branden  |25y/o    |Codriver       |eat on site|Nobody and monster drinks|Everyone, spiders|Long hair, big black coat, glasses|GO
+|Branden  |25y/o    |Copilot       |eat on site|Nobody and monster drinks|Everyone, spiders|Long hair, big black coat, glasses|GO
 |Louisa   |29y/o    |Driving        |Eat outside |wine, competition|people that are lacking skills|Crazy hair, checked shirt and always broken glasses|Problem solving
 
 
@@ -144,9 +144,9 @@ None
 <u>scenario script</u><br>
 <img src="img/PNGS FUNCTIONAL/Computer science class_PL.png">
 
-## **Softskills class**
+## **Soft skills class**
 
-In this scenario the user can experience a normal softskills class.
+In this scenario the user can experience a normal soft skills class.
 
 <br>
 
