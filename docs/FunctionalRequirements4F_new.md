@@ -27,17 +27,36 @@ The building must be fitted with signs and a map somewhere that is easy to spot.
 
 The top floor of the building is not part of the school and therefore it can be ignored, however the elevator must still be made functional.
 
-## Menus
+## The map
+
+This is the map of the starting points for the different scenarios.
+This map currently only exist for developement purposes.
+A simplified version of this map must be added to the schoolbuilding somewhere easy to spot.
+
+<img src="img/PNGS FUNCTIONAL/map_with.pins.png">
+
+Legend:
+
+1. Building entrance
+2. [Elevator](#the-school-building)
+3. [Scenario lunchtime](#lunchtime)
+4. [Scenario computer science class](#computer-science-class)
+5. [Scenario softskills class](#softskills-class)
+6. [Scenario project time](#project-time)
+7. [Scenario the drone](#the-drone)
+8. [Scenario toilet rush](#toilet-rush)
+
+# Menus
 <sup>* Menus must be interactive <sup>
 <!-- Came back here to specify how menus are accessed, how it should look etc.. -->
 
-### Main menu:
+## Main menu:
 - Start button
 - Settings button
 - Quit button
 
 
-### Settings menu:
+## Settings menu:
 - Height controls:
   - Set user height
 - Sound controls:
@@ -90,7 +109,28 @@ The top floor of the building is not part of the school and therefore it can be 
 
 # Scenarios
 
-### **Computer science class**
+## **Lunchtime**
+
+Simulates lunchtime. Most students tries to access the food facilities (Microwaves, refrigerators, etc) at the same time.
+
+<br>
+
+<details>
+<summary>Scenario settings</summary>
+
+- Number of students
+- Number of staff members
+- Ratio of students that decides to eat outside of school grounds
+- Amount of time microwaves take for each npc
+- Amount of time characters need to eat
+- Number of microwaves
+
+</details>
+
+<u>scenario script</u><br>
+<img src="img/PNGS FUNCTIONAL/LunchRush_PL.drawio.png">
+
+## **Computer science class**
 
 In this scenario the user can experience a normal computer science class.
 
@@ -104,7 +144,7 @@ None
 <u>scenario script</u><br>
 <img src="img/PNGS FUNCTIONAL/Computer science class_PL.png">
 
-#### **Softskills class**
+## **Softskills class**
 
 In this scenario the user can experience a normal softskills class.
 
@@ -133,6 +173,20 @@ None
 <u>scenario script</u><br>
 <img src="img/PNGS FUNCTIONAL/Project time_PL.png">
 
+## **Project time**
+
+The user goes through a simple exercise to simulate project work.
+
+<br>
+
+<details>
+<summary>Scenario settings</summary>
+None
+</details>
+
+<u>scenario script</u><br>
+<img src="img/PNGS FUNCTIONAL/Project time_PL.png">
+
 
 #### **The drone**
 
@@ -147,6 +201,23 @@ None
 
 <u>scenario script</u><br>
 <img src="img/PNGS FUNCTIONAL/Drone_PL.png">
+
+#### **Toilet rush**
+
+A particularly high number of students needs to use the toilets at the same time.
+
+<br>
+
+<details>
+<summary>Scenario settings</summary>
+
+- Number of students
+- The amount of time each student takes
+</details>
+
+<u>scenario script</u><br>
+<img src="img/PNGS FUNCTIONAL/ToiletRush_PL.png">
+
 
 #### **Toilet rush**
 
