@@ -10,6 +10,7 @@ public class Rain : MonoBehaviour
     public Transform[] Lunch;
     public Transform Auditorium;
     public Transform[] Toilettes;
+    public Transform Parent;
     public GameObject[] toInit;
     public int Number_of_Johnny;
     public int Number_of_Steph;
@@ -40,6 +41,21 @@ public class Rain : MonoBehaviour
                 UnityEngine.AI.NavMeshAgent nobj = obj.GetComponent<UnityEngine.AI.NavMeshAgent>();
                 nobj.speed = 5;
                 nobj.destination = Auditorium.position;
+                nobj.transform.SetParent(Parent);
         }
+        // for (int i = 0; i < Number_of_Steph; i++){
+        //         GameObject obj = Instantiate(toInit[1], new Vector3(Random.Range(recept.position.x-12, recept.position.x+12), recept.position.y,Random.Range(recept.position.z-12, recept.position.z+12)), Quaternion.identity) as GameObject;
+        //         UnityEngine.AI.NavMeshAgent nobj = obj.GetComponent<UnityEngine.AI.NavMeshAgent>();
+        //         nobj.speed = 5;
+        //         nobj.destination = Auditorium.position;
+        //         nobj.transform.SetParent(Parent);
+        // }
+        // for (int i = 0; i < Number_of_Alexandre; i++){
+        //         GameObject obj = Instantiate(toInit[2], new Vector3(Random.Range(recept.position.x-12, recept.position.x+12), recept.position.y,Random.Range(recept.position.z-12, recept.position.z+12)), Quaternion.identity) as GameObject;
+        //         UnityEngine.AI.NavMeshAgent nobj = obj.GetComponent<UnityEngine.AI.NavMeshAgent>();
+        //         nobj.speed = 5;
+        //         nobj.destination = Auditorium.position;
+        //         nobj.transform.SetParent(Parent);
+        // }
     }
 }
