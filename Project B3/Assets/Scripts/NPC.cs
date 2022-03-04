@@ -29,7 +29,6 @@ public class NPC : MonoBehaviour
         bool shouldMove = agentPos.position != agentLastPos && agent.remainingDistance > agent.radius;
         if (shouldMove){
             agentLastPos = agentPos.position;
-            Debug.Log("moveacc");
         }
         anim.SetBool("IsMoving", true);
         Debug.DrawRay(agentPos.position, Vector3.forward, Color.red);
