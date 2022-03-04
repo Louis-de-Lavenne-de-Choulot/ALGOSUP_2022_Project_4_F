@@ -9,6 +9,7 @@ public class NPC : MonoBehaviour
 {
     // Start is called before the first frame update
     public Transform[] goal;
+    public Transform agentPos;
     public UnityEngine.AI.NavMeshAgent agent;
     Vector2 velocity = Vector2.zero;
     Animator anim;
