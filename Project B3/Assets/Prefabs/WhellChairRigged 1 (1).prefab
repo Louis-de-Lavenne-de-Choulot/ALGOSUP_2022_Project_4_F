@@ -857,8 +857,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6105684938052856103}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: -0.7071068, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.7000747, y: 0.03936032, z: -0.7119107, w: -0.03910658}
+  m_LocalPosition: {x: -0.002359964, y: 0.01672757, z: -0.05011755}
   m_LocalScale: {x: 30, y: 30, z: 30}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -866,7 +866,7 @@ Transform:
   - {fileID: 7526509528700843741}
   m_Father: {fileID: 6375594915312796747}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 180, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 179.926, y: 90.956, z: -6.3609924}
 --- !u!1 &6310288005671495330
 GameObject:
   m_ObjectHideFlags: 0
@@ -895,7 +895,7 @@ Transform:
   m_LocalRotation: {x: 7.1054274e-15, y: 0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 7969709995887428133}
   m_RootOrder: 0
@@ -1177,15 +1177,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6375594915312796727}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -48.187, y: -7.081, z: 6.25}
+  m_LocalRotation: {x: 0.0048056445, y: 0.100376986, z: 0.04757911, w: 0.99379957}
+  m_LocalPosition: {x: -48.247917, y: -6.7008038, z: 5.693464}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6913043804193272733}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 11.535, z: 5.482}
 --- !u!195 &6375594915312796746
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1195,7 +1195,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 6375594915312796727}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.57
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -1204,8 +1204,8 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
+  m_Height: 1
+  m_BaseOffset: 0.055
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!54 &6375594915312796745
@@ -1270,8 +1270,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goal: []
-  agentPos: {fileID: 6375594915312796747}
-  agent: {fileID: 6375594915312796746}
 --- !u!1 &6805339911063865902
 GameObject:
   m_ObjectHideFlags: 0
