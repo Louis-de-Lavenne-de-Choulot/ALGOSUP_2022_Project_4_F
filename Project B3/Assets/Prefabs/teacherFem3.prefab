@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2808213287445748356}
   - component: {fileID: 3756204428422675909}
   - component: {fileID: 6928268715014345992}
+  - component: {fileID: 2684620626245791068}
   m_Layer: 0
   m_Name: teacherFem3
   m_TagString: Untagged
@@ -159,3 +160,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2684620626245791068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6477871203824703431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb22b7de367b36049a3f03f9eab6e33b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goal: []
+  agentPos: {fileID: 0}
+  agent: {fileID: 0}
