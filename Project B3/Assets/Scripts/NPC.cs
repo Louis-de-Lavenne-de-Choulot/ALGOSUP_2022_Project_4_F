@@ -9,17 +9,28 @@ public class NPC : MonoBehaviour
 {
     // Start is called before the first frame update
     public Transform[] goal;
-    public Transform agentPos;
-    public UnityEngine.AI.NavMeshAgent agent;
+    Transform agentPos;
+    Vector3 agentLastPos;
+    UnityEngine.AI.NavMeshAgent agent;
+    Vector2 velocity = Vector2.zero;
+    Animator anim;
 
     void Start () {
-        agent.speed = 3;
-        agent.destination = goal[0].position;
+        anim = gameObject.GetComponent<Animator>();
+        agentPos = gameObject.GetComponent<Transform>();
+        agent = gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>();
+        // agent.speed = 3;
+        // agent.destination = goal[0].position;
     }
 
     // Update is called once per frame
     void Update()
     {
+        bool shouldMove = agentPos.position != agentLastPos && agent.remainingDistance > agent.radius;
+        if (shouldMove){
+            agentLastPos = agentPos.position;
+        }
+        anim.SetBool("IsMoving", true);
         Debug.DrawRay(agentPos.position, Vector3.forward, Color.red);
     }
 }
