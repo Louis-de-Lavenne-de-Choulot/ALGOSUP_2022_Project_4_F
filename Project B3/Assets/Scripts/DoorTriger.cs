@@ -31,8 +31,12 @@ public class DoorTriger : MonoBehaviour
 
             scanerR.SetBool("isScan", false);
             scanerR.SetBool("isScan fail", false);
+            scanerR.SetBool("reScan", false);
+            scanerR.SetInteger("count", 0);
             scanerL.SetBool("isScan", false);
             scanerL.SetBool("isScan fail", false);
+            scanerL.SetBool("reScan", false);
+            scanerL.SetInteger("count", 0);
             door.SetBool("hasScanned", false);
             door.SetBool("doorOpen", false);
         }

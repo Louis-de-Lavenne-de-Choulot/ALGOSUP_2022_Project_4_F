@@ -37,7 +37,7 @@ public class Interact : MonoBehaviour
     [SerializeField]
     private int Project_room = 5;
 
-    private string gender;
+    private string bathroom;
 
     // Start is called before the first frame update
     void Start()
@@ -45,11 +45,11 @@ public class Interact : MonoBehaviour
         cam = gameObject.GetComponent<Camera>();
         if ((int) WC == 0)
         {
-            gender = "M";
+            bathroom = "M";
         }
         else
         {
-            gender = "F";
+            bathroom = "F";
         }
     }
 
@@ -70,6 +70,9 @@ public class Interact : MonoBehaviour
             scaner.SetBool("isScan", false);
             scaner.SetBool("isScan fail", true);
             door.SetBool("hasScanned", false);
+
+            Animator scanR = hit.transform.parent.parent.GetChild(2).gameObject.GetComponent(typeof(Animator)) as Animator;
+            Animator scanL = hit.transform.parent.parent.GetChild(3).gameObject.GetComponent(typeof(Animator)) as Animator;
 
             if (hit.transform.tag == "Main gate" || hit.transform.tag == "Comon room")
             {
@@ -100,7 +103,7 @@ public class Interact : MonoBehaviour
 
                 case 2:
                     if (hit.transform.tag == "CmptSci" || hit.transform.tag == "Amphitheater" || hit.transform.tag == "student rest"
-                        || hit.transform.tag == $"WC_{gender}" || hit.transform.tag == "SoftSkill" || hit.transform.tag == "English" || hit.transform.tag == "library")
+                        || hit.transform.tag == $"WC_{bathroom}" || hit.transform.tag == "SoftSkill" || hit.transform.tag == "English" || hit.transform.tag == "library")
                     {
                         scaner.SetBool("isScan", true);
                         scaner.SetBool("isScan fail", false);
@@ -109,7 +112,7 @@ public class Interact : MonoBehaviour
                     }
                     break;
                 case 3:
-                    if (hit.transform.tag == $"WC_{gender}" || hit.transform.tag == "English" ||
+                    if (hit.transform.tag == $"WC_{bathroom}" || hit.transform.tag == "English" ||
                         hit.transform.tag == "Staff rest" || hit.transform.tag == "library")
                     {
                         scaner.SetBool("isScan", true);
@@ -118,7 +121,7 @@ public class Interact : MonoBehaviour
                     }
                     break;
                 case 4:
-                    if (hit.transform.tag == $"WC_{gender}" || hit.transform.tag == "SoftSkill" || hit.transform.tag == "Amphitheater" ||
+                    if (hit.transform.tag == $"WC_{bathroom}" || hit.transform.tag == "SoftSkill" || hit.transform.tag == "Amphitheater" ||
                         hit.transform.tag == "Staff rest" || hit.transform.tag == "library")
                     {
                         scaner.SetBool("isScan", true);
@@ -128,7 +131,7 @@ public class Interact : MonoBehaviour
                     }
                     break;
                 case 5:
-                    if (hit.transform.tag == $"WC_{gender}" || hit.transform.tag == "Amphitheater" || hit.transform.tag == "CmptSci" ||
+                    if (hit.transform.tag == $"WC_{bathroom}" || hit.transform.tag == "Amphitheater" || hit.transform.tag == "CmptSci" ||
                         hit.transform.tag == "Staff rest" || hit.transform.tag == "library")
                     {
                         scaner.SetBool("isScan", true);
@@ -151,24 +154,35 @@ public class Interact : MonoBehaviour
                 door.SetBool("hasScanned", false);
             }
 
-            if (scaner.GetInteger("RoomID") == 0 && hit.transform.tag == "Project")
+            if (scaner.GetInteger("RoomID") == 0 && hit.transform.CompareTag("Project"))
             {
-                Animator scanR = hit.transform.parent.parent.GetChild(2).gameObject.GetComponent(typeof(Animator)) as Animator;
-                Animator scanL = hit.transform.parent.parent.GetChild(3).gameObject.GetComponent(typeof(Animator)) as Animator;
                 scanL.SetInteger("RoomID", Project_room);
                 scanR.SetInteger("RoomID", Project_room);
             }
 
-            Debug.Log(scaner.GetInteger("RoomID"));
-            Debug.Log(Project_room);
+            if (scaner.GetBool("reScan") == false && hit.transform.CompareTag("Project"))
+            {
+                if(scaner.GetInteger("count") == 0)
+                {
+                    scaner.SetInteger("count", 1);
+                }
+                else
+                {
+                    scaner.SetBool("reScan", true);
+                    door.SetBool("hasScanned", false);
+                    scanL.SetInteger("RoomID", 0);
+                    scanR.SetInteger("RoomID", 0);
+                    scaner.SetInteger("count", 0);
+                }
+            }
 
-            if (Project_room == scaner.GetInteger("RoomID") && hit.transform.tag == "Project")
+            if (Project_room == scaner.GetInteger("RoomID") && hit.transform.CompareTag("Project"))
             {
                 scaner.SetBool("isScan", true);
                 scaner.SetBool("isScan fail", false);
                 door.SetBool("hasScanned", true);
             }
-            else if(Project_room != scaner.GetInteger("RoomID") && hit.transform.tag == "Project")
+            else if(Project_room != scaner.GetInteger("RoomID") && hit.transform.CompareTag("Project"))
             {
                 scaner.SetBool("isScan", false);
                 scaner.SetBool("isScan fail", true);
