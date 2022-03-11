@@ -3,7 +3,22 @@ guid: d6620dd4bc0694101bacfcb75ebe7df2
 ModelImporter:
   serializedVersion: 21202
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Peinture___Blanc_titanium
+    second: {fileID: 2100000, guid: e2fc419bb9667304896924cae5494f2e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Peinture___Blanc_titanium_1
+    second: {fileID: 2100000, guid: d5b9d1862e7e016458ba7943cb594761, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Peinture___Blanc_titanium_2
+    second: {fileID: 2100000, guid: 98d8ddae0c85ddc4fafc07a6288aaca1, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
