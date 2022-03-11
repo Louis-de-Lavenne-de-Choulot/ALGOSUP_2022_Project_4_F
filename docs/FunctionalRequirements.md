@@ -33,7 +33,7 @@ This is the map of the starting points for the different scenarios.
 This map currently only exist for development purposes.
 A simplified version of this map must be added to the school building somewhere easy to spot.
 
-<img src="img/PNGS FUNCTIONAL/map_with.pins.png">
+<img src="img/PNGS FUNCTIONAL/Map.png">
 
 Legend:
 
