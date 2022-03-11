@@ -100,7 +100,7 @@ Legend:
 
 |**Name** |**Age**  |**Locomotion** |**Eat**    |**Like**|**Dislike**   |**Details**  |**Job**|
 |---      |---      |---            |---        |---     |---           |---          |---    |
-|Kenny    |34y/o    |Carpooling     |Eat outside|Disney princesses|animals,Russia|Is a bit hard to understand, needs a screen to display courses|Importance of life
+|Kenny    |34y/o    |Carpooling     |Eat outside|Disney princesses|animals,Russia|Is a bit hard to understand, needs a screen to display courses|Project superisor
 |Theresa  |48y/o    |Driving        |Eat in, orders food|Food and soccer|Cheating and git copilot|  Is overweight|C#/github
 |Chad     |30y/o    |Bicycle        |Eat healthy at “Au healthy”|beautiful things| Bells and ukrainian|Self overconfidence, chad behavior|Self Confidence
 |Branden  |25y/o    |Copilot       |eat on site|Nobody and monster drinks|Everyone, spiders|Long hair, big black coat, glasses|GO
