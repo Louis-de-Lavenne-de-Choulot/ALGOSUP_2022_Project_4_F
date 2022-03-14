@@ -460,6 +460,7 @@ GameObject:
   - component: {fileID: 5625771911952905294}
   - component: {fileID: 2255334475912348642}
   - component: {fileID: -1260833367465062161}
+  - component: {fileID: -1848816228097482057}
   m_Layer: 0
   m_Name: Male 1
   m_TagString: Untagged
@@ -576,8 +577,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goal: []
-  agentPos: {fileID: 0}
-  agent: {fileID: 0}
+--- !u!114 &-1848816228097482057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 780131664743231543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02d61468f8b77ae4b92c344bc9a600fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_allowOffhandGrab: 1
+  m_snapPosition: 0
+  m_snapOrientation: 0
+  m_snapOffset: {fileID: 0}
+  m_grabPoints:
+  - {fileID: 1400173086493422273}
 --- !u!1 &780131664743231545
 GameObject:
   m_ObjectHideFlags: 0

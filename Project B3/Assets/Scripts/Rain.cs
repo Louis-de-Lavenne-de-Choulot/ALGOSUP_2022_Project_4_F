@@ -26,7 +26,7 @@ public class Rain : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("Invocation", 2F);
+        Invoke("Invocation", 5F);
     }
 
     // Update is called once per frame
