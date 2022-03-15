@@ -6001,7 +6001,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: -0.6818949, y: 0.5533023, z: -0.24980138}
+        value: {x: -0.709, y: 1.139, z: -0.25}
         inSlope: {x: -7.1054274e-15, y: -0.25671175, z: -2.283887e-15}
         outSlope: {x: -7.1054274e-15, y: -0.25671175, z: -2.283887e-15}
         tangentMode: 0
@@ -6026,7 +6026,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: -0.6506902, y: 0.22366805, z: -0.0000006587702}
+        value: {x: -0.678, y: 0.809, z: -0}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -6042,7 +6042,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: 0, y: 0.551, z: 0}
+        value: {x: 0, y: 1.137, z: -0.013}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -6052,8 +6052,8 @@ AnimationClip:
       - serializedVersion: 3
         time: 2.0416667
         value: {x: 0, y: 0.057, z: 0}
-        inSlope: {x: 0, y: -0.040615357, z: 0}
-        outSlope: {x: 0, y: -0.040615357, z: 0}
+        inSlope: {x: 0, y: -0.040615365, z: 0}
+        outSlope: {x: 0, y: -0.040615365, z: 0}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
@@ -6071,6 +6071,22 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     path: pCube111 1
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: {x: 0, y: -0.26923686, z: -0.46634462}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: pCube77 (1)/polySurface209
   m_ScaleCurves: []
   m_FloatCurves: []
   m_PPtrCurves: []
@@ -7021,6 +7037,13 @@ AnimationClip:
       isPPtrCurve: 0
     - serializedVersion: 2
       path: 4224112259
+      attribute: 1
+      script: {fileID: 0}
+      typeID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 890800004
       attribute: 1
       script: {fileID: 0}
       typeID: 4
@@ -29345,7 +29368,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -0.6818949
+        value: -0.709
         inSlope: -7.1054274e-15
         outSlope: -7.1054274e-15
         tangentMode: 0
@@ -29373,7 +29396,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.5533023
+        value: 1.139
         inSlope: -0.25671175
         outSlope: -0.25671175
         tangentMode: 0
@@ -29401,7 +29424,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -0.24980138
+        value: -0.25
         inSlope: -2.283887e-15
         outSlope: -2.283887e-15
         tangentMode: 0
@@ -29429,7 +29452,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -0.6506902
+        value: -0.678
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -29448,7 +29471,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.22366805
+        value: 0.809
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -29467,7 +29490,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -0.0000006587702
+        value: -0
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -29523,7 +29546,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.551
+        value: 1.137
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -29533,8 +29556,8 @@ AnimationClip:
       - serializedVersion: 3
         time: 2.0416667
         value: 0.057
-        inSlope: -0.040615357
-        outSlope: -0.040615357
+        inSlope: -0.040615365
+        outSlope: -0.040615365
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
@@ -29560,7 +29583,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0
+        value: -0.013
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -29778,6 +29801,63 @@ AnimationClip:
       m_RotationOrder: 4
     attribute: m_LocalRotation.w
     path: joint1/joint75
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.x
+    path: pCube77 (1)/polySurface209
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: -0.26923686
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.y
+    path: pCube77 (1)/polySurface209
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: -0.46634462
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.z
+    path: pCube77 (1)/polySurface209
     classID: 4
     script: {fileID: 0}
   m_EulerEditorCurves:
