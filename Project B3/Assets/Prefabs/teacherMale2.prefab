@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7445087902101776263}
   - component: {fileID: 3006147937567013591}
   - component: {fileID: 1627017000232283097}
+  - component: {fileID: -2633277099534789874}
   m_Layer: 0
   m_Name: teacherMale2
   m_TagString: Untagged
@@ -136,5 +137,20 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &-2633277099534789874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6888629935424658651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb22b7de367b36049a3f03f9eab6e33b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goal: []
+  agentPos: {fileID: 0}
+  agent: {fileID: 0}

@@ -272,6 +272,7 @@ GameObject:
   - component: {fileID: 8057093193674372434}
   - component: {fileID: 7235652464324479419}
   - component: {fileID: 7398029552280300311}
+  - component: {fileID: 1538905832480722855}
   m_Layer: 0
   m_Name: Female 4
   m_TagString: Untagged
@@ -350,7 +351,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 2
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 2
 --- !u!195 &7398029552280300311
 NavMeshAgent:
@@ -374,6 +375,21 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1538905832480722855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8057093193683748497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb22b7de367b36049a3f03f9eab6e33b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goal: []
+  agentPos: {fileID: 0}
+  agent: {fileID: 0}
 --- !u!1 &8057093193683748499
 GameObject:
   m_ObjectHideFlags: 0

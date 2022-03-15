@@ -1,32 +1,64 @@
-# General Description
+# General description
 
-The objective of the project is to create a realistic simulation of the school life in B3[^6], a building that is currently being built for AlgoSup. The project will need to be realized in VR (Virtual Reality). 
-The project is given by Algosup and monitored by Sebastien Goisbeault, VR and XR consultant.
+The objective of the simulation is to highlight possible problems that may arise within ALGOSUPs new shool building, the B3[^4].
+
+The simulation must take place within the new school building, must contain characters (controlled by simple AI) to simulate students, speakers, teachers and administrative staff.
+It also needs to be able to launch various scenarios which could highlight the more foreseeable problems that may appear in the future.
+
+The non-user characters[^2] must follow a pre-planned schedule ensuring the day-to-day functionality of the building. These schedules must be only interrupted when the user launches a scenario, in which case they should start to act according to it.
+
+The project must be realized in Virtual Reality[^1].
+
+If successful, this project should be able to ensure the school building is built without any obvious faults.
+
+This project has been proposed by ALGOSUP's[^3] leadership.
 
 # Target audience
-We target potential future students as well as their parents. 
-This project could also be useful for current students and potential investors to help them visualize the future look of AlgoSup.
-Finally, the school Staff could use the simulation to see if they like the way the B3[^6] is arranged and predict possible complications in advance.
+Our main target is  potential future students as well as their parents. However, this project could also be useful for current students and potential investors to help them visualise the future look of ALGOSUP[^3]. It could also be used to highlight the problems that we could encounter in the daily life in the building. Finally, the school Staff could use the simulation to see if they like the way the B3[^4] is arranged and predict possible complications in advance.
 
+# The school building
+While the 3D model of the building is provided at the start of the project, it needs to be seriously reworked before it could be considered usable for the simulation.
 
-# In-simulation mechanics
+Most of the building is currently unoptimized for virtual reality[^1] and the inner textures of the building are purposefully missing.
 
-## Menus
+The building also needs to be decorated.
+
+The building must be fitted with signs and a map somewhere that is easy to spot.
+
+The top floor of the building is not part of the school and therefore it can be ignored, however the elevator must still be made functional.
+
+## The map
+
+This is the map of the starting points for the different scenarios.
+This map currently only exist for development purposes.
+A simplified version of this map must be added to the school building somewhere easy to spot.
+
+<img src="img/PNGS FUNCTIONAL/Map.png">
+
+Legend:
+
+1. Building entrance
+2. [Elevator](#the-school-building)
+3. [Scenario lunchtime](#lunchtime)
+4. [Scenario computer science class](#computer-science-class)
+5. [Scenario soft-skills class](#softskills-class)
+6. [Scenario project time](#project-time)
+7. [Scenario the drone](#the-drone)
+8. [Scenario toilet rush](#toilet-rush)
+
+# Menus
 <sup>* Menus must be interactive <sup>
 <!-- Came back here to specify how menus are accessed, how it should look etc.. -->
 
-### Main menu:
+## Main menu:
 - Start button
 - Settings button
 - Quit button
 
 
-### Settings menu:
+## Settings menu:
 - Height controls:
   - Set user height
-- Movement controls:
-  - Snap turn[^1] / Smooth turn[^2] / No-mode[^3]
-  - Teleportation[^4] / locomotion[^5]
 - Sound controls:
   - Slider
 - NPC limit (if multi-platform):
@@ -39,98 +71,45 @@ Finally, the school Staff could use the simulation to see if they like the way t
   - A link back to the main menu
 
 
-### Map:
-- The user must be able to access the map at all times.
-- The user must be able to see their position on the map.
-- There must be a list of available scenarios and other similar points of interest (ex: character selection).
-- There must be a legend detailing the significations of the pins on the map.
+# Non-Player characters
 
-<img src="img/PNGS FUNCTIONAL/map_with.pins.png">
+<sup>* Non-Player characters</sup> [^2]
 
-Legend:
 
-1. [Change character](#playable-characters)
-2. [Elevator](#the-elevator)
-3. [Scenario lunchtime](#lunchtime)
-4. [Scenario computer science class](#computer-science-class)
-5. [Scenario softskills class](#softskills-class)
-6. [Scenario project time](#project-time)
-7. [Scenario the drone](#the-drone)
-8. [Scenario emergency](#emergency)
-9. [Scenario toilet rush](#toilet-rush)
+## Students NPC
+| Name - Gender   | Age | Locomotion                    | Lunch                             | Morning   | Afternoon | Likes                         | Dislikes                          | Details                               |
+|:---------------:|:---:|:-----------------------------:|:---------------------------------:|:---------:|:---------:|:-----------------------------:|:---------------------------------:|:-------------------------------------:|
+| Johnny - M      | 19  | Walks                         | Orders food                       | EN        | PR        | Rabbits, to play with drones  | Smoking people, loud noise        | Easily distracted                     |
+| Steph - F       | 21  | Drives, co-driving with Nick  | Eats in school                    | CS        | CS        | Boys Band, mushrooms          | Heated food                       | Has a small bladder, smokes           |
+| Janka - F       | 24  | Bus                           | Fast food restaurant              | SS        | SS        | Paralympics, Neon wheelchairs | Staircases,insects                | Wheelchair, ventolin                  |
+| Alexandre - M   | 18  | Bicycle                       | Eats outside                      | PR        | PR        | Italian food                  | Famous clothe brands, Crayfishes  | Always late                           |
+| Nick - M        | 27  | Is co-driven by Steph         | Bring his own meal                | PR        | PR        | Old tech, steam engines       | Smartphones, social medias        | Has a really old phone, wants to work in green energy, Eats a lot and very slowly |
+| Lindzy - F      | 17  | Bus                           | Eats outside                      | CS        | EN        | Music and arts                | Sports and small places           | Always wears headphone and is late    |
+| Denis - M       | 20  | Drives                        | Eats in school                    | EN        | CS        | Video games and anime         | Hard work and amateurs               | Speaks way too much                   |
+| Lana - F        | 22  | Drives                        | Goes out to buy than comes back   | EN        | SS        | Nature, tofu                  | Meat, fast food                   | Vegan, ric                            |
+| Sam - M         | 25  | Comes in a motorbike       | Uses kitchen and eats in school   | CS        | PR        | POH-TAH-TOES, unique jewelry  | Being hungry, bad hygiene         | Loves to eat, he is very short, likes to adventure    |
+| Gen-Eric - N/A  | 18  | Walks                         | Eats in school                    | PR        | CS        | Normal things                 | Strange things                    | Gen-Erics are normal students. Not aliens. Don't ask  |
 
-## The school building 
+## CNAM NPC
+|**Name** |**Age**  |**Locomotion** |**Eat**    |**Like**           |**Dislike**                  |**Details**                                      |
+|---      |---      |---            |---        |---                |---                          |---                                              |
+|Robert   |31y/o    |Drive          |Eat inside |football,beer      |books, the color red         |Forget his pass often, ask students to let him in|
+|Sarah    |38 y/o   |Walk           |Eat outside|fancy cars and dogs|tractors and all noisy things|Confident, arrives before everyone
 
-### Reworking the B3
+## Speakers NPC
 
-The 3D model of the building of the B3[^6] is provided at the start of the project, however it was made by an architect and is not optimised for a simulation.
+|**Name** |**Age**  |**Locomotion** |**Eat**    |**Like**|**Dislike**   |**Details**  |**Job**|
+|---      |---      |---            |---        |---     |---           |---          |---    |
+|Kenny    |34y/o    |Carpooling     |Eat outside|Disney princesses|animals,Russia|Is a bit hard to understand, needs a screen to display courses|Importance of life
+|Theresa  |48y/o    |Driving        |Eat in, orders food|Food and soccer|Cheating and git copilot|  Is overweight|C#/github
+|Chad     |30y/o    |Bicycle        |Eat healthy at “Au healthy”|beautiful things| Bells and ukrainian|Self overconfidence, chad behavior|Self Confidence
+|Branden  |25y/o    |Copilot       |eat on site|Nobody and monster drinks|Everyone, spiders|Long hair, big black coat, glasses|GO
+|Louisa   |29y/o    |Driving        |Eat outside |wine, competition|people that are lacking skills|Crazy hair, checked shirt and always broken glasses|Problem solving
 
-The model must be reworked, unnecerary meshes needs to be removed, parts of the building that were built using a large number of small meshes needs to be regrouped and materials as well as textures are complietelly missing.
 
-The building also needs to be decorated. It is currently complietelly empty.
-A computer museum needs to be added to the library and a gift shop must also be added somewhere in the building.
-Do not hesitate to apply tasteful amounts of creativity during the decorative process.
+# Scenarios
 
-### The elevator
-
-There is currently a elevator that can be found approximately in the middle of the building.
-This elevator must be made functional.
-
-## Playable characters
-
-The user must be able to play the simulation out from the perspective of different characters.
-These characters must be able to have different interactions and must be able to access different parts of the building.
-
-The user must be capable of choosing their preferred character at the reception.
-The reception must have a clear and highly visible indicator that marks it as the place to change character at.
-The map must have a pin that clearly indicates the location of the reception.
-The user must not be able to change his character mid-scenario.
-
-### Planned characters:
-
-- Student (m/f):
-  - Young looking characters, preferably with a similar not distinguishable model to that of the other student npc
-  - The student character must have access to the following rooms:
-    - Common rooms (ex: the relaxation room(s))
-    - The classrooms
-    - Their and only their project room
-    - Their respective toilets
-
-- Handicapped:
-  - Has a wheelchair
-  - Can not use the staircases but has access to the lift
-  - Moves a bit slower
-  - They are a normal student otherwise
-
-- Orator ("intervenant" in french):
-  - A bit older looking character
-  - The orator can access to the following rooms:
-    - Common rooms (ex: the relaxation room(s))
-    - The classrooms
-    - Any project room
-    - Their respective toilettes
-    - Teacher specific rooms (ex: Reunion rooms)
-  
-- Franck:
-  - A very Franck looking character
-  - Has access to every part of the school
-
-## Time
-
-The simulation must follow a sequence of timed events during which the user could roam the school building (only the parts available for the character in question).
-
-During each event the non-playable characters must live out a generic school day.
-
-## Predefined scenarios
-
-The simulation must contain a list of predefined scenarios.
-These scenarios must stay fairly simplistic.
-
-The objective of these scenarios is to simulate specific events from the perspective of different characters.
-
-### Planned scenarios:
-
-#### **Lunchtime**
+## **Lunchtime**
 
 Simulates lunchtime. Most students tries to access the food facilities (Microwaves, refrigerators, etc) at the same time.
 
@@ -148,20 +127,10 @@ Simulates lunchtime. Most students tries to access the food facilities (Microwav
 
 </details>
 
-<details>
-<summary>Characters this scenario is available for</summary>
-
-- Student (needs to eat with students)
-- Handicapped (needs to eat with students)
-- Orator (needs to eat with staff)
-- Franck (Roams free and observes)
-
-</details>
-
 <u>scenario script</u><br>
 <img src="img/PNGS FUNCTIONAL/LunchRush_PL.drawio.png">
 
-#### **Computer science class**
+## **Computer science class**
 
 In this scenario the user can experience a normal computer science class.
 
@@ -172,22 +141,12 @@ In this scenario the user can experience a normal computer science class.
 None
 </details>
 
-<details>
-<summary>Characters this scenario is available for</summary>
-
-- Student (Takes class)
-- Handicapped (Takes class)
-- Orator (Gives class)
-- Franck (Roams free and observes)
-
-</details>
-
 <u>scenario script</u><br>
 <img src="img/PNGS FUNCTIONAL/Computer science class_PL.png">
 
-#### **Softskills class**
+## **Soft skills class**
 
-In this scenario the user can experience a normal softskills class.
+In this scenario the user can experience a normal soft skills class.
 
 <br>
 
@@ -196,15 +155,6 @@ In this scenario the user can experience a normal softskills class.
 None
 </details>
 
-<details>
-<summary>Characters this scenario is available for</summary>
-
-- Student (Takes class)
-- Handicapped (Takes class)
-- Orator (Gives class)
-- Franck (Roams free and observes)
-
-</details>
 
 <u>scenario script</u><br>
 <img src="img/PNGS FUNCTIONAL/Soft skills_PL.png">
@@ -220,13 +170,18 @@ The user goes through a simple exercise to simulate project work.
 None
 </details>
 
+<u>scenario script</u><br>
+<img src="img/PNGS FUNCTIONAL/Project time_PL.png">
+
+## **Project time**
+
+The user goes through a simple exercise to simulate project work.
+
+<br>
+
 <details>
-<summary>Characters this scenario is available for</summary>
-
-- Student (Works on a project)
-- Handicapped (Works on a project)
-- Franck (Roams free and observes)
-
+<summary>Scenario settings</summary>
+None
 </details>
 
 <u>scenario script</u><br>
@@ -244,21 +199,12 @@ The user gets an opportunity to try out the drone in its intended area.
 None
 </details>
 
-<details>
-<summary>Characters this scenario is available for</summary>
-
-- Student (Drives drone)
-- Handicapped (Drives drone)
-
-</details>
-
 <u>scenario script</u><br>
 <img src="img/PNGS FUNCTIONAL/Drone_PL.png">
 
+#### **Toilet rush**
 
-#### **Emergency**
-
-The user experiences a fire emergency and needs to go through the emergency motions.
+A particularly high number of students needs to use the toilets at the same time.
 
 <br>
 
@@ -266,20 +212,11 @@ The user experiences a fire emergency and needs to go through the emergency moti
 <summary>Scenario settings</summary>
 
 - Number of students
-- Organization level (some student might waste time on gathering their holdings, or maybe they will be confused, etc..)
-</details>
-
-<details>
-<summary>Characters this scenario is available for</summary>
-
-- Student (user needs to exit the building then gets the amount of time they took)
-- Handicapped (user needs to exit the building then gets the amount of time they took)
-- Franck (user has to observe as everyone exits and gets the total amount of time it took)
-
+- The amount of time each student takes
 </details>
 
 <u>scenario script</u><br>
-<img src="img\PNGS FUNCTIONAL\Emergency_PL.drawio.png">
+<img src="img/PNGS FUNCTIONAL/ToiletRush_PL.png">
 
 
 #### **Toilet rush**
@@ -295,206 +232,30 @@ A particularly high number of students needs to use the toilets at the same time
 - The amount of time each student takes
 </details>
 
-<details>
-<summary>Characters this scenario is available for</summary>
-
-- Student (Has to use the bathroom)
-- Handicapped (Has to use the bathroom)
-- Franck (Roams free and observes)
-</details>
-
 <u>scenario script</u><br>
 <img src="img/PNGS FUNCTIONAL/ToiletRush_PL.png">
 
 
-## Non-playable characters
-
-Non playable characters must be able to pathfind and perform pre-scripted actions such as sit down, stand up, grabbing objects, etc.
-They must also be able to pathfind without bumping into each other.
-
-### Planned non player characters:
-
-- Students (m/f):
-  - They make up the bulk of the available non-playable characters.
-  - Characters enter the school building in the morning and leaves at night.
-  - They roam the school during breaks, pretend to socialize and visit the bathroom from time to time.
-  - They got to classrooms / project rooms (in teams of 4-8) during work hours.
-	- Move from class to class
-	- Is seated when in “Project time”, “Computer science class”
-	- Move erratically in the room when in “Soft Skill” (may change layout of table)
-	- Stand in group when in “Freetime”
-	- Try to find a seat when in “Freetime”
-	- Chance of exiting the building when “Lunch” otherwise go to cafeteria
-	- Access women's toilets
-	- Access men's toilets
-	- Rush for the exit when “end day”
-
-- Handicapped students:
-  - A rare, wheelchair version of students
-  - Can not use the staircases but has access to the lift
-  - Moves a bit slower
-
-  - Franck
-	- Can move whenever and  wherever he wants
-	- Can open all doors and lock them too
-	- Key to open the building
-	- Roam the building
-	- Otherwise sit at his desk
-	- Count people in “Fire Alarm” scenario
-
-- Orators ("intervenants" in french):
-  - There should be 1 orator for each class given to students that are not on project-time.
-  - They should roam the school freely during break-times but should mainly be in the staff-specific relaxation areas.
-  - They should give lectures during work hours.
-	- Goes from project room to another project room during “Project time”
-	- Coffee break
-	- Lunch break
-	- Courses on screen (remote work)
-	- Stand/Sit at their desk during “Computer Science class” and “Soft skill”
-	- Switch slides when in “Computer Science class” and “soft skill”
-	- Chance of exiting the building when “Lunch” otherwise go to cafeteria
-
-- Cleaning / Maintenance staff:
-  - They should came in specific hours.
-  - They should "do work"
-	- Roaming the building, only access empty room
-	- Exit when “lunch time”
-	- Continue their action when “end day”
-	- Regularly go to Cleaning Room
-	- Mimic cleaning ground.
-
-- Administration staff:
-  - Specific characters that follow strick scripts instead of automatically generated-agendas.
-
-
-
-# Generic Use case
-
-<img src="img/PNGS FUNCTIONAL/4F_general_usecase.drawio.png">
-
-#  Personaes
-
-- Users :
-	- Student :
-  	- Want to see what the B3[^6] will be like
-  	- Want it to be accommodating
-  	- Is interested in seeing how things are layed out
-  
-- Future Student
-    - Want to know how things are layed out
-    - want to experience what studying at Algosup will be like
-    - want to see what other student did
-
-- Investors
-    - Want to see what the B3 will be like
-    - Want to see if building is future proof
-    - Want to see if the school look at the future
-
-- Franck
-    - Want to see what the B3[^6] will be like
-    - Want to look for potential flow in the current design
-    - Want to get idea for future accommodation and system in the B3
-    - He wants to see how different materials and colors work together (or not) in the new building
-
-- Parents
-  	- Never used VR before
-    - Want to know how things are layed out
-    - Need to be convinced that Algosup is a good school
 # Minimum Viable Product	
 
 The criteria for the minimal viable product are:
-* The entire B3[^6] modelled with basic materials.
+* The entire B3[^4] modelled with basic materials.
 * Functional doors.
 * A single (articulated) playable character that can roam the school building.
 * VR compatibility.
-
-
-<!-- ------------------------------------------------------------------ -->
 
 
 # Footnotes
 
 ## Definitions
 
-[^1]: Snap turn : camera rotation in step of 10°, controlled by a joystick
-[^2]: Smooth turn : smooth camera rotation, controlled by a joystick
-[^3]: No-mode : smooth camera rotation, controlled by the VR headset
-[^4]: Teleportation : Move instantly to the point you are aiming at on the ground
-[^5]: Locomotion : Move like a traditional 1st person game using the joystick
-[^6]: B3 : The school building the simulation must take place in. A 3D model of the building is provided at the start of the project
-
-<!-- ------------------------------------------------------------------ -->
-<!-- ---------------------Discarded for now---------------------------- -->
-<!-- ------------------------------------------------------------------ -->
+[^1]: VR: Virtual reality (VR) is a simulated experience that can be similar to or completely different from the real world.
+[^2]: NPC(Non player character): A non-player character (NPC) is any character in a game or simulation that is not controlled by a player/user.
+[^3]: ALGOSUP: Computer science school from France (The B3 will be the main building of the school)
+[^4]: B3 : The school building the simulation must take place in. A 3D model of the building is provided at the start of the projectA.
 
 
-<!-- ## As Student
 
-- Lunch rush :
-  - most Student and Orator NPCs immediately go to the cafeteria
-  - remaining Student and Orator NPCs exit the building
-  - Once in the cafeteria NPCs get lunch from fridge
-  - NPCs go microwave, if no microwave available NPCs go sit
-  - NPC eat
-  - Outside NPC get back inside
-  - NPCs exit cafeteria and go in "free time" mode
 
-- Toilet rush :
-  - many student leave class to go to the nearest toilets
-  - NPCs wait in line for the toilet to be free
-  - When they exit NPC resume previews activity
 
-- Computer Science class :
-  - Student and a Teacher NPCs move toward the amphitheater
-  - Teacher stand behind his desk
-  - Student sits at random desk
-  - Teacher switch slides a few time
-  - Student all try to leave at once
-  - Student go in "free time" mode
 
-- Project time :
-  - student NPCs go in project room in groups of 8
-  - use card to open room
-  - student NPCs lock the room by scanning card
-  - as student player can not enter the room if card was not scanned before dor was locked
-  - student NPCs sit behind computer
-  - Slide change on the room's TV
-  - Teacher NPC can enter the room at some point with card
-  - after sometime students leave room and go in "free time" mode
-
-- Soft Skill :
-  - students NPC go to soft skills room
-  - teacher NPC Stand in the middle of the room
-  - some student move erratically around the room
-  - remaining student stand in circle
-  - Student all try to leave at once
-  - Student go in "free time" mode
-
-- Drone :
-  - One of the NPC group in "project time" mode leave their room
-  - students go to teacher
-  - teacher and student go to teacher computer
-  - student give teacher access card
-  - teacher manipulate card (supposed to represent allowing access to storage)
-  - teacher give back card to student NPC
-  - teacher resume previews activity
-  - student go to secured storage room
-  - scan card on drone shelf (confirm that student is allowed to take drone)
-  - take drone
-  - exit room and close dor
-  - go to drone testing area, lay drone on the ground and sit on bench
-  - NPC in "free time" mode near the drone testing may sit on bench or look at the cage
-  - Drone fly around the cage in pattern 
-  - after some time drone lands, "free time" NPC resume normal activity
-  - Group student pickup the drone and put it back in storage room
-  - Student group go back to project room
-
-- Free time : 
-  - some student will roam the school in groups
-  - some NPC will go on the terraces and stand in group, sit and/or smoke
-  - some NPC will go sit in rec room and look at their phone
-  - some NPC will go sit in the cafeteria and drink
-  - some NPC will sit on bench in the corridors and look at their phone -->
-
-<!-- - Emergency : -->
-<!-- Revisit end -->
