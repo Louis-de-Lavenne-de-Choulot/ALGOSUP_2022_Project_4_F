@@ -2,26 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OpenCloseSettings : MonoBehaviour
+namespace Settings
 {
-    public Camera playerCamera;
-    public int distance;
-
-    public void OpenSettingsMenu()
+    public class OpenCloseSettings : MonoBehaviour
     {
-        Transform cameratransform = playerCamera.transform;
+        public Camera playerCamera;
+        public int distance;
 
-        Vector3 direction = cameratransform.forward;
-        transform.rotation = Quaternion.LookRotation(direction);
+        public void OpenSettingsMenu()
+        {
+            Transform cameratransform = playerCamera.transform;
 
-        Vector3 newPos = cameratransform.position + (direction * distance);
-        transform.position = newPos;
-        this.enabled = true;
+            Vector3 direction = cameratransform.forward;
+            transform.rotation = Quaternion.LookRotation(direction);
 
-    }
+            Vector3 newPos = cameratransform.position + (direction * distance);
+            transform.position = newPos;
+            this.enabled = true;
 
-    public void CloseSettingsMenu()
-    {
-        this.enabled = false;
+        }
+
+        public void CloseSettingsMenu()
+        {
+            this.enabled = false;
+        }
     }
 }
