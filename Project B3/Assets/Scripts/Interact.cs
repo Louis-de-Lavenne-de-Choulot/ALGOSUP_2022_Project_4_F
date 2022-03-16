@@ -60,19 +60,20 @@ public class Interact : MonoBehaviour
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
 
         LayerMask scanerMask = LayerMask.GetMask("Scaner");
-        LayerMask pickUpMask = LayerMask.GetMask("Pick Up");
+        //LayerMask pickUpMask = LayerMask.GetMask("Pick Up");
 
         if (Physics.Raycast(ray, out hit, 10, scanerMask) && Input.GetMouseButtonDown(0) == true)
         {
             Animator scaner = hit.transform.parent.gameObject.GetComponent(typeof(Animator)) as Animator;
-            Animator door = hit.transform.parent.parent.GetChild(0).gameObject.GetComponent(typeof(Animator)) as Animator;
+            Animator door = hit.transform.parent.parent.gameObject.GetComponent(typeof(Animator)) as Animator;
+            Debug.Log(door + " interact");
 
             scaner.SetBool("isScan", false);
             scaner.SetBool("isScan fail", true);
             door.SetBool("hasScanned", false);
 
-            Animator scanR = hit.transform.parent.parent.GetChild(2).gameObject.GetComponent(typeof(Animator)) as Animator;
-            Animator scanL = hit.transform.parent.parent.GetChild(3).gameObject.GetComponent(typeof(Animator)) as Animator;
+            Animator scanR = hit.transform.parent.parent.GetChild(1).gameObject.GetComponent(typeof(Animator)) as Animator;
+            Animator scanL = hit.transform.parent.parent.GetChild(2).gameObject.GetComponent(typeof(Animator)) as Animator;
 
             if (hit.transform.tag == "Main gate" || hit.transform.tag == "Comon room")
             {
