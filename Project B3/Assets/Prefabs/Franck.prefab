@@ -2809,7 +2809,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 7111588371719443074}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   m_Radius: 17.269781
   m_Height: 188.90097
   m_Direction: 2
@@ -2843,16 +2843,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7111588371719443074}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d2b10de31aedd542a7f8882e033c218, type: 3}
+  m_Script: {fileID: 11500000, guid: cb22b7de367b36049a3f03f9eab6e33b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 12
-  groundDrag: 3
-  playerHeight: 160
-  ground:
-    serializedVersion: 2
-    m_Bits: 1
-  orientation: {fileID: 7636626526050617400}
+  goal: []
 --- !u!195 &7111588371719443083
 NavMeshAgent:
   m_ObjectHideFlags: 0
