@@ -5,7 +5,7 @@ public class Rain : MonoBehaviour
 {
     public Transform[] englishRooms;
     public Transform[] languageLabs;
-    public Transform[] softSkills;
+    public Transform softSkills;
     public Transform[] projectRooms;
     public Transform[] Lunch;
     public Transform Auditorium;

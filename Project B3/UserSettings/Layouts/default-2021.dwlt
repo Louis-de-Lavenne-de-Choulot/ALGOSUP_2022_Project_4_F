@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1440
     height: 784
   m_ShowMode: 4
-  m_Title: Navigation
+  m_Title: Console
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 36
+  controlID: 21
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 37
+  controlID: 22
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 38
+  controlID: 23
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -280,7 +280,7 @@ MonoBehaviour:
   - {fileID: 21}
   - {fileID: 22}
   m_Selected: 1
-  m_LastSelected: 2
+  m_LastSelected: 0
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -521,16 +521,16 @@ MonoBehaviour:
   m_WindowGUID: f2bb6c233627842ffa1df9bf2b6529da
   m_Gizmos: 0
   m_OverrideSceneCullingMask: 6917529027641081856
-  m_SceneIsLit: 1
+  m_SceneIsLit: 0
   m_SceneLighting: 1
   m_2DMode: 0
   m_isRotationLocked: 0
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -41.703922, y: 22.290459, z: 30.366407}
+    m_Target: {x: -26.893938, y: 0.0734601, z: -62.232193}
     speed: 2
-    m_Value: {x: -41.703922, y: 22.290459, z: 30.366407}
+    m_Value: {x: -26.893938, y: 0.0734601, z: -62.232193}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -577,13 +577,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.079085834, y: -0.92044, z: 0.25323242, w: -0.28718743}
+    m_Target: {x: 0.4854649, y: 0.06670249, z: -0.037176445, w: 0.8709669}
     speed: 2
-    m_Value: {x: -0.07908316, y: -0.92040884, z: 0.25322384, w: -0.2871777}
+    m_Value: {x: 0.48429787, y: 0.06283205, z: -0.03489567, w: 0.87194616}
   m_Size:
-    m_Target: 0.9211542
+    m_Target: 1.00248
     speed: 2
-    m_Value: 0.9211542
+    m_Value: 1.05088
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -638,10 +638,10 @@ MonoBehaviour:
     m_SaveData: []
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 126}
-      m_SelectedIDs: 5e2e0800
-      m_LastClickedID: 536158
-      m_ExpandedIDs: fa77f6ff967af6ff0645f7ffe446f7ff204cf7ffa8a5f9ff9442ffffd0dfffff8ee0ffff92e0ffffe4f3fffffefaffff647000003c730000262d08005a2d0800fa2f0800
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: 26720000
+      m_LastClickedID: 29222
+      m_ExpandedIDs: 8073ffff8473fffff677ffffe4f3ffffaafaffffc4faffffccfaffffd8fafffffefaffff26720000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -727,7 +727,7 @@ MonoBehaviour:
   m_ShowGizmos: 0
   m_TargetDisplay: 0
   m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
-  m_TargetSize: {x: 1920, y: 1080}
+  m_TargetSize: {x: 1321, y: 884}
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
@@ -742,10 +742,10 @@ MonoBehaviour:
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
-    m_HBaseRangeMin: -480
-    m_HBaseRangeMax: 480
-    m_VBaseRangeMin: -270
-    m_VBaseRangeMax: 270
+    m_HBaseRangeMin: -330.25
+    m_HBaseRangeMax: 330.25
+    m_VBaseRangeMin: -221
+    m_VBaseRangeMax: 221
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -765,7 +765,7 @@ MonoBehaviour:
       y: 21
       width: 660.5
       height: 442
-    m_Scale: {x: 0.6880208, y: 0.6880208}
+    m_Scale: {x: 1, y: 1}
     m_Translation: {x: 330.25, y: 221}
     m_MarginLeft: 0
     m_MarginRight: 0
@@ -773,12 +773,12 @@ MonoBehaviour:
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -480
-      y: -321.2112
-      width: 960
-      height: 642.4224
+      x: -330.25
+      y: -221
+      width: 660.5
+      height: 442
     m_MinimalGUI: 1
-  m_defaultScale: 0.6880208
+  m_defaultScale: 1
   m_LastWindowPixelSize: {x: 1321, y: 926}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
@@ -890,13 +890,13 @@ MonoBehaviour:
     m_SkipHidden: 1
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs
+    - Assets
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Prefabs
+  - Assets
   m_LastFoldersGridSize: -1
   m_LastProjectPath: /Users/polonit/Documents/GitHub/Algosup_2022_Project_4_F/Project
     B3
@@ -904,9 +904,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 31}
-    m_SelectedIDs: 76740100
-    m_LastClickedID: 95350
-    m_ExpandedIDs: 00000000aa73010086740100488c0100
+    m_SelectedIDs: 92720100
+    m_LastClickedID: 94866
+    m_ExpandedIDs: 0000000092720100
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -934,7 +934,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000aa730100
+    m_ExpandedIDs: 0000000092720100
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -959,8 +959,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 0a33f6ff
-    m_LastClickedInstanceID: -642294
+    m_SelectedInstanceIDs: 26720000
+    m_LastClickedInstanceID: 29222
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000000000007e5c0700
     m_RenameOverlay:
@@ -986,7 +986,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 79.99979}
+    m_ScrollPosition: {x: 0, y: 0}
     m_GridSize: 64
   m_SkipHiddenPackages: 1
   m_DirectoriesAreaWidth: 207
@@ -1083,7 +1083,7 @@ MonoBehaviour:
     m_CachedPref: 160
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
-  m_LastInspectedObjectInstanceID: -642602
+  m_LastInspectedObjectInstanceID: -1
   m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0
