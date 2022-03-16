@@ -23,8 +23,9 @@ public class DoorTriger : MonoBehaviour
     {
         if(other.tag == "door")
         {
-            Animator animator = other.transform.parent.gameObject.GetComponent(typeof(Animator)) as Animator;
-            animator.SetBool("doorOpen", true);
+            Animator door = other.transform.parent.parent.gameObject.GetComponent(typeof(Animator)) as Animator;
+            Debug.Log(door + " triger");
+            door.SetBool("doorOpen", true);
         }
     }
 
@@ -32,9 +33,9 @@ public class DoorTriger : MonoBehaviour
     {
         if (other.tag == "door" && time > 5f)
         {
-            Animator door = other.transform.parent.gameObject.GetComponent(typeof(Animator)) as Animator;
-            Animator scanerR = other.transform.parent.parent.GetChild(2).gameObject.GetComponent(typeof(Animator)) as Animator;
-            Animator scanerL = other.transform.parent.parent.GetChild(3).gameObject.GetComponent(typeof(Animator)) as Animator;
+            Animator door = other.transform.parent.parent.gameObject.GetComponent(typeof(Animator)) as Animator;
+            Animator scanerR = other.transform.parent.parent.GetChild(1).gameObject.GetComponent(typeof(Animator)) as Animator;
+            Animator scanerL = other.transform.parent.parent.GetChild(2).gameObject.GetComponent(typeof(Animator)) as Animator;
 
             scanerR.SetBool("isScan", false);
             scanerR.SetBool("isScan fail", false);
