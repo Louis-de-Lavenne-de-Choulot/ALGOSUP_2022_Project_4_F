@@ -1163,6 +1163,7 @@ GameObject:
   - component: {fileID: 6375594915312796744}
   - component: {fileID: 6375594915312796748}
   - component: {fileID: -2968900132534911555}
+  - component: {fileID: 8328506400489923925}
   m_Layer: 0
   m_Name: WhellChairRigged 1 (1)
   m_TagString: Untagged
@@ -1270,6 +1271,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goal: []
+--- !u!114 &8328506400489923925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6375594915312796727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02d61468f8b77ae4b92c344bc9a600fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_allowOffhandGrab: 1
+  m_snapPosition: 0
+  m_snapOrientation: 0
+  m_snapOffset: {fileID: 0}
+  m_grabPoints:
+  - {fileID: 6375594915312796744}
 --- !u!1 &6805339911063865902
 GameObject:
   m_ObjectHideFlags: 0
