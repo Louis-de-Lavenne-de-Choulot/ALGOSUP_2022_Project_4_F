@@ -14,6 +14,8 @@ namespace Settings
 
         Button button;
 
+        float height;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -23,9 +25,8 @@ namespace Settings
 
         void ModifyHeight()
         {
-            float iHeight = float.Parse(cHeight.text);
-            iHeight += isplus ? 0.01f : -0.01f;
-            cHeight.text = iHeight.ToString();
+            height += isplus ? 0.01f : -0.01f;
+            cHeight.text = height.ToString() + " m";
         }
 
 

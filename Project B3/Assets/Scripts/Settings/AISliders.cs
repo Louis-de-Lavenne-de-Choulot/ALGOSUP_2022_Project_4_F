@@ -13,24 +13,20 @@ namespace AdvancedAI
         public Button decrease;
         public string target;
         public TMP_Text textComponent;
-        private float previous;
-
+        private int current;
         public void Start()
         {
-            slider.onValueChanged.AddListener(delegate {tryIncreaseSlider();});
-            increase.onClick.AddListener(delegate {updateSliderAndText(AIManager.trychange(target,1));});
-            decrease.onClick.AddListener(delegate {updateSliderAndText(AIManager.trychange(target,-1));});
+            slider.onValueChanged.AddListener(delegate {updateSliderAndText(AIManager.trychange(target,(int)slider.value));});
+            increase.onClick.AddListener(delegate {updateSliderAndText(AIManager.trychange(target,current + 1));});
+            decrease.onClick.AddListener(delegate {updateSliderAndText(AIManager.trychange(target,current - 1));});
+            slider.value = PlayerPrefs.GetInt(target);
         }
 
-        void tryIncreaseSlider()
+        void updateSliderAndText(int newvalue)
         {
-            int change = (int) (slider.value - previous);
-            updateSliderAndText(AIManager.trychange(target,change *10));
-        }
-        void updateSliderAndText(int value)
-        {
-            textComponent.text = value.ToString();
-            slider.value = value/10;
+            textComponent.text = newvalue.ToString();
+            slider.value = newvalue;
+            current = newvalue;
         }
     }
 }

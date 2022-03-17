@@ -9,14 +9,12 @@ namespace AdvancedAI
 {
     public class AIManager : MonoBehaviour
     {
-        #region Attributes
         public Slider slider;
         public TMP_Text text;
         public static int maxAI;
         static int currentAI;
         public static string[] AIList = new string[] {"Basic","Johnny","Steph","Janka","Alexandre","Nick","Lindzy","Denis","Lana","Sam","Robert","Sarah","Kenny","Theresa","Chad","Branden","Louisa"};
 
-        #endregion Attributes
         void Awake()
         {
             PlayerPrefs.DeleteAll();
@@ -77,8 +75,9 @@ namespace AdvancedAI
                 currentAI = maxAI;
                 return Mathf.Max(0,amount + avalaible);
             }
-            PlayerPrefs.SetInt(name,Mathf.Max(0,amount+change));
-            return Mathf.Max(0,amount+change);
+            PlayerPrefs.SetInt(name,Mathf.Max(0,change));
+            currentAI = Mathf.Max(0,currentAI + change);
+            return change;
         }
     }
 }

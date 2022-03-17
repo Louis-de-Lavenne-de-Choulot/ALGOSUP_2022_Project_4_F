@@ -1,30 +1,49 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using OVR;
 
 namespace Settings
 {
     public class OpenCloseSettings : MonoBehaviour
     {
-        public Camera playerCamera;
+        public GameObject rightHand;
         public int distance;
 
-        public void OpenSettingsMenu()
+        public GameObject menu;
+        public Button button;
+
+        void Start()
         {
-            Transform cameratransform = playerCamera.transform;
+            button.onClick.AddListener(delegate{CloseSettingsMenu();});
+        }
 
-            Vector3 direction = cameratransform.forward;
-            transform.rotation = Quaternion.LookRotation(direction);
+        void Update()
+        {
+            OVRInput.Update();
+            if(OVRInput.Get(OVRInput.RawButton.A))
+            {
+                OpenSettingsMenu();
+            }
+        }
 
-            Vector3 newPos = cameratransform.position + (direction * distance);
-            transform.position = newPos;
-            this.enabled = true;
+        void OpenSettingsMenu()
+        {
+            Transform rightHandTransform = rightHand.transform;
+
+            Vector3 direction = rightHandTransform.forward;
+            menu.transform.rotation = Quaternion.LookRotation(direction);
+
+            Vector3 newPos = rightHandTransform.position + (direction * distance);
+            menu.transform.position = newPos;
+            menu.SetActive(true);
 
         }
 
-        public void CloseSettingsMenu()
+        void CloseSettingsMenu()
         {
-            this.enabled = false;
+            menu.SetActive(false);
         }
     }
 }

@@ -8,18 +8,26 @@ namespace Settings
 
     public class GameSettings : MonoBehaviour
     {
+
+        public GameObject Player;
         public void Respawn()
         {
-            if (SceneManager.GetActiveScene().name != "Main Menu")
+            if (SceneManager.GetActiveScene().name == "Main Menu")
             {
-                return;
+                Player.transform.SetPositionAndRotation(Vector3.zero,Quaternion.identity);
             }
-            return;
+            else
+            {
+                Player.transform.SetPositionAndRotation(Vector3.zero,Quaternion.identity);
+            }
         }
 
         public void ReturnToMenu()
         {
-            return;
+            if(SceneManager.GetActiveScene().name != "Main Menu")
+            {
+                SceneManager.LoadScene("Main Menu");
+            }
         }
 
         public void StopScenario()
