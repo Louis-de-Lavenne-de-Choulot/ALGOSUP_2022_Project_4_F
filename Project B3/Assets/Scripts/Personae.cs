@@ -5,8 +5,8 @@ using UnityEngine;
 public class Personae : MonoBehaviour
 {
     char _lunch;
-    char _morning;
-    char _afternoon;
+    char _morning1;
+    char _afternoon1;
     char _morning2;
     char _afternoon2;
     char _morning3;
