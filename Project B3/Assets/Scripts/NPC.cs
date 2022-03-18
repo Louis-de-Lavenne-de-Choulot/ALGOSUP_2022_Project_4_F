@@ -6,6 +6,7 @@ public class NPC : MonoBehaviour
 {
     // Start is called before the first frame update
     float cooldown = 60F;
+    float period;
     public Transform[] goal;
     Transform agentPos;
     Vector3 agentLastPos;
@@ -29,9 +30,9 @@ public class NPC : MonoBehaviour
             agentLastPos = agentPos.position;
             anim.SetBool("isMoving", true);
         }else{
-            if(Time.time > cooldown)
+            if(Time.time > period)
             {
-                    cooldown = Time.time + cooldown;
+                    period = Time.time + cooldown;
             }
             anim.SetBool("isMoving", false);
             transform.position = goal[0].position;
