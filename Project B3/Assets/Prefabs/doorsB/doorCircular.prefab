@@ -298,7 +298,6 @@ GameObject:
   - component: {fileID: 7013415172857393090}
   - component: {fileID: 1991629476989808687}
   - component: {fileID: 2557533523409705781}
-  - component: {fileID: 5102320517939058462}
   m_Layer: 0
   m_Name: door_trim.002
   m_TagString: door
@@ -371,19 +370,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5102320517939058462
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2649256930410325627}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.021318154, y: 0.002086907, z: 0.0012869181}
-  m_Center: {x: -0.000000059604645, y: -9.078496e-19, z: 0.0038603651}
 --- !u!1 &3931321705770964529
 GameObject:
   m_ObjectHideFlags: 0
@@ -631,7 +617,7 @@ GameObject:
   - component: {fileID: 7829391881272555869}
   m_Layer: 6
   m_Name: wall scanner
-  m_TagString: Main gate
+  m_TagString: Project
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -956,7 +942,7 @@ GameObject:
   - component: {fileID: 2609774560584357378}
   m_Layer: 6
   m_Name: wall scanner
-  m_TagString: Main gate
+  m_TagString: Project
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
