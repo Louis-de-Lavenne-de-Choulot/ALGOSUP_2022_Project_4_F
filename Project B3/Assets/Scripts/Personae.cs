@@ -18,8 +18,8 @@ public class Personae : MonoBehaviour
 
     public Personae(char lunch, char morning, char afternoon, char morning2, char afternoon2, char morning3, char afternoon3, char morning4, char afternoon4, char morning5, char afternoon5){
         _lunch = lunch;
-        _morning = morning;
-        _afternoon = afternoon;
+        _morning1 = morning;
+        _afternoon1 = afternoon;
         _morning2 = morning2;
         _afternoon2 = afternoon2;
         _morning3 = morning3;

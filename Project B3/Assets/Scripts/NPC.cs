@@ -16,8 +16,8 @@ public class NPC : MonoBehaviour
         anim = gameObject.GetComponent<Animator>();
         agentPos = gameObject.GetComponent<Transform>();
         agent = gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>();
-        // agent.speed = 3;
-        // agent.destination = goal[0].position;
+        agent.speed = 3;
+        agent.destination = goal[0].position;
     }
 
     // Update is called once per frame
@@ -26,8 +26,8 @@ public class NPC : MonoBehaviour
         bool shouldMove = agentPos.position != agentLastPos && agent.remainingDistance > agent.radius;
         if (shouldMove){
             agentLastPos = agentPos.position;
+            anim.SetBool("isMoving", false);
         }
-        anim.SetBool("IsMoving", true);
-        Debug.DrawRay(agentPos.position, Vector3.forward, Color.red);
+        anim.SetBool("isMoving", true);
     }
 }
