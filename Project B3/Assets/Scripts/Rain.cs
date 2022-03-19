@@ -11,17 +11,17 @@ public class Rain : MonoBehaviour
     public Transform Auditorium;
     public Transform[] Toilettes;
     public GameObject[] toInit;
-    int johnny = Menu_Settings.number_of_Johnny;
-    int steph = Menu_Settings.number_of_Steph;
-    int alexandre = Menu_Settings.number_of_Alexandre;
-    int janka = Menu_Settings.number_of_Janka;
-    int nick = Menu_Settings.number_of_Nick;
-    int lindzy = Menu_Settings.number_of_Lindzy;
-    int eric = Menu_Settings.number_of_Eric;
-    int lana = Menu_Settings.number_of_Lana;
-    int sam = Menu_Settings.number_of_Sam;
-    int basics = Menu_Settings.number_of_Basics;
-    int maxNumber = Menu_Settings.max;
+    int johnny = 0;
+    int steph = 0;
+    int alexandre = 0;
+    int janka = 0;
+    int nick = 0;
+    int lindzy = 0;
+    int eric =0;
+    int lana =0;
+    int sam =0;
+    int basics =0;
+    int maxNumber =0;
     public Transform recept;
     // Start is called before the first frame update
     void Start()

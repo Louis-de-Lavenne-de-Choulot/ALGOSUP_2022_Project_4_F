@@ -4,36 +4,39 @@ using UnityEngine;
 using UnityEngine.UI;
 using OVR;
 
-public class TurnMode : MonoBehaviour
+namespace Settings
 {
-    public Toggle Smooth;
-    public Toggle Snap;
-
-    public Toggle None;
-    public OVRPlayerController controller;
-
-    void Start()
+    public class TurnMode : MonoBehaviour
     {
-        Smooth.onValueChanged.AddListener(delegate{toSmooth();});
-        Snap.onValueChanged.AddListener(delegate{toSnap();});
-        None.onValueChanged.AddListener(delegate{toNone();});
-    }
+        public Toggle Smooth;
+        public Toggle Snap;
 
-    void toSmooth()
-    {
-        controller.SnapRotation = false;
-        controller.EnableRotation = true;
-    }
+        public Toggle None;
+        public SimpleCapsuleWithStickMovement controller;
 
-    void toSnap()
-    {
-        controller.SnapRotation = true;
-        controller.EnableRotation = true;
-    }
-    void toNone()
-    {
-        controller.EnableRotation = false;
-    }
+        void Start()
+        {
+            Smooth.onValueChanged.AddListener(delegate { if (Smooth.isOn) toSmooth(); });
+            Snap.onValueChanged.AddListener(delegate { if (Snap.isOn) toSnap(); });
+            None.onValueChanged.AddListener(delegate { if (None.isOn) toNone(); });
+        }
+
+        void toSmooth()
+        {
+            controller.SnapTurnMode = false;
+            controller.EnableRotation = true;
+        }
+
+        void toSnap()
+        {
+            controller.SnapTurnMode = true;
+            controller.EnableRotation = true;
+        }
+        void toNone()
+        {
+            controller.EnableRotation = false;
+        }
 
 
+    }
 }

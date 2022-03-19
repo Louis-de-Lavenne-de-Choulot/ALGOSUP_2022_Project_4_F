@@ -6,27 +6,29 @@ using TMPro;
 using UnityEngine.UI;
 namespace Settings
 {
-    public class HeightSetting : MonoBehaviour
+    public class HeightSettings : MonoBehaviour
     {
-        public bool isplus;
-
         public TMP_Text cHeight;
+        public Button plus;
+        public Button minus;
+        public CharacterCameraConstraint ccamera;
+        float height = 1.8f;
 
-        Button button;
 
-        float height;
 
         // Start is called before the first frame update
         void Start()
         {
-            button = GetComponent<Button>();
-            button.onClick.AddListener(ModifyHeight);
+            plus.onClick.AddListener(delegate { ModifyHeight(true); });
+            minus.onClick.AddListener(delegate { ModifyHeight(false); });
+
         }
 
-        void ModifyHeight()
+        void ModifyHeight(bool isplus)
         {
             height += isplus ? 0.01f : -0.01f;
             cHeight.text = height.ToString() + " m";
+            ccamera.HeightOffset = height - 1;
         }
 
 

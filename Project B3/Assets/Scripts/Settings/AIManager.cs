@@ -13,7 +13,7 @@ namespace AdvancedAI
         public TMP_Text text;
         public static int maxAI;
         static int currentAI;
-        public static string[] AIList = new string[] {"Basic","Johnny","Steph","Janka","Alexandre","Nick","Lindzy","Denis","Lana","Sam","Robert","Sarah","Kenny","Theresa","Chad","Branden","Louisa"};
+        public static string[] AIList = new string[] {"Basic","Johnny","Steph","Janka","Alexandre","Nick","Lindzy","Denis","Lana","Sam"};
 
         void Awake()
         {

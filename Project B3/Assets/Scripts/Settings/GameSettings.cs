@@ -26,7 +26,7 @@ namespace Settings
         {
             if(SceneManager.GetActiveScene().name != "Main Menu")
             {
-                SceneManager.LoadScene("Main Menu");
+                SceneManager.LoadScene(1,LoadSceneMode.Single);
             }
         }
 
