@@ -8281,6 +8281,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 610894683}
   m_CullTransparentMesh: 1
+--- !u!114 &614357090 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1184412211170436702, guid: 567d716910ba9431689de9fddb9cdb13, type: 3}
+  m_PrefabInstance: {fileID: 6066669140423775113}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df9f338034892c44ebb62d97894772f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &619549825
 GameObject:
   m_ObjectHideFlags: 0
@@ -11033,7 +11044,7 @@ GameObject:
   - component: {fileID: 949136361}
   - component: {fileID: 949136364}
   - component: {fileID: 949136363}
-  - component: {fileID: 949136362}
+  - component: {fileID: 949136365}
   m_Layer: 5
   m_Name: Nick
   m_TagString: Untagged
@@ -11066,23 +11077,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 65.2}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &949136362
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 949136360}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c46b4eaf234a25f45ac0058e3a2ffbf5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slider: {fileID: 2020271134}
-  increase: {fileID: 102697031}
-  decrease: {fileID: 771301504}
-  target: Nick
-  textComponent: {fileID: 471127058}
 --- !u!114 &949136363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11121,6 +11115,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 949136360}
   m_CullTransparentMesh: 1
+--- !u!114 &949136365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 949136360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33bfe90146184b249ab1151f2859e078, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 2020271134}
+  increase: {fileID: 102697031}
+  decrease: {fileID: 771301504}
+  target: Nick
+  textComponent: {fileID: 35410920}
 --- !u!1 &949865358
 GameObject:
   m_ObjectHideFlags: 0
@@ -11647,7 +11658,7 @@ GameObject:
   - component: {fileID: 983915958}
   - component: {fileID: 983915961}
   - component: {fileID: 983915960}
-  - component: {fileID: 983915959}
+  - component: {fileID: 983915962}
   m_Layer: 5
   m_Name: Denis
   m_TagString: Untagged
@@ -11680,23 +11691,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 65.2}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &983915959
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 983915957}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c46b4eaf234a25f45ac0058e3a2ffbf5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slider: {fileID: 1135832726}
-  increase: {fileID: 1363088955}
-  decrease: {fileID: 376511678}
-  target: Denis
-  textComponent: {fileID: 609885372}
 --- !u!114 &983915960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11735,6 +11729,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 983915957}
   m_CullTransparentMesh: 1
+--- !u!114 &983915962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 983915957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33bfe90146184b249ab1151f2859e078, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 1135832726}
+  increase: {fileID: 1363088955}
+  decrease: {fileID: 376511678}
+  target: Denis
+  textComponent: {fileID: 1324236569}
 --- !u!1 &1003036385
 GameObject:
   m_ObjectHideFlags: 0
@@ -12136,7 +12147,7 @@ GameObject:
   - component: {fileID: 1030417162}
   - component: {fileID: 1030417165}
   - component: {fileID: 1030417164}
-  - component: {fileID: 1030417163}
+  - component: {fileID: 1030417166}
   m_Layer: 5
   m_Name: Sam
   m_TagString: Untagged
@@ -12169,23 +12180,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 65.2}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1030417163
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1030417161}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c46b4eaf234a25f45ac0058e3a2ffbf5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slider: {fileID: 19644757}
-  increase: {fileID: 949865360}
-  decrease: {fileID: 183347327}
-  target: Sam
-  textComponent: {fileID: 228372914}
 --- !u!114 &1030417164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12224,6 +12218,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1030417161}
   m_CullTransparentMesh: 1
+--- !u!114 &1030417166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1030417161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33bfe90146184b249ab1151f2859e078, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 19644757}
+  increase: {fileID: 949865360}
+  decrease: {fileID: 183347327}
+  target: Sam
+  textComponent: {fileID: 1427364133}
 --- !u!1 &1045594645
 GameObject:
   m_ObjectHideFlags: 0
@@ -13430,7 +13441,7 @@ GameObject:
   - component: {fileID: 1135128106}
   - component: {fileID: 1135128109}
   - component: {fileID: 1135128108}
-  - component: {fileID: 1135128107}
+  - component: {fileID: 1135128110}
   m_Layer: 5
   m_Name: Lindzy
   m_TagString: Untagged
@@ -13463,23 +13474,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 65.2}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1135128107
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1135128105}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c46b4eaf234a25f45ac0058e3a2ffbf5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slider: {fileID: 325026475}
-  increase: {fileID: 619549827}
-  decrease: {fileID: 730419739}
-  target: Lindzy
-  textComponent: {fileID: 164743749}
 --- !u!114 &1135128108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13518,6 +13512,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1135128105}
   m_CullTransparentMesh: 1
+--- !u!114 &1135128110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1135128105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33bfe90146184b249ab1151f2859e078, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 325026475}
+  increase: {fileID: 619549827}
+  decrease: {fileID: 730419739}
+  target: Lindzy
+  textComponent: {fileID: 1143787268}
 --- !u!1 &1135832723
 GameObject:
   m_ObjectHideFlags: 0
@@ -14711,7 +14722,7 @@ GameObject:
   - component: {fileID: 1218778342}
   - component: {fileID: 1218778345}
   - component: {fileID: 1218778344}
-  - component: {fileID: 1218778343}
+  - component: {fileID: 1218778346}
   m_Layer: 5
   m_Name: Johnny
   m_TagString: Untagged
@@ -14744,23 +14755,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 65.2}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1218778343
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1218778341}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c46b4eaf234a25f45ac0058e3a2ffbf5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slider: {fileID: 1432453594}
-  increase: {fileID: 420408532}
-  decrease: {fileID: 1551473622}
-  target: Johnny
-  textComponent: {fileID: 353047949}
 --- !u!114 &1218778344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14799,6 +14793,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1218778341}
   m_CullTransparentMesh: 1
+--- !u!114 &1218778346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1218778341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33bfe90146184b249ab1151f2859e078, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 1432453594}
+  increase: {fileID: 420408532}
+  decrease: {fileID: 1551473622}
+  target: Johnny
+  textComponent: {fileID: 353047949}
 --- !u!1 &1230297840
 GameObject:
   m_ObjectHideFlags: 0
@@ -14810,7 +14821,7 @@ GameObject:
   - component: {fileID: 1230297841}
   - component: {fileID: 1230297844}
   - component: {fileID: 1230297843}
-  - component: {fileID: 1230297842}
+  - component: {fileID: 1230297845}
   m_Layer: 5
   m_Name: Alexandre
   m_TagString: Untagged
@@ -14843,23 +14854,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 65.2}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1230297842
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1230297840}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c46b4eaf234a25f45ac0058e3a2ffbf5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slider: {fileID: 1147576412}
-  increase: {fileID: 809759803}
-  decrease: {fileID: 1150672589}
-  target: Alexandre
-  textComponent: {fileID: 1012403719}
 --- !u!114 &1230297843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14898,6 +14892,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1230297840}
   m_CullTransparentMesh: 1
+--- !u!114 &1230297845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1230297840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33bfe90146184b249ab1151f2859e078, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 1147576412}
+  increase: {fileID: 809759803}
+  decrease: {fileID: 1150672589}
+  target: Alexandre
+  textComponent: {fileID: 889248362}
 --- !u!1 &1258703862
 GameObject:
   m_ObjectHideFlags: 0
@@ -15840,7 +15851,7 @@ GameObject:
   - component: {fileID: 1357256894}
   - component: {fileID: 1357256897}
   - component: {fileID: 1357256896}
-  - component: {fileID: 1357256895}
+  - component: {fileID: 1357256898}
   m_Layer: 5
   m_Name: Janka
   m_TagString: Untagged
@@ -15873,23 +15884,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 65.2}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1357256895
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1357256893}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c46b4eaf234a25f45ac0058e3a2ffbf5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slider: {fileID: 1003036388}
-  increase: {fileID: 1261610600}
-  decrease: {fileID: 1560022988}
-  target: Janka
-  textComponent: {fileID: 1742932337}
 --- !u!114 &1357256896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15928,6 +15922,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1357256893}
   m_CullTransparentMesh: 1
+--- !u!114 &1357256898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357256893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33bfe90146184b249ab1151f2859e078, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 1003036388}
+  increase: {fileID: 1261610600}
+  decrease: {fileID: 1560022988}
+  target: Jank
+  textComponent: {fileID: 791755940}
 --- !u!1 &1363088953
 GameObject:
   m_ObjectHideFlags: 0
@@ -16383,7 +16394,7 @@ GameObject:
   - component: {fileID: 1400993675}
   - component: {fileID: 1400993678}
   - component: {fileID: 1400993677}
-  - component: {fileID: 1400993676}
+  - component: {fileID: 1400993679}
   m_Layer: 5
   m_Name: Lana
   m_TagString: Untagged
@@ -16416,23 +16427,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 65.2}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1400993676
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1400993674}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c46b4eaf234a25f45ac0058e3a2ffbf5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slider: {fileID: 979508195}
-  increase: {fileID: 502062645}
-  decrease: {fileID: 353702313}
-  target: Lana
-  textComponent: {fileID: 440322607}
 --- !u!114 &1400993677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16471,6 +16465,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1400993674}
   m_CullTransparentMesh: 1
+--- !u!114 &1400993679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400993674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33bfe90146184b249ab1151f2859e078, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 979508195}
+  increase: {fileID: 502062645}
+  decrease: {fileID: 353702313}
+  target: Lana
+  textComponent: {fileID: 1057142272}
 --- !u!1 &1415435292
 GameObject:
   m_ObjectHideFlags: 0
@@ -17380,7 +17391,7 @@ GameObject:
   - component: {fileID: 1435680675}
   - component: {fileID: 1435680678}
   - component: {fileID: 1435680677}
-  - component: {fileID: 1435680676}
+  - component: {fileID: 1435680679}
   m_Layer: 5
   m_Name: Steph
   m_TagString: Untagged
@@ -17413,23 +17424,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 65.2}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1435680676
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1435680674}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c46b4eaf234a25f45ac0058e3a2ffbf5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slider: {fileID: 965897998}
-  increase: {fileID: 1258703864}
-  decrease: {fileID: 1760321675}
-  target: Steph
-  textComponent: {fileID: 1184511586}
 --- !u!114 &1435680677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17468,6 +17462,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1435680674}
   m_CullTransparentMesh: 1
+--- !u!114 &1435680679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435680674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33bfe90146184b249ab1151f2859e078, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 965897998}
+  increase: {fileID: 1258703864}
+  decrease: {fileID: 1760321675}
+  target: Steph
+  textComponent: {fileID: 1118609578}
 --- !u!1 &1451083372
 GameObject:
   m_ObjectHideFlags: 0
@@ -19348,7 +19359,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1693519968}
   - component: {fileID: 1693519970}
-  - component: {fileID: 1693519969}
+  - component: {fileID: 1693519971}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -19379,20 +19390,6 @@ RectTransform:
   m_AnchoredPosition: {x: 147.4, y: 0}
   m_SizeDelta: {x: 209, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1693519969
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1693519967}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 544ced899e40ad944b951c9d5f3089d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slider: {fileID: 1693519970}
-  text: {fileID: 677438081}
 --- !u!114 &1693519970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19444,6 +19441,30 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1693519971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1693519967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 544ced899e40ad944b951c9d5f3089d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 1693519970}
+  text: {fileID: 677438081}
+  amounts:
+  - {fileID: 1218778346}
+  - {fileID: 1435680679}
+  - {fileID: 1357256898}
+  - {fileID: 1230297845}
+  - {fileID: 949136365}
+  - {fileID: 1135128110}
+  - {fileID: 983915962}
+  - {fileID: 1400993679}
+  - {fileID: 1030417166}
 --- !u!1 &1742932336
 GameObject:
   m_ObjectHideFlags: 0
@@ -24080,6 +24101,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1184412210742882717, guid: 567d716910ba9431689de9fddb9cdb13, type: 3}
+      propertyPath: CameraRig
+      value: 
+      objectReference: {fileID: 614357090}
     - target: {fileID: 1184412210965565676, guid: 567d716910ba9431689de9fddb9cdb13, type: 3}
       propertyPath: m_Mesh
       value: 

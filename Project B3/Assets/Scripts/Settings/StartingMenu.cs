@@ -33,7 +33,8 @@ namespace Settings
         }
         public void changeDay(int change)
         {
-            current = (current + change) % 5;
+            current += change;
+            current = current == 5 ? 0 : current == -1 ? 4 : current;
             text.text = ((Day) current).ToString();
         }
 
