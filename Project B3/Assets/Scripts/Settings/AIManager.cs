@@ -43,6 +43,8 @@ namespace AdvancedAI
                 maxAI = (int)slider.value;
                 text.text = maxAI.ToString();
             }
+            PlayerPrefs.SetInt("MaxAI",maxAI);
+
         }
 
         static void populatePrefs()
@@ -51,6 +53,7 @@ namespace AdvancedAI
             {
                 PlayerPrefs.SetInt(personae,0);
             }
+            PlayerPrefs.SetInt("MaxAI",0);
             PlayerPrefs.SetString("populated","true");
         }
 
@@ -61,6 +64,7 @@ namespace AdvancedAI
             {
                 acc += PlayerPrefs.GetInt(personae,0);
             }
+            maxAI = PlayerPrefs.GetInt("MaxAi");
             return acc;
         }
 
@@ -70,11 +74,13 @@ namespace AdvancedAI
             {
                 int avalaible = maxAI - currentAI;
                 PlayerPrefs.SetInt(name,previous + avalaible);
+                PlayerPrefs.SetInt("Basic",0);
                 currentAI = maxAI;
                 return previous + avalaible;
             }
             PlayerPrefs.SetInt(name,newval);
             currentAI = currentAI + newval - previous;
+            PlayerPrefs.SetInt("Basic",maxAI-currentAI);
             return newval;
         }
     }
