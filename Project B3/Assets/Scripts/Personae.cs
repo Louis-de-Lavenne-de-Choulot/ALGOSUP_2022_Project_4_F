@@ -30,22 +30,23 @@ public class Personae : MonoBehaviour
         _afternoon5 = afternoon5;
     }
 
-    Personae johnny = new Personae('O', 'E', 'P', 'S', 'S', 'P', 'P', 'C', 'C', 'P', 'P');
+    // G = get/order food, O = outside, I = inside, B = bring his meal
+    Personae johnny = new Personae('G', 'E', 'P', 'S', 'S', 'P', 'P', 'C', 'C', 'P', 'P');
 
-    Personae steph = new Personae('O', 'C', 'C', 'E', 'P', 'S', 'S', 'P', 'P', 'P', 'P');
+    Personae steph = new Personae('I', 'C', 'C', 'E', 'P', 'S', 'S', 'P', 'P', 'P', 'P');
 
     Personae alexandre = new Personae('O', 'P', 'P', 'P', 'E', 'P', 'P', 'S', 'S', 'C', 'C');
 
     Personae janka = new Personae('O', 'S', 'S', 'C', 'C', 'P', 'E', 'P', 'P', 'P', 'P');
 
-    Personae nick = new Personae('O', 'P', 'P', 'P', 'P', 'C', 'C', 'P', 'E', 'S', 'S');
+    Personae nick = new Personae('B', 'P', 'P', 'P', 'P', 'C', 'C', 'P', 'E', 'S', 'S');
 
-    Personae lindzy = new Personae('O', 'P', 'E', 'C', 'C', 'S', 'S', 'P', 'P', 'P', 'P');
+    Personae lindzy = new Personae('G', 'P', 'E', 'C', 'C', 'S', 'S', 'P', 'P', 'P', 'P');
 
     Personae lana = new Personae('O', 'S', 'S', 'P', 'P', 'C', 'C', 'E', 'P', 'P', 'P');
 
-    Personae denis = new Personae('O', 'C', 'C', 'S', 'S', 'E', 'P', 'P', 'P', 'P', 'E');
+    Personae denis = new Personae('I', 'C', 'C', 'S', 'S', 'E', 'P', 'P', 'P', 'P', 'E');
 
-    Personae sam = new Personae('O', 'P', 'P', 'P', 'P', 'S', 'S', 'C', 'C', 'P', 'E');
+    Personae sam = new Personae('I', 'P', 'P', 'P', 'P', 'S', 'S', 'C', 'C', 'P', 'E');
 
 }

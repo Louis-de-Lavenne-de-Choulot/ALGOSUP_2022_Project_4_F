@@ -11,21 +11,34 @@ public class Rain : MonoBehaviour
     public Transform Auditorium;
     public Transform[] Toilettes;
     public GameObject[] toInit;
-    int johnny = 0;
-    int steph = 0;
-    int alexandre = 0;
-    int janka = 0;
-    int nick = 0;
-    int lindzy = 0;
-    int eric =0;
-    int lana =0;
-    int sam =0;
-    int basics =0;
-    int maxNumber =0;
+    int day;
+    int johnny; 
+    int steph;
+    int alexandre;
+    int janka;
+    int nick;
+    int lindzy; 
+    int eric;
+    int lana;
+    int sam;
+    int maxNumber;
+    int basics;
     public Transform recept;
     // Start is called before the first frame update
     void Start()
     {
+        day = PlayerPrefs.GetInt("day", 0);
+        johnny = PlayerPrefs.GetInt("Johnny", 0);
+        steph = PlayerPrefs.GetInt("Steph", 0);
+        alexandre = PlayerPrefs.GetInt("Alexandre", 0);
+        janka = PlayerPrefs.GetInt("Janka", 0);
+        nick = PlayerPrefs.GetInt("Nick", 0);
+        lindzy = PlayerPrefs.GetInt("Lindzy", 0);
+        eric = PlayerPrefs.GetInt("Eric", 0);
+        lana = PlayerPrefs.GetInt("Lana", 0);
+        sam = PlayerPrefs.GetInt("Sam", 0);
+        maxNumber = PlayerPrefs.GetInt("Basic", 0);
+        basics = maxNumber - (day + johnny + steph + alexandre + janka + nick + lindzy + eric + lana + sam);
         Invoke("Invocation", 5F);
     }
 
@@ -37,20 +50,6 @@ public class Rain : MonoBehaviour
     private void Invocation(){
         for (int i = 0; i < johnny; i++){
                 GameObject obj = Instantiate(toInit[0], new Vector3(Random.Range(recept.position.x-12, recept.position.x+12), recept.position.y,Random.Range(recept.position.z-12, recept.position.z+12)), Quaternion.identity) as GameObject;
-                UnityEngine.AI.NavMeshAgent nobj = obj.GetComponent<UnityEngine.AI.NavMeshAgent>();
-                nobj.speed = 5;
-                nobj.destination = Auditorium.position;
-                obj.transform.SetParent(gameObject.transform);
-        }
-        for (int i = 0; i < steph; i++){
-                GameObject obj = Instantiate(toInit[1], new Vector3(Random.Range(recept.position.x-12, recept.position.x+12), recept.position.y,Random.Range(recept.position.z-12, recept.position.z+12)), Quaternion.identity) as GameObject;
-                UnityEngine.AI.NavMeshAgent nobj = obj.GetComponent<UnityEngine.AI.NavMeshAgent>();
-                nobj.speed = 5;
-                nobj.destination = Auditorium.position;
-                nobj.transform.SetParent(gameObject.transform);
-        }
-        for (int i = 0; i < alexandre; i++){
-                GameObject obj = Instantiate(toInit[2], new Vector3(Random.Range(recept.position.x-12, recept.position.x+12), recept.position.y,Random.Range(recept.position.z-12, recept.position.z+12)), Quaternion.identity) as GameObject;
                 UnityEngine.AI.NavMeshAgent nobj = obj.GetComponent<UnityEngine.AI.NavMeshAgent>();
                 nobj.speed = 5;
                 nobj.destination = Auditorium.position;
