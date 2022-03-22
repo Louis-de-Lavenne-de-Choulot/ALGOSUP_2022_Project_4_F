@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using OVR;
 
 namespace Settings
 {
@@ -9,17 +10,18 @@ namespace Settings
     public class GameSettings : MonoBehaviour
     {
 
-        public GameObject Player;
+        OVRCameraRig cameraRig;
+        Rigidbody _rigidbody;
+
+        public void Start()
+        {
+            cameraRig = GameObject.FindObjectOfType<OVRCameraRig>();
+            _rigidbody = cameraRig.GetComponentInParent<Rigidbody>();
+        }
         public void Respawn()
         {
-            if (SceneManager.GetActiveScene().name == "Main Menu")
-            {
-                Player.transform.SetPositionAndRotation(Vector3.zero,Quaternion.identity);
-            }
-            else
-            {
-                Player.transform.SetPositionAndRotation(Vector3.zero,Quaternion.identity);
-            }
+            Transform point = GameObject.FindGameObjectWithTag("Respawn").transform;
+            _rigidbody.transform.position = point.position;
         }
 
         public void ReturnToMenu()

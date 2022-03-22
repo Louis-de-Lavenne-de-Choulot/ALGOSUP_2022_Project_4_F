@@ -27,17 +27,20 @@ namespace Settings
 
         public void Start()
         {
-            next.onClick.AddListener(delegate{changeDay(1);});
-            prev.onClick.AddListener(delegate{changeDay(-1);});
+            next.onClick.AddListener(delegate{nextDay();});
+            prev.onClick.AddListener(delegate{prevDay();});
             start.onClick.AddListener(delegate{Launch();});
         }
-        public void changeDay(int change)
+        public void nextDay()
         {
-            current += change;
-            current = current == 5 ? 0 : current == -1 ? 4 : current;
+            current = (current + 1) % 5;
             text.text = ((Day) current).ToString();
         }
-
+        public void prevDay()
+        {
+            current = current == 0 ? 4 : current - 1;
+            text.text = ((Day) current).ToString();
+        }
         public void Launch()
         {
             PlayerPrefs.SetInt("day", 1 + current);

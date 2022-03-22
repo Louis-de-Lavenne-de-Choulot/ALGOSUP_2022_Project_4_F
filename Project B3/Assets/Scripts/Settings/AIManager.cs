@@ -44,6 +44,7 @@ namespace AdvancedAI
                 if(acc + iSlider.slider.value > maxAI)
                 {
                     trimall(iSlider);
+                    break;
                 }
                 acc += (int)iSlider.slider.value;
                 iSlider.textComponent.text = iSlider.slider.value.ToString();
