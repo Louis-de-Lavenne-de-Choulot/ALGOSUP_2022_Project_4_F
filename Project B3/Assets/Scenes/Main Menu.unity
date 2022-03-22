@@ -8901,7 +8901,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 677438080}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -11131,6 +11131,7 @@ MonoBehaviour:
   decrease: {fileID: 771301504}
   target: Nick
   textComponent: {fileID: 471127058}
+  current: 0
 --- !u!1 &949865358
 GameObject:
   m_ObjectHideFlags: 0
@@ -11745,6 +11746,7 @@ MonoBehaviour:
   decrease: {fileID: 376511678}
   target: Denis
   textComponent: {fileID: 609885372}
+  current: 0
 --- !u!1 &1003036385
 GameObject:
   m_ObjectHideFlags: 0
@@ -12234,6 +12236,7 @@ MonoBehaviour:
   decrease: {fileID: 183347327}
   target: Sam
   textComponent: {fileID: 228372914}
+  current: 0
 --- !u!1 &1045594645
 GameObject:
   m_ObjectHideFlags: 0
@@ -13528,6 +13531,7 @@ MonoBehaviour:
   decrease: {fileID: 730419739}
   target: Lindzy
   textComponent: {fileID: 164743749}
+  current: 0
 --- !u!1 &1135832723
 GameObject:
   m_ObjectHideFlags: 0
@@ -14673,6 +14677,7 @@ MonoBehaviour:
   decrease: {fileID: 1551473622}
   target: Johnny
   textComponent: {fileID: 353047949}
+  current: 0
 --- !u!1 &1230297840
 GameObject:
   m_ObjectHideFlags: 0
@@ -14772,6 +14777,7 @@ MonoBehaviour:
   decrease: {fileID: 1150672589}
   target: Alexandre
   textComponent: {fileID: 1012403719}
+  current: 0
 --- !u!1 &1258703862
 GameObject:
   m_ObjectHideFlags: 0
@@ -15802,6 +15808,7 @@ MonoBehaviour:
   decrease: {fileID: 1560022988}
   target: Jank
   textComponent: {fileID: 1742932337}
+  current: 0
 --- !u!1 &1363088953
 GameObject:
   m_ObjectHideFlags: 0
@@ -16345,6 +16352,7 @@ MonoBehaviour:
   decrease: {fileID: 353702313}
   target: Lana
   textComponent: {fileID: 440322607}
+  current: 0
 --- !u!1 &1415220111
 GameObject:
   m_ObjectHideFlags: 0
@@ -17495,6 +17503,7 @@ MonoBehaviour:
   decrease: {fileID: 1760321675}
   target: Steph
   textComponent: {fileID: 1184511586}
+  current: 0
 --- !u!1 &1451083372
 GameObject:
   m_ObjectHideFlags: 0
@@ -19606,16 +19615,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slider: {fileID: 1693519970}
   text: {fileID: 677438081}
-  amounts:
-  - {fileID: 1218778346}
-  - {fileID: 1435680679}
-  - {fileID: 1357256898}
-  - {fileID: 1230297845}
-  - {fileID: 949136365}
-  - {fileID: 1135128110}
-  - {fileID: 983915962}
-  - {fileID: 1400993679}
-  - {fileID: 1030417166}
 --- !u!1 &1742932336
 GameObject:
   m_ObjectHideFlags: 0
