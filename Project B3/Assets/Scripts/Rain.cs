@@ -30,13 +30,13 @@ public class Rain : MonoBehaviour
     int denis;
     int lana;
     int sam;
-    int maxNumber;
     int basics;
+    int maxNumber;
     public Transform recept;
     // Start is called before the first frame update
     void Start()
     {
-        maxNumber = PlayerPrefs.GetInt("Basic", 0);
+        maxNumber = PlayerPrefs.GetInt("MaxAi", 0);
         day = PlayerPrefs.GetInt("day", 0);
         johnny = PlayerPrefs.GetInt("Johnny", 0);
         steph = PlayerPrefs.GetInt("Steph", 0);
@@ -47,7 +47,8 @@ public class Rain : MonoBehaviour
         denis = PlayerPrefs.GetInt("Denis", 0);
         lana = PlayerPrefs.GetInt("Lana", 0);
         sam = PlayerPrefs.GetInt("Sam", 0);
-        personaeNumber = new int[10]{johnny, steph, alexandre, janka, nick, lindzy, denis, lana, sam, maxNumber - (day + johnny + steph + alexandre + janka + nick + lindzy + denis + lana + sam)};
+        basics = PlayerPrefs.GetInt("Basic", 0);
+        personaeNumber = new int[10]{johnny, steph, alexandre, janka, nick, lindzy, denis, lana, sam, basics};
         foreach(Transform englishRoom in englishRooms){
             foreach(Transform findTrsfrm in englishRoom){
                 if (findTrsfrm.name == "Chair_Conference"){
@@ -73,7 +74,6 @@ public class Rain : MonoBehaviour
             for (int i = 0; i < personaeNumber[persona]; i++){
                 GameObject obj = Instantiate(toInit[0], new Vector3(Random.Range(recept.position.x-12, recept.position.x+12), recept.position.y,Random.Range(recept.position.z-12, recept.position.z+12)), Quaternion.identity) as GameObject;
                 UnityEngine.AI.NavMeshAgent nobj = obj.GetComponent<UnityEngine.AI.NavMeshAgent>();
-                nobj.speed = 5;
                 nobj.destination = Auditorium.position;//eR[persona].position;
                 obj.transform.SetParent(gameObject.transform);
             }
