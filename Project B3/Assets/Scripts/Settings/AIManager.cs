@@ -29,6 +29,7 @@ namespace AdvancedAI
         }
         void Start()
         {
+            text.text = maxAI.ToString();
             slider.onValueChanged.AddListener(delegate {updateMax();});
         }
 
