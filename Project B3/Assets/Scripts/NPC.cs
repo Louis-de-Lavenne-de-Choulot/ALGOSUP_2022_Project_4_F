@@ -18,8 +18,8 @@ public class NPC : MonoBehaviour
         anim = gameObject.GetComponent<Animator>();
         agentPos = gameObject.GetComponent<Transform>();
         agent = gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>();
-        agent.speed = 3;
-        agent.destination = goal[0].position;
+        // agent.speed = 3;
+        // agent.destination = goal[0].position;
     }
 
     // Update is called once per frame
@@ -35,8 +35,8 @@ public class NPC : MonoBehaviour
                     period = Time.time + cooldown;
             }
             anim.SetBool("isMoving", false);
-            transform.position = goal[0].position;
-            transform.forward = goal[0].forward;
+            // transform.position = goal[0].position;
+            // transform.forward = goal[0].forward;
         }
     }
 }
