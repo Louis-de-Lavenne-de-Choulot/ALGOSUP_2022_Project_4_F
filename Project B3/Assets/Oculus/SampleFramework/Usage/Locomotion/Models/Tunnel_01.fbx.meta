@@ -1,7 +1,5 @@
 fileFormatVersion: 2
-guid: eaf1b3e89a9fb804d935d4886918f2b5
-timeCreated: 1521201879
-licenseType: Store
+guid: b42ae099cb16b4503927c10e36ab4c8b
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
@@ -10,11 +8,16 @@ ModelImporter:
     2100000: MAT_metal_01
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Book_01
-    9500000: //RootNode
+    4300000: Tunnel_01
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MAT_metal_01
+    second: {fileID: 2100000, guid: 6fa48c2a126d0d74e8bb671b62e8cb1b, type: 2}
   materials:
     importMaterials: 1
-    materialName: 1
+    materialName: 0
     materialSearch: 1
     materialLocation: 1
   animations:
@@ -49,7 +52,7 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 1
+    generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
@@ -65,7 +68,8 @@ ModelImporter:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
-  importAnimation: 0
+    normalCalculationMode: 4
+  importAnimation: 1
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2

@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class SimpleCapsuleWithStickMovement : MonoBehaviour
 {
-	public bool SnapTurnMode = true;
 	public bool EnableLinearMovement = true;
 	public bool EnableRotation = true;
 	public bool HMDRotatesPlayer = true;
@@ -26,6 +25,11 @@ public class SimpleCapsuleWithStickMovement : MonoBehaviour
 		if (CameraRig == null) CameraRig = GetComponentInChildren<OVRCameraRig>();
 	}
 
+	void Start ()
+	{
+		
+	}
+	
 	private void FixedUpdate()
 	{
         if (CameraUpdated != null) CameraUpdated();
@@ -34,23 +38,6 @@ public class SimpleCapsuleWithStickMovement : MonoBehaviour
         if (HMDRotatesPlayer) RotatePlayerToHMD();
 		if (EnableLinearMovement) StickMovement();
 		if (EnableRotation) SnapTurn();
-		// if (EnableRotation)
-		// {
-		// 	if (SnapTurnMode)
-		// 	{
-		// 		SnapTurn();
-		// 		if (EnableLinearMovement) StickMovement();
-		// 	}
-		// 	else
-		// 	{
-		// 		if(EnableLinearMovement) SmoothTurnMove();
-		// 		else SmoothTurn();
-		// 	}
-		// }
-		// else
-		// {
-		// 	if (EnableLinearMovement) StickMovement();
-		// }
 	}
 
     void RotatePlayerToHMD()
@@ -105,42 +92,6 @@ public class SimpleCapsuleWithStickMovement : MonoBehaviour
 		else
 		{
 			ReadyToSnapTurn = true;
-		}
-	}
-	void SmoothTurn()
-	{
-		if (OVRInput.Get(OVRInput.Button.SecondaryThumbstickLeft) ||
-			(RotationEitherThumbstick && OVRInput.Get(OVRInput.Button.PrimaryThumbstickLeft)))
-		{
-			transform.RotateAround(CameraRig.centerEyeAnchor.position, Vector3.up, -1f);
-		}
-		if (OVRInput.Get(OVRInput.Button.SecondaryThumbstickRight) ||
-			(RotationEitherThumbstick && OVRInput.Get(OVRInput.Button.PrimaryThumbstickRight)))
-		{
-			transform.RotateAround(CameraRig.centerEyeAnchor.position, Vector3.up, 1f);
-		}
-	}
-	void SmoothTurnMove()
-	{
-		Quaternion ort = CameraRig.centerEyeAnchor.rotation;
-		Vector3 ortEuler = ort.eulerAngles;
-		ortEuler.z = ortEuler.x = 0f;
-		ort = Quaternion.Euler(ortEuler);
-		Vector3 moveDir = Vector3.zero;
-		Vector2 primaryAxis = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick);
-		moveDir += ort * (primaryAxis.x * Vector3.right);
-		moveDir += ort * (primaryAxis.y * Vector3.forward);
-		//_rigidbody.MovePosition(_rigidbody.transform.position + moveDir * Speed * Time.fixedDeltaTime);
-		_rigidbody.MovePosition(_rigidbody.position + moveDir * Speed * Time.fixedDeltaTime);
-		if (OVRInput.Get(OVRInput.Button.SecondaryThumbstickLeft) ||
-			(RotationEitherThumbstick && OVRInput.Get(OVRInput.Button.PrimaryThumbstickLeft)))
-		{
-			transform.RotateAround(CameraRig.centerEyeAnchor.position, Vector3.up, -1f);
-		}
-		if (OVRInput.Get(OVRInput.Button.SecondaryThumbstickRight) ||
-			(RotationEitherThumbstick && OVRInput.Get(OVRInput.Button.PrimaryThumbstickRight)))
-		{
-			transform.RotateAround(CameraRig.centerEyeAnchor.position, Vector3.up, 1f);
 		}
 	}
 }
