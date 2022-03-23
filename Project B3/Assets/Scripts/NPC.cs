@@ -5,6 +5,8 @@ using UnityEngine;
 public class NPC : MonoBehaviour
 {
     // Start is called before the first frame update
+    float cooldown = 60F;
+    float period;
     public Transform[] goal;
     Transform agentPos;
     Vector3 agentLastPos;
@@ -33,10 +35,16 @@ public class NPC : MonoBehaviour
         if (shouldMove)
         {
             agentLastPos = agentPos.position;
+            anim.SetBool("isMoving", true);
+        }else{
+            if(Time.time > period)
+            {
+                    period = Time.time + cooldown;
+            }
+            anim.SetBool("isMoving", false);
+            // transform.position = goal[0].position;
+            // transform.forward = goal[0].forward;
         }
-        anim.SetBool("IsMoving", true);
-        Debug.DrawRay(agentPos.position, Vector3.forward, Color.red);
-
         //if NPc need to leave chair 
     }
 
