@@ -64,7 +64,7 @@ namespace AdvancedAI
             {
                 acc += PlayerPrefs.GetInt(personae,0);
             }
-            maxAI = PlayerPrefs.GetInt("MaxAi");
+            maxAI = PlayerPrefs.GetInt("MaxAI");
             return acc;
         }
 
