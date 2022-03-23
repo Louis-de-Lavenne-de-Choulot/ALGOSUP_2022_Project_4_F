@@ -23,13 +23,13 @@ namespace Settings
 
         void toSmooth()
         {
-            controller.SnapTurnMode = false;
+            //controller.SnapTurnMode = false;
             controller.EnableRotation = true;
         }
 
         void toSnap()
         {
-            controller.SnapTurnMode = true;
+            //controller.SnapTurnMode = true;
             controller.EnableRotation = true;
         }
         void toNone()

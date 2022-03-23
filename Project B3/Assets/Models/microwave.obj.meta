@@ -3,7 +3,17 @@ guid: fd491d21b228a79449321c19303bb750
 ModelImporter:
   serializedVersion: 21202
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: doorMat
+    second: {fileID: 2100000, guid: 39b38c1a71f7cfb40bb15bfa007e95b9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: microwaveMat
+    second: {fileID: 2100000, guid: bc613d26b27b2444f8dcb346650707fd, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
