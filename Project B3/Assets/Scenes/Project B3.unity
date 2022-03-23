@@ -1059,7 +1059,6 @@ GameObject:
   - component: {fileID: 1854130051}
   - component: {fileID: 1854130054}
   - component: {fileID: 1854130053}
-  - component: {fileID: 1854130052}
   m_Layer: 5
   m_Name: Text (Legacy)
   m_TagString: Untagged
@@ -1087,19 +1086,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 400, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1854130052
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1854130050}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7669fb728ae74ef0be41b0848a32ffe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vv: {fileID: 7202788635243023335}
 --- !u!114 &1854130053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43869,6 +43855,10 @@ PrefabInstance:
       value: Bots 1
       objectReference: {fileID: 0}
     - target: {fileID: 4799633824037138966, guid: d37c53ff0cca348f09023d7b8b6dab90, type: 3}
+      propertyPath: vv
+      value: 
+      objectReference: {fileID: 1854130050}
+    - target: {fileID: 4799633824037138966, guid: d37c53ff0cca348f09023d7b8b6dab90, type: 3}
       propertyPath: Auditorium
       value: 
       objectReference: {fileID: 3604799478325660919}
@@ -43986,32 +43976,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d37c53ff0cca348f09023d7b8b6dab90, type: 3}
---- !u!1 &7202788635243023335 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3874419527677703184, guid: d37c53ff0cca348f09023d7b8b6dab90, type: 3}
-  m_PrefabInstance: {fileID: 7202788635243023334}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &7202788635243023336
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7202788635243023335}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be12bf6b57373421da1909f70f0467a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  johnny: {fileID: 0}
-  steph: {fileID: 0}
-  alexandre: {fileID: 0}
-  janka: {fileID: 0}
-  nick: {fileID: 0}
-  lindzy: {fileID: 0}
-  lana: {fileID: 0}
-  denis: {fileID: 0}
-  sam: {fileID: 0}
 --- !u!1 &7262019683134735523
 GameObject:
   m_ObjectHideFlags: 0

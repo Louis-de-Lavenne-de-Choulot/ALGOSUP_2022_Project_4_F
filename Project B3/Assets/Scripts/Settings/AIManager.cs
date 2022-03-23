@@ -17,7 +17,7 @@ namespace AdvancedAI
 
         void Awake()
         {
-            if(!PlayerPrefs.HasKey("populated"))
+            if(!PlayerPrefs.HasKey("populated") || true)
             {
                 populatePrefs();
                 currentAI = 0;

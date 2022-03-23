@@ -33,6 +33,26 @@ public class Rain : MonoBehaviour
     int basics;
     int maxNumber;
     public Transform recept;
+    public GameObject vv;
+    // G = get/order food, O = outside, I = inside, B = bring his meal
+    private Personae johnnyTT = new Personae('G', 'E', 'P', 'S', 'S', 'P', 'P', 'C', 'C', 'P', 'P');
+
+    private Personae stephTT = new Personae('I', 'C', 'C', 'E', 'P', 'S', 'S', 'P', 'P', 'P', 'P');
+
+    private Personae alexandreTT = new Personae('O', 'P', 'P', 'P', 'E', 'P', 'P', 'S', 'S', 'C', 'C');
+
+    private Personae jankaTT = new Personae('O', 'S', 'S', 'C', 'C', 'P', 'E', 'P', 'P', 'P', 'P');
+
+    private Personae nickTT = new Personae('B', 'P', 'P', 'P', 'P', 'C', 'C', 'P', 'E', 'S', 'S');
+
+    private Personae lindzyTT = new Personae('G', 'P', 'E', 'C', 'C', 'S', 'S', 'P', 'P', 'P', 'P');
+
+    private Personae lanaTT = new Personae('O', 'S', 'S', 'P', 'P', 'C', 'C', 'E', 'P', 'P', 'P');
+
+    private Personae denisTT = new Personae('I', 'C', 'C', 'S', 'S', 'E', 'P', 'P', 'P', 'P', 'E');
+
+    private Personae samTT = new Personae('I', 'P', 'P', 'P', 'P', 'S', 'S', 'C', 'C', 'P', 'E');
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,16 +76,9 @@ public class Rain : MonoBehaviour
                 }
             }
         }
-
-        Personae pComponent = gameObject.GetComponent<Personae>();
-        personaeNames = new Personae[9]{pComponent.johnny, pComponent.steph, pComponent.alexandre, pComponent.janka, pComponent.nick, pComponent.lindzy, pComponent.denis, pComponent.lana, pComponent.sam};
+        personaeNames = new Personae[9]{johnnyTT, stephTT, alexandreTT, jankaTT, nickTT, lindzyTT, denisTT, lanaTT, samTT};
 
         Invoke("Invocation", 5F);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
     }
 
     private void Invocation(){
@@ -74,7 +87,7 @@ public class Rain : MonoBehaviour
             for (int i = 0; i < personaeNumber[persona]; i++){
                 GameObject obj = Instantiate(toInit[0], new Vector3(Random.Range(recept.position.x-12, recept.position.x+12), recept.position.y,Random.Range(recept.position.z-12, recept.position.z+12)), Quaternion.identity) as GameObject;
                 UnityEngine.AI.NavMeshAgent nobj = obj.GetComponent<UnityEngine.AI.NavMeshAgent>();
-                nobj.destination = Auditorium.position;//eR[persona].position;
+                nobj.destination = eR[persona].position;
                 obj.transform.SetParent(gameObject.transform);
             }
         }
