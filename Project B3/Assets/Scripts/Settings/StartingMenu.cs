@@ -44,6 +44,7 @@ namespace Settings
         public void Launch()
         {
             PlayerPrefs.SetInt("day", 1 + current);
+            PlayerPrefs.Save();
             SceneManager.LoadScene(1,LoadSceneMode.Single);
         }
 

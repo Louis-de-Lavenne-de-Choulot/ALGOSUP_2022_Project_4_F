@@ -8,99 +8,80 @@ using TMPro;
 namespace AdvancedAI
 {
     public class AIManager : MonoBehaviour
-    {
+       {
         public Slider slider;
         public TMP_Text text;
-        public List<AISlider> amounts;
-        static int maxAI;
-        static int current;
-        static string[] AIList = new string[] {"Basic","Johnny","Steph","Janka","Alexandre","Nick","Lindzy","Denis","Lana","Sam"};
+        public static int maxAI;
+        static int currentAI;
+        public static string[] AIList = new string[] {"Basic","Johnny","Steph","Janka","Alexandre","Nick","Lindzy","Denis","Lana","Sam"};
 
-        public void Awake()
+        void Awake()
         {
-            if(true || !PlayerPrefs.HasKey("populated"))
+            if(!PlayerPrefs.HasKey("populated"))
             {
-                populateprefs();
+                populatePrefs();
+                currentAI = 0;
             }
             else
             {
-                getprefs();
+                currentAI = gettotalprefs();
             }
         }
-
-        public void Start()
+        void Start()
         {
-
+            slider.onValueChanged.AddListener(delegate {updateMax();});
         }
 
-        public void Update()
+        void updateMax()
         {
-            maxAI = (int)slider.value;
-            text.text = maxAI.ToString();
-            int acc =  0;
-            int remaining = maxAI;
-            foreach(AISlider iSlider in amounts)
+            if (slider.value < currentAI)
             {
-                if(acc + iSlider.slider.value > maxAI)
-                {
-                    trimall(iSlider);
-                    break;
-                }
-                acc += (int)iSlider.slider.value;
-                iSlider.textComponent.text = iSlider.slider.value.ToString();
+                slider.SetValueWithoutNotify(currentAI);
             }
+            else
+            {
+                maxAI = (int)slider.value;
+                text.text = maxAI.ToString();
+            }
+            PlayerPrefs.SetInt("MaxAI",maxAI);
+
         }
 
-        public void trimall(AISlider excluded)
+        static void populatePrefs()
         {
-            while(true)
+            foreach(string personae in AIList)
             {
-                bool allzero = true;
-                foreach(AISlider aISlider in amounts)
-                {
-                    if (aISlider == excluded)
-                    {
-                        continue;
-                    }
-                    if (current == maxAI)
-                    {
-                        return;
-                    }
-                    if (aISlider.tryincrement(false))
-                    {
-                        current--;
-                    }
-                    allzero &= aISlider.slider.value == 0;
-                }
-                if (allzero)
-                {
-                    excluded.slider.value = maxAI;
-                    current = maxAI;
-                }
+                PlayerPrefs.SetInt(personae,0);
             }
+            PlayerPrefs.SetInt("MaxAI",0);
+            PlayerPrefs.SetString("populated","true");
         }
 
-        public void getprefs()
+        static int gettotalprefs()
         {
-            int acc=0;
-            foreach(AISlider iSlider in amounts)
+            int acc = 0;
+            foreach(string personae in AIList)
             {
-                int value = PlayerPrefs.GetInt(iSlider.target);
-                iSlider.textComponent.text = value.ToString();
-                iSlider.slider.value = value;
-                acc+= value;
+                acc += PlayerPrefs.GetInt(personae,0);
             }
-            maxAI = PlayerPrefs.GetInt("maxAI");
-            current = acc;
-            slider.value = maxAI;
+            maxAI = PlayerPrefs.GetInt("MaxAI");
+            return acc;
         }
 
-        public void populateprefs()
+        static public int trychange(string name,int previous, int newval)
         {
-            foreach(AISlider iSlider in amounts)
+            if (currentAI - previous + newval > maxAI)
             {
-                PlayerPrefs.SetInt(iSlider.target,0);
+                int avalaible = maxAI - currentAI;
+                PlayerPrefs.SetInt(name,previous + avalaible);
+                PlayerPrefs.SetInt("Basic",0);
+                currentAI = maxAI;
+                return previous + avalaible;
             }
+            PlayerPrefs.SetInt(name,newval);
+            currentAI = currentAI + newval - previous;
+            PlayerPrefs.SetInt("Basic",maxAI-currentAI);
+            return newval;
         }
     }
 }

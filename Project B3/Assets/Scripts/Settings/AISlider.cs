@@ -13,25 +13,22 @@ namespace AdvancedAI
         public Button decrease;
         public string target;
         public TMP_Text textComponent;
+        public int current;
         public void Start()
         {
-            increase.onClick.AddListener(delegate{tryincrement(true);});
-            decrease.onClick.AddListener(delegate{tryincrement(false);});
+            current = PlayerPrefs.GetInt(target);
+            slider.SetValueWithoutNotify(current);
+            textComponent.text = current.ToString();
+            slider.onValueChanged.AddListener(delegate {updateSliderAndText(AIManager.trychange(target,current,(int)slider.value));});
+            increase.onClick.AddListener(delegate {updateSliderAndText(AIManager.trychange(target,current,current + 1));});
+            decrease.onClick.AddListener(delegate {updateSliderAndText(AIManager.trychange(target,current,current - 1));});
         }
 
-        public bool tryincrement(bool positive)
+        void updateSliderAndText(int newvalue)
         {
-            if (positive && slider.value != slider.maxValue)
-            {
-                slider.value++;
-                return true;
-            }
-            if (!positive && slider.value != slider.minValue)
-            {
-                slider.value--;
-                return true;
-            }
-                return false;
+            textComponent.text = newvalue.ToString();
+            slider.SetValueWithoutNotify(newvalue);
+            current = newvalue;
         }
     }
 }
