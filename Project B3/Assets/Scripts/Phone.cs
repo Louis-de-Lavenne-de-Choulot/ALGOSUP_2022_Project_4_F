@@ -50,11 +50,11 @@ public class Phone : MonoBehaviour
         }
     }
 
-    private void update()
+    private void Update()
     {
         Collider[] collision = Physics.OverlapSphere(transform.position, 0.5f, LayerMask.NameToLayer("Scaner"));
 
-        if (collision != null)
+        if (collision.Length != 0)
         {
             Animator scaner = collision[0].transform.parent.gameObject.GetComponent(typeof(Animator)) as Animator;
             Animator door = collision[0].transform.parent.parent.gameObject.GetComponent(typeof(Animator)) as Animator;
@@ -91,7 +91,7 @@ public class Phone : MonoBehaviour
                 //only alow personae to enter class in wich they are supposed to be
 
                 case 2:
-                    if (collision[0].transform.tag == "CmptSci" || collision[0].transform.tag == "Ampcolliderheater" || collision[0].transform.tag == "student rest"
+                    if (collision[0].transform.tag == "CmptSci" || collision[0].transform.tag == "Amptheater" || collision[0].transform.tag == "student rest"
                         || collision[0].transform.tag == $"WC_{bathroom}" || collision[0].transform.tag == "SoftSkill" || collision[0].transform.tag == "English" || collision[0].transform.tag == "library")
                     {
                         scaner.SetBool("isGreen", true);
@@ -108,16 +108,16 @@ public class Phone : MonoBehaviour
                     }
                     break;
                 case 4:
-                    if (collision[0].transform.tag == $"WC_{bathroom}" || collision[0].transform.tag == "SoftSkill" || collision[0].transform.tag == "Ampcolliderheater" ||
+                    if (collision[0].transform.tag == $"WC_{bathroom}" || collision[0].transform.tag == "SoftSkill" || collision[0].transform.tag == "Amptheater" ||
                         collision[0].transform.tag == "Staff rest" || collision[0].transform.tag == "library")
                     {
                         scaner.SetBool("isGreen", true);
                         door.SetBool("hasScanned", true);
-                        // **/!\** verify if any soft skill is held in Ampcolliderheater
+                        // **/!\** verify if any soft skill is held in Amptheater
                     }
                     break;
                 case 5:
-                    if (collision[0].transform.tag == $"WC_{bathroom}" || collision[0].transform.tag == "Ampcolliderheater" || collision[0].transform.tag == "CmptSci" ||
+                    if (collision[0].transform.tag == $"WC_{bathroom}" || collision[0].transform.tag == "Amptheater" || collision[0].transform.tag == "CmptSci" ||
                         collision[0].transform.tag == "Staff rest" || collision[0].transform.tag == "library")
                     {
                         scaner.SetBool("isGreen", true);
