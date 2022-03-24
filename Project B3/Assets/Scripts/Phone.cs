@@ -52,13 +52,12 @@ public class Phone : MonoBehaviour
 
     private void Update()
     {
-        Collider[] collision = Physics.OverlapSphere(transform.position, 0.5f, LayerMask.NameToLayer("Scaner"));
+        Collider[] collision = Physics.OverlapSphere(transform.position, 0.05f, LayerMask.GetMask("Scaner"));
 
         if (collision.Length != 0)
         {
             Animator scaner = collision[0].transform.parent.gameObject.GetComponent(typeof(Animator)) as Animator;
             Animator door = collision[0].transform.parent.parent.gameObject.GetComponent(typeof(Animator)) as Animator;
-            Debug.Log(door + " interact");
 
             scaner.SetBool("isGreen", false);
             door.SetBool("hasScanned", false);
@@ -82,7 +81,7 @@ public class Phone : MonoBehaviour
                 case 1:
                     if (collision[0].transform.tag == "CNAM")
                     {
-                        collision[0].gameObject.GetComponent<Material>().color = Color.green;
+                        scaner.SetBool("isGreen", true);
                         door.SetBool("hasScanned", true);
                     }
                     break;
