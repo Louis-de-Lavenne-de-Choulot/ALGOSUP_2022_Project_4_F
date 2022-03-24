@@ -33,7 +33,6 @@ public class Rain : MonoBehaviour
     int basics;
     int maxNumber;
     public Transform recept;
-    public GameObject vv;
     // G = get/order food, O = outside, I = inside, B = bring his meal
     private Personae johnnyTT = new Personae('G', 'E', 'P', 'S', 'S', 'P', 'P', 'C', 'C', 'P', 'P');
 
@@ -69,17 +68,13 @@ public class Rain : MonoBehaviour
         sam = PlayerPrefs.GetInt("Sam", 0);
         basics = PlayerPrefs.GetInt("Basic", 0);
         personaeNumber = new int[10]{johnny, steph, alexandre, janka, nick, lindzy, denis, lana, sam, basics};
-        vv.GetComponent<UnityEngine.UI.Text>().text = "oui";
         foreach(Transform englishRoom in englishRooms){
             foreach(Transform findTrsfrm in englishRoom){
                 if (findTrsfrm.name == "Chair_Conference"){
-                    vv.GetComponent<UnityEngine.UI.Text>().text = "t1" ;
                     eR.Add(findTrsfrm);
-                    vv.GetComponent<UnityEngine.UI.Text>().text = "t2" ;
                 }
             }
         }
-        vv.GetComponent<UnityEngine.UI.Text>().text = "oui2" ;
         personaeNames = new Personae[9]{johnnyTT, stephTT, alexandreTT, jankaTT, nickTT, lindzyTT, denisTT, lanaTT, samTT};
         Invoke("Invocation", 5f);
     }
@@ -88,7 +83,6 @@ public class Rain : MonoBehaviour
     }
 
     private void Invocation(){
-        vv.GetComponent<UnityEngine.UI.Text>().text = "Pas de boucle";
         for (int persona = 0;  persona <  10; persona++){
             Personae p = personaeNames[persona];
             for (int i = 0; i < personaeNumber[persona]; i++){
