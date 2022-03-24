@@ -6,7 +6,6 @@ using UnityEngine;
 public class SimpleCapsuleWithStickMovement : MonoBehaviour
 {
 	public bool SnapTurnMode = true;
-
 	public bool SmoothTurnMode = false;
 	public bool EnableLinearMovement = true;
 	public bool EnableRotation = true;
@@ -40,6 +39,11 @@ public class SimpleCapsuleWithStickMovement : MonoBehaviour
 		}
 	}
 
+	void Start ()
+	{
+		
+	}
+	
 	private void FixedUpdate()
 	{
         if (CameraUpdated != null) CameraUpdated();
@@ -103,7 +107,6 @@ public class SimpleCapsuleWithStickMovement : MonoBehaviour
 		{
 			ReadyToSnapTurn = true;
 		}
-	}
 	void SmoothTurn()
 	{
 		if (OVRInput.Get(OVRInput.Button.SecondaryThumbstickLeft) ||
