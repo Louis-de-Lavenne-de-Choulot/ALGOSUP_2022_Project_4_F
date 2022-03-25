@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class SimpleCapsuleWithStickMovement : MonoBehaviour
 {
-	public bool SnapTurnMode = true;
-	public bool SmoothTurnMode = false;
 	public bool EnableLinearMovement = true;
 	public bool EnableRotation = true;
 	public bool HMDRotatesPlayer = true;
@@ -25,18 +23,6 @@ public class SimpleCapsuleWithStickMovement : MonoBehaviour
 	{
 		_rigidbody = GetComponent<Rigidbody>();
 		if (CameraRig == null) CameraRig = GetComponentInChildren<OVRCameraRig>();
-		switch (PlayerPrefs.GetString("TurnMode","Snap"))
-		{
-			case "Smooth":
-				SmoothTurnMode = true;
-				SnapTurnMode = false;
-				break;
-			case "None":
-				EnableRotation = false;
-				break;
-			default:
-				break;
-		}
 	}
 
 	void Start ()
@@ -48,10 +34,10 @@ public class SimpleCapsuleWithStickMovement : MonoBehaviour
 	{
         if (CameraUpdated != null) CameraUpdated();
         if (PreCharacterMove != null) PreCharacterMove();
+
         if (HMDRotatesPlayer) RotatePlayerToHMD();
 		if (EnableLinearMovement) StickMovement();
-		if (EnableRotation && SnapTurnMode) SnapTurn();
-		if (EnableRotation && SmoothTurnMode) SmoothTurn();
+		if (EnableRotation) SnapTurn();
 	}
 
     void RotatePlayerToHMD()
@@ -106,19 +92,6 @@ public class SimpleCapsuleWithStickMovement : MonoBehaviour
 		else
 		{
 			ReadyToSnapTurn = true;
-		}
-	}
-	void SmoothTurn()
-	{
-		if (OVRInput.Get(OVRInput.Button.SecondaryThumbstickLeft) ||
-			(RotationEitherThumbstick && OVRInput.Get(OVRInput.Button.PrimaryThumbstickLeft)))
-		{
-			transform.RotateAround(CameraRig.centerEyeAnchor.position, Vector3.up, -1f);
-		}
-		if (OVRInput.Get(OVRInput.Button.SecondaryThumbstickRight) ||
-			(RotationEitherThumbstick && OVRInput.Get(OVRInput.Button.PrimaryThumbstickRight)))
-		{
-			transform.RotateAround(CameraRig.centerEyeAnchor.position, Vector3.up, 1f);
 		}
 	}
 }
