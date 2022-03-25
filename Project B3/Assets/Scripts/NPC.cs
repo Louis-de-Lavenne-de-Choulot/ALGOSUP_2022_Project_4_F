@@ -76,7 +76,7 @@ public class NPC : MonoBehaviour
             gameObject.GetComponent<Animator>().SetBool("sitAtTable", true);
         }
 
-        Collider[] hitAmphi = Physics.OverlapCapsule(transform.position, transform.GetChild(0).position, 0.8f, LayerMask.GetMask("Amphi"));
+        Collider[] hitAmphi = Physics.OverlapCapsule(transform.position, transform.GetChild(0).position, 0.5f, LayerMask.GetMask("Amphi"));
         if (hitAmphi.Length != 0 && gameObject.GetComponent<Animator>().GetBool("sitWithLaptop") == false && situp == false)
         {
             gameObject.GetComponent<Collider>().enabled = false;
