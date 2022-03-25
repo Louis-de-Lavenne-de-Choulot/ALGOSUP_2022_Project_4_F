@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.40835163, g: 0.40781295, b: 0.41298735, a: 1}
+  m_IndirectSpecularColor: {r: 0.4084274, g: 0.40786085, b: 0.41314676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -15307,7 +15307,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   englishRooms: []
   languageLabs: []
-  softSkills: []
+  softSkills: {fileID: 0}
   projectRooms: []
   Lunch: []
   Auditorium: {fileID: 0}
@@ -17040,37 +17040,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1427364131}
   m_CullTransparentMesh: 1
---- !u!1 &1428472961
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1428472962}
-  m_Layer: 0
-  m_Name: Respawn Spot
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1428472962
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1428472961}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.049, y: 0.814, z: 0.309}
-  m_LocalScale: {x: 0, y: 0, z: 0}
-  m_ConstrainProportionsScale: 1
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1428890783
 GameObject:
   m_ObjectHideFlags: 0
@@ -24253,7 +24222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c887671192e1bcd4495115522616bd9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Spawn: {fileID: 1428472962}
+  Spawn: {fileID: 0}
   body: {fileID: 6066669140423775117}
 --- !u!1 &6344344049176175775
 GameObject:
