@@ -769,6 +769,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4988298702231834482}
   - component: {fileID: 4364444774986752353}
+  - component: {fileID: 8645362527316297264}
   m_Layer: 0
   m_Name: doorCircular
   m_TagString: Untagged
@@ -814,6 +815,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8645362527316297264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5652632782365677000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdcc6c9e4af2540a7bc01ff0c2f7529b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5730458261528196841
 GameObject:
   m_ObjectHideFlags: 0
