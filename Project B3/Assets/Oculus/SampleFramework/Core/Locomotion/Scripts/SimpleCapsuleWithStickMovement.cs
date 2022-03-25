@@ -107,6 +107,7 @@ public class SimpleCapsuleWithStickMovement : MonoBehaviour
 		{
 			ReadyToSnapTurn = true;
 		}
+	}
 	void SmoothTurn()
 	{
 		if (OVRInput.Get(OVRInput.Button.SecondaryThumbstickLeft) ||
