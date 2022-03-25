@@ -17,7 +17,7 @@ namespace AdvancedAI
 
         void Awake()
         {
-            if(!PlayerPrefs.HasKey("populated"))
+            if(!PlayerPrefs.HasKey("populated") || true)
             {
                 populatePrefs();
                 currentAI = 0;
@@ -29,6 +29,7 @@ namespace AdvancedAI
         }
         void Start()
         {
+            text.text = maxAI.ToString();
             slider.onValueChanged.AddListener(delegate {updateMax();});
         }
 
