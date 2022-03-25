@@ -13,6 +13,8 @@ public class NPC : MonoBehaviour
     UnityEngine.AI.NavMeshAgent agent;
     Vector2 velocity = Vector2.zero;
     Animator anim;
+    int timeNumber = 0;
+    int[] times = new int[8]{85, 100, 160, 280, 340, 355, 415, 440};
 
     private GameObject chair;
     private bool situp = false;
@@ -24,8 +26,7 @@ public class NPC : MonoBehaviour
         anim = gameObject.GetComponent<Animator>();
         agentPos = gameObject.GetComponent<Transform>();
         agent = gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>();
-        // agent.speed = 3;
-        // agent.destination = goal[0].position;
+        InvokeRepeating("TimeCheck", 20f, 5f);
     }
 
     // Update is called once per frame
@@ -39,13 +40,10 @@ public class NPC : MonoBehaviour
         }else{
             if(Time.time > period)
             {
-                    period = Time.time + cooldown;
+                period = Time.time + cooldown;
             }
             anim.SetBool("isMoving", false);
-            // transform.position = goal[0].position;
-            // transform.forward = goal[0].forward;
         }
-        //if NPc need to leave chair 
     }
 
     private void LateUpdate()
@@ -124,6 +122,13 @@ public class NPC : MonoBehaviour
                     situp = false;
                 }
             }
+        }
+    }
+
+    void TimeCheck(){
+        if (GameTime.intTimer > times[timeNumber]){
+            agent.destination = goal[timeNumber].position;
+            timeNumber++;
         }
     }
 }

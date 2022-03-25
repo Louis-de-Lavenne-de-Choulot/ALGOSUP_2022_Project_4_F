@@ -29,8 +29,4 @@ public class Personae
     public char _afternoon4 { get; }
     public char _morning5 { get; }
     public char _afternoon5 { get; }
-
-    public char[] all() { 
-        return new char[]{_lunch, _morning1, _afternoon1, _morning2, _afternoon2, _morning3, _afternoon3, _morning4, _afternoon4, _morning5, _afternoon5};
-    }
 }

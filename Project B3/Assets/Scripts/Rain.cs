@@ -75,8 +75,34 @@ public class Rain : MonoBehaviour
                 }
             }
         }
+        foreach(Transform languageLab in languageLabs){
+            foreach(Transform findTrsfrm in languageLab){
+                if (findTrsfrm.name == "Chair_Conference"){
+                    lL.Add(findTrsfrm);
+                }
+            }
+        }
+        foreach(Transform softSkill in softSkills){
+            foreach(Transform findTrsfrm in softSkill){
+                if (findTrsfrm.name == "Chair_Conference"){
+                    sS.Add(findTrsfrm);
+                }
+            }
+        }
+        foreach(Transform projectRoom in projectRooms){
+            foreach(Transform findTrsfrm in projectRoom){
+                if (findTrsfrm.name == "Chair_Conference"){
+                    pR.Add(findTrsfrm);
+                }
+            }
+        }
+        foreach(Transform findTrsfrm in Auditorium){
+                if (findTrsfrm.name == "Chair_Conference"){
+                    a.Add(findTrsfrm);
+                }
+        }
         personaeNames = new Personae[9]{johnnyTT, stephTT, alexandreTT, jankaTT, nickTT, lindzyTT, denisTT, lanaTT, samTT};
-        Invoke("Invocation", 5f);
+        Invocation();
     }
 
     void Update(){
@@ -88,7 +114,22 @@ public class Rain : MonoBehaviour
             for (int i = 0; i < personaeNumber[persona]; i++){
                 GameObject obj = Instantiate(toInit[persona], new Vector3(Random.Range(recept.position.x-12, recept.position.x+12), recept.position.y,Random.Range(recept.position.z-12, recept.position.z+12)), Quaternion.identity) as GameObject;
                 UnityEngine.AI.NavMeshAgent nobj = obj.GetComponent<UnityEngine.AI.NavMeshAgent>();
-                nobj.destination = eR[persona].position;
+                if (p._morning1 == 'E' && eR != null){
+                    nobj.destination = eR[0].position;
+                    eR.RemoveAt(0);
+                }
+                else if(p._morning1 == 'P' && pR != null){
+                    nobj.destination = pR[0].position;
+                    pR.RemoveAt(0);
+                }
+                else if(p._morning1 == 'S' && sS != null){
+                    nobj.destination = sS[0].position;
+                    sS.RemoveAt(0);
+                }
+                else if(p._morning1 == 'C' && a != null){
+                    nobj.destination = a[0].position;
+                    a.RemoveAt(0);
+                }
                 obj.transform.SetParent(gameObject.transform);
             }
         }
