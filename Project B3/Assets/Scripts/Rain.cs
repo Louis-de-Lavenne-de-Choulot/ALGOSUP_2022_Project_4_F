@@ -5,22 +5,26 @@ public class Rain : MonoBehaviour
 {
     public Transform[] englishRooms;
     List<Transform> eR = new List<Transform>();
+    int[] eR2 = new int[5]{0,0,0,0,0};
     public Transform[] languageLabs;
     List<Transform> lL = new List<Transform>();
+    int[] lL2 = new int[5]{0,0,0,0,0};
     public Transform softSkills;
     List<Transform> sS = new List<Transform>();
+    int[] sS2 = new int[5]{0,0,0,0,0};
     public Transform[] projectRooms;
     List<Transform> pR = new List<Transform>();
+    int[] pR2 = new int[5]{0,0,0,0,0};
     public Transform[] Lunch;
     List<Transform> l = new List<Transform>();
     public Transform Auditorium;
     List<Transform> a = new List<Transform>();
+    int[] a2 = new int[5]{0,0,0,0,0};
     public Transform[] Toilettes;
     List<Transform> t = new List<Transform>();
     public GameObject[] toInit;
     Personae[] personaeNames;
     int[] personaeNumber;
-    int day;
     int johnny; 
     int steph;
     int alexandre;
@@ -56,7 +60,6 @@ public class Rain : MonoBehaviour
     void Start()
     {
         maxNumber = PlayerPrefs.GetInt("MaxAi", 0);
-        day = PlayerPrefs.GetInt("day", 0);
         johnny = PlayerPrefs.GetInt("Johnny", 0);
         steph = PlayerPrefs.GetInt("Steph", 0);
         alexandre = PlayerPrefs.GetInt("Alexandre", 0);
@@ -113,25 +116,52 @@ public class Rain : MonoBehaviour
             Personae p = personaeNames[persona];
             for (int i = 0; i < personaeNumber[persona]; i++){
                 GameObject obj = Instantiate(toInit[persona], new Vector3(Random.Range(recept.position.x-12, recept.position.x+12), recept.position.y,Random.Range(recept.position.z-12, recept.position.z+12)), Quaternion.identity) as GameObject;
-                UnityEngine.AI.NavMeshAgent nobj = obj.GetComponent<UnityEngine.AI.NavMeshAgent>();
-                if (p._morning1 == 'E' && eR != null){
-                    nobj.destination = eR[0].position;
-                    eR.RemoveAt(0);
-                }
-                else if(p._morning1 == 'P' && pR != null){
-                    nobj.destination = pR[0].position;
-                    pR.RemoveAt(0);
-                }
-                else if(p._morning1 == 'S' && sS != null){
-                    nobj.destination = sS[0].position;
-                    sS.RemoveAt(0);
-                }
-                else if(p._morning1 == 'C' && a != null){
-                    nobj.destination = a[0].position;
-                    a.RemoveAt(0);
+                NPC script = obj.GetComponent<NPC>();
+                for (int day = 1; day < 6; day++){
+                    switch(day){
+                        case 5:
+                            script.goal[day*2-1] = StartingDay(p._morning5, day);
+                            script.goal[day*2] =  StartingDay(p._afternoon5, day);
+                            break;
+                        case 4:
+                            script.goal[day*2-1] = StartingDay(p._morning4, day);
+                            script.goal[day*2] =  StartingDay(p._afternoon4, day);
+                            break;
+                        case 3:
+                            script.goal[day*2-1] = StartingDay(p._morning3, day);
+                            script.goal[day*2] =  StartingDay(p._afternoon3, day);
+                            break;
+                        case 2:
+                            script.goal[day*2-1] = StartingDay(p._morning2, day);
+                            script.goal[day*2] =  StartingDay(p._afternoon2, day);
+                            break;
+                        default :
+                            script.goal[day*2-1] = StartingDay(p._morning1, day);
+                            script.goal[day*2] =  StartingDay(p._afternoon1, day);
+                            break;
+                    }
                 }
                 obj.transform.SetParent(gameObject.transform);
             }
         }
+    }
+
+    private Vector3 StartingDay(char moment, int numb){
+        if (moment == 'E' && eR != null){
+            eR2[numb]++;
+            return eR[eR2[numb]].position;
+        }
+        else if(moment == 'P' && pR != null){
+            pR2[numb]++;
+            return pR[pR2[numb]].position;
+        }
+        else if(moment == 'S' && sS != null){
+            sS2[numb]++;
+            return sS[sS2[numb]].position;
+        }
+        else if(moment == 'C' && a != null){
+            return a[a2[numb]].position;                         
+        }
+        return new Vector3();
     }
 }
