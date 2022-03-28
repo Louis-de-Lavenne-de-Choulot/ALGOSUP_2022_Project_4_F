@@ -10,7 +10,7 @@ public class NPC : MonoBehaviour
     Vector3 agentLastPos;
     UnityEngine.AI.NavMeshAgent agent;
     Vector2 velocity = Vector2.zero;
-    Animator anim;
+    protected Animator anim;
 
     void Start () {
         anim = gameObject.GetComponent<Animator>();

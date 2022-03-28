@@ -2,10 +2,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class Shortcuts : MonoBehaviour
 {
-    private float resetvalue = 999999f;
     private float threshold = 3f;
-    private float xtime;
-    private float ytime;
+    private float xtime = 3f;
+    private bool lockx = false;
+    private float ytime = 3f;
+    private bool locky = false;
     OVRManager manager;
     [SerializeField]
     Transform Spawn;
@@ -17,37 +18,39 @@ public class Shortcuts : MonoBehaviour
         OVRInput.Update();
         if(OVRInput.GetDown(OVRInput.RawButton.X))
         {
-            xtime = Time.time;
+            xtime -= Time.deltaTime;
+        }
+        else
+        {
+            if(xtime > 0f) Pause();
+            xtime = threshold;
+            lockx = false;
         }
         if(OVRInput.GetDown(OVRInput.RawButton.Y))
         {
-            ytime = Time.time;
+            ytime -= Time.deltaTime;
         }
-        if(Time.time - xtime > threshold - 0.2f && Time.time - ytime > threshold - 0.2f)
+        else
         {
-            xtime = resetvalue;
-            ytime = resetvalue;
+            ytime = threshold;
+            locky = false;
+        }
+        if(xtime < 0.2f && ytime < 0.2f)
+        {
+            xtime = threshold;
+            ytime = threshold;
+            lockx = true;
+            locky = true;
             MainMenu();
         }
-
-        if(OVRInput.GetUp(OVRInput.RawButton.X))
+        if(!lockx && xtime < 0f)
         {
-            xtime = resetvalue;
-            Pause();
-        }
-        if(OVRInput.GetUp(OVRInput.RawButton.Y))
-        {
-            ytime = resetvalue;
-        }
-
-        if(Time.time - xtime > 3f)
-        {
-            xtime = resetvalue;
+            lockx = true;
             Respawn();
         }
-        if(Time.time - ytime > 3f)
+        if(!locky && ytime < 0f)
         {
-            ytime = resetvalue;
+            locky = true;
             ExitScenario();
         }
     }

@@ -39,11 +39,6 @@ public class SimpleCapsuleWithStickMovement : MonoBehaviour
 		}
 	}
 
-	void Start ()
-	{
-		
-	}
-	
 	private void FixedUpdate()
 	{
         if (CameraUpdated != null) CameraUpdated();
