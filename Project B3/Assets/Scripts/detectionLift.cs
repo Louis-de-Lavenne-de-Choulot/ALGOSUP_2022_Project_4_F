@@ -6,28 +6,12 @@ public class detectionLift : MonoBehaviour
 {
     public Animator liftAnim;
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "Player")
-        {
-            Debug.Log("Player detected");
-        }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.name == "Player")
-        {
-            Debug.Log("Player not detected");
-        }
+        Debug.Log("Colide");
+        if (other.gameObject.tag == "Player")
+            Debug.Log("PlayerColide");
+        liftAnim.SetTrigger("IsPushed");
     }
 }
