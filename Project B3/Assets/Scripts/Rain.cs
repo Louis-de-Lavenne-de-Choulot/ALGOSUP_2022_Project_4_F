@@ -73,34 +73,34 @@ public class Rain : MonoBehaviour
         personaeNumber = new int[10]{johnny, steph, alexandre, janka, nick, lindzy, denis, lana, sam, basics};
         foreach(Transform englishRoom in englishRooms){
             foreach(Transform findTrsfrm in englishRoom){
-                if (findTrsfrm.name == "Chair_Conference"){
+                if (findTrsfrm.name == "chair"){
                     eR.Add(findTrsfrm);
                 }
             }
         }
         foreach(Transform languageLab in languageLabs){
             foreach(Transform findTrsfrm in languageLab){
-                if (findTrsfrm.name == "Chair_Conference"){
+                if (findTrsfrm.name == "chair"){
                     lL.Add(findTrsfrm);
                 }
             }
         }
         foreach(Transform softSkill in softSkills){
             foreach(Transform findTrsfrm in softSkill){
-                if (findTrsfrm.name == "Chair_Conference"){
+                if (findTrsfrm.name == "chair"){
                     sS.Add(findTrsfrm);
                 }
             }
         }
         foreach(Transform projectRoom in projectRooms){
             foreach(Transform findTrsfrm in projectRoom){
-                if (findTrsfrm.name == "Chair_Conference"){
+                if (findTrsfrm.name == "chair"){
                     pR.Add(findTrsfrm);
                 }
             }
         }
         foreach(Transform findTrsfrm in Auditorium){
-                if (findTrsfrm.name == "Chair_Conference"){
+                if (findTrsfrm.name == "chair"){
                     a.Add(findTrsfrm);
                 }
         }
