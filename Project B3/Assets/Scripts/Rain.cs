@@ -104,6 +104,11 @@ public class Rain : MonoBehaviour
                     a.Add(findTrsfrm);
                 }
         }
+        foreach(Transform findTrsfrm in Lunch){
+                if (findTrsfrm.name == "chair"){
+                    l.Add(findTrsfrm);
+                }
+        }
         personaeNames = new Personae[9]{johnnyTT, stephTT, alexandreTT, jankaTT, nickTT, lindzyTT, denisTT, lanaTT, samTT};
         Invocation();
     }
