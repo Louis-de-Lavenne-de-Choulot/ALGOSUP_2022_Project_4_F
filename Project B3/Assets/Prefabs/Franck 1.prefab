@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 7111588371719443087}
   - component: {fileID: 7111588371719443084}
   - component: {fileID: 7111588371719443085}
-  - component: {fileID: 7111588371719443086}
   - component: {fileID: 7111588371719443083}
+  - component: {fileID: 5966769010638692388}
   m_Layer: 0
   m_Name: Franck 1
   m_TagString: Untagged
@@ -62,7 +62,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 7111588371719443074}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   m_Radius: 17.269781
   m_Height: 188.90097
   m_Direction: 2
@@ -87,25 +87,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7111588371719443086
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7111588371719443074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d2b10de31aedd542a7f8882e033c218, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 12
-  groundDrag: 3
-  playerHeight: 160
-  ground:
-    serializedVersion: 2
-    m_Bits: 1
-  orientation: {fileID: 7636626526050617400}
 --- !u!195 &7111588371719443083
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -128,6 +109,19 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &5966769010638692388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7111588371719443074}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb22b7de367b36049a3f03f9eab6e33b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goal: []
 --- !u!1001 &7652128958813872970
 PrefabInstance:
   m_ObjectHideFlags: 0
