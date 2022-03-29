@@ -52,7 +52,7 @@ public class Phone : MonoBehaviour
 
     private void Update()
     {
-        Collider[] collision = Physics.OverlapSphere(transform.position, 0.05f, LayerMask.GetMask("Scaner"));
+        Collider[] collision = Physics.OverlapSphere(transform.position, 0.15f, LayerMask.GetMask("Scaner"));
 
         if (collision.Length != 0)
         {

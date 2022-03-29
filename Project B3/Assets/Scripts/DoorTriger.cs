@@ -6,8 +6,6 @@ using UnityEditor;
 public class DoorTriger : MonoBehaviour
 {
 
-    private float time = 0f;
-
     [SerializeField]
     private bool is_AI = true;
 
@@ -27,11 +25,6 @@ public class DoorTriger : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        time += Time.deltaTime;
-    }
-
     private void OnTriggerStay(Collider other)
     {
         if(other.tag == "door")
@@ -42,9 +35,14 @@ public class DoorTriger : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        
+    }
+
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "door" && time > 5f)
+        if (other.tag == "door" && other.transform.parent.parent.gameObject.GetComponent<Animator>().GetFloat("time") > 2f)
         {
             Animator door = other.transform.parent.parent.gameObject.GetComponent(typeof(Animator)) as Animator;
             Animator scanerR = other.transform.parent.parent.GetChild(1).gameObject.GetComponent(typeof(Animator)) as Animator;
@@ -65,7 +63,7 @@ public class DoorTriger : MonoBehaviour
             door.SetBool("hasScanned", false);
             door.SetBool("doorOpen", false);
 
-            time = 0f;
+            other.transform.parent.parent.gameObject.GetComponent<Animator>().SetFloat("time", 0f);
         }
     }
 }

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8941890089054374899}
   - component: {fileID: 1769955084330048709}
   - component: {fileID: 1784247100393841773}
+  - component: {fileID: 596916641100761254}
   m_Layer: 0
   m_Name: door_side_lights.002
   m_TagString: Untagged
@@ -84,6 +85,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &596916641100761254
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143374808451108090}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -6483089844447925171, guid: d3e545ceb18e72c4f857f3816edadae9, type: 3}
 --- !u!1 &330657274353100983
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,7 +294,7 @@ Transform:
   m_GameObject: {fileID: 1735682237749303956}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalScale: {x: 100, y: 100, z: 96.656}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7013415172857393090}
@@ -299,6 +314,7 @@ GameObject:
   - component: {fileID: 1991629476989808687}
   - component: {fileID: 2557533523409705781}
   - component: {fileID: 5102320517939058462}
+  - component: {fileID: 596916641100761257}
   m_Layer: 0
   m_Name: door_trim.002
   m_TagString: door
@@ -384,6 +400,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.021318154, y: 0.002086907, z: 0.0012869181}
   m_Center: {x: -0.000000059604645, y: -9.078496e-19, z: 0.0038603651}
+--- !u!64 &596916641100761257
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2649256930410325627}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4434962100477780630, guid: d3e545ceb18e72c4f857f3816edadae9, type: 3}
 --- !u!1 &3931321705770964529
 GameObject:
   m_ObjectHideFlags: 0
@@ -395,6 +425,7 @@ GameObject:
   - component: {fileID: 2117473598821555887}
   - component: {fileID: 6943546574146955399}
   - component: {fileID: 8755620479978182683}
+  - component: {fileID: 596916641100761255}
   m_Layer: 0
   m_Name: door_rim_01.002
   m_TagString: Untagged
@@ -467,6 +498,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &596916641100761255
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3931321705770964529}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3578155935656930051, guid: d3e545ceb18e72c4f857f3816edadae9, type: 3}
 --- !u!1 &4247411987169826535
 GameObject:
   m_ObjectHideFlags: 0
@@ -629,7 +674,7 @@ GameObject:
   - component: {fileID: 2194987043144857646}
   - component: {fileID: 9035152835766270342}
   - component: {fileID: 7829391881272555869}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: wall scanner
   m_TagString: Main gate
   m_Icon: {fileID: 0}
@@ -724,6 +769,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4988298702231834482}
   - component: {fileID: 4364444774986752353}
+  - component: {fileID: 8645362527316297264}
   m_Layer: 0
   m_Name: doorCircular
   m_TagString: Untagged
@@ -740,7 +786,7 @@ Transform:
   m_GameObject: {fileID: 5652632782365677000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.38, y: 0, z: 0}
-  m_LocalScale: {x: 0.4547206, y: 0.4547206, z: 0.4547206}
+  m_LocalScale: {x: 0.4575695, y: 0.48957202, z: 0.56054664}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5309376401564416935}
@@ -769,6 +815,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8645362527316297264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5652632782365677000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdcc6c9e4af2540a7bc01ff0c2f7529b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5730458261528196841
 GameObject:
   m_ObjectHideFlags: 0
@@ -869,6 +927,7 @@ GameObject:
   - component: {fileID: 7167954728548466729}
   - component: {fileID: 5823097424759519499}
   - component: {fileID: 4916746915007624248}
+  - component: {fileID: 596916641100761256}
   m_Layer: 0
   m_Name: door_turn_03
   m_TagString: Untagged
@@ -942,6 +1001,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &596916641100761256
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6156639102164258934}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -7934947499718472530, guid: d3e545ceb18e72c4f857f3816edadae9, type: 3}
 --- !u!1 &6537639078720337585
 GameObject:
   m_ObjectHideFlags: 0
@@ -954,7 +1027,7 @@ GameObject:
   - component: {fileID: 6998770311849849327}
   - component: {fileID: 4226280097024795688}
   - component: {fileID: 2609774560584357378}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: wall scanner
   m_TagString: Main gate
   m_Icon: {fileID: 0}
