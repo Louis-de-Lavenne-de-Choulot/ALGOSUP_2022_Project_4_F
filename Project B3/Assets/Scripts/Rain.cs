@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 public class Rain : MonoBehaviour
 {
+    public Transform trash;
     public Transform[] englishRooms;
     List<Transform> eR = new List<Transform>();
     int[] eR2 = new int[5]{0,0,0,0,0};
@@ -59,11 +60,11 @@ public class Rain : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        maxNumber = PlayerPrefs.GetInt("MaxAi", 0);
-        johnny = PlayerPrefs.GetInt("Johnny", 0);
-        steph = PlayerPrefs.GetInt("Steph", 0);
-        alexandre = PlayerPrefs.GetInt("Alexandre", 0);
-        janka = PlayerPrefs.GetInt("Janka", 0);
+        maxNumber = 160;//PlayerPrefs.GetInt("MaxAi", 0);
+        johnny = 57;// PlayerPrefs.GetInt("Johnny", 0);
+        steph = 44; //PlayerPrefs.GetInt("Steph", 0);
+        alexandre = 22; //PlayerPrefs.GetInt("Alexandre", 0);
+        janka = 40; //PlayerPrefs.GetInt("Janka", 0);
         nick = PlayerPrefs.GetInt("Nick", 0);
         lindzy = PlayerPrefs.GetInt("Lindzy", 0);
         denis = PlayerPrefs.GetInt("Denis", 0);
@@ -174,23 +175,28 @@ public class Rain : MonoBehaviour
     }
 
     private Vector3 StartingDay(char moment, int numb){
-            numb--;
+        numb--;
         if (moment == 'E' && eR.Count > eR2[numb]){
+            Vector3 temp = eR[eR2[numb]].position;
             eR2[numb]++;
-            return eR[eR2[numb]].position;
+            return temp;
         }
         else if(moment == 'P' && pR.Count > pR2[numb]){
+            Vector3 temp = pR[pR2[numb]].position;
             pR2[numb]++;
-            return pR[pR2[numb]].position;
+            return temp;
         }
         else if(moment == 'S' && sS.Count > sS2[numb]){
+            Vector3 temp = sS[sS2[numb]].position;
             sS2[numb]++;
-            return sS[sS2[numb]].position;
+            return temp;
         }
         else if(moment == 'C' && a.Count > a2[numb]){
+            Vector3 temp = a[a2[numb]].position;
             a2[numb]++;
-            return a[a2[numb]].position;                         
+            return temp;                         
         }
-        return new Vector3();
+        Debug.Log("trash");
+        return trash.position;
     }
 }
