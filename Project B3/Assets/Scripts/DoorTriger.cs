@@ -30,7 +30,6 @@ public class DoorTriger : MonoBehaviour
         if(other.tag == "door")
         {
             Animator door = other.transform.parent.parent.gameObject.GetComponent(typeof(Animator)) as Animator;
-            Debug.Log(door + " triger");
             door.SetBool("doorOpen", true);
         }
     }

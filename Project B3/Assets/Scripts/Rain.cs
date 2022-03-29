@@ -59,11 +59,11 @@ public class Rain : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        maxNumber = PlayerPrefs.GetInt("MaxAi", 0);
-        johnny = PlayerPrefs.GetInt("Johnny", 0);
-        steph = PlayerPrefs.GetInt("Steph", 0);
+        maxNumber = 50;//PlayerPrefs.GetInt("MaxAi", 0);
+        johnny = 12;// PlayerPrefs.GetInt("Johnny", 0);
+        steph = 20;//PlayerPrefs.GetInt("Steph", 0);
         alexandre = PlayerPrefs.GetInt("Alexandre", 0);
-        janka = PlayerPrefs.GetInt("Janka", 0);
+        janka = 18;// PlayerPrefs.GetInt("Janka", 0);
         nick = PlayerPrefs.GetInt("Nick", 0);
         lindzy = PlayerPrefs.GetInt("Lindzy", 0);
         denis = PlayerPrefs.GetInt("Denis", 0);
@@ -73,39 +73,35 @@ public class Rain : MonoBehaviour
         personaeNumber = new int[10]{johnny, steph, alexandre, janka, nick, lindzy, denis, lana, sam, basics};
         foreach(Transform englishRoom in englishRooms){
             foreach(Transform findTrsfrm in englishRoom){
-                if (findTrsfrm.name == "chair"){
+                if (findTrsfrm.name == "Chair"){
                     eR.Add(findTrsfrm);
                 }
             }
         }
-        foreach(Transform languageLab in languageLabs){
-            foreach(Transform findTrsfrm in languageLab){
-                if (findTrsfrm.name == "chair"){
-                    lL.Add(findTrsfrm);
-                }
+        foreach(Transform findTrsfrm in languageLabs){
+            if (findTrsfrm.name == "Chair"){
+                lL.Add(findTrsfrm);
             }
         }
-        foreach(Transform softSkill in softSkills){
-            foreach(Transform findTrsfrm in softSkill){
-                if (findTrsfrm.name == "chair"){
-                    sS.Add(findTrsfrm);
-                }
+        foreach(Transform findTrsfrm in softSkills){
+            if (findTrsfrm.name == "Chair"){
+                sS.Add(findTrsfrm);
             }
         }
         foreach(Transform projectRoom in projectRooms){
             foreach(Transform findTrsfrm in projectRoom){
-                if (findTrsfrm.name == "chair"){
+                if (findTrsfrm.name == "Chair"){
                     pR.Add(findTrsfrm);
                 }
             }
         }
         foreach(Transform findTrsfrm in Auditorium){
-                if (findTrsfrm.name == "chair"){
+                if (findTrsfrm.name == "Chair"){
                     a.Add(findTrsfrm);
                 }
         }
         foreach(Transform findTrsfrm in Lunch){
-                if (findTrsfrm.name == "chair"){
+                if (findTrsfrm.name == "Chair"){
                     l.Add(findTrsfrm);
                 }
         }
@@ -117,32 +113,58 @@ public class Rain : MonoBehaviour
     }
 
     private void Invocation(){
-        for (int persona = 0;  persona <  10; persona++){
+        for (int persona = 0;  persona < 9; persona++){
             Personae p = personaeNames[persona];
             for (int i = 0; i < personaeNumber[persona]; i++){
                 GameObject obj = Instantiate(toInit[persona], new Vector3(Random.Range(recept.position.x-12, recept.position.x+12), recept.position.y,Random.Range(recept.position.z-12, recept.position.z+12)), Quaternion.identity) as GameObject;
                 NPC script = obj.GetComponent<NPC>();
+                script.goal = new Vector3[11];
                 for (int day = 1; day < 6; day++){
                     switch(day){
                         case 5:
-                            script.goal[day*2-1] = StartingDay(p._morning5, day);
-                            script.goal[day*2] =  StartingDay(p._afternoon5, day);
+                            if (p._morning5 == p._afternoon5){
+                                script.goal[day*2-1] = StartingDay(p._morning5, day);
+                                script.goal[day*2] =  script.goal[day*2-1];
+                            }else{
+                                script.goal[day*2-1] = StartingDay(p._morning5, day);
+                                script.goal[day*2] =  StartingDay(p._afternoon5, day);
+                            }
                             break;
                         case 4:
-                            script.goal[day*2-1] = StartingDay(p._morning4, day);
-                            script.goal[day*2] =  StartingDay(p._afternoon4, day);
+                            if (p._morning4 == p._afternoon4){
+                                script.goal[day*2-1] = StartingDay(p._morning4, day);
+                                script.goal[day*2] =  script.goal[day*2-1];
+                            }else{
+                                script.goal[day*2-1] = StartingDay(p._morning4, day);
+                                script.goal[day*2] =  StartingDay(p._afternoon4, day);
+                            }
                             break;
                         case 3:
-                            script.goal[day*2-1] = StartingDay(p._morning3, day);
-                            script.goal[day*2] =  StartingDay(p._afternoon3, day);
+                            if (p._morning3 == p._afternoon3){
+                                script.goal[day*2-1] = StartingDay(p._morning3, day);
+                                script.goal[day*2] =  script.goal[day*2-1];
+                            }else{
+                                script.goal[day*2-1] = StartingDay(p._morning3, day);
+                                script.goal[day*2] =  StartingDay(p._afternoon3, day);
+                            }
                             break;
                         case 2:
-                            script.goal[day*2-1] = StartingDay(p._morning2, day);
-                            script.goal[day*2] =  StartingDay(p._afternoon2, day);
+                            if (p._morning2 == p._afternoon2){
+                                script.goal[day*2-1] = StartingDay(p._morning2, day);
+                                script.goal[day*2] =  script.goal[day*2-1];
+                            }else{
+                                script.goal[day*2-1] = StartingDay(p._morning2, day);
+                                script.goal[day*2] =  StartingDay(p._afternoon2, day);
+                            }
                             break;
                         default :
-                            script.goal[day*2-1] = StartingDay(p._morning1, day);
-                            script.goal[day*2] =  StartingDay(p._afternoon1, day);
+                            if (p._morning1 == p._afternoon1){
+                                script.goal[day*2-1] = StartingDay(p._morning1, day);
+                                script.goal[day*2] =  script.goal[day*2-1];
+                            }else{
+                                script.goal[day*2-1] = StartingDay(p._morning1, day);
+                                script.goal[day*2] =  StartingDay(p._afternoon1, day);
+                            }
                             break;
                     }
                 }
@@ -152,19 +174,21 @@ public class Rain : MonoBehaviour
     }
 
     private Vector3 StartingDay(char moment, int numb){
-        if (moment == 'E' && eR != null){
+            numb--;
+        if (moment == 'E' && eR.Count > eR2[numb]){
             eR2[numb]++;
             return eR[eR2[numb]].position;
         }
-        else if(moment == 'P' && pR != null){
+        else if(moment == 'P' && pR.Count > pR2[numb]){
             pR2[numb]++;
             return pR[pR2[numb]].position;
         }
-        else if(moment == 'S' && sS != null){
+        else if(moment == 'S' && sS.Count > sS2[numb]){
             sS2[numb]++;
             return sS[sS2[numb]].position;
         }
-        else if(moment == 'C' && a != null){
+        else if(moment == 'C' && a.Count > a2[numb]){
+            a2[numb]++;
             return a[a2[numb]].position;                         
         }
         return new Vector3();
