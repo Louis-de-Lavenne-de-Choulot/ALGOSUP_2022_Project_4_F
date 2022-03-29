@@ -60,11 +60,11 @@ public class Rain : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        maxNumber = 160;//PlayerPrefs.GetInt("MaxAi", 0);
-        johnny = 57;// PlayerPrefs.GetInt("Johnny", 0);
-        steph = 44; //PlayerPrefs.GetInt("Steph", 0);
-        alexandre = 22; //PlayerPrefs.GetInt("Alexandre", 0);
-        janka = 40; //PlayerPrefs.GetInt("Janka", 0);
+        maxNumber = PlayerPrefs.GetInt("MaxAi", 0);
+        johnny = PlayerPrefs.GetInt("Johnny", 0);
+        steph = PlayerPrefs.GetInt("Steph", 0);
+        alexandre = PlayerPrefs.GetInt("Alexandre", 0);
+        janka = PlayerPrefs.GetInt("Janka", 0);
         nick = PlayerPrefs.GetInt("Nick", 0);
         lindzy = PlayerPrefs.GetInt("Lindzy", 0);
         denis = PlayerPrefs.GetInt("Denis", 0);
