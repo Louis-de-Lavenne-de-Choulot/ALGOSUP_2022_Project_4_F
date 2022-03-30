@@ -1,0 +1,160 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae5a46bda3295124c99b0e6537ac7252, type: 3}
+  m_Name: WitConfiguration
+  m_EditorClassIdentifier: 
+  application:
+    witConfiguration: {fileID: 0}
+    name: projectb3
+    id: 714399719587564
+    lang: en
+    isPrivate: 1
+    createdAt: 2022-03-11T00:40:36-0800
+  configId: 9b50455c3918548769dc21135849969f
+  clientAccessToken: DD6LX46I7HE23U6RFGEDQJ52FERJDIDT
+  timeoutMS: 10000
+  endpointConfiguration:
+    uriScheme: 
+    authority: 
+    port: 0
+    witApiVersion: 
+    speech: 
+    message: 
+  entities:
+  - witConfiguration: {fileID: 11400000}
+    id: 1021575545235723
+    name: NPC
+    lookups:
+    - free-text
+    - keywords
+    roles:
+    - id: 1093671551193845
+      name: NPC
+    keywords:
+    - keyword: Franck
+      synonyms:
+      - franck
+    - keyword: Students
+      synonyms:
+      - students
+    - keyword: Teachers
+      synonyms:
+      - teachers
+    - keyword: you
+      synonyms:
+      - you
+  - witConfiguration: {fileID: 11400000}
+    id: 2754209008218464
+    name: NPCAction
+    lookups:
+    - free-text
+    - keywords
+    roles:
+    - id: 377242277280452
+      name: NPCAction
+    keywords:
+    - keyword: Step away
+      synonyms:
+      - step away
+    - keyword: move aside
+      synonyms:
+      - move aside
+    - keyword: move away
+      synonyms:
+      - move away
+    - keyword: step aside
+      synonyms:
+      - step aside
+  - witConfiguration: {fileID: 11400000}
+    id: 1407981526297343
+    name: SimAction
+    lookups:
+    - free-text
+    - keywords
+    roles:
+    - id: 443440844136675
+      name: SimAction
+    keywords:
+    - keyword: Never mind
+      synonyms:
+      - never mind
+    - keyword: Nevermind
+      synonyms:
+      - nevermind
+    - keyword: Pause
+      synonyms:
+      - pause
+    - keyword: Play
+      synonyms:
+      - play
+      - resume
+    - keyword: resume
+      synonyms:
+      - resume
+  intents:
+  - witConfiguration: {fileID: 11400000}
+    id: 1152897638821569
+    name: MoveAway
+    entities:
+    - witConfiguration: {fileID: 11400000}
+      id: 1093671551193845
+      name: NPC:NPC
+      lookups: []
+      roles: []
+      keywords: []
+    - witConfiguration: {fileID: 11400000}
+      id: 377242277280452
+      name: NPCAction:NPCAction
+      lookups: []
+      roles: []
+      keywords: []
+  - witConfiguration: {fileID: 11400000}
+    id: 2869479263198956
+    name: Pause
+    entities:
+    - witConfiguration: {fileID: 11400000}
+      id: 443440844136675
+      name: SimAction:SimAction
+      lookups: []
+      roles: []
+      keywords: []
+  - witConfiguration: {fileID: 11400000}
+    id: 275118118083270
+    name: Play
+    entities:
+    - witConfiguration: {fileID: 11400000}
+      id: 443440844136675
+      name: SimAction:SimAction
+      lookups: []
+      roles: []
+      keywords: []
+  - witConfiguration: {fileID: 11400000}
+    id: 2195438423937211
+    name: wit$nevermind
+    entities:
+    - witConfiguration: {fileID: 11400000}
+      id: 443440844136675
+      name: SimAction:SimAction
+      lookups: []
+      roles: []
+      keywords: []
+  traits:
+  - witConfiguration: {fileID: 11400000}
+    id: 5ac2b50a-44e4-466e-9d49-bad6bd40092c
+    name: wit$sentiment
+    values:
+    - id: 561371444570330
+      value: negative
+    - id: 1621429681354257
+      value: neutral
+    - id: 2522989351346070
+      value: positive
