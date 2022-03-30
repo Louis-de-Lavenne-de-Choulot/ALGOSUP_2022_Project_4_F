@@ -44,12 +44,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 982f4786319ba6c4491dbad048a27009, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trash: {fileID: 0}
+  softSkills: {fileID: 0}
+  languageLabs: {fileID: 0}
+  Lunch: {fileID: 0}
+  Auditorium: {fileID: 0}
   englishRooms:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  languageLabs: []
-  softSkills: {fileID: 0}
   projectRooms:
   - {fileID: 0}
   - {fileID: 0}
@@ -64,8 +67,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  Lunch: []
-  Auditorium: {fileID: 0}
+  - {fileID: 0}
   Toilettes: []
   toInit:
   - {fileID: 780131664743231543, guid: bf46bcba3a84f482b9df5c01ae4b5597, type: 3}
@@ -79,4 +81,3 @@ MonoBehaviour:
   - {fileID: 8057093193683748497, guid: 8fee657cc15ee49f79c2af5b9f71e75c, type: 3}
   - {fileID: 366153095240098720, guid: 179ac7bd3929b4930967967f869138e5, type: 3}
   recept: {fileID: 6604829915844981347}
-  vv: {fileID: 0}
