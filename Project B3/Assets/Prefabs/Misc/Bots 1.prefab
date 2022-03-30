@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3874419527677703184
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6604829915844981347}
+  - component: {fileID: 4799633824037138966}
+  m_Layer: 0
+  m_Name: Bots 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6604829915844981347
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3874419527677703184}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -21.61, y: 0.77, z: 12.03}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4799633824037138966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3874419527677703184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 982f4786319ba6c4491dbad048a27009, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  englishRooms:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  languageLabs: []
+  softSkills: {fileID: 0}
+  projectRooms:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  Lunch: []
+  Auditorium: {fileID: 0}
+  Toilettes: []
+  toInit:
+  - {fileID: 780131664743231543, guid: bf46bcba3a84f482b9df5c01ae4b5597, type: 3}
+  - {fileID: 362042024866577885, guid: e509eccb97a12401691516836a6475dd, type: 3}
+  - {fileID: 366153095240098720, guid: 179ac7bd3929b4930967967f869138e5, type: 3}
+  - {fileID: 2726485272258377131, guid: 87868b36e94da49a185df816d3c641be, type: 3}
+  - {fileID: 2928978759770873247, guid: 12c47d44cae1f4d4daf0f522197d9564, type: 3}
+  - {fileID: 1900955418418413430, guid: 75da8855848a140d5898b402e281650e, type: 3}
+  - {fileID: 6523036373518471019, guid: 185ec444764734f96bd272ed81977e0e, type: 3}
+  - {fileID: 8057093193683748497, guid: 8fee657cc15ee49f79c2af5b9f71e75c, type: 3}
+  - {fileID: 8057093193683748497, guid: 8fee657cc15ee49f79c2af5b9f71e75c, type: 3}
+  - {fileID: 366153095240098720, guid: 179ac7bd3929b4930967967f869138e5, type: 3}
+  recept: {fileID: 6604829915844981347}
+  vv: {fileID: 0}
