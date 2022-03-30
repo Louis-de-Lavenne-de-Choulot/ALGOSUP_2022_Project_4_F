@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4084274, g: 0.40786085, b: 0.41314676, a: 1}
+  m_IndirectSpecularColor: {r: 0.40835163, g: 0.40781295, b: 0.41298735, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12686,6 +12686,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1057142270}
   m_CullTransparentMesh: 1
+--- !u!1 &1060101718
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1060101719}
+  m_Layer: 0
+  m_Name: Spawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1060101719
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1060101718}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.451, y: 1.112, z: 0.293}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1073855186
 GameObject:
   m_ObjectHideFlags: 0
@@ -24205,6 +24236,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 847d8b0d968d4a14c89d7508f54c0db7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6066669140423775115 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1184412211170436703, guid: 567d716910ba9431689de9fddb9cdb13, type: 3}
+  m_PrefabInstance: {fileID: 6066669140423775113}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e933e81d3c20c74ea6fdc708a67e3a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!54 &6066669140423775117 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 1184412210742882719, guid: 567d716910ba9431689de9fddb9cdb13, type: 3}
@@ -24222,7 +24264,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c887671192e1bcd4495115522616bd9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Spawn: {fileID: 0}
+  manager: {fileID: 6066669140423775115}
+  Spawn: {fileID: 1060101719}
   body: {fileID: 6066669140423775117}
 --- !u!1 &6344344049176175775
 GameObject:

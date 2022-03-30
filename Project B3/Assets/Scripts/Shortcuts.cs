@@ -7,6 +7,7 @@ public class Shortcuts : MonoBehaviour
     private bool lockx = false;
     private float ytime = 3f;
     private bool locky = false;
+    [SerializeField]
     OVRManager manager;
     [SerializeField]
     Transform Spawn;
@@ -16,7 +17,7 @@ public class Shortcuts : MonoBehaviour
     void Update()
     {
         OVRInput.Update();
-        if(OVRInput.GetDown(OVRInput.RawButton.X))
+        if(OVRInput.Get(OVRInput.Button.Three))
         {
             xtime -= Time.deltaTime;
         }
@@ -26,7 +27,7 @@ public class Shortcuts : MonoBehaviour
             xtime = threshold;
             lockx = false;
         }
-        if(OVRInput.GetDown(OVRInput.RawButton.Y))
+        if(OVRInput.Get(OVRInput.Button.Four))
         {
             ytime -= Time.deltaTime;
         }
