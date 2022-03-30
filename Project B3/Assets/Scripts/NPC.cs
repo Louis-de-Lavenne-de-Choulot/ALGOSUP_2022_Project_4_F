@@ -52,7 +52,7 @@ public class NPC : MonoBehaviour
         Physics.SyncTransforms();
 
         //Chair
-        if ((Vector3.Distance(transform.position, goal[PlayerPrefs.GetInt("day", 0)*2-1].position) < 1) && (goal[PlayerPrefs.GetInt("day", 0)*2-1].gameObject.layer == LayerMask.GetMask("Chair"))
+        if ((Vector3.Distance(transform.position, goal[PlayerPrefs.GetInt("day", 0)*2-1].position) < 2) && (goal[PlayerPrefs.GetInt("day", 0)*2-1].gameObject.layer == LayerMask.GetMask("Chair"))
             && situp == false && (gameObject.GetComponent<Animator>().GetBool("sitAtTable") == false))
         {
             gameObject.GetComponent<Collider>().enabled = false;
@@ -74,7 +74,7 @@ public class NPC : MonoBehaviour
         }
 
         //Amphitheater chair
-        if ((Vector3.Distance(transform.position, goal[PlayerPrefs.GetInt("day", 0)*2-1].position) < 1) && (goal[PlayerPrefs.GetInt("day", 0)*2-1].gameObject.layer == LayerMask.GetMask("Amphi"))
+        if ((Vector3.Distance(transform.position, goal[PlayerPrefs.GetInt("day", 0)*2-1].position) < 2) && (goal[PlayerPrefs.GetInt("day", 0)*2-1].gameObject.layer == LayerMask.GetMask("Amphi"))
             && situp == false && (gameObject.GetComponent<Animator>().GetBool("sitWithLaptop") == false))
         {
             gameObject.GetComponent<Collider>().enabled = false;
@@ -92,7 +92,7 @@ public class NPC : MonoBehaviour
         }
 
         //Microwave
-        if ((Vector3.Distance(transform.position, goal[PlayerPrefs.GetInt("day", 0)*2-1].position) < 1) && (goal[PlayerPrefs.GetInt("day", 0)*2-1].gameObject.layer == LayerMask.GetMask("Amphi"))
+        if ((Vector3.Distance(transform.position, goal[PlayerPrefs.GetInt("day", 0)*2-1].position) < 2) && (goal[PlayerPrefs.GetInt("day", 0)*2-1].gameObject.layer == LayerMask.GetMask("Amphi"))
         && situp == false && (gameObject.GetComponent<Animator>().GetBool("sitWithLaptop") == false) && sandwichMricowave == false)
         {
             goal[PlayerPrefs.GetInt("day", 0)*2-1].gameObject.SetActive(false);
