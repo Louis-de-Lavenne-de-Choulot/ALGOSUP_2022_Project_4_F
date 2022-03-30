@@ -5,9 +5,9 @@ using UnityEngine;
 public class NPC : MonoBehaviour
 {
     // Start is called before the first frame update
-    float cooldown = 3F;
+    float cooldown = 60F;
     float period;
-    public Vector3[] goal;
+    public Vector3[] goal = new Vector3[11];
     Transform agentPos;
     Vector3 agentLastPos;
     UnityEngine.AI.NavMeshAgent agent;
@@ -18,7 +18,6 @@ public class NPC : MonoBehaviour
 
     private GameObject chair;
     private bool situp = false;
-    bool noui;
     private LayerMask chairLayer;
 
     private float timer = 0f;
@@ -27,33 +26,31 @@ public class NPC : MonoBehaviour
         anim = gameObject.GetComponent<Animator>();
         agentPos = gameObject.GetComponent<Transform>();
         agent = gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>();
-        agent.destination = goal[1*2-1];
+        agent.destination = goal[PlayerPrefs.GetInt("day", 0)*2-1];
         InvokeRepeating("TimeCheck", 20f, 5f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        bool shouldMove = agentPos.position != agentLastPos && agent.remainingDistance >= agent.radius;
+        bool shouldMove = agentPos.position != agentLastPos && agent.remainingDistance > agent.radius;
         if (shouldMove)
         {
-            noui = false;
             agentLastPos = agentPos.position;
             anim.SetBool("isMoving", true);
         }else{
             if(Time.time > period)
             {
-                noui = true;
-                anim.SetBool("isMoving", false);
                 period = Time.time + cooldown;
             }
+            anim.SetBool("isMoving", false);
         }
     }
 
     private void LateUpdate()
     {
         Collider[] hitChair = Physics.OverlapSphere(transform.position, 0.5f, LayerMask.GetMask("Chair"));
-        if (hitChair.Length != 0 && gameObject.GetComponent<Animator>().GetBool("sitAtTable") == false && situp == false && noui)
+        if (hitChair.Length != 0 && gameObject.GetComponent<Animator>().GetBool("sitAtTable") == false && situp == false)
         {
             gameObject.GetComponent<Collider>().enabled = false;
             gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
@@ -79,7 +76,7 @@ public class NPC : MonoBehaviour
         }
 
         Collider[] hitAmphi = Physics.OverlapCapsule(transform.position, transform.GetChild(0).position, 0.5f, LayerMask.GetMask("Amphi"));
-        if (hitAmphi.Length != 0 && gameObject.GetComponent<Animator>().GetBool("sitWithLaptop") == false && situp == false && noui)
+        if (hitAmphi.Length != 0 && gameObject.GetComponent<Animator>().GetBool("sitWithLaptop") == false && situp == false)
         {
             gameObject.GetComponent<Collider>().enabled = false;
             gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
