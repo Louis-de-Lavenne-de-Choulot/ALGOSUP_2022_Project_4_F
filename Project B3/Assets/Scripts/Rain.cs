@@ -4,23 +4,23 @@ using UnityEngine;
 public class Rain : MonoBehaviour
 {
     public Transform trash;
-    public Transform[] englishRooms;
-    List<Transform> eR = new List<Transform>();
-    int[] eR2 = new int[5]{0,0,0,0,0};
-    public Transform[] languageLabs;
-    List<Transform> lL = new List<Transform>();
-    int[] lL2 = new int[5]{0,0,0,0,0};
     public Transform softSkills;
     List<Transform> sS = new List<Transform>();
     int[] sS2 = new int[5]{0,0,0,0,0};
-    public Transform[] projectRooms;
-    List<Transform> pR = new List<Transform>();
-    int[] pR2 = new int[5]{0,0,0,0,0};
-    public Transform[] Lunch;
+    public Transform languageLabs;
+    List<Transform> lL = new List<Transform>();
+    int[] lL2 = new int[5]{0,0,0,0,0};
+    public Transform Lunch;
     List<Transform> l = new List<Transform>();
     public Transform Auditorium;
     List<Transform> a = new List<Transform>();
     int[] a2 = new int[5]{0,0,0,0,0};
+    public Transform[] englishRooms;
+    List<Transform> eR = new List<Transform>();
+    int[] eR2 = new int[5]{0,0,0,0,0};
+    public Transform[] projectRooms;
+    List<Transform> pR = new List<Transform>();
+    int[] pR2 = new int[5]{0,0,0,0,0};
     public Transform[] Toilettes;
     List<Transform> t = new List<Transform>();
     public GameObject[] toInit;
@@ -72,30 +72,34 @@ public class Rain : MonoBehaviour
         sam = PlayerPrefs.GetInt("Sam", 0);
         basics = PlayerPrefs.GetInt("Basic", 0);
         personaeNumber = new int[10]{johnny, steph, alexandre, janka, nick, lindzy, denis, lana, sam, basics};
-        foreach(Transform findTrsfrm in englishRooms){
-            if (findTrsfrm.name == "Chair"){
-                eR.Add(findTrsfrm);
-            }
-        }
         foreach(Transform findTrsfrm in languageLabs){
             if (findTrsfrm.name == "Chair"){
                 lL.Add(findTrsfrm);
-            }
-        }
-        foreach(Transform findTrsfrm in softSkills){
-            if (findTrsfrm.name == "Chair"){
-                sS.Add(findTrsfrm);
-            }
-        }
-        foreach(Transform findTrsfrm in projectRooms){
-            if (findTrsfrm.name == "Chair"){
-                pR.Add(findTrsfrm);
             }
         }
         foreach(Transform findTrsfrm in Auditorium){
                 if (findTrsfrm.name == "Chair"){
                     a.Add(findTrsfrm);
                 }
+        }
+        foreach(Transform findTrsfrm in softSkills){
+            if (findTrsfrm.name == "Chair"){
+                sS.Add(findTrsfrm);
+            }
+        }
+        foreach(Transform englishRoom in englishRooms){
+            foreach(Transform findTrsfrm in englishRoom){
+                if (findTrsfrm.name == "Chair"){
+                    eR.Add(findTrsfrm);
+                }
+            }
+        }
+        foreach(Transform projectRoom in projectRooms){
+            foreach(Transform findTrsfrm in projectRoom){
+                if (findTrsfrm.name == "Chair"){
+                    pR.Add(findTrsfrm);
+                }
+            }
         }
         personaeNames = new Personae[9]{johnnyTT, stephTT, alexandreTT, jankaTT, nickTT, lindzyTT, denisTT, lanaTT, samTT};
         Invocation();
