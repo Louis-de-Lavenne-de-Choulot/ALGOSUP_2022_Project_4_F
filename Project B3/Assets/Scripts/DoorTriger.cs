@@ -206,7 +206,7 @@ public class DoorTriger : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "door" && other.transform.parent.parent.gameObject.GetComponent<Animator>().GetFloat("time") > 2f)
+        if (other.tag == "door")
         {
             Animator door = other.transform.parent.parent.gameObject.GetComponent(typeof(Animator)) as Animator;
             Animator scanerR = other.transform.parent.parent.GetChild(1).gameObject.GetComponent(typeof(Animator)) as Animator;
