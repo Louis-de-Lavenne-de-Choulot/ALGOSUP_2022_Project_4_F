@@ -7,7 +7,7 @@ public class NPC : MonoBehaviour
     // Start is called before the first frame update
     float cooldown = 60F;
     float period;
-    public Vector3[] goal = new Vector3[11];
+    public Transform[] goal = new Transform[11];
     Transform agentPos;
     Vector3 agentLastPos;
     UnityEngine.AI.NavMeshAgent agent;
@@ -16,17 +16,17 @@ public class NPC : MonoBehaviour
     int timeNumber = 0;
     int[] times = new int[8]{85, 100, 160, 280, 340, 355, 415, 440};
 
-    private GameObject chair;
     private bool situp = false;
     private LayerMask chairLayer;
+    bool noui;
 
-    private float timer = 0f;
+    private bool sandwichMricowave = false;
 
     void Start () {
         anim = gameObject.GetComponent<Animator>();
         agentPos = gameObject.GetComponent<Transform>();
         agent = gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>();
-        agent.destination = goal[PlayerPrefs.GetInt("day", 0)*2-1];
+        agent.destination = goal[PlayerPrefs.GetInt("day", 0)*2-1].position;
         InvokeRepeating("TimeCheck", 20f, 5f);
     }
 
@@ -49,86 +49,86 @@ public class NPC : MonoBehaviour
 
     private void LateUpdate()
     {
-        Collider[] hitChair = Physics.OverlapSphere(transform.position, 0.5f, LayerMask.GetMask("Chair"));
-        if (hitChair.Length != 0 && gameObject.GetComponent<Animator>().GetBool("sitAtTable") == false && situp == false)
+        Physics.SyncTransforms();
+
+        //Chair
+        if ((Vector3.Distance(transform.position, goal[1*2-1].position) < 1) && situp == false
+            && gameObject.GetComponent<Animator>().GetBool("sitAtTable") == false
+            && goal[PlayerPrefs.GetInt("day", 0) * 2 - 1].gameObject.layer == LayerMask.NameToLayer("Chair"))
         {
             gameObject.GetComponent<Collider>().enabled = false;
             gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
             gameObject.GetComponent<Rigidbody>().useGravity = false;
 
-            chair = hitChair[0].gameObject;
-            chairLayer = hitChair[0].gameObject.layer;
+            transform.rotation = goal[PlayerPrefs.GetInt("day", 0)*2-1].transform.rotation;
 
-            transform.position = new Vector3(
-                hitChair[0].transform.position.x,
-                hitChair[0].transform.position.y + 0.62f,
-                hitChair[0].transform.position.z);
-            transform.rotation = hitChair[0].transform.rotation;
-
-            hitChair[0].transform.localPosition = new Vector3(
-                hitChair[0].transform.localPosition.x,
-                hitChair[0].transform.localPosition.y,
-                hitChair[0].transform.localPosition.z - 0.2f);
-
-            hitChair[0].gameObject.layer = LayerMask.GetMask("Default");
+            goal[PlayerPrefs.GetInt("day", 0) * 2 - 1].Translate(Vector3.back * 0.2f);
+            transform.position = goal[PlayerPrefs.GetInt("day", 0)*2-1].transform.position;
+            transform.Translate(Vector3.up * 0.642f);
 
             gameObject.GetComponent<Animator>().SetBool("sitAtTable", true);
         }
 
-        Collider[] hitAmphi = Physics.OverlapCapsule(transform.position, transform.GetChild(0).position, 0.5f, LayerMask.GetMask("Amphi"));
-        if (hitAmphi.Length != 0 && gameObject.GetComponent<Animator>().GetBool("sitWithLaptop") == false && situp == false)
+        //Amphitheater chair
+        if ((Vector3.Distance(transform.position, goal[PlayerPrefs.GetInt("day", 0)*2-1].position) < 1) && situp == false
+            && gameObject.GetComponent<Animator>().GetBool("sitWithLaptop") == false
+            && goal[PlayerPrefs.GetInt("day", 0) * 2 - 1].gameObject.layer == LayerMask.NameToLayer("Amphi"))
         {
-            gameObject.GetComponent<Collider>().enabled = false;
+                        gameObject.GetComponent<Collider>().enabled = false;
             gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
             gameObject.GetComponent<Rigidbody>().useGravity = false;
 
-            chair = hitAmphi[0].gameObject;
-            chairLayer = hitAmphi[0].gameObject.layer;
-
             transform.position = new Vector3(
-                hitAmphi[0].transform.position.x - 0.25f,
-                hitAmphi[0].transform.position.y + 0.65f,
-                hitAmphi[0].transform.position.z - 0.185f);
+                goal[PlayerPrefs.GetInt("day", 0)*2-1].transform.position.x - 0.25f,
+                goal[PlayerPrefs.GetInt("day", 0)*2-1].transform.position.y + 0.85f,
+                goal[PlayerPrefs.GetInt("day", 0)*2-1].transform.position.z - 0.185f);
 
-            transform.rotation = Quaternion.Euler(0, 180, hitAmphi[0].transform.rotation.z);
-
-            hitAmphi[0].gameObject.layer = LayerMask.GetMask("Default");
+            transform.rotation = Quaternion.Euler(0, 180, 0);
 
             gameObject.GetComponent<Animator>().SetBool("sitWithLaptop", true);
         }
 
+        //Microwave
+        //if ((Vector3.Distance(transform.position, goal[PlayerPrefs.GetInt("day", 0)*2-1].position) < 2) && (goal[PlayerPrefs.GetInt("day", 0)*2-1].gameObject.layer == LayerMask.GetMask("Amphi"))
+        //&& situp == false && (gameObject.GetComponent<Animator>().GetBool("sitWithLaptop") == false) && sandwichMricowave == false)
+        //{
+        //    goal[PlayerPrefs.GetInt("day", 0)*2-1].gameObject.SetActive(false);
+
+        //    gameObject.GetComponent<Collider>().enabled = false;
+        //    gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
+        //    gameObject.GetComponent<Rigidbody>().Sleep();
+
+        //    transform.position = new Vector3(
+        //        goal[PlayerPrefs.GetInt("day", 0)*2-1].transform.position.x,
+        //        goal[PlayerPrefs.GetInt("day", 0)*2-1].transform.position.y,
+        //        goal[PlayerPrefs.GetInt("day", 0)*2-1].transform.position.z);
+
+        //    transform.Translate(Vector3.back * 0.87f);
+        //    transform.Translate(Vector3.down * 0.315f);
+
+        //    transform.rotation = Quaternion.Euler(0, 0, goal[1 * 2 - 1].transform.rotation.z);
+
+        //    gameObject.GetComponent<Animator>().SetBool("microwave", true);
+
+        //    sandwichMricowave = true;
+        //}
+
+        //Leave Chair
         if (situp == true)
         {
-            if(chair != null)
-            {
-                chair.layer = chairLayer;
+            gameObject.GetComponent<Animator>().SetBool("sitWithLaptop", false);
+            gameObject.GetComponent<Animator>().SetBool("sitAtTable", false);
+            gameObject.GetComponent<Animator>().SetBool("microwave", false);
 
-                gameObject.GetComponent<Animator>().SetBool("sitWithLaptop", false);
-                gameObject.GetComponent<Animator>().SetBool("sitAtTable", false);
-
-                gameObject.GetComponent<Collider>().enabled = true;
-                gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = true;
-                gameObject.GetComponent<Rigidbody>().useGravity = true;
-
-                transform.position = new Vector3(
-                hitAmphi[0].transform.position.x - 0.25f,
-                hitAmphi[0].transform.position.y + 0.65f,
-                hitAmphi[0].transform.position.z - 0.185f);
-
-                timer += Time.deltaTime;
-
-                if(timer > 3)
-                {
-                    timer = 0f;
-                    situp = false;
-                }
-            }
+            gameObject.GetComponent<Collider>().enabled = true;
+            gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = true;
+            gameObject.GetComponent<Rigidbody>().WakeUp();
         }
     }
 
     void TimeCheck(){
         if (GameTime.intTimer > times[timeNumber]){
-            agent.destination = goal[timeNumber];
+            agent.destination = goal[timeNumber].position;
             timeNumber++;
         }
     }
