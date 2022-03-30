@@ -2,53 +2,42 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class Shortcuts : MonoBehaviour
 {
-    private float resetvalue = 999999f;
     private float threshold = 3f;
     private float xtime;
+    private bool lockx;
     private float ytime;
-    OVRManager manager;
+    private bool locky;
     [SerializeField]
     Transform Spawn;
-    [SerializeField]
     Rigidbody body;
+
+    void Start()
+    {
+        body = GetComponent<Rigidbody>();
+        xtime = 3f;
+        ytime = 3f;
+        lockx = false;
+        locky = false;
+    }
 
     void Update()
     {
-        OVRInput.Update();
-        if(OVRInput.GetDown(OVRInput.RawButton.X))
+        if (OVRInput.GetDown(OVRInput.Button.Three)) xtime = threshold;
+        if (OVRInput.GetDown(OVRInput.Button.Four)) ytime = threshold;
+        if (OVRInput.GetUp(OVRInput.Button.Three) && xtime > 0f) Pause();
+        if (OVRInput.Get(OVRInput.Button.Three)) xtime -= Time.deltaTime;
+        if (OVRInput.Get(OVRInput.Button.Four)) ytime -= Time.deltaTime;
+        if (!lockx && xtime < 0f) Respawn();
+        if (!locky && ytime < 0f) ExitScenario();
+        if (OVRInput.Get(OVRInput.Button.Three) &&
+            OVRInput.Get(OVRInput.Button.Four) &&
+            xtime < 0.2f && ytime < 0.2f)
         {
-            xtime = Time.time;
-        }
-        if(OVRInput.GetDown(OVRInput.RawButton.Y))
-        {
-            ytime = Time.time;
-        }
-        if(Time.time - xtime > threshold - 0.2f && Time.time - ytime > threshold - 0.2f)
-        {
-            xtime = resetvalue;
-            ytime = resetvalue;
+            xtime = threshold;
+            ytime = threshold;
+            lockx = true;
+            locky = true;
             MainMenu();
-        }
-
-        if(OVRInput.GetUp(OVRInput.RawButton.X))
-        {
-            xtime = resetvalue;
-            Pause();
-        }
-        if(OVRInput.GetUp(OVRInput.RawButton.Y))
-        {
-            ytime = resetvalue;
-        }
-
-        if(Time.time - xtime > 3f)
-        {
-            xtime = resetvalue;
-            Respawn();
-        }
-        if(Time.time - ytime > 3f)
-        {
-            ytime = resetvalue;
-            ExitScenario();
         }
     }
     void MainMenu()

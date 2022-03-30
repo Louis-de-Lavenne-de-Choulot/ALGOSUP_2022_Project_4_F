@@ -12,7 +12,7 @@ public class NPC : MonoBehaviour
     Vector3 agentLastPos;
     UnityEngine.AI.NavMeshAgent agent;
     Vector2 velocity = Vector2.zero;
-    Animator anim;
+    protected Animator anim;
     int timeNumber = 0;
     int[] times = new int[8]{85, 100, 160, 280, 340, 355, 415, 440};
 
