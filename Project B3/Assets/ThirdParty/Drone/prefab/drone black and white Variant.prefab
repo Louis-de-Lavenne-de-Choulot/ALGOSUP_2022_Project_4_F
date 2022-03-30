@@ -28,6 +28,10 @@ PrefabInstance:
       value: drone black and white Variant
       objectReference: {fileID: 0}
     - target: {fileID: 6448422002054749266, guid: b8c5de00063898242910230cb837de87, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6448422002054749266, guid: b8c5de00063898242910230cb837de87, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -40,6 +44,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6448422002054749266, guid: b8c5de00063898242910230cb837de87, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6448422002054749266, guid: b8c5de00063898242910230cb837de87, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0.000000021855694
       objectReference: {fileID: 0}
@@ -50,14 +58,6 @@ PrefabInstance:
     - target: {fileID: 6448422002054749266, guid: b8c5de00063898242910230cb837de87, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6448422002054749266, guid: b8c5de00063898242910230cb837de87, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6448422002054749266, guid: b8c5de00063898242910230cb837de87, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6448422002054749266, guid: b8c5de00063898242910230cb837de87, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
