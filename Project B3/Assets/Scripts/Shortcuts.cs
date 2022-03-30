@@ -7,14 +7,12 @@ public class Shortcuts : MonoBehaviour
     private bool lockx;
     private float ytime;
     private bool locky;
-    OVRManager manager;
     [SerializeField]
     Transform Spawn;
     Rigidbody body;
 
     void Start()
     {
-        manager = GameObject.Find("OVRCameraRig").GetComponent<OVRManager>();
         body = GetComponent<Rigidbody>();
         xtime = 3f;
         ytime = 3f;
