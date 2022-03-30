@@ -37,7 +37,9 @@ public class Rain : MonoBehaviour
     int sam;
     int basics;
     int maxNumber;
+    Color[] Skin = new Color[4]{new Color(0.254717f, 0.1748036f, 0.08290314f), new Color(0.727f, 0.6063917f, 0.4154285f), new Color(0.1792453f, 0.07965653f, 0.03297437f), new Color(0.8235294f, 0.6969679f, 0.5583529f)};
     public Transform recept;
+    private Personae basicsTT = new Personae('I', 'P', 'P', 'P', 'P', 'S', 'S', 'C', 'C', 'P', 'E');
     // G = get/order food, O = outside, I = inside, B = bring his meal
     private Personae johnnyTT = new Personae('G', 'E', 'P', 'S', 'S', 'P', 'P', 'C', 'C', 'P', 'P');
 
@@ -71,7 +73,7 @@ public class Rain : MonoBehaviour
         lana = PlayerPrefs.GetInt("Lana", 0);
         sam = PlayerPrefs.GetInt("Sam", 0);
         basics = PlayerPrefs.GetInt("Basic", 0);
-        personaeNumber = new int[10]{johnny, steph, alexandre, janka, nick, lindzy, denis, lana, sam, basics};
+        personaeNumber = new int[10]{basics, johnny, alexandre, sam, nick, denis, lana, steph, janka, lindzy};
         foreach(Transform findTrsfrm in languageLabs){
             if (findTrsfrm.name == "Chair"){
                 lL.Add(findTrsfrm);
@@ -101,7 +103,7 @@ public class Rain : MonoBehaviour
                 }
             }
         }
-        personaeNames = new Personae[9]{johnnyTT, stephTT, alexandreTT, jankaTT, nickTT, lindzyTT, denisTT, lanaTT, samTT};
+        personaeNames = new Personae[10]{basicsTT, johnnyTT, alexandreTT, samTT, nickTT, denisTT, lanaTT, stephTT, jankaTT, lindzyTT};
         Invocation();
     }
 
@@ -109,10 +111,24 @@ public class Rain : MonoBehaviour
     }
 
     private void Invocation(){
-        for (int persona = 0;  persona < 9; persona++){
+        for (int persona = 0;  persona < 10; persona++){
             Personae p = personaeNames[persona];
             for (int i = 0; i < personaeNumber[persona]; i++){
                 GameObject obj = Instantiate(toInit[persona], new Vector3(Random.Range(recept.position.x-12, recept.position.x+12), recept.position.y,Random.Range(recept.position.z-12, recept.position.z+12)), Quaternion.identity) as GameObject;
+                Debug.Log(obj.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().material);
+                Color Sk = Skin[Random.Range(0,3)];
+                int[] act = new int[]{Random.Range(0,3), Random.Range(4,5), Random.Range(6,7)};
+                for (int child = 0; child < 8; child++){
+                    obj.transform.GetChild(child).gameObject.SetActive(false);
+                    if (child == act[0] || child == act[1] || child == act[2])
+                        obj.transform.GetChild(child).gameObject.SetActive(true);
+                }
+                obj.transform.GetChild(act[0]).GetComponent<SkinnedMeshRenderer>().material.color =  Sk;
+                if(persona < 5){
+                    obj.transform.GetChild(act[2]).GetComponent<SkinnedMeshRenderer>().material.color =  Sk;
+                }else{
+                    obj.transform.GetChild(act[2]).GetComponent<SkinnedMeshRenderer>().materials[1].color =  Sk;
+                }
                 NPC script = obj.GetComponent<NPC>();
                 script.goal = new Transform[11];
                 for (int day = 1; day < 6; day++){
