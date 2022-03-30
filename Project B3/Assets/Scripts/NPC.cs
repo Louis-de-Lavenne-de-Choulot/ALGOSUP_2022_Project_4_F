@@ -52,7 +52,7 @@ public class NPC : MonoBehaviour
         Physics.SyncTransforms();
 
         //Chair
-        if ((Vector3.Distance(transform.position, agentPos.position) < 1) && (agentPos.gameObject.layer == LayerMask.GetMask("Chair"))
+        if ((Vector3.Distance(transform.position, goal[PlayerPrefs.GetInt("day", 0)*2-1].position) < 1) && (goal[PlayerPrefs.GetInt("day", 0)*2-1].gameObject.layer == LayerMask.GetMask("Chair"))
             && situp == false && (gameObject.GetComponent<Animator>().GetBool("sitAtTable") == false))
         {
             gameObject.GetComponent<Collider>().enabled = false;
@@ -60,21 +60,21 @@ public class NPC : MonoBehaviour
             gameObject.GetComponent<Rigidbody>().useGravity = false;
 
             transform.position = new Vector3(
-                agentPos.transform.position.x,
-                agentPos.transform.position.y + 0.62f,
-                agentPos.transform.position.z);
-            transform.rotation = agentPos.transform.rotation;
+                goal[PlayerPrefs.GetInt("day", 0)*2-1].transform.position.x,
+                goal[PlayerPrefs.GetInt("day", 0)*2-1].transform.position.y + 0.62f,
+                goal[PlayerPrefs.GetInt("day", 0)*2-1].transform.position.z);
+            transform.rotation = goal[PlayerPrefs.GetInt("day", 0)*2-1].transform.rotation;
 
-            agentPos.transform.localPosition = new Vector3(
-                agentPos.transform.localPosition.x,
-                agentPos.transform.localPosition.y,
-                agentPos.transform.localPosition.z - 0.2f);
+            goal[PlayerPrefs.GetInt("day", 0)*2-1].transform.localPosition = new Vector3(
+                goal[PlayerPrefs.GetInt("day", 0)*2-1].transform.localPosition.x,
+                goal[PlayerPrefs.GetInt("day", 0)*2-1].transform.localPosition.y,
+                goal[PlayerPrefs.GetInt("day", 0)*2-1].transform.localPosition.z - 0.2f);
 
             gameObject.GetComponent<Animator>().SetBool("sitAtTable", true);
         }
 
         //Amphitheater chair
-        if ((Vector3.Distance(transform.position, agentPos.position) < 1) && (agentPos.gameObject.layer == LayerMask.GetMask("Amphi"))
+        if ((Vector3.Distance(transform.position, goal[PlayerPrefs.GetInt("day", 0)*2-1].position) < 1) && (goal[PlayerPrefs.GetInt("day", 0)*2-1].gameObject.layer == LayerMask.GetMask("Amphi"))
             && situp == false && (gameObject.GetComponent<Animator>().GetBool("sitWithLaptop") == false))
         {
             gameObject.GetComponent<Collider>().enabled = false;
@@ -82,34 +82,34 @@ public class NPC : MonoBehaviour
             gameObject.GetComponent<Rigidbody>().useGravity = false;
 
             transform.position = new Vector3(
-                agentPos.transform.position.x - 0.25f,
-                agentPos.transform.position.y + 0.65f,
-                agentPos.transform.position.z - 0.185f);
+                goal[PlayerPrefs.GetInt("day", 0)*2-1].transform.position.x - 0.25f,
+                goal[PlayerPrefs.GetInt("day", 0)*2-1].transform.position.y + 0.65f,
+                goal[PlayerPrefs.GetInt("day", 0)*2-1].transform.position.z - 0.185f);
 
-            transform.rotation = Quaternion.Euler(90, 180, agentPos.transform.rotation.z);
+            transform.rotation = Quaternion.Euler(90, 180, goal[PlayerPrefs.GetInt("day", 0)*2-1].transform.rotation.z);
 
             gameObject.GetComponent<Animator>().SetBool("sitWithLaptop", true);
         }
 
         //Microwave
-        if ((Vector3.Distance(transform.position, agentPos.position) < 1) && (agentPos.gameObject.layer == LayerMask.GetMask("Amphi"))
+        if ((Vector3.Distance(transform.position, goal[PlayerPrefs.GetInt("day", 0)*2-1].position) < 1) && (goal[PlayerPrefs.GetInt("day", 0)*2-1].gameObject.layer == LayerMask.GetMask("Amphi"))
         && situp == false && (gameObject.GetComponent<Animator>().GetBool("sitWithLaptop") == false) && sandwichMricowave == false)
         {
-            agentPos.gameObject.SetActive(false);
+            goal[PlayerPrefs.GetInt("day", 0)*2-1].gameObject.SetActive(false);
 
             gameObject.GetComponent<Collider>().enabled = false;
             gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
             gameObject.GetComponent<Rigidbody>().Sleep();
 
             transform.position = new Vector3(
-                agentPos.transform.position.x,
-                agentPos.transform.position.y,
-                agentPos.transform.position.z);
+                goal[PlayerPrefs.GetInt("day", 0)*2-1].transform.position.x,
+                goal[PlayerPrefs.GetInt("day", 0)*2-1].transform.position.y,
+                goal[PlayerPrefs.GetInt("day", 0)*2-1].transform.position.z);
 
             transform.Translate(Vector3.back * 0.87f);
             transform.Translate(Vector3.down * 0.315f);
 
-            transform.rotation = Quaternion.Euler(0, 0, agentPos.transform.rotation.z);
+            transform.rotation = Quaternion.Euler(0, 0, goal[PlayerPrefs.GetInt("day", 0) * 2 - 1].transform.rotation.z);
 
             gameObject.GetComponent<Animator>().SetBool("microwave", true);
 
