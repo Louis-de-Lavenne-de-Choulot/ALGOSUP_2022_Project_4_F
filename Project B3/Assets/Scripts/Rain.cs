@@ -60,11 +60,11 @@ public class Rain : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        maxNumber = PlayerPrefs.GetInt("MaxAi", 0);
-        johnny = PlayerPrefs.GetInt("Johnny", 0);
-        steph = PlayerPrefs.GetInt("Steph", 0);
-        alexandre = PlayerPrefs.GetInt("Alexandre", 0);
-        janka = PlayerPrefs.GetInt("Janka", 0);
+        maxNumber = 33;//PlayerPrefs.GetInt("MaxAi", 0);
+        johnny = 10;//PlayerPrefs.GetInt("Johnny", 0);
+        steph = 10;//PlayerPrefs.GetInt("Steph", 0);
+        alexandre = 10;//PlayerPrefs.GetInt("Alexandre", 0);
+        janka = 3;//PlayerPrefs.GetInt("Janka", 0);
         nick = PlayerPrefs.GetInt("Nick", 0);
         lindzy = PlayerPrefs.GetInt("Lindzy", 0);
         denis = PlayerPrefs.GetInt("Denis", 0);
@@ -72,32 +72,24 @@ public class Rain : MonoBehaviour
         sam = PlayerPrefs.GetInt("Sam", 0);
         basics = PlayerPrefs.GetInt("Basic", 0);
         personaeNumber = new int[10]{johnny, steph, alexandre, janka, nick, lindzy, denis, lana, sam, basics};
-        foreach(Transform englishRoom in englishRooms){
-            foreach(Transform findTrsfrm in englishRoom){
-                if (findTrsfrm.name == "Chair"){
-                    eR.Add(findTrsfrm);
-                }
+        foreach(Transform findTrsfrm in englishRooms){
+            if (findTrsfrm.name == "Chair"){
+                eR.Add(findTrsfrm);
             }
         }
-        foreach(Transform languageLab in languageLabs){
-            foreach(Transform findTrsfrm in languageLab){
-                if (findTrsfrm.name == "Chair"){
-                    lL.Add(findTrsfrm);
-                }
+        foreach(Transform findTrsfrm in languageLabs){
+            if (findTrsfrm.name == "Chair"){
+                lL.Add(findTrsfrm);
             }
         }
-        foreach(Transform softSkill in softSkills){
-            foreach(Transform findTrsfrm in softSkill){
-                if (findTrsfrm.name == "Chair"){
-                    sS.Add(findTrsfrm);
-                }
+        foreach(Transform findTrsfrm in softSkills){
+            if (findTrsfrm.name == "Chair"){
+                sS.Add(findTrsfrm);
             }
         }
-        foreach(Transform projectRoom in projectRooms){
-            foreach(Transform findTrsfrm in projectRoom){
-                if (findTrsfrm.name == "Chair"){
-                    pR.Add(findTrsfrm);
-                }
+        foreach(Transform findTrsfrm in projectRooms){
+            if (findTrsfrm.name == "Chair"){
+                pR.Add(findTrsfrm);
             }
         }
         foreach(Transform findTrsfrm in Auditorium){
