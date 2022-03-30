@@ -32,7 +32,7 @@ public class SimpleCapsuleWithStickMovement : MonoBehaviour
 
         if (HMDRotatesPlayer) RotatePlayerToHMD();
 		if (EnableLinearMovement) StickMovement();
-		if (EnableRotation) SnapTurn();
+		if (EnableRotation) SmoothRotation();
 	}
 
     void RotatePlayerToHMD()
@@ -88,5 +88,11 @@ public class SimpleCapsuleWithStickMovement : MonoBehaviour
 		{
 			ReadyToSnapTurn = true;
 		}
+	}
+
+	private void SmoothRotation()
+	{
+		float rotationAmount = OVRInput.Get(OVRInput.Axis2D.SecondaryThumbstick).normalized.x;
+		transform.RotateAround(CameraRig.centerEyeAnchor.position, transform.up, 3f * rotationAmount);
 	}
 }
