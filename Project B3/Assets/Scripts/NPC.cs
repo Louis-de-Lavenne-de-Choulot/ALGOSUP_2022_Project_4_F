@@ -13,9 +13,7 @@ public class NPC : MonoBehaviour
     UnityEngine.AI.NavMeshAgent agent;
     Vector2 velocity = Vector2.zero;
     protected Animator anim;
-    int timeNumber = 0;
-    int[] times = new int[8]{85, 100, 160, 280, 340, 355, 415, 440};
-
+    private int timeNumber;
     private bool situp = false;
     private LayerMask chairLayer;
     bool noui;
@@ -126,10 +124,8 @@ public class NPC : MonoBehaviour
         }
     }
 
-    void TimeCheck(){
-        if (GameTime.intTimer > times[timeNumber]){
-            agent.destination = goal[timeNumber].position;
-            timeNumber++;
-        }
+    public void TimeChange(){
+        agent.destination = goal[timeNumber].position;
+        timeNumber++;
     }
 }
