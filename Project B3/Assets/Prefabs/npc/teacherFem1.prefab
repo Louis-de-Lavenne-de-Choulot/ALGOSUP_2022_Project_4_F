@@ -52,7 +52,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -3539109127250816451, guid: d3e545ceb18e72c4f857f3816edadae9, type: 3}
+  - {fileID: 2100000, guid: 0ad01ecbcffbb4c91af7ffa1ebc14f74, type: 2}
   - {fileID: 2100000, guid: 6b57555aa8704c14a8af79bd0146a466, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -2801,6 +2801,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0417f9966dff84b89a2cd04d344f77b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  door_access: 0
+  WC: 0
+  drone_access: 1
+  Project_room: 5
   is_AI: 1
 --- !u!1001 &1389215197
 PrefabInstance:
