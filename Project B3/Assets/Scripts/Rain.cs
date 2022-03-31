@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Reflection;
 using System.Collections.Generic;
 using UnityEngine;
 public class Rain : MonoBehaviour
@@ -131,54 +132,20 @@ public class Rain : MonoBehaviour
                 }
                 NPC script = obj.GetComponent<NPC>();
                 script.goal = new Transform[11];
-                for (int day = 1; day < 6; day++){
-                    switch(day){
-                        case 5:
-                            if (p._morning5 == p._afternoon5){
-                                script.goal[day*2-1] = StartingDay(p._morning5, day);
-                                script.goal[day*2] =  script.goal[day*2-1];
-                            }else{
-                                script.goal[day*2-1] = StartingDay(p._morning5, day);
-                                script.goal[day*2] =  StartingDay(p._afternoon5, day);
-                            }
-                            break;
-                        case 4:
-                            if (p._morning4 == p._afternoon4){
-                                script.goal[day*2-1] = StartingDay(p._morning4, day);
-                                script.goal[day*2] =  script.goal[day*2-1];
-                            }else{
-                                script.goal[day*2-1] = StartingDay(p._morning4, day);
-                                script.goal[day*2] =  StartingDay(p._afternoon4, day);
-                            }
-                            break;
-                        case 3:
-                            if (p._morning3 == p._afternoon3){
-                                script.goal[day*2-1] = StartingDay(p._morning3, day);
-                                script.goal[day*2] =  script.goal[day*2-1];
-                            }else{
-                                script.goal[day*2-1] = StartingDay(p._morning3, day);
-                                script.goal[day*2] =  StartingDay(p._afternoon3, day);
-                            }
-                            break;
-                        case 2:
-                            if (p._morning2 == p._afternoon2){
-                                script.goal[day*2-1] = StartingDay(p._morning2, day);
-                                script.goal[day*2] =  script.goal[day*2-1];
-                            }else{
-                                script.goal[day*2-1] = StartingDay(p._morning2, day);
-                                script.goal[day*2] =  StartingDay(p._afternoon2, day);
-                            }
-                            break;
-                        default :
-                            if (p._morning1 == p._afternoon1){
-                                script.goal[day*2-1] = StartingDay(p._morning1, day);
-                                script.goal[day*2] =  script.goal[day*2-1];
-                            }else{
-                                script.goal[day*2-1] = StartingDay(p._morning1, day);
-                                script.goal[day*2] =  StartingDay(p._afternoon1, day);
-                            }
-                            break;
+                System.Type type = p.GetType();
+                for(int day = 1; day < 6;day++)
+                {
+                    char morning = (char)type.GetProperty("_morning" + day).GetValue(p);
+                    char afternoon = (char)type.GetProperty("_afternoon" + day).GetValue(p);
+                    if(morning == afternoon)
+                    {
+                        script.goal[day*2-1] = StartingDay(morning,day);
+                        script.goal[day*2] = script.goal[day*2-1];
+                        continue;
                     }
+                    script.goal[day*2-1] = StartingDay(morning,day);
+                    script.goal[day*2] = StartingDay(afternoon,day);
+
                 }
                 obj.transform.SetParent(gameObject.transform);
             }
@@ -205,7 +172,7 @@ public class Rain : MonoBehaviour
         else if(moment == 'C' && a.Count > a2[numb]){
             Transform temp = a[a2[numb]];
             a2[numb]++;
-            return temp;                         
+            return temp;
         }
         Debug.Log("trash");
         return trash;
