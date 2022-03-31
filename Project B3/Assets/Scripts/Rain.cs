@@ -40,6 +40,9 @@ public class Rain : MonoBehaviour
     int maxNumber;
     Color[] Skin = new Color[4]{new Color(0.254717f, 0.1748036f, 0.08290314f), new Color(0.727f, 0.6063917f, 0.4154285f), new Color(0.1792453f, 0.07965653f, 0.03297437f), new Color(0.8235294f, 0.6969679f, 0.5583529f)};
     public Transform recept;
+    int timeNumber = 0;
+    int[] times = new int[8]{85, 100, 160, 280, 340, 355, 415, 440};
+
     private Personae basicsTT = new Personae('I', 'P', 'P', 'P', 'P', 'S', 'S', 'C', 'C', 'P', 'E');
     // G = get/order food, O = outside, I = inside, B = bring his meal
     private Personae johnnyTT = new Personae('G', 'E', 'P', 'S', 'S', 'P', 'P', 'C', 'C', 'P', 'P');
@@ -63,9 +66,9 @@ public class Rain : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        maxNumber = PlayerPrefs.GetInt("MaxAi", 0);
-        johnny = PlayerPrefs.GetInt("Johnny", 0);
-        steph = PlayerPrefs.GetInt("Steph", 0);
+        maxNumber = 50;//PlayerPrefs.GetInt("MaxAi", 0);
+        johnny = 40;//PlayerPrefs.GetInt("Johnny", 0);
+        steph = 40;//PlayerPrefs.GetInt("Steph", 0);
         alexandre = PlayerPrefs.GetInt("Alexandre", 0);
         janka = PlayerPrefs.GetInt("Janka", 0);
         nick = PlayerPrefs.GetInt("Nick", 0);
@@ -106,6 +109,7 @@ public class Rain : MonoBehaviour
         }
         personaeNames = new Personae[10]{basicsTT, johnnyTT, alexandreTT, samTT, nickTT, denisTT, lanaTT, stephTT, jankaTT, lindzyTT};
         Invocation();
+        InvokeRepeating("TimeCheck", 20f, 5f);
     }
 
     void Update(){
@@ -176,5 +180,14 @@ public class Rain : MonoBehaviour
         }
         Debug.Log("trash");
         return trash;
+    }
+
+    void TimeCheck(){
+        if (GameTime.intTimer > times[timeNumber]){
+            for(int child = 0; child < transform.childCount; child++){
+                transform.GetChild(child).GetComponent<NPC>().TimeChange();
+            }
+            timeNumber++;
+        }
     }
 }
