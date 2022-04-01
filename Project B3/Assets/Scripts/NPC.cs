@@ -15,16 +15,20 @@ public class NPC : MonoBehaviour
     protected Animator anim;
     private int timeNumber;
     private bool situp = false;
-    private LayerMask chairLayer;
     bool noui;
 
+    private Transform Target;
     private bool sandwichMricowave = false;
 
     void Start () {
         anim = gameObject.GetComponent<Animator>();
         agentPos = gameObject.GetComponent<Transform>();
         agent = gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>();
+
         agent.destination = goal[PlayerPrefs.GetInt("day", 1)*3-2].position;
+
+        Target = goal[PlayerPrefs.GetInt("day", 1) * 2 - 1];
+
         InvokeRepeating("TimeCheck", 20f, 5f);
     }
 
@@ -50,36 +54,36 @@ public class NPC : MonoBehaviour
         Physics.SyncTransforms();
 
         //Chair
-        if ((Vector3.Distance(transform.position, goal[PlayerPrefs.GetInt("day", 1)*3-2].position) < 1) && situp == false
+        if ((Vector3.Distance(transform.position, Target.position) < 1) && situp == false
             && gameObject.GetComponent<Animator>().GetBool("sitAtTable") == false
-            && goal[PlayerPrefs.GetInt("day", 1) * 3 - 2].gameObject.layer == LayerMask.NameToLayer("Chair"))
+            && Target.gameObject.layer == LayerMask.NameToLayer("Chair"))
         {
             gameObject.GetComponent<Collider>().enabled = false;
             gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
             gameObject.GetComponent<Rigidbody>().useGravity = false;
 
-            transform.rotation = goal[PlayerPrefs.GetInt("day", 1)*3-2].transform.rotation;
+            transform.rotation = Target.transform.rotation;
 
-            goal[PlayerPrefs.GetInt("day", 1) * 3 - 2].Translate(Vector3.back * 0.2f);
-            transform.position = goal[PlayerPrefs.GetInt("day", 1)*3-2].transform.position;
+            Target.Translate(Vector3.back * 0.2f);
+            transform.position = Target.transform.position;
             transform.Translate(Vector3.up * 0.642f);
 
             gameObject.GetComponent<Animator>().SetBool("sitAtTable", true);
         }
 
         //Amphitheater chair
-        if ((Vector3.Distance(transform.position, goal[PlayerPrefs.GetInt("day", 1)*3-2].position) < 1) && situp == false
+        if ((Vector3.Distance(transform.position, Target.position) < 1) && situp == false
             && gameObject.GetComponent<Animator>().GetBool("sitWithLaptop") == false
-            && goal[PlayerPrefs.GetInt("day", 1) * 3 - 2].gameObject.layer == LayerMask.NameToLayer("Amphi"))
+            && Target.gameObject.layer == LayerMask.NameToLayer("Amphi"))
         {
-                        gameObject.GetComponent<Collider>().enabled = false;
+            gameObject.GetComponent<Collider>().enabled = false;
             gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
             gameObject.GetComponent<Rigidbody>().useGravity = false;
 
             transform.position = new Vector3(
-                goal[PlayerPrefs.GetInt("day", 1)*3-2].transform.position.x - 0.25f,
-                goal[PlayerPrefs.GetInt("day", 1)*3-2].transform.position.y + 0.85f,
-                goal[PlayerPrefs.GetInt("day", 1)*3-2].transform.position.z - 0.185f);
+                Target.transform.position.x - 0.25f,
+                Target.transform.position.y + 0.85f,
+                Target.transform.position.z - 0.185f);
 
             transform.rotation = Quaternion.Euler(0, 180, 0);
 
@@ -87,19 +91,19 @@ public class NPC : MonoBehaviour
         }
 
         //Microwave
-        //if ((Vector3.Distance(transform.position, goal[PlayerPrefs.GetInt("day", 1)*3-2].position) < 2) && (goal[PlayerPrefs.GetInt("day", 1)*3-2].gameObject.layer == LayerMask.GetMask("Amphi"))
+        //if ((Vector3.Distance(transform.position, Target.position) < 2) && (Target.gameObject.layer == LayerMask.GetMask("Amphi"))
         //&& situp == false && (gameObject.GetComponent<Animator>().GetBool("sitWithLaptop") == false) && sandwichMricowave == false)
         //{
-        //    goal[PlayerPrefs.GetInt("day", 1)*3-2].gameObject.SetActive(false);
+        //    Target.gameObject.SetActive(false);
 
         //    gameObject.GetComponent<Collider>().enabled = false;
         //    gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
         //    gameObject.GetComponent<Rigidbody>().Sleep();
 
         //    transform.position = new Vector3(
-        //        goal[PlayerPrefs.GetInt("day", 1)*3-2].transform.position.x,
-        //        goal[PlayerPrefs.GetInt("day", 1)*3-2].transform.position.y,
-        //        goal[PlayerPrefs.GetInt("day", 1)*3-2].transform.position.z);
+        //        Target.transform.position.x,
+        //        Target.transform.position.y,
+        //        Target.transform.position.z);
 
         //    transform.Translate(Vector3.back * 0.87f);
         //    transform.Translate(Vector3.down * 0.315f);
