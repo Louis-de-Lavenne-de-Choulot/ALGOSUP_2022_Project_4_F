@@ -11,9 +11,8 @@ public class Rain : MonoBehaviour
     public Transform languageLabs;
     List<Transform> lL = new List<Transform>();
     int[] lL2 = new int[5]{0,0,0,0,0};
-    public Transform lunch;
+    public Transform Lunch;
     List<Transform> l = new List<Transform>();
-    int l2 = 0;
     public Transform Auditorium;
     List<Transform> a = new List<Transform>();
     int[] a2 = new int[5]{0,0,0,0,0};
@@ -68,8 +67,8 @@ public class Rain : MonoBehaviour
     void Start()
     {
         maxNumber = PlayerPrefs.GetInt("MaxAi", 0);
-        johnny = 60;//PlayerPrefs.GetInt("Johnny", 0);
-        steph = 60;//PlayerPrefs.GetInt("Steph", 0);
+        johnny = PlayerPrefs.GetInt("Johnny", 0);
+        steph = PlayerPrefs.GetInt("Steph", 0);
         alexandre = PlayerPrefs.GetInt("Alexandre", 0);
         janka = PlayerPrefs.GetInt("Janka", 0);
         nick = PlayerPrefs.GetInt("Nick", 0);
@@ -121,6 +120,7 @@ public class Rain : MonoBehaviour
             Personae p = personaeNames[persona];
             for (int i = 0; i < personaeNumber[persona]; i++){
                 GameObject obj = Instantiate(toInit[persona], new Vector3(Random.Range(recept.position.x-12, recept.position.x+12), recept.position.y,Random.Range(recept.position.z-12, recept.position.z+12)), Quaternion.identity) as GameObject;
+                Debug.Log(obj.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().material);
                 Color Sk = Skin[Random.Range(0,3)];
                 int[] act = new int[]{Random.Range(0,3), Random.Range(4,5), Random.Range(6,7)};
                 for (int child = 0; child < 8; child++){
@@ -137,21 +137,18 @@ public class Rain : MonoBehaviour
                 NPC script = obj.GetComponent<NPC>();
                 script.goal = new Transform[11];
                 System.Type type = p.GetType();
-                for(int day = 1; day < 6; day++)
+                for(int day = 1; day < 6;day++)
                 {
                     char morning = (char)type.GetProperty("_morning" + day).GetValue(p);
                     char afternoon = (char)type.GetProperty("_afternoon" + day).GetValue(p);
-                    char lunch1 = p._lunch;
                     if(morning == afternoon)
                     {
-                        script.goal[day*3-2] = StartingDay(morning,day);
-                        script.goal[day*3-1] = StartingDay(lunch1,day);
-                        script.goal[day*3] = script.goal[day*3-1];
+                        script.goal[day*2-1] = StartingDay(morning,day);
+                        script.goal[day*2] = script.goal[day*2-1];
                         continue;
                     }
-                    script.goal[day*3-2] = StartingDay(morning,day);
-                    script.goal[day*3-1] = StartingDay(lunch1,day);
-                    script.goal[day*3] = StartingDay(afternoon,day);
+                    script.goal[day*2-1] = StartingDay(morning,day);
+                    script.goal[day*2] = StartingDay(afternoon,day);
 
                 }
                 obj.transform.SetParent(gameObject.transform);
@@ -191,13 +188,9 @@ public class Rain : MonoBehaviour
                 transform.GetChild(child).GetComponent<NPC>().TimeChange();
             }
             timeNumber++;
-            if (timeNumber+1%8 == 0){
+            if (timeNumber+1%8 ==0){
                 timeNumber = 0;
             }
         }
     }
-
-    // void Lunch(){
-
-    // }
 }
