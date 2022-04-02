@@ -40,7 +40,7 @@ public class Rain : MonoBehaviour
     public Transform recept;
     Color[] Skin = new Color[4]{new Color(0.254717f, 0.1748036f, 0.08290314f), new Color(0.727f, 0.6063917f, 0.4154285f), new Color(0.1792453f, 0.07965653f, 0.03297437f), new Color(0.8235294f, 0.6969679f, 0.5583529f)};
     int timeNumber = 0;
-    int[] times = new int[8]{35, 100, 160, 280, 340, 355, 415, 440};
+    int[] times = new int[8]{84, 99, 159, 279, 339, 354, 414, 439};
     // G = get/order food, O = outside, I = inside, B = bring his meal
     private Personae johnnyTT = new Personae('G', 'E', 'P', 'S', 'S', 'P', 'P', 'C', 'C', 'P', 'P');
 
@@ -184,9 +184,6 @@ public class Rain : MonoBehaviour
     }
 
     void TimeCheck(){
-        Debug.Log(GameTime.intTimer);
-        Debug.Log(times[timeNumber]);
-        Debug.Log("-----------------------");
         if (GameTime.intTimer > times[timeNumber]){
             for(int child = 0; child < transform.childCount; child++){
                 transform.GetChild(child).GetComponent<NPC>().TimeChange();
