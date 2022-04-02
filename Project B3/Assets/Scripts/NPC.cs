@@ -7,7 +7,7 @@ public class NPC : MonoBehaviour
     // Start is called before the first frame update
     float cooldown = 60F;
     float period;
-    public Transform[] goal = new Transform[18];
+    public Transform[] goal = new Transform[11];
     Transform agentPos;
     Vector3 agentLastPos;
     UnityEngine.AI.NavMeshAgent agent;
@@ -24,12 +24,10 @@ public class NPC : MonoBehaviour
         anim = gameObject.GetComponent<Animator>();
         agentPos = gameObject.GetComponent<Transform>();
         agent = gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>();
-
-        agent.destination = goal[PlayerPrefs.GetInt("day", 1)*3-2].position;
-
-        Target = goal[PlayerPrefs.GetInt("day", 1) * 2 - 1];
-
-        InvokeRepeating("TimeCheck", 20f, 5f);
+        int pPref = PlayerPrefs.GetInt("day", 1) * 2 - 1;
+        Target = goal[pPref];
+        agent.destination = Target.position;
+        timeNumber = pPref+1;
     }
 
     // Update is called once per frame
@@ -52,7 +50,6 @@ public class NPC : MonoBehaviour
     private void LateUpdate()
     {
         Physics.SyncTransforms();
-
         //Chair
         if ((Vector3.Distance(transform.position, Target.position) < 1) && situp == false
             && gameObject.GetComponent<Animator>().GetBool("sitAtTable") == false
@@ -125,12 +122,15 @@ public class NPC : MonoBehaviour
             gameObject.GetComponent<Collider>().enabled = true;
             gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = true;
             gameObject.GetComponent<Rigidbody>().WakeUp();
+            situp = false;
         }
     }
 
     public void TimeChange(){
         gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = true;
-        agent.destination = goal[timeNumber].position;
+        situp = true;
+        Target = goal[timeNumber];
+        agent.destination = Target.position;
         timeNumber++;
     }
 }
