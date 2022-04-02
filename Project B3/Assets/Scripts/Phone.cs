@@ -63,7 +63,7 @@ public class Phone : MonoBehaviour
             door.SetBool("hasScanned", false);
 
             Animator scanR = collision[0].transform.parent.parent.GetChild(1).gameObject.GetComponent(typeof(Animator)) as Animator;
-            Animator scanL = collision[0].transform.parent.parent.GetChild(2).gameObject.GetComponent(typeof(Animator)) as Animator;
+            Animator scanL = collision[0].transform.parent.parent.GetChild(0).gameObject.GetComponent(typeof(Animator)) as Animator;
 
             if (collision[0].transform.tag == "Main gate" || collision[0].transform.tag == "Comon room")
             {
