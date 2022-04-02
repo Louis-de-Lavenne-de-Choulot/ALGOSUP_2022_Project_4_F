@@ -7,7 +7,7 @@ public class Rain : MonoBehaviour
     public Transform[] englishRooms;
     List<Transform> eR = new List<Transform>();
     int[] eR2 = new int[5]{0,0,0,0,0};
-    public Transform[] languageLabs;
+    public Transform languageLabs;
     List<Transform> lL = new List<Transform>();
     int[] lL2 = new int[5]{0,0,0,0,0};
     public Transform softSkills;
@@ -63,16 +63,16 @@ public class Rain : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        maxNumber = 300;//PlayerPrefs.GetInt("MaxAi", 0);
+        maxNumber = 160;//PlayerPrefs.GetInt("MaxAi", 0);
         johnny = 60;//PlayerPrefs.GetInt("Johnny", 0);
         steph = 20;//PlayerPrefs.GetInt("Steph", 0);
-        alexandre = PlayerPrefs.GetInt("Alexandre", 0);
-        janka = PlayerPrefs.GetInt("Janka", 0);
-        nick = PlayerPrefs.GetInt("Nick", 0);
-        lindzy = PlayerPrefs.GetInt("Lindzy", 0);
-        denis = PlayerPrefs.GetInt("Denis", 0);
-        lana = PlayerPrefs.GetInt("Lana", 0);
-        sam = PlayerPrefs.GetInt("Sam", 0);
+        alexandre = 30;//PlayerPrefs.GetInt("Alexandre", 0);
+        janka = 30;// PlayerPrefs.GetInt("Janka", 0);
+        nick = 30;// PlayerPrefs.GetInt("Nick", 0);
+        lindzy = 30;// PlayerPrefs.GetInt("Lindzy", 0);
+        denis = 30;// PlayerPrefs.GetInt("Denis", 0);
+        lana = 30;// PlayerPrefs.GetInt("Lana", 0);
+        sam = 30;// PlayerPrefs.GetInt("Sam", 0);
         basics = PlayerPrefs.GetInt("Basic", 0);
         personaeNumber = new int[10]{johnny, steph, alexandre, janka, nick, lindzy, denis, lana, sam, basics};
         foreach(Transform englishRoom in englishRooms){
@@ -82,18 +82,14 @@ public class Rain : MonoBehaviour
                 }
             }
         }
-        foreach(Transform languageLab in languageLabs){
-            foreach(Transform findTrsfrm in languageLab){
-                if (findTrsfrm.name == "Chair"){
-                    lL.Add(findTrsfrm);
-                }
+        foreach(Transform findTrsfrm in languageLabs){
+            if (findTrsfrm.name == "Chair"){
+                lL.Add(findTrsfrm);
             }
         }
-        foreach(Transform softSkill in softSkills){
-            foreach(Transform findTrsfrm in softSkill){
-                if (findTrsfrm.name == "Chair"){
-                    sS.Add(findTrsfrm);
-                }
+        foreach(Transform findTrsfrm in softSkills){
+            if (findTrsfrm.name == "Chair"){
+                sS.Add(findTrsfrm);
             }
         }
         foreach(Transform projectRoom in projectRooms){
