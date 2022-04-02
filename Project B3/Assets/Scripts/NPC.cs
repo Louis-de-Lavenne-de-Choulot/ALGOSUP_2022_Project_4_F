@@ -18,6 +18,7 @@ public class NPC : MonoBehaviour
     bool noui;
 
     private Transform Target;
+    private Transform lastTarget;
     private bool sandwichMricowave = false;
 
     void Start () {
@@ -45,6 +46,11 @@ public class NPC : MonoBehaviour
             }
             anim.SetBool("isMoving", false);
         }
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            situp = true;
+        }
     }
 
     private void LateUpdate()
@@ -62,6 +68,8 @@ public class NPC : MonoBehaviour
             transform.rotation = Target.transform.rotation;
 
             Target.Translate(Vector3.back * 0.2f);
+            lastTarget = Target;
+
             transform.position = Target.transform.position;
             transform.Translate(Vector3.up * 0.642f);
 
@@ -76,6 +84,8 @@ public class NPC : MonoBehaviour
             gameObject.GetComponent<Collider>().enabled = false;
             gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
             gameObject.GetComponent<Rigidbody>().useGravity = false;
+
+            lastTarget = Target;
 
             transform.position = new Vector3(
                 Target.transform.position.x - 0.25f,
@@ -115,6 +125,11 @@ public class NPC : MonoBehaviour
         //Leave Chair
         if (situp == true)
         {
+            if(lastTarget.gameObject.layer == LayerMask.NameToLayer("Chair"))
+            {
+                Target.Translate(Vector3.forward * 0.2f);
+            }
+
             gameObject.GetComponent<Animator>().SetBool("sitWithLaptop", false);
             gameObject.GetComponent<Animator>().SetBool("sitAtTable", false);
             gameObject.GetComponent<Animator>().SetBool("microwave", false);
