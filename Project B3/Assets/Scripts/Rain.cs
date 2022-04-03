@@ -117,9 +117,9 @@ public class Rain : MonoBehaviour
             Personae p = personaeNames[persona];
             for (int i = 0; i < personaeNumber[persona]; i++){
                 GameObject obj = Instantiate(toInit[persona], new Vector3(Random.Range(recept.position.x-12, recept.position.x+12), recept.position.y,Random.Range(recept.position.z-12, recept.position.z+12)), Quaternion.identity) as GameObject;
-                Debug.Log(obj.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().material);
-                Color Sk = Skin[Random.Range(0,3)];
-                int[] act = new int[]{Random.Range(0,3), Random.Range(4,5), Random.Range(6,7)};
+                Random.seed = System.DateTime.Now.Millisecond;
+                Color Sk = Skin[Random.Range(0,4)];
+                int[] act = new int[]{Random.Range(0,4), Random.Range(4,6), Random.Range(6,8)};
                 for (int child = 0; child < 8; child++){
                     obj.transform.GetChild(child).gameObject.SetActive(false);
                     if (child == act[0] || child == act[1] || child == act[2])
@@ -174,7 +174,6 @@ public class Rain : MonoBehaviour
             a2[numb]++;
             return temp;                         
         }
-        Debug.Log("trash");
         return trash;
     }
 
