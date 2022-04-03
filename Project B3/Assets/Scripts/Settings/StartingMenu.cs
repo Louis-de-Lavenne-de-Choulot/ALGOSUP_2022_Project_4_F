@@ -43,7 +43,7 @@ namespace Settings
         }
         public void Launch()
         {
-            PlayerPrefs.SetInt("day", 1 + current);
+            PlayerPrefs.SetInt("day", current);
             PlayerPrefs.Save();
             SceneManager.LoadScene(1,LoadSceneMode.Single);
         }

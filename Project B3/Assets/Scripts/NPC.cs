@@ -7,7 +7,7 @@ public class NPC : MonoBehaviour
     // Start is called before the first frame update
     float cooldown = 60F;
     float period;
-    public Transform[] goal = new Transform[11];
+    public Transform[] goal = new Transform[10];
     Transform agentPos;
     Vector3 agentLastPos;
     UnityEngine.AI.NavMeshAgent agent;
@@ -25,7 +25,7 @@ public class NPC : MonoBehaviour
         anim = gameObject.GetComponent<Animator>();
         agentPos = gameObject.GetComponent<Transform>();
         agent = gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>();
-        int pPref = PlayerPrefs.GetInt("day", 1) * 2 - 1;
+        int pPref = PlayerPrefs.GetInt("day", 0) * 2;
         Target = goal[pPref];
         agent.destination = Target.position;
         timeNumber = pPref+1;

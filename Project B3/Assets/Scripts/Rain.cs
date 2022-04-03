@@ -134,18 +134,18 @@ public class Rain : MonoBehaviour
                 NPC script = obj.GetComponent<NPC>();
                 script.goal = new Transform[11];
                 System.Type type = p.GetType();
-                for(int day = 1; day < 6;day++)
+                for(int day = 0; day < 5;day++)
                 {
                     char morning = (char)type.GetProperty("_morning" + day).GetValue(p);
                     char afternoon = (char)type.GetProperty("_afternoon" + day).GetValue(p);
                     if(morning == afternoon)
                     {
-                        script.goal[day*2-1] = StartingDay(morning,day);
-                        script.goal[day*2] = script.goal[day*2-1];
+                        script.goal[day*2] = StartingDay(morning,day);
+                        script.goal[day*2+1] = script.goal[day*2];
                         continue;
                     }
-                    script.goal[day*2-1] = StartingDay(morning,day);
-                    script.goal[day*2] = StartingDay(afternoon,day);
+                    script.goal[day*2] = StartingDay(morning,day);
+                    script.goal[day*2+1] = StartingDay(afternoon,day);
 
                 }
                 obj.transform.SetParent(gameObject.transform);
