@@ -132,7 +132,7 @@ public class Rain : MonoBehaviour
                     obj.transform.GetChild(act[2]).GetComponent<SkinnedMeshRenderer>().materials[1].color =  Sk;
                 }
                 NPC script = obj.GetComponent<NPC>();
-                script.goal = new Transform[11];
+                script.goal = new Transform[10];
                 System.Type type = p.GetType();
                 for(int day = 0; day < 5;day++)
                 {
@@ -154,7 +154,6 @@ public class Rain : MonoBehaviour
     }
 
     private Transform StartingDay(char moment, int numb){
-        numb--;
         if (moment == 'E' && eR.Count > eR2[numb]){
             Transform temp = eR[eR2[numb]];
             eR2[numb]++;
