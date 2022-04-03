@@ -97,6 +97,23 @@ public class NPC : MonoBehaviour
             gameObject.GetComponent<Animator>().SetBool("sitWithLaptop", true);
         }
 
+        if ((Vector3.Distance(transform.position, Target.position) < 1) && situp == false
+        && gameObject.GetComponent<Animator>().GetBool("Teach") == false
+        && Target.gameObject.layer == LayerMask.NameToLayer("Teach"))
+        {
+            gameObject.GetComponent<Collider>().enabled = false;
+            gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
+            gameObject.GetComponent<Rigidbody>().useGravity = false;
+
+            lastTarget = Target;
+
+            transform.position = Target.position;
+
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+
+            gameObject.GetComponent<Animator>().SetBool("Teach", true);
+        }
+
         //Microwave
         //if ((Vector3.Distance(transform.position, Target.position) < 2) && (Target.gameObject.layer == LayerMask.GetMask("Amphi"))
         //&& situp == false && (gameObject.GetComponent<Animator>().GetBool("sitWithLaptop") == false) && sandwichMricowave == false)
@@ -133,6 +150,7 @@ public class NPC : MonoBehaviour
             gameObject.GetComponent<Animator>().SetBool("sitWithLaptop", false);
             gameObject.GetComponent<Animator>().SetBool("sitAtTable", false);
             gameObject.GetComponent<Animator>().SetBool("microwave", false);
+            gameObject.GetComponent<Animator>().SetBool("Teach", false);
 
             gameObject.GetComponent<Collider>().enabled = true;
             gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = true;
