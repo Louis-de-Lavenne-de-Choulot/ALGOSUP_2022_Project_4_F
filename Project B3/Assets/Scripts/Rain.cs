@@ -113,6 +113,7 @@ public class Rain : MonoBehaviour
         }
         foreach(Transform findTrsfrm in Auditorium){
                 if (findTrsfrm.name == "Chair"){
+                    findTrsfrm.position = findTrsfrm.GetComponent<Renderer>().bounds.center;
                     a.Add(findTrsfrm);
                 }
         }
