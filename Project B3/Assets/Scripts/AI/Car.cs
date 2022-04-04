@@ -10,7 +10,7 @@ public class Car : NPC
     AudioSource Engine;
     AudioSource Honk;
     public Collider Honker;
-    float cooldown;
+    float _cooldown;
 
     public void Awake()
     {
@@ -34,9 +34,9 @@ public class Car : NPC
         }
         if(!Honk.isPlaying)
         {
-            if (Time.time - cooldown > 3f )
+            if (Time.time - _cooldown > 3f )
             {
-                cooldown = Time.time;
+                _cooldown = Time.time;
                 Honk.Play();
             }
         }

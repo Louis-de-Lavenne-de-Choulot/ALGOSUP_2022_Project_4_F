@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 public class Rain : MonoBehaviour
 {
@@ -26,12 +27,12 @@ public class Rain : MonoBehaviour
     public GameObject[] toInit;
     Personae[] personaeNames;
     int[] personaeNumber;
-    int johnny; 
+    int johnny;
     int steph;
     int alexandre;
     int janka;
     int nick;
-    int lindzy; 
+    int lindzy;
     int denis;
     int lana;
     int sam;
@@ -59,7 +60,8 @@ public class Rain : MonoBehaviour
     private Personae denisTT = new Personae('I', 'C', 'C', 'S', 'S', 'E', 'P', 'P', 'P', 'P', 'E');
 
     private Personae samTT = new Personae('I', 'P', 'P', 'P', 'P', 'S', 'S', 'C', 'C', 'P', 'E');
-
+    public bool inScenario = false;
+    private int offset=0;
     // Start is called before the first frame update
     void Start()
     {
@@ -136,7 +138,7 @@ public class Rain : MonoBehaviour
                     obj.transform.GetChild(act[2]).GetComponent<SkinnedMeshRenderer>().materials[1].color =  Sk;
                 }
                 NPC script = obj.GetComponent<NPC>();
-                script.goal = new Transform[11];
+                script.goals = new Transform[11];
                 System.Type type = p.GetType();
                 for(int day = 1; day < 6;day++)
                 {
@@ -144,12 +146,12 @@ public class Rain : MonoBehaviour
                     char afternoon = (char)type.GetProperty("_afternoon" + day).GetValue(p);
                     if(morning == afternoon)
                     {
-                        script.goal[day*2-1] = StartingDay(morning,day);
-                        script.goal[day*2] = script.goal[day*2-1];
+                        script.goals[day*2-1] = StartingDay(morning,day);
+                        script.goals[day*2] = script.goals[day*2-1];
                         continue;
                     }
-                    script.goal[day*2-1] = StartingDay(morning,day);
-                    script.goal[day*2] = StartingDay(afternoon,day);
+                    script.goals[day*2-1] = StartingDay(morning,day);
+                    script.goals[day*2] = StartingDay(afternoon,day);
 
                 }
                 obj.transform.SetParent(gameObject.transform);
@@ -177,7 +179,7 @@ public class Rain : MonoBehaviour
         else if(moment == 'C' && a.Count > a2[numb]){
             Transform temp = a[a2[numb]];
             a2[numb]++;
-            return temp;                         
+            return temp;
         }
         Debug.Log("trash");
         return trash;
@@ -186,7 +188,8 @@ public class Rain : MonoBehaviour
     void TimeCheck(){
         if (GameTime.intTimer > times[timeNumber]){
             for(int child = 0; child < transform.childCount; child++){
-                transform.GetChild(child).GetComponent<NPC>().TimeChange();
+                NPC npc = transform.GetChild(child).GetComponent<NPC>();
+                if (!npc.inScenario) npc.TimeChange();
             }
             timeNumber++;
             if (timeNumber+1%7 ==0){
