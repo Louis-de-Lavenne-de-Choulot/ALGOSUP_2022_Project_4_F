@@ -34,8 +34,6 @@ namespace Oculus.Interaction
 
         private float _animationStartTime;
 
-        public float AnimationLength => _animationLength;
-
         public ProgressCurve()
         {
             _animationCurve = AnimationCurve.EaseInOut(0f, 0f, 1f, 1f);
@@ -67,24 +65,8 @@ namespace Oculus.Interaction
                 return _animationCurve.Evaluate(1.0f);
             }
 
-            float normalizedTimeProgress = Mathf.Clamp01(ProgressTime() / _animationLength);
+            float normalizedTimeProgress = Mathf.Clamp01((Time.realtimeSinceStartup - _animationStartTime) / _animationLength);
             return _animationCurve.Evaluate(normalizedTimeProgress);
-        }
-
-        public float ProgressIn(float time)
-        {
-            if (_animationLength <= 0f)
-            {
-                return _animationCurve.Evaluate(1.0f);
-            }
-
-            float normalizedTimeProgress = Mathf.Clamp01((ProgressTime() + time) / _animationLength);
-            return _animationCurve.Evaluate(normalizedTimeProgress);
-        }
-
-        public float ProgressTime()
-        {
-            return Mathf.Min(Mathf.Max(0f, Time.realtimeSinceStartup - _animationStartTime), _animationLength);
         }
 
         public void End()

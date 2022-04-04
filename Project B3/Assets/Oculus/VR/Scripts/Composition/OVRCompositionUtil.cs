@@ -75,18 +75,12 @@ internal class OVRCompositionUtil {
 		}
 	}
 
-	[System.Obsolete("GetWorldPosition should be invoked with an explicit camera parameter")]
 	public static Vector3 GetWorldPosition(Vector3 trackingSpacePosition)
-	{
-		return GetWorldPosition(Camera.main, trackingSpacePosition);
-	}
-
-	public static Vector3 GetWorldPosition(Camera camera, Vector3 trackingSpacePosition)
 	{
 		OVRPose tsPose;
 		tsPose.position = trackingSpacePosition;
 		tsPose.orientation = Quaternion.identity;
-		OVRPose wsPose = OVRExtensions.ToWorldSpacePose(tsPose, camera);
+		OVRPose wsPose = OVRExtensions.ToWorldSpacePose(tsPose);
 		Vector3 pos = wsPose.position;
 		return pos;
 	}
@@ -107,7 +101,7 @@ internal class OVRCompositionUtil {
 		float maxDistance = -float.MaxValue;
 		foreach (Vector3 v in geometry)
 		{
-			Vector3 pos = GetWorldPosition(camera, v);
+			Vector3 pos = GetWorldPosition(v);
 			float distance = Vector3.Dot(camera.transform.forward, pos);
 			if (maxDistance < distance)
 			{

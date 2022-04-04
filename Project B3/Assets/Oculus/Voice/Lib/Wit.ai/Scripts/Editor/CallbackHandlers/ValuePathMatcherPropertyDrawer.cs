@@ -106,10 +106,8 @@ namespace Facebook.WitAi.CallbackHandlers
 
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
-            var rect = new Rect(position)
-            {
-                height = EditorGUIUtility.singleLineHeight
-            };
+            var rect = new Rect(position);
+            rect.height = EditorGUIUtility.singleLineHeight;
             var path = property.FindPropertyRelative(Properties.path);
 
             var valueRefProp = property.FindPropertyRelative(Properties.witValueRef);
@@ -121,20 +119,18 @@ namespace Facebook.WitAi.CallbackHandlers
             {
                 if (!valueRefProp.objectReferenceValue)
                 {
-                    pathRect.width -= WitStyles.IconButtonSize;
+                    pathRect.width -= WitStyles.IconButtonWidth;
                     var value = EditorGUI.TextField(pathRect, path.stringValue);
                     if (value != path.stringValue)
                     {
                         path.stringValue = value;
                     }
 
-                    pathRect.width += WitStyles.IconButtonSize;
+                    pathRect.width += WitStyles.IconButtonWidth;
 
-                    var pickerRect = new Rect(pathRect)
-                    {
-                        x = pathRect.x + pathRect.width - 20,
-                        width = 20
-                    };
+                    var pickerRect = new Rect(pathRect);
+                    pickerRect.x = pathRect.x + pathRect.width - 20;
+                    pickerRect.width = 20;
                     if (GUI.Button(pickerRect, WitStyles.ObjectPickerIcon, "Label"))
                     {
                         var id = EditorGUIUtility.GetControlID(FocusType.Passive) + 100;
@@ -172,10 +168,8 @@ namespace Facebook.WitAi.CallbackHandlers
                 }
             }
 
-            var editRect = new Rect(rect)
-            {
-                x = pathRect.x + pathRect.width + 8
-            };
+            var editRect = new Rect(rect);
+            editRect.x = pathRect.x + pathRect.width + 8;
 
             if (Foldout(rect, property))
             {
@@ -191,8 +185,8 @@ namespace Facebook.WitAi.CallbackHandlers
                     }
                 }
 
-                rect.x += WitStyles.IconButtonSize;
-                rect.width -= WitStyles.IconButtonSize;
+                rect.x += WitStyles.IconButtonWidth;
+                rect.width -= WitStyles.IconButtonWidth;
                 rect.y += rect.height;
                 EditorGUI.PropertyField(rect, property.FindPropertyRelative(Properties.contentRequired));
                 rect.y += rect.height;

@@ -16,7 +16,7 @@ namespace Facebook.WitAi.Data
 
         public OnDataAdded OnDataAddedEvent;
 
-        private readonly T[] buffer;
+        private T[] buffer;
         private int bufferIndex;
         private long bufferDataLength;
         public int Capacity => buffer.Length;
@@ -30,23 +30,16 @@ namespace Facebook.WitAi.Data
             {
                 for (int i = 0; i < buffer.Length; i++)
                 {
-                    buffer[i] = default;
+                    buffer[i] = default(T);
                 }
             }
         }
 
         public class Marker
         {
-            private long bufferDataIndex;
-            private int index;
-            private readonly RingBuffer<T> ringBuffer;
-
-            public Marker(RingBuffer<T> ringBuffer, long markerPosition, int bufIndex)
-            {
-                this.ringBuffer = ringBuffer;
-                bufferDataIndex = markerPosition;
-                index = bufIndex;
-            }
+            public long bufferDataIndex;
+            public int index;
+            public RingBuffer<T> ringBuffer;
 
             public bool IsValid => ringBuffer.bufferDataLength - bufferDataIndex <= ringBuffer.Capacity;
 
@@ -141,11 +134,6 @@ namespace Facebook.WitAi.Data
 
         public int Read(T[] data, int offset, int length, long bufferDataIndex)
         {
-            if (bufferIndex == 0 && bufferDataLength == 0) // The ring buffer has been cleared.
-            {
-                return 0;
-            }
-
             lock (buffer)
             {
                 int read = (int) (Math.Min(bufferDataIndex + length, bufferDataLength) -
@@ -179,11 +167,15 @@ namespace Facebook.WitAi.Data
 
             if (bufIndex > buffer.Length)
             {
-                bufIndex -= buffer.Length;
+                bufIndex = bufIndex - buffer.Length;
             }
 
-            var marker = new Marker(this, markerPosition, bufIndex);
-
+            var marker = new Marker()
+            {
+                ringBuffer = this,
+                bufferDataIndex = markerPosition,
+                index = bufIndex
+            };
             return marker;
         }
     }

@@ -13,6 +13,7 @@ permissions and limitations under the License.
 using Oculus.Interaction.Input;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.Serialization;
 
 namespace Oculus.Interaction
 {
@@ -26,42 +27,12 @@ namespace Oculus.Interaction
         public IHand Hand { get; private set; }
 
         [SerializeField]
-        [HideInInspector]
         private Vector3 _offset;
 
         [SerializeField]
-        [HideInInspector]
         private Quaternion _rotation = Quaternion.identity;
 
-        [SerializeField, Optional]
-        [HideInInspector]
-        private Transform _relativeTransform;
-
         private Pose _cachedPose = Pose.identity;
-
-        public Vector3 Offset
-        {
-            get
-            {
-                return _offset;
-            }
-            set
-            {
-                _offset = value;
-            }
-        }
-
-        public Quaternion Rotation
-        {
-            get
-            {
-                return _rotation;
-            }
-            set
-            {
-                _rotation = value;
-            }
-        }
 
         private static readonly Quaternion LEFT_MIRROR_ROTATION = Quaternion.Euler(180f, 0f, 0f);
 
@@ -83,7 +54,7 @@ namespace Oculus.Interaction
         {
             if (_started)
             {
-                Hand.WhenHandUpdated += HandleHandUpdated;
+                Hand.HandUpdated += HandleHandUpdated;
             }
         }
 
@@ -91,7 +62,7 @@ namespace Oculus.Interaction
         {
             if (_started)
             {
-                Hand.WhenHandUpdated -= HandleHandUpdated;
+                Hand.HandUpdated -= HandleHandUpdated;
             }
         }
 

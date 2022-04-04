@@ -75,16 +75,16 @@ public class Rain : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        maxNumber = 160;//PlayerPrefs.GetInt("MaxAi", 0);
-        johnny = 60;//PlayerPrefs.GetInt("Johnny", 0);
-        steph = 20;//PlayerPrefs.GetInt("Steph", 0);
-        alexandre = 30;//PlayerPrefs.GetInt("Alexandre", 0);
-        janka = 30;// PlayerPrefs.GetInt("Janka", 0);
-        nick = 30;// PlayerPrefs.GetInt("Nick", 0);
-        lindzy = 30;// PlayerPrefs.GetInt("Lindzy", 0);
-        denis = 30;// PlayerPrefs.GetInt("Denis", 0);
-        lana = 30;// PlayerPrefs.GetInt("Lana", 0);
-        sam = 30;// PlayerPrefs.GetInt("Sam", 0);
+        maxNumber = PlayerPrefs.GetInt("MaxAi", 0);
+        johnny = PlayerPrefs.GetInt("Johnny", 0);
+        steph = PlayerPrefs.GetInt("Steph", 0);
+        alexandre = PlayerPrefs.GetInt("Alexandre", 0);
+        janka = PlayerPrefs.GetInt("Janka", 0);
+        nick = PlayerPrefs.GetInt("Nick", 0);
+        lindzy = PlayerPrefs.GetInt("Lindzy", 0);
+        denis = PlayerPrefs.GetInt("Denis", 0);
+        lana = PlayerPrefs.GetInt("Lana", 0);
+        sam = PlayerPrefs.GetInt("Sam", 0);
         basics = PlayerPrefs.GetInt("Basic", 0);
         personaeNumber = new int[10]{johnny, steph, alexandre, janka, nick, lindzy, denis, lana, sam, basics};
         foreach(Transform englishRoom in englishRooms){

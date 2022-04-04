@@ -152,7 +152,8 @@ namespace Facebook.WitAi.Lib
         {
             get
             {
-                if (int.TryParse(Value, out int v))
+                int v = 0;
+                if (int.TryParse(Value, out v))
                     return v;
                 return 0;
             }
@@ -163,7 +164,8 @@ namespace Facebook.WitAi.Lib
         {
             get
             {
-                if (float.TryParse(Value, out float v))
+                float v = 0.0f;
+                if (float.TryParse(Value, out v))
                     return v;
                 return 0.0f;
             }
@@ -174,7 +176,8 @@ namespace Facebook.WitAi.Lib
         {
             get
             {
-                if (double.TryParse(Value, out double v))
+                double v = 0.0;
+                if (double.TryParse(Value, out v))
                     return v;
                 return 0.0;
             }
@@ -185,7 +188,8 @@ namespace Facebook.WitAi.Lib
         {
             get
             {
-                if (bool.TryParse(Value, out bool v))
+                bool v = false;
+                if (bool.TryParse(Value, out v))
                     return v;
                 return !string.IsNullOrEmpty(Value);
             }
@@ -233,7 +237,7 @@ namespace Facebook.WitAi.Lib
 
         public static implicit operator string(WitResponseNode d)
         {
-            return d?.Value;
+            return (d == null) ? null : d.Value;
         }
 
         public static bool operator ==(WitResponseNode a, object b)
@@ -687,10 +691,8 @@ namespace Facebook.WitAi.Lib
         public static WitResponseNode LoadFromBase64(string aBase64)
         {
             var tmp = System.Convert.FromBase64String(aBase64);
-            var stream = new System.IO.MemoryStream(tmp)
-            {
-                Position = 0
-            };
+            var stream = new System.IO.MemoryStream(tmp);
+            stream.Position = 0;
             return LoadFromStream(stream);
         }
     } // End of JSONNode
@@ -997,10 +999,9 @@ namespace Facebook.WitAi.Lib
 
         public override void Serialize(System.IO.BinaryWriter aWriter)
         {
-            var tmp = new WitResponseData("")
-            {
-                AsInt = AsInt
-            };
+            var tmp = new WitResponseData("");
+
+            tmp.AsInt = AsInt;
             if (tmp.m_Data == this.m_Data)
             {
                 aWriter.Write((byte) JSONBinaryTag.IntValue);
@@ -1064,6 +1065,7 @@ namespace Facebook.WitAi.Lib
             {
                 m_Node.Add(m_Key, aVal);
             }
+
             m_Node = null; // Be GC friendly.
         }
 
@@ -1072,10 +1074,8 @@ namespace Facebook.WitAi.Lib
             get { return new WitResponseLazyCreator(this); }
             set
             {
-                var tmp = new WitResponseArray
-                {
-                    value
-                };
+                var tmp = new WitResponseArray();
+                tmp.Add(value);
                 Set(tmp);
             }
         }
@@ -1085,29 +1085,23 @@ namespace Facebook.WitAi.Lib
             get { return new WitResponseLazyCreator(this, aKey); }
             set
             {
-                var tmp = new WitResponseClass
-                {
-                    { aKey, value }
-                };
+                var tmp = new WitResponseClass();
+                tmp.Add(aKey, value);
                 Set(tmp);
             }
         }
 
         public override void Add(WitResponseNode aItem)
         {
-            var tmp = new WitResponseArray
-            {
-                aItem
-            };
+            var tmp = new WitResponseArray();
+            tmp.Add(aItem);
             Set(tmp);
         }
 
         public override void Add(string aKey, WitResponseNode aItem)
         {
-            var tmp = new WitResponseClass
-            {
-                { aKey, aItem }
-            };
+            var tmp = new WitResponseClass();
+            tmp.Add(aKey, aItem);
             Set(tmp);
         }
 

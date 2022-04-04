@@ -26,16 +26,12 @@ namespace Facebook.WitAi.Data.Entities
             var keywordEntries = new WitResponseArray();
             foreach (string keyword in keywords)
             {
-                var synonyms = new WitResponseArray
-                {
-                    new WitResponseData(keyword)
-                };
+                var synonyms = new WitResponseArray();
+                synonyms.Add(new WitResponseData(keyword));
 
-                var keywordEntry = new WitResponseClass
-                {
-                    { "keyword", new WitResponseData(keyword) },
-                    { "synonyms", synonyms }
-                };
+                var keywordEntry = new WitResponseClass();
+                keywordEntry.Add("keyword", new WitResponseData(keyword));
+                keywordEntry.Add("synonyms", synonyms);
 
                 keywordEntries.Add(keywordEntry);
             }
@@ -45,10 +41,8 @@ namespace Facebook.WitAi.Data.Entities
         public string ToJSON()
         {
             KeyValuePair<string, WitResponseArray> pair = this.GetEntityPair();
-            var root = new WitResponseClass
-            {
-                { pair.Key, pair.Value }
-            };
+            var root = new WitResponseClass();
+            root.Add(pair.Key, pair.Value);
             return root.ToString();
         }
     }

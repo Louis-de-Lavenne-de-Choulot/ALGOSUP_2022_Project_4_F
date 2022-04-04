@@ -15,6 +15,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.Serialization;
 
 namespace Oculus.Interaction
 {
@@ -44,8 +45,8 @@ namespace Oculus.Interaction
         private List<Transform> _jointTransforms = new List<Transform>();
         public event Action WhenHandVisualUpdated = delegate { };
 
-        public bool IsVisible => _skinnedMeshRenderer != null && _skinnedMeshRenderer.enabled;
-
+        public bool IsVisible => _visible;
+        private bool _visible;
         private int _wristScalePropertyId;
 
         public List<Transform> Joints => _jointTransforms;
@@ -80,7 +81,7 @@ namespace Oculus.Interaction
         {
             if (_started)
             {
-                Hand.WhenHandUpdated += UpdateSkeleton;
+                Hand.HandUpdated += UpdateSkeleton;
             }
         }
 
@@ -88,7 +89,7 @@ namespace Oculus.Interaction
         {
             if (_started && _hand != null)
             {
-                Hand.WhenHandUpdated -= UpdateSkeleton;
+                Hand.HandUpdated -= UpdateSkeleton;
             }
         }
 
@@ -96,21 +97,24 @@ namespace Oculus.Interaction
         {
             if (!Hand.IsTrackedDataValid)
             {
-                if (IsVisible || ForceOffVisibility)
+                if (_visible || ForceOffVisibility)
                 {
                     _skinnedMeshRenderer.enabled = false;
+                    _visible = false;
                 }
                 WhenHandVisualUpdated.Invoke();
                 return;
             }
 
-            if (!IsVisible && !ForceOffVisibility)
+            if (!_visible && !ForceOffVisibility)
             {
                 _skinnedMeshRenderer.enabled = true;
+                _visible = true;
             }
-            else if(IsVisible && ForceOffVisibility)
+            else if(_visible && ForceOffVisibility)
             {
                 _skinnedMeshRenderer.enabled = false;
+                _visible = false;
             }
 
             if (_updateRootPose)

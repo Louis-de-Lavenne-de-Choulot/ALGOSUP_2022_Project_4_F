@@ -15,25 +15,45 @@ using UnityEngine;
 namespace Oculus.Interaction.HandPosing
 {
     /// <summary>
-    /// Utility struct containing for measuring perceived distances
-    /// when rotations are also involved
+    /// Utility struct containing the information and calculations
+    /// to move a pose in space using an  AnimationCurve at a given speed.
+    /// Unifies code in the HandGrab and DistanceHandGrab interactors.
+    /// </summary>
     public struct PoseTravelData
     {
-        private const float DEGREES_TO_PERCEIVED_METERS = 0.5f / 360f;
+        private const float DEGREES_TO_PERCEIVED_METERS = 0.1f / 360f;
 
-        public static float PerceivedDistance(in Pose from, in Pose to)
+        private float _startTime;
+        private float _totalTime;
+        private Pose _sourcePose;
+        private AnimationCurve _easingCurve;
+
+        public Pose DestinationPose { private get; set; }
+
+        public PoseTravelData(in Pose from, in Pose to, float speed, AnimationCurve curve = null)
         {
+            _startTime = Time.realtimeSinceStartup;
+            _sourcePose = from;
+            _easingCurve = curve;
+
+            DestinationPose = to;
+
             Pose grabOffset = PoseUtils.RelativeOffset(from, to);
-            float translationDistance = grabOffset.position.magnitude;
+            float travelDistance = Mathf.Max(grabOffset.position.magnitude,
+                (grabOffset.rotation.eulerAngles * DEGREES_TO_PERCEIVED_METERS).magnitude);
+            _totalTime = travelDistance / speed;
+        }
 
-            float rotationDistance = DEGREES_TO_PERCEIVED_METERS * Mathf.Max(
-                Mathf.Max(Vector3.Angle(from.forward, to.forward),
-                Vector3.Angle(from.up, to.up),
-                Vector3.Angle(from.right, to.right)));
-
-            float travelDistance = Mathf.Max(translationDistance, rotationDistance);
-
-            return travelDistance;
+        public bool CurrentTravelPose(ref Pose currentTravelPose)
+        {
+            float animationProgress = HandGrabInteractionUtilities.GetNormalizedEventTime(_startTime, _totalTime);
+            bool isCompleted = animationProgress >= 1f;
+            if (_easingCurve != null)
+            {
+                animationProgress = _easingCurve.Evaluate(animationProgress);
+            }
+            PoseUtils.Lerp(_sourcePose, DestinationPose, animationProgress, ref currentTravelPose);
+            return isCompleted;
         }
     }
 }

@@ -79,8 +79,7 @@ namespace Oculus.Interaction
     /// </summary>
     public interface IInteractable<TInteractor> : IInteractable, IInteractableView<TInteractor>
     {
-        bool CanBeSelectedBy(TInteractor interactor);
-
+        bool IsPotentialCandidateFor(TInteractor interactor);
         bool HasInteractor(TInteractor interactor);
         void AddInteractor(TInteractor interactor);
         void RemoveInteractor(TInteractor interactor);

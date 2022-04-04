@@ -18,7 +18,7 @@ using UnityEngine.XR;
 
 namespace Oculus.Interaction.Input
 {
-    public class FromOVRHmdDataSource : DataSource<HmdDataAsset>
+    public class FromOVRHmdDataSource : DataSource<HmdDataAsset, HmdDataSourceConfig>
     {
         [Header("OVR Data Source")]
         [SerializeField, Interface(typeof(IOVRCameraRigRef))]
@@ -50,29 +50,22 @@ namespace Oculus.Interaction.Input
             base.Start();
             Assert.IsNotNull(CameraRigRef);
             Assert.IsNotNull(TrackingToWorldTransformer);
+            InitConfig();
         }
-
-        private HmdDataSourceConfig Config
+        private void InitConfig()
         {
-            get
+            if (_config != null)
             {
-                if (_config != null)
-                {
-                    return _config;
-                }
-
-                _config = new HmdDataSourceConfig()
-                {
-                    TrackingToWorldTransformer = TrackingToWorldTransformer
-                };
-
-                return _config;
+                return;
             }
+            _config = new HmdDataSourceConfig()
+            {
+                TrackingToWorldTransformer = TrackingToWorldTransformer
+            };
         }
 
         protected override void UpdateData()
         {
-            _hmdDataAsset.Config = Config;
             bool hmdPresent = OVRNodeStateProperties.IsHmdPresent();
             ref var centerEyePose = ref _hmdDataAsset.Root;
             if (_useOvrManagerEmulatedPose)
@@ -122,6 +115,21 @@ namespace Oculus.Interaction.Input
         }
 
         protected override HmdDataAsset DataAsset => _hmdDataAsset;
+
+        // It is important that this creates an object on the fly, as it is possible it is called
+        // from other components Awake methods.
+        public override HmdDataSourceConfig Config
+        {
+            get
+            {
+                if (_config == null)
+                {
+                    InitConfig();
+                }
+
+                return _config;
+            }
+        }
 
         #region Inject
 

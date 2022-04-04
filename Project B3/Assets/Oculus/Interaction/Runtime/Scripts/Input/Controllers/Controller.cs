@@ -16,10 +16,10 @@ using UnityEngine;
 namespace Oculus.Interaction.Input
 {
     public class Controller :
-        DataModifier<ControllerDataAsset>,
+        DataModifier<ControllerDataAsset, ControllerDataSourceConfig>,
         IController
     {
-        public Handedness Handedness => GetData().Config.Handedness;
+        public Handedness Handedness => Config.Handedness;
 
         public bool IsConnected
         {
@@ -80,7 +80,7 @@ namespace Oculus.Interaction.Input
                 return false;
             }
 
-            pose = GetData().Config.TrackingToWorldTransformer.ToWorldPose(GetData().RootPose);
+            pose = Config.TrackingToWorldTransformer.ToWorldPose(GetData().RootPose);
             return true;
         }
 
@@ -97,7 +97,7 @@ namespace Oculus.Interaction.Input
                 return false;
             }
 
-            pose = GetData().Config.TrackingToWorldTransformer.ToWorldPose(GetData().PointerPose);
+            pose = Config.TrackingToWorldTransformer.ToWorldPose(GetData().PointerPose);
             return true;
         }
 

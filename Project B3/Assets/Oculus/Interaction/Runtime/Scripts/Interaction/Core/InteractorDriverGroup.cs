@@ -10,36 +10,36 @@ ANY KIND, either express or implied. See the License for the specific language g
 permissions and limitations under the License.
 ************************************************************************************/
 
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.Serialization;
 
 namespace Oculus.Interaction
 {
     /// <summary>
-    /// InteractorDriverGroup coordinates between a set of InteractorDrivers to
-    /// determine which InteractorDriver(s) should be enabled at a time.
-    ///
-    /// By default, InteractorDrivers are prioritized in list order (first = highest priority).
-    /// InteractorDrivers can also be prioritized with an optional IInteractorComparer
-    /// </summary>
+    /// The InteractorDriverGroup coordinates between multiple InteractorDrivers to determine
+    /// which InteractorDriver(s) should be enabled at a time.
+    /// Passed in InteractorDrivers are prioritized in list order (first = highest priority).
     public class InteractorDriverGroup : MonoBehaviour, IInteractorDriver
     {
         [SerializeField, Interface(typeof(IInteractorDriver))]
         private List<MonoBehaviour> _interactorDrivers;
 
-        protected List<IInteractorDriver> InteractorDrivers;
+        private List<IInteractorDriver> InteractorDrivers;
 
-        /// <summary>
-        /// InteractorGroupStrategy defines how an InteractorDriverGroup coordinates hovering
-        /// between InteractorDrivers when no InteractorDriver is yet selected.
-        /// Upon selection, all other drivers are disabled.
-        /// </summary>
+        // The HoverStrategy defines how this InteractorDriverGroup coordinates hovering
+        // between InteractorDrivers when no InteractorDriver is yet selected.
+        // Upon selection, all other drivers are disabled.
         public enum InteractorDriverGroupStrategy
         {
-            PRIORITY = 0, ///< Until selecting, reevaluate drivers in priority order
-            FIRST = 1, ///< Until hovering, reevaluate drivers in priority order
-            MULTIPLE = 2 ///< Until selecting, allow multiple hovered drivers
+            // Keep checking all drivers for hover in priority order, disabling all others
+            PRIORITY = 0,
+            // When any driver is hovered, disable all other drivers until this driver is no longer hovering
+            FIRST = 1,
+            // Allow for multiple hovered drivers at a time
+            MULTIPLE = 2
         }
 
         [SerializeField]
@@ -48,22 +48,15 @@ namespace Oculus.Interaction
 
         public bool IsRootInteractorDriver { get; set; } = true;
 
-        private IInteractorDriver _candidateDriver = null;
         private IInteractorDriver _currentDriver = null;
         private IInteractorDriver _selectingDriver = null;
 
         [SerializeField]
         private bool _selectionCanBeEmpty = true;
 
-        [SerializeField, Interface(typeof(IInteractorComparer)), Optional]
-        private MonoBehaviour _interactorComparer;
-
-        protected IInteractorComparer InteractorComparer = null;
-
         protected virtual void Awake()
         {
             InteractorDrivers = _interactorDrivers.ConvertAll(mono => mono as IInteractorDriver);
-            InteractorComparer = _interactorComparer as IInteractorComparer;
         }
 
         protected virtual void Start()
@@ -76,11 +69,6 @@ namespace Oculus.Interaction
             foreach (IInteractorDriver interactorDriver in InteractorDrivers)
             {
                 interactorDriver.IsRootInteractorDriver = false;
-            }
-
-            if (_interactorComparer != null)
-            {
-                Assert.IsNotNull(InteractorComparer);
             }
         }
 
@@ -98,26 +86,6 @@ namespace Oculus.Interaction
             {
                 _selectingDriver.UpdateInteraction();
                 return;
-            }
-
-            _candidateDriver = null;
-
-            foreach(IInteractorDriver driver in InteractorDrivers)
-            {
-                driver.Enable();
-                driver.UpdateInteraction();
-
-                if (driver.HasCandidate)
-                {
-                    if (_candidateDriver == null)
-                    {
-                        _candidateDriver = driver;
-                    }
-                    else if(Compare(_candidateDriver, driver) > 0)
-                    {
-                        _candidateDriver = driver;
-                    }
-                }
             }
 
             switch (_interactorDriverGroupStrategy)
@@ -213,10 +181,34 @@ namespace Oculus.Interaction
 
         private void PriorityHoverStrategy()
         {
-            _currentDriver = _candidateDriver != null
-                ? _candidateDriver
-                : InteractorDrivers[InteractorDrivers.Count - 1];
-            DisableAllDriversExcept(_currentDriver);
+            _currentDriver = null;
+            for (int i = 0; i < InteractorDrivers.Count; i++)
+            {
+                IInteractorDriver driver = InteractorDrivers[i];
+
+                driver.Enable();
+                driver.UpdateInteraction();
+
+                // If we are in a hover state, we want to make the hover interactor visible
+                if (driver.HasCandidate)
+                {
+                    _currentDriver = driver;
+                    DisableAllDriversExcept(_currentDriver);
+                    return;
+                }
+                else if (i != InteractorDrivers.Count - 1)
+                {
+                    // when we only allow only one hovering interactor,
+                    // all but the least prioritized interactor
+                    // should be hidden
+                    driver.Disable();
+                }
+            }
+
+            if (_currentDriver == null)
+            {
+                _currentDriver = InteractorDrivers[InteractorDrivers.Count - 1];
+            }
         }
 
         private void FirstHoverStrategy()
@@ -228,13 +220,22 @@ namespace Oculus.Interaction
                 {
                     return;
                 }
-                _currentDriver = null;
             }
 
-            if (_candidateDriver != null)
+            _currentDriver = null;
+            for (int i = 0; i < InteractorDrivers.Count; i++)
             {
-                _currentDriver = _candidateDriver;
-                DisableAllDriversExcept(_currentDriver);
+                IInteractorDriver driver = InteractorDrivers[i];
+                driver.Enable();
+                driver.UpdateInteraction();
+
+                // If we are in a hover state, we want to make the hover interactor visible
+                if (driver.HasCandidate)
+                {
+                    _currentDriver = driver;
+                    DisableAllDriversExcept(_currentDriver);
+                    return;
+                }
             }
         }
 
@@ -243,17 +244,13 @@ namespace Oculus.Interaction
             _currentDriver = null;
             foreach (IInteractorDriver driver in InteractorDrivers)
             {
+                driver.Enable();
+                driver.UpdateInteraction();
+
                 // If we are in a hover state, we want to make the hover interactor visible
                 if (driver.HasCandidate)
                 {
-                    if (_currentDriver == null)
-                    {
-                        _currentDriver = driver;
-                    }
-                }
-                else
-                {
-                    driver.Disable();
+                    _currentDriver = driver;
                 }
             }
         }
@@ -279,9 +276,6 @@ namespace Oculus.Interaction
         public bool IsSelectingInteractable => _selectingDriver != null && _selectingDriver.IsSelectingInteractable;
         public bool IsSelecting => _selectingDriver != null;
         public bool HasCandidate => _currentDriver != null && _currentDriver.HasCandidate;
-
-        public IInteractor CandidateInteractor => HasCandidate ? _currentDriver.CandidateInteractor : null;
-
         public bool ShouldSelect =>
             _currentDriver != null && _currentDriver.ShouldSelect;
         public bool IsHovering => _currentDriver != null && _currentDriver.IsHovering;
@@ -302,39 +296,18 @@ namespace Oculus.Interaction
             }
         }
 
-        public virtual void AddInteractorDriver(IInteractorDriver interactorDriver)
+        public void AddInteractorDriver(IInteractorDriver interactorDriver)
         {
             InteractorDrivers.Add(interactorDriver);
             _interactorDrivers.Add(interactorDriver as MonoBehaviour);
             interactorDriver.IsRootInteractorDriver = false;
         }
 
-        public virtual void RemoveInteractorDriver(IInteractorDriver interactorDriver)
+        public void RemoveInteractorDriver(IInteractorDriver interactorDriver)
         {
             InteractorDrivers.Remove(interactorDriver);
             _interactorDrivers.Remove(interactorDriver as MonoBehaviour);
             interactorDriver.IsRootInteractorDriver = true;
-        }
-
-        private int Compare(IInteractorDriver a, IInteractorDriver b)
-        {
-            if (!a.HasCandidate && !b.HasCandidate)
-            {
-                return -1;
-            }
-
-            if (a.HasCandidate && b.HasCandidate)
-            {
-                if (InteractorComparer == null)
-                {
-                    return -1;
-                }
-
-                int result = InteractorComparer.Compare(a.CandidateInteractor, b.CandidateInteractor);
-                return result > 0 ? 1 : -1;
-            }
-
-            return a.HasCandidate ? -1 : 1;
         }
 
         #region Inject
@@ -355,12 +328,6 @@ namespace Oculus.Interaction
             InteractorDriverGroupStrategy interactorDriverGroupStrategy)
         {
             _interactorDriverGroupStrategy = interactorDriverGroupStrategy;
-        }
-
-        public void InjectOptionalInteractorComparer(IInteractorComparer comparer)
-        {
-            InteractorComparer = comparer;
-            _interactorComparer = comparer as MonoBehaviour;
         }
 
         #endregion

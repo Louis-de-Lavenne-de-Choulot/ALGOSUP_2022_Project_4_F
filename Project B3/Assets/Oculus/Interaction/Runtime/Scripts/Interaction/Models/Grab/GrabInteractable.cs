@@ -10,13 +10,15 @@ ANY KIND, either express or implied. See the License for the specific language g
 permissions and limitations under the License.
 ************************************************************************************/
 
+using System;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.Serialization;
 
 namespace Oculus.Interaction
 {
     public class GrabInteractable : Interactable<GrabInteractor, GrabInteractable>,
-                                      IRigidbodyRef
+                                      IPointable, IRigidbodyRef
     {
         private Collider[] _colliders;
         public Collider[] Colliders => _colliders;
@@ -26,64 +28,18 @@ namespace Oculus.Interaction
         public Rigidbody Rigidbody => _rigidbody;
 
         [SerializeField]
-        private Grabbable _grabbable;
-        public Grabbable Grabbable => _grabbable;
-
-        [SerializeField, Optional]
-        private Transform _grabSource;
-
-        [SerializeField]
-        private bool _useClosestPointAsGrabSource;
-
-        [SerializeField]
         private float _releaseDistance = 0f;
-
-        [SerializeField]
-        private bool _resetGrabOnGrabsUpdated = true;
+        public float ReleaseDistance => _releaseDistance;
 
         [SerializeField, Optional]
-        private PhysicsGrabbable _physicsGrabbable = null;
+        private PhysicsTransformable _physicsObject = null;
 
         private static CollisionInteractionRegistry<GrabInteractor, GrabInteractable> _grabRegistry = null;
 
+        public event Action<PointerArgs> OnPointerEvent = delegate { };
+        private PointableDelegate<GrabInteractor> _pointableDelegate;
+
         protected bool _started = false;
-
-        #region Properties
-        public bool UseClosestPointAsGrabSource
-        {
-            get
-            {
-                return _useClosestPointAsGrabSource;
-            }
-            set
-            {
-                _useClosestPointAsGrabSource = value;
-            }
-        }
-        public float ReleaseDistance
-        {
-            get
-            {
-                return _releaseDistance;
-            }
-            set
-            {
-                _releaseDistance = value;
-            }
-        }
-
-        public bool ResetGrabOnGrabsUpdated
-        {
-            get
-            {
-                return _resetGrabOnGrabsUpdated;
-            }
-            set
-            {
-                _resetGrabOnGrabsUpdated = value;
-            }
-        }
-        #endregion
 
         protected virtual void Awake()
         {
@@ -102,8 +58,26 @@ namespace Oculus.Interaction
             _colliders = Rigidbody.GetComponentsInChildren<Collider>();
             Assert.IsTrue(Colliders.Length > 0,
             "The associated Rigidbody must have at least one Collider.");
-            Assert.IsNotNull(_grabbable);
+
+            _pointableDelegate =
+                new PointableDelegate<GrabInteractor>(this, ComputePointer);
+
             this.EndStart(ref _started);
+        }
+
+        public void ApplyVelocities(Vector3 linearVelocity, Vector3 angularVelocity)
+        {
+            if (_physicsObject == null)
+            {
+                return;
+            }
+            _physicsObject.ApplyVelocities(linearVelocity, angularVelocity);
+        }
+
+        private void ComputePointer(GrabInteractor interactor, out Vector3 position, out Quaternion rotation)
+        {
+            position = interactor.GrabPosition;
+            rotation = interactor.GrabRotation;
         }
 
         protected override void OnEnable()
@@ -111,7 +85,7 @@ namespace Oculus.Interaction
             base.OnEnable();
             if (_started)
             {
-                Grabbable.WhenGrabbableUpdated += HandleGrabbableUpdated;
+                _pointableDelegate.OnPointerEvent += InvokeOnPointerEvent;
             }
         }
 
@@ -119,53 +93,26 @@ namespace Oculus.Interaction
         {
             if (_started)
             {
-                Grabbable.WhenGrabbableUpdated -= HandleGrabbableUpdated;
+                _pointableDelegate.OnPointerEvent -= InvokeOnPointerEvent;
             }
             base.OnDisable();
         }
 
-        private void HandleGrabbableUpdated(GrabbableArgs args)
+        private void InvokeOnPointerEvent(PointerArgs args)
         {
-            switch (args.GrabbableEvent)
-            {
-                case GrabbableEvent.Remove:
-                    RemoveInteractorById(args.GrabIdentifier);
-                    break;
-            }
+            OnPointerEvent(args);
         }
 
-        public Pose GetGrabSourceForTarget(Pose target)
+        protected virtual void OnDestroy()
         {
-            if (_grabSource == null && !_useClosestPointAsGrabSource)
-            {
-                return target;
-            }
-
-            if (_useClosestPointAsGrabSource)
-            {
-                return new Pose(
-                    Collisions.ClosestPointToColliders(target.position, _colliders),
-                    target.rotation);
-            }
-
-            return _grabSource.GetPose();
-        }
-
-        public void ApplyVelocities(Vector3 linearVelocity, Vector3 angularVelocity)
-        {
-            if (_physicsGrabbable == null)
-            {
-                return;
-            }
-            _physicsGrabbable.ApplyVelocities(linearVelocity, angularVelocity);
+            _pointableDelegate = null;
         }
 
         #region Inject
 
-        public void InjectAllGrabInteractable(Rigidbody rigidbody, Grabbable grabbable)
+        public void InjectAllGrabInteractable(Rigidbody rigidbody)
         {
-            InjectRigidbody(rigidbody);
-            InjectGrabbable(grabbable);
+             InjectRigidbody(rigidbody);
         }
 
         public void InjectRigidbody(Rigidbody rigidbody)
@@ -173,24 +120,14 @@ namespace Oculus.Interaction
             _rigidbody = rigidbody;
         }
 
-        public void InjectGrabbable(Grabbable grabbable)
-        {
-            _grabbable = grabbable;
-        }
-
-        public void InjectOptionalGrabSource(Transform grabSource)
-        {
-            _grabSource = grabSource;
-        }
-
         public void InjectOptionalReleaseDistance(float releaseDistance)
         {
             _releaseDistance = releaseDistance;
         }
 
-        public void InjectOptionalPhysicsGrabbable(PhysicsGrabbable physicsGrabbable)
+        public void InjectOptionalPhysicsObject(PhysicsTransformable physicsObject)
         {
-            _physicsGrabbable = physicsGrabbable;
+            _physicsObject = physicsObject;
         }
 
         #endregion
