@@ -89,9 +89,9 @@ public class NPC : MonoBehaviour
             lastTarget = Target;
 
             transform.position = new Vector3(
-                Target.transform.position.x - 0.25f,
-                Target.transform.position.y + 0.65f,
-                Target.transform.position.z - 0.185f);
+                Target.transform.position.x,
+                Target.transform.position.y,
+                Target.transform.position.z);
 
             transform.rotation = Quaternion.Euler(0, 180, 0);
 
@@ -155,13 +155,15 @@ public class NPC : MonoBehaviour
         //Leave Chair
         if (situp == true)
         {
-            if(lastTarget.gameObject.layer == LayerMask.NameToLayer("Chair"))
-            {
-                Target.Translate(Vector3.forward * 0.2f);
-            }
-            if (lastTarget.gameObject.layer == LayerMask.NameToLayer("Fridge") || lastTarget.gameObject.layer == LayerMask.NameToLayer("Microwave"))
-            {
-                lastTarget.gameObject.SetActive(true);
+            if(lastTarget){
+                if(lastTarget.gameObject.layer == LayerMask.NameToLayer("Chair") )
+                {
+                    Target.Translate(Vector3.forward * 0.2f);
+                }
+                if (lastTarget.gameObject.layer == LayerMask.NameToLayer("Fridge") || lastTarget.gameObject.layer == LayerMask.NameToLayer("Microwave"))
+                {
+                    lastTarget.gameObject.SetActive(true);
+                }
             }
 
             gameObject.GetComponent<Animator>().SetBool("sitWithLaptop", false);
