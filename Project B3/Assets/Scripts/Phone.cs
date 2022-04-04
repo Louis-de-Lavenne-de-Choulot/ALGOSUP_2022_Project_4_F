@@ -52,7 +52,7 @@ public class Phone : MonoBehaviour
 
     private void Update()
     {
-        Collider[] collision = Physics.OverlapSphere(transform.position, 0.15f, LayerMask.GetMask("Scaner"));
+        Collider[] collision = Physics.OverlapSphere(transform.position, 0.2f, LayerMask.GetMask("Scaner"));
 
         if (collision.Length != 0)
         {
@@ -63,7 +63,7 @@ public class Phone : MonoBehaviour
             door.SetBool("hasScanned", false);
 
             Animator scanR = collision[0].transform.parent.parent.GetChild(1).gameObject.GetComponent(typeof(Animator)) as Animator;
-            Animator scanL = collision[0].transform.parent.parent.GetChild(2).gameObject.GetComponent(typeof(Animator)) as Animator;
+            Animator scanL = collision[0].transform.parent.parent.GetChild(0).gameObject.GetComponent(typeof(Animator)) as Animator;
 
             if (collision[0].transform.tag == "Main gate" || collision[0].transform.tag == "Comon room")
             {

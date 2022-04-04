@@ -21,7 +21,7 @@ namespace AdvancedAI
             textComponent.text = current.ToString();
             slider.onValueChanged.AddListener(delegate {updateSliderAndText(AIManager.trychange(target,current,(int)slider.value));});
             increase.onClick.AddListener(delegate {updateSliderAndText(AIManager.trychange(target,current,current + 1));});
-            decrease.onClick.AddListener(delegate {updateSliderAndText(AIManager.trychange(target,current,current - 1));});
+            decrease.onClick.AddListener(delegate {updateSliderAndText(AIManager.trychange(target,current,Mathf.Max(current - 1,0)));});
         }
 
         void updateSliderAndText(int newvalue)

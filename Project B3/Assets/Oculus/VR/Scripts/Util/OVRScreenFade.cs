@@ -222,7 +222,7 @@ public class OVRScreenFade : MonoBehaviour
 			fadeMaterial.color = color;
 			fadeMaterial.renderQueue = renderQueue;
 			fadeRenderer.material = fadeMaterial;
-			fadeRenderer.enabled = isFading;
+			fadeRenderer.enabled = false;
 		}
 	}
 }
