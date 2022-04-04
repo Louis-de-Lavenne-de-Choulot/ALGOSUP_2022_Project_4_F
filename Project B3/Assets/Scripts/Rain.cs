@@ -6,21 +6,21 @@ public class Rain : MonoBehaviour
     public Transform trash;
     public Transform[] englishRooms;
     List<Transform> eR = new List<Transform>();
-    int[] eR2 = new int[5]{0,0,0,0,0};
+    int[] eR2 = new int[10]{0,0,0,0,0,0,0,0,0,0};
     public Transform languageLabs;
     List<Transform> lL = new List<Transform>();
-    int[] lL2 = new int[5]{0,0,0,0,0};
+    int[] lL2 = new int[10]{0,0,0,0,0,0,0,0,0,0};
     public Transform softSkills;
     List<Transform> sS = new List<Transform>();
-    int[] sS2 = new int[5]{0,0,0,0,0};
+    int[] sS2 = new int[10]{0,0,0,0,0,0,0,0,0,0};
     public Transform[] projectRooms;
     List<Transform> pR = new List<Transform>();
-    int[] pR2 = new int[5]{0,0,0,0,0};
+    int[] pR2 = new int[10]{0,0,0,0,0,0,0,0,0,0};
     public Transform[] Lunch;
     List<Transform> l = new List<Transform>();
     public Transform Auditorium;
     List<Transform> a = new List<Transform>();
-    int[] a2 = new int[5]{0,0,0,0,0};
+    int[] a2 = new int[10]{0,0,0,0,0,0,0,0,0,0};
     public Transform[] Toilettes;
     List<Transform> t = new List<Transform>();
     public Transform[] TeachPlaces;
@@ -176,14 +176,8 @@ public class Rain : MonoBehaviour
         {
             char morning = (char)type.GetProperty("_morning" + day).GetValue(p);
             char afternoon = (char)type.GetProperty("_afternoon" + day).GetValue(p);
-            if(morning == afternoon)
-            {
-                script.goal[day*2] = StartingDay(morning,day);
-                script.goal[day*2+1] = script.goal[day*2];
-                continue;
-            }
             script.goal[day*2] = StartingDay(morning,day);
-            script.goal[day*2+1] = StartingDay(afternoon,day);
+            script.goal[day*2+1] = StartingDay(afternoon,day+5);
         }
         obj.transform.SetParent(gameObject.transform);
         yield return null;
