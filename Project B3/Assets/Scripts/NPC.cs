@@ -8,6 +8,7 @@ public class NPC : MonoBehaviour
     float cooldown = 60F;
     float period;
     public Transform[] goal = new Transform[10];
+    public Transform[] breaks = new Transform[15];
     Transform agentPos;
     Vector3 agentLastPos;
     UnityEngine.AI.NavMeshAgent agent;
@@ -15,7 +16,7 @@ public class NPC : MonoBehaviour
     protected Animator anim;
     private int timeNumber;
     private bool situp = false;
-    bool noui;
+    int timeTable = 1;
 
     private Transform Target;
     private Transform lastTarget;
@@ -180,7 +181,12 @@ public class NPC : MonoBehaviour
     public void TimeChange(){
         gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = true;
         situp = true;
-        Target = goal[timeNumber];
+        // timeTable++;
+        // if(timeTable%2 == 1){
+            Target = goal[timeNumber];
+        // }else{
+        //     Target = breaks[timeNumber];
+        // }
         agent.destination = Target.position;
         timeNumber++;
     }
