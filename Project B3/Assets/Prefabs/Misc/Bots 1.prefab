@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6604829915844981347}
   - component: {fileID: 4799633824037138966}
+  - component: {fileID: 1387108314}
+  - component: {fileID: 2519849740671850046}
   m_Layer: 0
   m_Name: Bots 1
   m_TagString: Untagged
@@ -45,14 +47,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trash: {fileID: 0}
-  softSkills: {fileID: 0}
-  languageLabs: {fileID: 0}
-  Lunch: {fileID: 0}
-  Auditorium: {fileID: 0}
   englishRooms:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  languageLabs: {fileID: 0}
+  softSkills: {fileID: 0}
   projectRooms:
   - {fileID: 0}
   - {fileID: 0}
@@ -68,7 +68,16 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  Lunch:
+  - {fileID: 0}
+  Auditorium: {fileID: 0}
   Toilettes: []
+  TeachPlaces:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   toInit:
   - {fileID: 780131664743231543, guid: bf46bcba3a84f482b9df5c01ae4b5597, type: 3}
   - {fileID: 362042024866577885, guid: e509eccb97a12401691516836a6475dd, type: 3}
@@ -78,6 +87,36 @@ MonoBehaviour:
   - {fileID: 1900955418418413430, guid: 75da8855848a140d5898b402e281650e, type: 3}
   - {fileID: 6523036373518471019, guid: 185ec444764734f96bd272ed81977e0e, type: 3}
   - {fileID: 8057093193683748497, guid: 8fee657cc15ee49f79c2af5b9f71e75c, type: 3}
-  - {fileID: 8057093193683748497, guid: 8fee657cc15ee49f79c2af5b9f71e75c, type: 3}
   - {fileID: 366153095240098720, guid: 179ac7bd3929b4930967967f869138e5, type: 3}
+  - {fileID: 8057093193683748497, guid: 8fee657cc15ee49f79c2af5b9f71e75c, type: 3}
+  toInitTeach:
+  - {fileID: 362042024866577885, guid: 06c7f7c44942446d381bf92425546a9d, type: 3}
+  - {fileID: 2726485272258377131, guid: 2281193fb50ff4b239e570575291ef85, type: 3}
+  - {fileID: 8057093193683748497, guid: b53d9d280b5814792834814255eb8ca6, type: 3}
+  - {fileID: 6523036373518471019, guid: df0f7f8f9dc2a4fd2b3261a13f3b1606, type: 3}
+  - {fileID: 2928978759770873247, guid: 7420d3911e6714520bd269a250c50f51, type: 3}
   recept: {fileID: 6604829915844981347}
+--- !u!114 &1387108314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3874419527677703184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b563ba887776e42caa66bd33ca1a358c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2519849740671850046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3874419527677703184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b563ba887776e42caa66bd33ca1a358c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

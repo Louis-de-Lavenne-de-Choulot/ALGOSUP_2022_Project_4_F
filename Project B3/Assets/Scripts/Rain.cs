@@ -6,24 +6,26 @@ public class Rain : MonoBehaviour
     public Transform trash;
     public Transform[] englishRooms;
     List<Transform> eR = new List<Transform>();
-    int[] eR2 = new int[5]{0,0,0,0,0};
+    int[] eR2 = new int[10]{0,0,0,0,0,0,0,0,0,0};
     public Transform languageLabs;
     List<Transform> lL = new List<Transform>();
-    int[] lL2 = new int[5]{0,0,0,0,0};
+    int[] lL2 = new int[10]{0,0,0,0,0,0,0,0,0,0};
     public Transform softSkills;
     List<Transform> sS = new List<Transform>();
-    int[] sS2 = new int[5]{0,0,0,0,0};
+    int[] sS2 = new int[10]{0,0,0,0,0,0,0,0,0,0};
     public Transform[] projectRooms;
     List<Transform> pR = new List<Transform>();
-    int[] pR2 = new int[5]{0,0,0,0,0};
+    int[] pR2 = new int[10]{0,0,0,0,0,0,0,0,0,0};
     public Transform[] Lunch;
     List<Transform> l = new List<Transform>();
     public Transform Auditorium;
     List<Transform> a = new List<Transform>();
-    int[] a2 = new int[5]{0,0,0,0,0};
+    int[] a2 = new int[10]{0,0,0,0,0,0,0,0,0,0};
     public Transform[] Toilettes;
     List<Transform> t = new List<Transform>();
+    public Transform[] TeachPlaces;
     public GameObject[] toInit;
+    public GameObject[] toInitTeach;
     Personae[] personaeNames;
     int[] personaeNumber;
     int johnny; 
@@ -59,6 +61,16 @@ public class Rain : MonoBehaviour
     private Personae denisTT = new Personae('I', 'C', 'C', 'S', 'S', 'E', 'P', 'P', 'P', 'P', 'E');
 
     private Personae samTT = new Personae('I', 'P', 'P', 'P', 'P', 'S', 'S', 'C', 'C', 'P', 'E');
+
+    private char lunvch_kenny = 'I';
+
+    private char lunvch_theresa = 'O';
+
+    private char lunvch_louisa = 'I';
+
+    private char lunvch_chad = 'I';
+
+    private char lunvch_branden = 'O';
 
     // Start is called before the first frame update
     void Start()
@@ -101,60 +113,78 @@ public class Rain : MonoBehaviour
         }
         foreach(Transform findTrsfrm in Auditorium){
                 if (findTrsfrm.name == "Chair"){
+                    findTrsfrm.position = findTrsfrm.GetComponent<Renderer>().bounds.center;
                     a.Add(findTrsfrm);
                 }
         }
         personaeNames = new Personae[9]{johnnyTT, stephTT, alexandreTT, jankaTT, nickTT, lindzyTT, denisTT, lanaTT, samTT};
+
+        StartCoroutine(Teach());
         Invocation();
         InvokeRepeating("TimeCheck", 20f, 5f);
     }
 
-    void Update(){
+    private IEnumerator Teach(){
+        for(int i = 0; i < toInitTeach.Length; i++){
+            GameObject obj = Instantiate(toInitTeach[i], new Vector3(Random.Range(recept.position.x-12, recept.position.x+12), recept.position.y,Random.Range(recept.position.z-12, recept.position.z+12)), Quaternion.identity) as GameObject;
+            Color Sk = Skin[Random.Range(0,4)];
+            int[] act = new int[]{Random.Range(0,4), 4, Random.Range(5,7)};
+            for (int child = 0; child < 7; child++){
+                obj.transform.GetChild(child).gameObject.SetActive(false);
+                if (child == act[0] || child == act[1] || child == act[2])
+                    obj.transform.GetChild(child).gameObject.SetActive(true);
+            }
+            obj.transform.GetChild(act[0]).GetComponent<SkinnedMeshRenderer>().material.color =  Sk;
+            if(i > 2){
+                obj.transform.GetChild(act[2]).GetComponent<SkinnedMeshRenderer>().material.color =  Sk;
+            }else{
+                obj.transform.GetChild(act[2]).GetComponent<SkinnedMeshRenderer>().materials[1].color =  Sk;
+            }
+            NPC script = obj.GetComponent<NPC>();
+            script.goal = new Transform[10]{TeachPlaces[i], TeachPlaces[i], TeachPlaces[i], TeachPlaces[i], TeachPlaces[i], TeachPlaces[i], TeachPlaces[i], TeachPlaces[i], TeachPlaces[i], TeachPlaces[i]};
+        }
+        yield return null;
     }
 
     private void Invocation(){
         for (int persona = 0;  persona < 9; persona++){
             Personae p = personaeNames[persona];
             for (int i = 0; i < personaeNumber[persona]; i++){
-                GameObject obj = Instantiate(toInit[persona], new Vector3(Random.Range(recept.position.x-12, recept.position.x+12), recept.position.y,Random.Range(recept.position.z-12, recept.position.z+12)), Quaternion.identity) as GameObject;
-                Debug.Log(obj.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().material);
-                Color Sk = Skin[Random.Range(0,3)];
-                int[] act = new int[]{Random.Range(0,3), Random.Range(4,5), Random.Range(6,7)};
-                for (int child = 0; child < 8; child++){
-                    obj.transform.GetChild(child).gameObject.SetActive(false);
-                    if (child == act[0] || child == act[1] || child == act[2])
-                        obj.transform.GetChild(child).gameObject.SetActive(true);
-                }
-                obj.transform.GetChild(act[0]).GetComponent<SkinnedMeshRenderer>().material.color =  Sk;
-                if((persona+1)%2 != 0){
-                    obj.transform.GetChild(act[2]).GetComponent<SkinnedMeshRenderer>().material.color =  Sk;
-                }else{
-                    obj.transform.GetChild(act[2]).GetComponent<SkinnedMeshRenderer>().materials[1].color =  Sk;
-                }
-                NPC script = obj.GetComponent<NPC>();
-                script.goal = new Transform[11];
-                System.Type type = p.GetType();
-                for(int day = 1; day < 6;day++)
-                {
-                    char morning = (char)type.GetProperty("_morning" + day).GetValue(p);
-                    char afternoon = (char)type.GetProperty("_afternoon" + day).GetValue(p);
-                    if(morning == afternoon)
-                    {
-                        script.goal[day*2-1] = StartingDay(morning,day);
-                        script.goal[day*2] = script.goal[day*2-1];
-                        continue;
-                    }
-                    script.goal[day*2-1] = StartingDay(morning,day);
-                    script.goal[day*2] = StartingDay(afternoon,day);
-
-                }
-                obj.transform.SetParent(gameObject.transform);
+                StartCoroutine(InvocationCorou(persona, p));
             }
         }
     }
 
+    private IEnumerator InvocationCorou(int persona, Personae p){
+        GameObject obj = Instantiate(toInit[persona], new Vector3(Random.Range(recept.position.x-12, recept.position.x+12), recept.position.y,Random.Range(recept.position.z-12, recept.position.z+12)), Quaternion.identity) as GameObject;
+        Color Sk = Skin[Random.Range(0,4)];
+        int[] act = new int[]{Random.Range(0,4), 4, Random.Range(5,7)};
+        for (int child = 0; child < 7; child++){
+            obj.transform.GetChild(child).gameObject.SetActive(false);
+            if (child == act[0] || child == act[1] || child == act[2])
+                obj.transform.GetChild(child).gameObject.SetActive(true);
+        }
+        obj.transform.GetChild(act[0]).GetComponent<SkinnedMeshRenderer>().material.color =  Sk;
+        if((persona+1)%2 != 0){
+            obj.transform.GetChild(act[2]).GetComponent<SkinnedMeshRenderer>().material.color =  Sk;
+        }else{
+            obj.transform.GetChild(act[2]).GetComponent<SkinnedMeshRenderer>().materials[1].color =  Sk;
+        }
+        NPC script = obj.GetComponent<NPC>();
+        script.goal = new Transform[10];
+        System.Type type = p.GetType();
+        for(int day = 0; day < 5;day++)
+        {
+            char morning = (char)type.GetProperty("_morning" + day).GetValue(p);
+            char afternoon = (char)type.GetProperty("_afternoon" + day).GetValue(p);
+            script.goal[day*2] = StartingDay(morning,day);
+            script.goal[day*2+1] = StartingDay(afternoon,day+5);
+        }
+        obj.transform.SetParent(gameObject.transform);
+        yield return null;
+    }
+
     private Transform StartingDay(char moment, int numb){
-        numb--;
         if (moment == 'E' && eR.Count > eR2[numb]){
             Transform temp = eR[eR2[numb]];
             eR2[numb]++;
@@ -175,7 +205,6 @@ public class Rain : MonoBehaviour
             a2[numb]++;
             return temp;                         
         }
-        Debug.Log("trash");
         return trash;
     }
 

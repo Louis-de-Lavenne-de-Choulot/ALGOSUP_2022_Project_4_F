@@ -7,7 +7,8 @@ public class NPC : MonoBehaviour
     // Start is called before the first frame update
     float cooldown = 60F;
     float period;
-    public Transform[] goal = new Transform[11];
+    public Transform[] goal = new Transform[10];
+    public Transform[] breaks = new Transform[15];
     Transform agentPos;
     Vector3 agentLastPos;
     UnityEngine.AI.NavMeshAgent agent;
@@ -15,7 +16,7 @@ public class NPC : MonoBehaviour
     protected Animator anim;
     private int timeNumber;
     private bool situp = false;
-    bool noui;
+    int timeTable = 1;
 
     private Transform Target;
     private Transform lastTarget;
@@ -25,7 +26,7 @@ public class NPC : MonoBehaviour
         anim = gameObject.GetComponent<Animator>();
         agentPos = gameObject.GetComponent<Transform>();
         agent = gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>();
-        int pPref = PlayerPrefs.GetInt("day", 1) * 2 - 1;
+        int pPref = PlayerPrefs.GetInt("day", 0) * 2;
         Target = goal[pPref];
         agent.destination = Target.position;
         timeNumber = pPref+1;
@@ -97,30 +98,59 @@ public class NPC : MonoBehaviour
             gameObject.GetComponent<Animator>().SetBool("sitWithLaptop", true);
         }
 
-        //Microwave
-        //if ((Vector3.Distance(transform.position, Target.position) < 2) && (Target.gameObject.layer == LayerMask.GetMask("Amphi"))
-        //&& situp == false && (gameObject.GetComponent<Animator>().GetBool("sitWithLaptop") == false) && sandwichMricowave == false)
-        //{
-        //    Target.gameObject.SetActive(false);
+        if ((Vector3.Distance(transform.position, Target.position) < 1) && situp == false
+        && gameObject.GetComponent<Animator>().GetBool("Teach") == false
+        && Target.gameObject.layer == LayerMask.NameToLayer("Teach"))
+        {
+            gameObject.GetComponent<Collider>().enabled = false;
+            gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
+            gameObject.GetComponent<Rigidbody>().useGravity = false;
 
-        //    gameObject.GetComponent<Collider>().enabled = false;
-        //    gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
-        //    gameObject.GetComponent<Rigidbody>().Sleep();
+            lastTarget = Target;
 
-        //    transform.position = new Vector3(
-        //        Target.transform.position.x,
-        //        Target.transform.position.y,
-        //        Target.transform.position.z);
+            transform.position = Target.position;
 
-        //    transform.Translate(Vector3.back * 0.87f);
-        //    transform.Translate(Vector3.down * 0.315f);
 
-        //    transform.rotation = Quaternion.Euler(0, 0, goal[1 * 2 - 1].transform.rotation.z);
+            transform.rotation = Target.rotation;
 
-        //    gameObject.GetComponent<Animator>().SetBool("microwave", true);
+            gameObject.GetComponent<Animator>().SetBool("Teach", true);
+        }
 
-        //    sandwichMricowave = true;
-        //}
+        if ((Vector3.Distance(transform.position, Target.position) < 1) && situp == false
+        && gameObject.GetComponent<Animator>().GetBool("Fridge") == false
+        && Target.gameObject.layer == LayerMask.NameToLayer("Fridge"))
+        {
+            gameObject.GetComponent<Collider>().enabled = false;
+            gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
+            gameObject.GetComponent<Rigidbody>().useGravity = false;
+
+            lastTarget = Target;
+
+            transform.position = Target.position;
+            Target.Translate(Vector3.back * 0.5f);
+
+            transform.rotation = Target.rotation;
+            Target.gameObject.SetActive(false);
+            gameObject.GetComponent<Animator>().SetBool("Fridge", true);
+        }
+
+        if ((Vector3.Distance(transform.position, Target.position) < 1) && situp == false
+        && gameObject.GetComponent<Animator>().GetBool("microwave") == false
+        && Target.gameObject.layer == LayerMask.NameToLayer("Microwave"))
+        {
+            gameObject.GetComponent<Collider>().enabled = false;
+            gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
+            gameObject.GetComponent<Rigidbody>().useGravity = false;
+
+            lastTarget = Target;
+
+            transform.position = Target.position;
+
+            transform.rotation = Target.rotation;
+            Target.gameObject.SetActive(false);
+            gameObject.GetComponent<Animator>().SetBool("microwave", true);
+        }
+
 
         //Leave Chair
         if (situp == true)
@@ -129,10 +159,17 @@ public class NPC : MonoBehaviour
             {
                 Target.Translate(Vector3.forward * 0.2f);
             }
+            if (lastTarget.gameObject.layer == LayerMask.NameToLayer("Fridge") || lastTarget.gameObject.layer == LayerMask.NameToLayer("Microwave"))
+            {
+                lastTarget.gameObject.SetActive(true);
+            }
 
             gameObject.GetComponent<Animator>().SetBool("sitWithLaptop", false);
             gameObject.GetComponent<Animator>().SetBool("sitAtTable", false);
             gameObject.GetComponent<Animator>().SetBool("microwave", false);
+            gameObject.GetComponent<Animator>().SetBool("Teach", false);
+            gameObject.GetComponent<Animator>().SetBool("Fridge", false);
+
 
             gameObject.GetComponent<Collider>().enabled = true;
             gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = true;
@@ -144,7 +181,12 @@ public class NPC : MonoBehaviour
     public void TimeChange(){
         gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = true;
         situp = true;
-        Target = goal[timeNumber];
+        // timeTable++;
+        // if(timeTable%2 == 1){
+            Target = goal[timeNumber];
+        // }else{
+        //     Target = breaks[timeNumber];
+        // }
         agent.destination = Target.position;
         timeNumber++;
     }
