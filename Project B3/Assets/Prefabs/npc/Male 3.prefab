@@ -2740,7 +2740,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb22b7de367b36049a3f03f9eab6e33b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goal: []
   breaks:
   - {fileID: 0}
   - {fileID: 0}
@@ -2757,6 +2756,19 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  goal: {fileID: 0}
+  goals:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  inScenario: 0
 --- !u!1 &7796712381062984193
 GameObject:
   m_ObjectHideFlags: 0
