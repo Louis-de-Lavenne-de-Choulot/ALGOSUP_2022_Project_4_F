@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Linq;
 public class Shortcuts : MonoBehaviour
 {
     private float threshold = 3f;
@@ -58,7 +59,7 @@ public class Shortcuts : MonoBehaviour
 
     void ExitScenario()
     {
-        //Hello programmer
+        FindObjectsOfType<ScenarioBase>().Where(scenario => scenario.active).ToList().ForEach(scenario => scenario.EndScenario());
     }
 }
 

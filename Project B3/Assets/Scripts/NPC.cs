@@ -193,10 +193,11 @@ public class NPC : MonoBehaviour
 
     public void ChangeGoal(Transform newgoal = null)
     {
-        if(newgoal is null){
-            Target = goals[timeNumber];
-        }
-        Target = newgoal;
+        if(!newgoal) Target = goals[timeNumber];
+        else Target = newgoal;
+        gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = true;
+        goal = newgoal;
         agent.destination = Target.position;
+        situp = true;
     }
 }

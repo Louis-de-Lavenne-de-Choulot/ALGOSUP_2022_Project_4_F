@@ -28,7 +28,7 @@ public class Rain : MonoBehaviour
     public GameObject[] toInitTeach;
     Personae[] personaeNames;
     int[] personaeNumber;
-    int johnny; 
+    int johnny;
     int steph;
     int alexandre;
     int janka;
@@ -42,7 +42,7 @@ public class Rain : MonoBehaviour
     public Transform recept;
     Color[] Skin = new Color[4]{new Color(0.254717f, 0.1748036f, 0.08290314f), new Color(0.727f, 0.6063917f, 0.4154285f), new Color(0.1792453f, 0.07965653f, 0.03297437f), new Color(0.8235294f, 0.6969679f, 0.5583529f)};
     int timeNumber = 0;
-    int[] times = new int[7]{30 + 70 -1, 119, 189, 259, 329, 359, 429}; //? around 35s all AI are in their class. 70s of class then 30s of break, finally 70s for lunch. -1s to be sure the code takes the update.
+    int[] times = new int[7]{10, 119, 189, 259, 329, 359, 429}; //? around 35s all AI are in their class. 70s of class then 30s of break, finally 70s for lunch. -1s to be sure the code takes the update.
     // G = get/order food, O = outside, I = inside, B = bring his meal
     private Personae johnnyTT = new Personae('G', 'E', 'P', 'S', 'S', 'P', 'P', 'C', 'C', 'P', 'P');
 
@@ -72,11 +72,13 @@ public class Rain : MonoBehaviour
 
     private char lunvch_branden = 'O';
 
+    public ScenarioBase scenario;
+
     // Start is called before the first frame update
     void Start()
     {
         maxNumber = PlayerPrefs.GetInt("MaxAi", 0);
-        johnny = PlayerPrefs.GetInt("Johnny", 0);
+        johnny = 20;//PlayerPrefs.GetInt("Johnny", 0);
         steph = PlayerPrefs.GetInt("Steph", 0);
         alexandre = PlayerPrefs.GetInt("Alexandre", 0);
         janka = PlayerPrefs.GetInt("Janka", 0);
@@ -157,7 +159,7 @@ public class Rain : MonoBehaviour
 
     private IEnumerator InvocationCorou(int persona, Personae p){
         GameObject obj = Instantiate(toInit[persona], new Vector3(Random.Range(recept.position.x-12, recept.position.x+12), recept.position.y,Random.Range(recept.position.z-12, recept.position.z+12)), Quaternion.identity) as GameObject;
-        Color Sk = Skin[Random.Range(0,4)];
+        Color Sk = Skin[Random.Range(0,4)]; 
         int[] act = new int[]{Random.Range(0,4), 4, Random.Range(5,7)};
         for (int child = 0; child < 7; child++){
             obj.transform.GetChild(child).gameObject.SetActive(false);
@@ -218,6 +220,10 @@ public class Rain : MonoBehaviour
                 if (!npc.inScenario) npc.TimeChange(timeNumber);
             }
             timeNumber++;
+            if(timeNumber == 1)
+            {
+                scenario.StartScenario();
+            }
             if (timeNumber+1%7 ==0)
             {
                 timeNumber = 0;

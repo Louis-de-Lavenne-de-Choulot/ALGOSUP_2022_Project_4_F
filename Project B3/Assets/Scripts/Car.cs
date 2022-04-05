@@ -17,7 +17,6 @@ public class Car : NPC
     //     Engine.clip = _engine;
     //     Honk.clip = _honk;
     // }
-    
     // void LateUpdate()
     // {
     //     if (anim.GetBool("IsMoving") && !Engine.isPlaying)
