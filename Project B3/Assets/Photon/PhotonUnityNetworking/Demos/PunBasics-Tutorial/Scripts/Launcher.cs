@@ -113,7 +113,7 @@ namespace Photon.Pun.Demo.PunBasics{
 
             public override void OnJoinedRoom()
             {
-                PhotonNetwork.LoadLevel("Room for 1");
+                PhotonNetwork.LoadLevel("Project B3");
                 Debug.Log("PUN Basics Tutorial/Launcher: OnJoinedRoom() called by PUN. Now this client is in a room.");
             }
 

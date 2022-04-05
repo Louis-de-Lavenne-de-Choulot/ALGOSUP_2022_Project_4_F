@@ -54,7 +54,7 @@ namespace Photon.Pun.Demo.PunBasics
 			// in case we started this demo with the wrong scene being active, simply load the menu scene
 			if (!PhotonNetwork.IsConnected)
 			{
-				SceneManager.LoadScene("PunBasics-Launcher");
+				SceneManager.LoadScene("Project B3");
 
 				return;
 			}
@@ -134,7 +134,7 @@ namespace Photon.Pun.Demo.PunBasics
 		/// </summary>
 		public override void OnLeftRoom()
 		{
-			SceneManager.LoadScene("PunBasics-Launcher");
+			SceneManager.LoadScene("Project B3");
 		}
 
 		#endregion
@@ -164,7 +164,7 @@ namespace Photon.Pun.Demo.PunBasics
 
 			Debug.LogFormat( "PhotonNetwork : Loading Level : {0}", PhotonNetwork.CurrentRoom.PlayerCount );
 
-			PhotonNetwork.LoadLevel("Room for 1");
+			PhotonNetwork.LoadLevel("Project B3");
 		}
 
 		#endregion
