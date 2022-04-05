@@ -58,6 +58,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0417f9966dff84b89a2cd04d344f77b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  door_access: 0
+  WC: 0
+  drone_access: 1
+  Project_room: 5
   is_AI: 1
 --- !u!1 &334182858730172336
 GameObject:
@@ -2769,7 +2773,7 @@ GameObject:
   - component: {fileID: 7111588371719443083}
   m_Layer: 0
   m_Name: Franck
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2854,6 +2858,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goal: []
+  breaks:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!195 &7111588371719443083
 NavMeshAgent:
   m_ObjectHideFlags: 0
