@@ -15,12 +15,6 @@ public class AmbiantSoundsProject : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             audioSource.Play();
-
-            if (audioSource.isPlaying == true)
-            {
-                Debug.Log("Audio is playing");
-            }
-            
         }
     }
     private void OnTriggerExit(Collider other)
