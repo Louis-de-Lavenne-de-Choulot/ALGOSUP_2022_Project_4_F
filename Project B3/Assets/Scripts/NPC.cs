@@ -129,6 +129,27 @@ public class NPC : MonoBehaviour
             gameObject.GetComponent<Animator>().SetBool("sitWithLaptop", true);
         }
 
+        //Amphitheater chair
+        if ((Vector3.Distance(transform.position, Target.position) < 1) && situp == false
+            && gameObject.GetComponent<Animator>().GetBool("Toillet") == false
+            && Target.gameObject.layer == LayerMask.NameToLayer("Toilet"))
+        {
+            gameObject.GetComponent<Collider>().enabled = false;
+            gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
+            gameObject.GetComponent<Rigidbody>().useGravity = false;
+
+            lastTarget = Target;
+
+            transform.position = new Vector3(
+                Target.transform.position.x,
+                Target.transform.position.y,
+                Target.transform.position.z);
+
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+
+            gameObject.GetComponent<Animator>().SetBool("Toilet", true);
+        }
+
         if ((Vector3.Distance(transform.position, Target.position) < 1) && situp == false
         && gameObject.GetComponent<Animator>().GetBool("Teach") == false
         && Target.gameObject.layer == LayerMask.NameToLayer("Teach"))
