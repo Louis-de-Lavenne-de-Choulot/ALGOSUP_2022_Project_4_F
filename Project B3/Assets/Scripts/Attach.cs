@@ -21,8 +21,14 @@ public class Attach : MonoBehaviour
             {
                 if(rig.transform.GetComponent<PhotonView>().IsMine){
                     transform.SetParent(rig.transform);
-                    rig.transform.GetChild(0).SetParent(transform.GetChild(0).GetChild(4));
-                    rig.transform.GetChild(1).SetParent(transform.GetChild(0).GetChild(5));
+                    Transform handl= rig.transform.GetChild(0);
+                    Transform handr= rig.transform.GetChild(1);
+                    handl.SetParent(transform.GetChild(0).GetChild(4));
+                    handr.SetParent(transform.GetChild(0).GetChild(5));
+                    handl.GetComponent<OVRGrabber>().m_parentTransform = handl.parent;
+                    handr.GetComponent<OVRGrabber>().m_parentTransform = handr.parent;
+                    handl.GetComponent<VRcontrolls>().cam = handl.parent.parent.GetChild(1);
+                    handr.GetComponent<VRcontrolls>().cam = handr.parent.parent.GetChild(1);
                     rig.transform.GetComponent<CharacterCameraConstraint>().CameraRig = transform.GetComponent<OVRCameraRig>();
                     rig.transform.GetComponent<SimpleCapsuleWithStickMovement>().CameraRig = transform.GetComponent<OVRCameraRig>();
                 }

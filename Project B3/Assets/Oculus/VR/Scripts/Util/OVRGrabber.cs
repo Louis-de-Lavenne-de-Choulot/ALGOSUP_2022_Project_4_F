@@ -56,7 +56,7 @@ public class OVRGrabber : MonoBehaviour
 	// Otherwise, you should typically leave this null and simply parent the hand to the hand anchor
 	// in your scene, using Unity's inspector.
     [SerializeField]
-    protected Transform m_parentTransform;
+    public Transform m_parentTransform;
 
     [SerializeField]
     protected GameObject m_player;
