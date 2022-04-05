@@ -7,7 +7,7 @@ using Photon.Realtime;
 
 public class Attach : MonoBehaviour
 {
-    bool lock;
+    bool locking;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +17,7 @@ public class Attach : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!lock){
+        if (!locking){
             GameObject[] rigs = GameObject.FindGameObjectsWithTag("Pp");
             foreach (GameObject rig in rigs)
             {
@@ -33,7 +33,7 @@ public class Attach : MonoBehaviour
                     handr.GetComponent<VRcontrolls>().cam = handr.parent.parent.GetChild(1);
                     rig.transform.GetComponent<CharacterCameraConstraint>().CameraRig = transform.GetComponent<OVRCameraRig>();
                     rig.transform.GetComponent<SimpleCapsuleWithStickMovement>().CameraRig = transform.GetComponent<OVRCameraRig>();
-                    lock = true;
+                    locking = true;
                 }
             }
         }
