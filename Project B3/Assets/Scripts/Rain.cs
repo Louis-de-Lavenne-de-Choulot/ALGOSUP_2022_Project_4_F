@@ -33,7 +33,7 @@ public class Rain : MonoBehaviour
     int alexandre;
     int janka;
     int nick;
-    int lindzy; 
+    int lindzy;
     int denis;
     int lana;
     int sam;
@@ -141,7 +141,7 @@ public class Rain : MonoBehaviour
                 obj.transform.GetChild(act[2]).GetComponent<SkinnedMeshRenderer>().materials[1].color =  Sk;
             }
             NPC script = obj.GetComponent<NPC>();
-            script.goal = new Transform[10]{TeachPlaces[i], TeachPlaces[i], TeachPlaces[i], TeachPlaces[i], TeachPlaces[i], TeachPlaces[i], TeachPlaces[i], TeachPlaces[i], TeachPlaces[i], TeachPlaces[i]};
+            script.goals = new Transform[10]{TeachPlaces[i], TeachPlaces[i], TeachPlaces[i], TeachPlaces[i], TeachPlaces[i], TeachPlaces[i], TeachPlaces[i], TeachPlaces[i], TeachPlaces[i], TeachPlaces[i]};
         }
         yield return null;
     }
@@ -171,14 +171,14 @@ public class Rain : MonoBehaviour
             obj.transform.GetChild(act[2]).GetComponent<SkinnedMeshRenderer>().materials[1].color =  Sk;
         }
         NPC script = obj.GetComponent<NPC>();
-        script.goal = new Transform[10];
+        script.goals = new Transform[10];
         System.Type type = p.GetType();
         for(int day = 0; day < 5;day++)
         {
             char morning = (char)type.GetProperty("_morning" + day).GetValue(p);
             char afternoon = (char)type.GetProperty("_afternoon" + day).GetValue(p);
-            script.goal[day*2] = StartingDay(morning,day);
-            script.goal[day*2+1] = StartingDay(afternoon,day+5);
+            script.goals[day*2] = StartingDay(morning,day);
+            script.goals[day*2+1] = StartingDay(afternoon,day+5);
         }
         obj.transform.SetParent(gameObject.transform);
         yield return null;
@@ -203,20 +203,26 @@ public class Rain : MonoBehaviour
         else if(moment == 'C' && a.Count > a2[numb]){
             Transform temp = a[a2[numb]];
             a2[numb]++;
-            return temp;                         
+            return temp;
         }
         return trash;
     }
 
-    void TimeCheck(){
-        if (GameTime.intTimer > times[timeNumber]){
-            for(int child = 0; child < transform.childCount; child++){
-                transform.GetChild(child).GetComponent<NPC>().TimeChange();
+    void TimeCheck()
+    {
+        if (GameTime.intTimer > times[timeNumber])
+        {
+            for(int child = 0; child < transform.childCount; child++)
+            {
+                NPC npc = transform.GetChild(child).GetComponent<NPC>();
+                if (!npc.inScenario) npc.TimeChange(timeNumber);
             }
             timeNumber++;
-            if (timeNumber+1%7 ==0){
+            if (timeNumber+1%7 ==0)
+            {
                 timeNumber = 0;
-                for(int x = 0; x < times.Length; x++){
+                for(int x = 0; x < times.Length; x++)
+                {
                     times[x] *= 2;
                 }
             }

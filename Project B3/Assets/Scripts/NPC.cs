@@ -7,8 +7,9 @@ public class NPC : MonoBehaviour
     // Start is called before the first frame update
     float cooldown = 60F;
     float period;
-    public Transform[] goal = new Transform[10];
     public Transform[] breaks = new Transform[15];
+    public Transform goal;
+    public Transform[] goals = new Transform[10];
     Transform agentPos;
     Vector3 agentLastPos;
     UnityEngine.AI.NavMeshAgent agent;
@@ -17,6 +18,8 @@ public class NPC : MonoBehaviour
     private int timeNumber;
     private bool situp = false;
     int timeTable = 1;
+    [HideInInspector]
+    public bool inScenario = false;
 
     private Transform Target;
     private Transform lastTarget;
@@ -27,7 +30,7 @@ public class NPC : MonoBehaviour
         agentPos = gameObject.GetComponent<Transform>();
         agent = gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>();
         int pPref = PlayerPrefs.GetInt("day", 0) * 2;
-        Target = goal[pPref];
+        Target = goals[pPref];
         agent.destination = Target.position;
         timeNumber = pPref+1;
     }
@@ -180,16 +183,20 @@ public class NPC : MonoBehaviour
         }
     }
 
-    public void TimeChange(){
+   public void TimeChange(int newtime = 0){
+        timeNumber = newtime;
         gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = true;
         situp = true;
-        // timeTable++;
-        // if(timeTable%2 == 1){
-            Target = goal[timeNumber];
-        // }else{
-        //     Target = breaks[timeNumber];
-        // }
+        Target = goals[timeNumber];
         agent.destination = Target.position;
-        timeNumber++;
+    }
+
+    public void ChangeGoal(Transform newgoal = null)
+    {
+        if(newgoal is null){
+            Target = goals[timeNumber];
+        }
+        Target = newgoal;
+        agent.destination = Target.position;
     }
 }
