@@ -79,7 +79,7 @@ public class Rain : MonoBehaviour
     {
         maxNumber = PlayerPrefs.GetInt("MaxAi", 0);
         johnny = PlayerPrefs.GetInt("Johnny", 0);
-        steph = 22;//PlayerPrefs.GetInt("Steph", 0);
+        steph = PlayerPrefs.GetInt("Steph", 0);
         alexandre = PlayerPrefs.GetInt("Alexandre", 0);
         janka = PlayerPrefs.GetInt("Janka", 0);
         nick = PlayerPrefs.GetInt("Nick", 0);
