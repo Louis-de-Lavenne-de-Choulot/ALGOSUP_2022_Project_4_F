@@ -7,14 +7,9 @@ using Photon.Realtime;
 
 public class Attach : MonoBehaviour
 {
+    
     // Start is called before the first frame update
     void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
     {
             GameObject[] rigs = GameObject.FindGameObjectsWithTag("Pp");
             foreach (GameObject rig in rigs)
@@ -33,5 +28,10 @@ public class Attach : MonoBehaviour
                     rig.transform.GetComponent<SimpleCapsuleWithStickMovement>().CameraRig = transform.GetComponent<OVRCameraRig>();
                 }
             }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
     }
 }
