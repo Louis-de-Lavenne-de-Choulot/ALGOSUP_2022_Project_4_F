@@ -25,12 +25,14 @@ public class Attach : MonoBehaviour
                     transform.SetParent(rig.transform);
                     Transform handl= rig.transform.GetChild(0);
                     Transform handr= rig.transform.GetChild(1);
-                    handl.SetParent(transform.GetChild(0).GetChild(4));
-                    handr.SetParent(transform.GetChild(0).GetChild(5));
-                    handl.GetComponent<OVRGrabber>().m_parentTransform = handl.parent;
-                    handr.GetComponent<OVRGrabber>().m_parentTransform = handr.parent;
-                    handl.GetComponent<VRcontrolls>().cam = handl.parent.parent.GetChild(1);
-                    handr.GetComponent<VRcontrolls>().cam = handr.parent.parent.GetChild(1);
+                    if (handl.name == "CustomHandLeft" && handr.name == "CustomHandRight"){
+                        handl.SetParent(transform.GetChild(0).GetChild(4));
+                        handr.SetParent(transform.GetChild(0).GetChild(5));
+                        handl.GetComponent<OVRGrabber>().m_parentTransform = handl.parent;
+                        handr.GetComponent<OVRGrabber>().m_parentTransform = handr.parent;
+                        handl.GetComponent<VRcontrolls>().cam = handl.parent.parent.GetChild(1);
+                        handr.GetComponent<VRcontrolls>().cam = handr.parent.parent.GetChild(1);
+                    }
                     rig.transform.GetComponent<CharacterCameraConstraint>().CameraRig = transform.GetComponent<OVRCameraRig>();
                     rig.transform.GetComponent<SimpleCapsuleWithStickMovement>().CameraRig = transform.GetComponent<OVRCameraRig>();
                     locking = true;
