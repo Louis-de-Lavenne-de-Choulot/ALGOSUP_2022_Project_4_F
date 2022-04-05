@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Car : NPC
+public class Car : MonoBehavior
 {
 
     // public AudioClip _engine;
