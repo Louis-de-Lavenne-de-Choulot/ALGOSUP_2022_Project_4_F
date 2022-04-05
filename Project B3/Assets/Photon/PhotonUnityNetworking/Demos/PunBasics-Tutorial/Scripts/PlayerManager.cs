@@ -35,7 +35,7 @@ namespace Photon.Pun.Demo.PunBasics
             Camera[] Cams = Camera.allCameras;
                 for (int i  = 0; i < Cams.Length; i++){
                     // Cams[i].gameObject.SetActive(false);
-                    Cams[i].transform.parent.parent.parent.gameObject.SetActive(true);
+                    Cams[i].transform.parent.parent.parent.gameObject.SetActive(false);
                     if (Cams[i].transform.parent.parent.parent.GetComponent<PhotonView>().IsMine)
                         Cams[i].transform.parent.parent.parent.gameObject.SetActive(true);
                 }
