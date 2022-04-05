@@ -7,7 +7,7 @@ using Photon.Realtime;
 
 using System.Collections;
 
-namespace Com.Boubou.Algotest
+namespace Photon.Pun.Demo.PunBasics
 {
     public class PlayerManager : MonoBehaviourPunCallbacks
     {

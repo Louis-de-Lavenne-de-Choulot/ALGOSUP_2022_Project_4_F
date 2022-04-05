@@ -59,7 +59,6 @@ namespace Photon.Pun.Demo.PunBasics
 
 			_canvasGroup = this.GetComponent<CanvasGroup>();
 			
-			this.transform.SetParent(GameObject.Find("Canvas").GetComponent<Transform>(), false);
 		}
 
 		/// <summary>
@@ -68,17 +67,6 @@ namespace Photon.Pun.Demo.PunBasics
 		/// </summary>
 		void Update()
 		{
-			// Destroy itself if the target is null, It's a fail safe when Photon is destroying Instances of a Player over the network
-			if (target == null) {
-				Destroy(this.gameObject);
-				return;
-			}
-
-
-			// Reflect the Player Health
-			if (playerHealthSlider != null) {
-				playerHealthSlider.value = target.Health;
-			}
 		}
 
 		/// <summary>
