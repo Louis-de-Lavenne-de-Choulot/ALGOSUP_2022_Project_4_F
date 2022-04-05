@@ -18,7 +18,6 @@ namespace Photon.Pun.Demo.PunBasics
 
         [Tooltip("The Player's UI GameObject Prefab")]
         [SerializeField]
-        public GameObject PlayerUiPrefab;
 
         void Awake(){
             if (photonView.IsMine)
@@ -40,15 +39,6 @@ namespace Photon.Pun.Demo.PunBasics
                     if (Cams[i].transform.parent.parent.GetComponent<PhotonView>().IsMine)
                         Cams[i].transform.parent.parent.gameObject.SetActive(true);
                 }
-            if (PlayerUiPrefab != null)
-            {
-                // GameObject _uiGo =  Instantiate(PlayerUiPrefab);
-                // _uiGo.SendMessage ("SetTarget", this, SendMessageOptions.RequireReceiver);
-            }
-            else
-            {
-                Debug.LogWarning("<Color=Red><a>Missing</a></Color> PlayerUiPrefab reference on player Prefab.", this);
-            }
             // if (_cameraWork != null)
             // {
             //     if (photonView.IsMine)
@@ -60,10 +50,6 @@ namespace Photon.Pun.Demo.PunBasics
             // {
             //     Debug.LogError("<Color=Red><a>Missing</a></Color> CameraWork Component on playerPrefab.", this);
             // }
-        }
-
-        void CalledOnLevelWasLoaded() {
-            GameObject _uiGo = Instantiate(this.PlayerUiPrefab);
         }
     }
 }
