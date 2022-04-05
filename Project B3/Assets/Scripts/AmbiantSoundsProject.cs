@@ -12,7 +12,7 @@ public class AmbiantSoundsProject : MonoBehaviour
     {
         AudioSource audioSource = GetComponent<AudioSource>();
         //if gameobject is player play audio
-        if (other.gameObject.tag == "Player" && other.gameObject.tag == "NPC")
+        if (other.gameObject.tag == "Player")
         {
             audioSource.Play();
         }
@@ -20,7 +20,7 @@ public class AmbiantSoundsProject : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         AudioSource audioSource = GetComponent<AudioSource>();
-        if (other.gameObject.tag == "Player" && other.gameObject.tag == "NPC")
+        if (other.gameObject.tag == "Player")
         {
             audioSource.Stop();
         }
