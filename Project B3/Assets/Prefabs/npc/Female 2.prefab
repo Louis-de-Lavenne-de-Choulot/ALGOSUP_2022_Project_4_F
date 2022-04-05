@@ -969,6 +969,7 @@ GameObject:
   - component: {fileID: 208583391056047472}
   - component: {fileID: 6133259535014300250}
   - component: {fileID: -7950199827089244855}
+  - component: {fileID: -662724043764720824}
   m_Layer: 0
   m_Name: Female 2
   m_TagString: NPC
@@ -1133,6 +1134,18 @@ MonoBehaviour:
   m_snapOrientation: 0
   m_snapOffset: {fileID: 0}
   m_grabPoints: []
+--- !u!114 &-662724043764720824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2726485272258377131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff10008ab914646a99379130d0387800, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2726485272258377133
 GameObject:
   m_ObjectHideFlags: 0

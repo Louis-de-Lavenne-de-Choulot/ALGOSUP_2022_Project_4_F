@@ -5,8 +5,6 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class AmbiantSoundsProject : MonoBehaviour
 {
-    bool duProf;
-
     private void OnTriggerEnter(Collider other)
     {
         AudioSource audioSource = GetComponent<AudioSource>();
