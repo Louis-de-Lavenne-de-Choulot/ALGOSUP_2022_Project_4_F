@@ -67,17 +67,10 @@ namespace Photon.Pun.Demo.PunBasics
 
 				if (PlayerManager.LocalPlayerInstance==null)
 				{
-					const string glyphs= "abcdefghijklmnopqrstuvwxyz0123456789"; //add the characters you want
-					string myString = "";
-					int charAmount = Random.Range(4, 9); //set those to the minimum and maximum length of your string
-					for(int i=0; i<charAmount; i++)
-					{
-						myString += glyphs[Random.Range(0, glyphs.Length)];
-					}
-					Debug.LogFormat("We are Instantiating LocalPlayer from {0}", SceneManagerHelper.ActiveSceneName);
+				    Debug.LogFormat("We are Instantiating LocalPlayer from {0}", SceneManagerHelper.ActiveSceneName);
 
 					// we're in a room. spawn a character for the local player. it gets synced by using PhotonNetwork.Instantiate
-					PhotonNetwork.Instantiate(myString, new Vector3(0f,5f,0f), Quaternion.identity, 0);
+					PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(0f,5f,0f), Quaternion.identity, 0);
 				}else{
 
 					Debug.LogFormat("Ignoring scene load for {0}", SceneManagerHelper.ActiveSceneName);
