@@ -30,14 +30,6 @@ namespace Photon.Pun.Demo.PunBasics
 
         void Start()
         {
-            if(GetComponent<PhotonView>().IsMine){
-                GameObject rig = GameObject.FindGameObjectsWithTag("Pp")[0];
-                rig.transform.SetParent(transform);
-                transform.GetChild(0).SetParent(rig.transform.GetChild(0).GetChild(4));
-                transform.GetChild(1).SetParent(rig.transform.GetChild(0).GetChild(5));
-                // this.GetComponent<CharacterCameraConstraint>().CameraRig = rig;
-                // this.GetComponent<SimpleCapsuleWithStickMovement>().CameraRig = rig;
-            }
             // if (_cameraWork != null)
             // {
             //     if (photonView.IsMine)
