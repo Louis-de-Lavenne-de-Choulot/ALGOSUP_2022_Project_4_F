@@ -12,9 +12,7 @@ public class AmbiantSoundsProject : MonoBehaviour
     {
         AudioSource audioSource = GetComponent<AudioSource>();
         //if gameobject is player play audio
-        if (other.gameObject.tag == "Player" || other.gameObject.name == "Player" && other.gameObject.name == "Male 1(Clone)" || other.gameObject.name == "Female 1(Clone)"
-            || other.gameObject.name == "Male 2(Clone)" || other.gameObject.name == "Female 2(Clone)" || other.gameObject.name == "Male 3(Clone)" || other.gameObject.name == "Female 3(Clone)"
-            || other.gameObject.name =="Male 4(Clone)")
+        if (other.gameObject.tag == "Player" && other.gameObject.tag == "NPC")
         {
             audioSource.Play();
         }
@@ -22,9 +20,7 @@ public class AmbiantSoundsProject : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         AudioSource audioSource = GetComponent<AudioSource>();
-        if (other.gameObject.tag == "Player" || other.gameObject.name == "Player" && other.gameObject.name == "Male 1(Clone)" || other.gameObject.name == "Female 1(Clone)"
-           || other.gameObject.name == "Male 2(Clone)" || other.gameObject.name == "Female 2(Clone)" || other.gameObject.name == "Male 3(Clone)" || other.gameObject.name == "Female 3(Clone)"
-           || other.gameObject.name == "Male 4(Clone)")
+        if (other.gameObject.tag == "Player" && other.gameObject.tag == "NPC")
         {
             audioSource.Stop();
         }
