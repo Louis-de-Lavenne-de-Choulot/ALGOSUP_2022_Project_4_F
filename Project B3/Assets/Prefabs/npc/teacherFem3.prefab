@@ -464,7 +464,7 @@ GameObject:
   - component: {fileID: 1538905832480722855}
   m_Layer: 0
   m_Name: teacherFem3
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -581,6 +581,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goal: []
+  breaks:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &8057093193683748499
 GameObject:
   m_ObjectHideFlags: 0
@@ -3027,7 +3043,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6421696856482383082, guid: eea808c889ff89a478958aaf56e2f266, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 6421696856482383082, guid: eea808c889ff89a478958aaf56e2f266, type: 3}
       propertyPath: m_LocalPosition.x
