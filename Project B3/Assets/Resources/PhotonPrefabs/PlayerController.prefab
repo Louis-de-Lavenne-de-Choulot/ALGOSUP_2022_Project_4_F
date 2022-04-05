@@ -180,7 +180,6 @@ GameObject:
   - component: {fileID: 7559195455248472850}
   - component: {fileID: 4021570661169022025}
   - component: {fileID: 1000531963399736204}
-  - component: {fileID: 5685960049830521122}
   m_Layer: 0
   m_Name: PlayerController
   m_TagString: Untagged
@@ -233,7 +232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf162022e230bb745ab2ec48cd357f9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CameraRig: {fileID: 0}
+  CameraRig: {fileID: 778581854893814994, guid: 9d739c47e375245d4a7ed4444b6cc821, type: 3}
   CollideLayers:
     serializedVersion: 2
     m_Bits: 1
@@ -375,26 +374,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98fac77b304554f238a61572f5720187, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!95 &5685960049830521122
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6629170164235396614}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6629170164410426952
 GameObject:
   m_ObjectHideFlags: 0
