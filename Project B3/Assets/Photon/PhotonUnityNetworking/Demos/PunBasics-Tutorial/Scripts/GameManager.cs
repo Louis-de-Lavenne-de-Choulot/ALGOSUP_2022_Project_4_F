@@ -68,7 +68,7 @@ namespace Photon.Pun.Demo.PunBasics
 				if (PlayerManager.LocalPlayerInstance==null)
 				{
 					const string glyphs= "abcdefghijklmnopqrstuvwxyz0123456789"; //add the characters you want
-					string myString
+					string myString = "";
 					int charAmount = Random.Range(4, 9); //set those to the minimum and maximum length of your string
 					for(int i=0; i<charAmount; i++)
 					{
