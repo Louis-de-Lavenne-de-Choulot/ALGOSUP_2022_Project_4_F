@@ -2,8 +2,7 @@
 using Photon.Pun;
 using Photon.Realtime;
 
-namespace Com.Boubou.Algotest
-{
+namespace Photon.Pun.Demo.PunBasics{
     public class Launcher : MonoBehaviourPunCallbacks
     {
         [Tooltip("The maximum number of players per room. When a room is full, it can't be joined by new players, and so new room will be created")]
