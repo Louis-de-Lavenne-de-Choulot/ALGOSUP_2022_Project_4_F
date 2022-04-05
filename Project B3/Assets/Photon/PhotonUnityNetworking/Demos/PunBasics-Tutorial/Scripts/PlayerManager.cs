@@ -37,7 +37,7 @@ namespace Photon.Pun.Demo.PunBasics
                 for (int i  = 0; i < Cams.Length; i++){
                     // Cams[i].gameObject.SetActive(false);
                     Cams[i].transform.parent.parent.gameObject.SetActive(true);
-                    if (Cams[i].transform.parent.parent.parent.GetComponent<PhotonView>().IsMine)
+                    if (Cams[i].transform.parent.parent.GetComponent<PhotonView>().IsMine)
                         Cams[i].transform.parent.parent.gameObject.SetActive(true);
                 }
             if (PlayerUiPrefab != null)

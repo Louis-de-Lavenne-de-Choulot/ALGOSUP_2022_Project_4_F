@@ -557,10 +557,10 @@ GameObject:
   - component: {fileID: 6629170164235396637}
   - component: {fileID: 6629170164235396610}
   - component: {fileID: 6629170164235396639}
+  - component: {fileID: 2972258636928070957}
   - component: {fileID: 8406818531096169609}
   - component: {fileID: 7559195455248472850}
   - component: {fileID: 4021570661169022025}
-  - component: {fileID: 2972258636928070957}
   - component: {fileID: 1000531963399736204}
   m_Layer: 0
   m_Name: PlayerController
@@ -669,6 +669,29 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 2
+--- !u!114 &2972258636928070957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6629170164235396614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 1
+  observableSearch: 2
+  ObservedComponents:
+  - {fileID: 8406818531096169609}
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!114 &8406818531096169609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -718,30 +741,6 @@ MonoBehaviour:
   handR: {fileID: 6629170165222182553}
   phone: {fileID: 9061843065834973457}
   wallet: {fileID: 9065178558652776048}
---- !u!114 &2972258636928070957
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6629170164235396614}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObservedComponentsFoldoutOpen: 1
-  Group: 0
-  prefixField: -1
-  Synchronization: 3
-  OwnershipTransfer: 0
-  observableSearch: 2
-  ObservedComponents:
-  - {fileID: 8406818531096169609}
-  - {fileID: 1000531963399736204}
-  sceneViewId: 0
-  InstantiationId: 0
-  isRuntimeInstantiated: 0
 --- !u!114 &1000531963399736204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -754,9 +753,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98fac77b304554f238a61572f5720187, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 1
-  playerUiPrefab: {fileID: 0}
-  beams: {fileID: 0}
+  PlayerUiPrefab: {fileID: 0}
 --- !u!1 &6629170164408796938
 GameObject:
   m_ObjectHideFlags: 0
