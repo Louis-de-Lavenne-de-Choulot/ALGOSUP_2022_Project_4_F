@@ -60,6 +60,34 @@ public class NPC : MonoBehaviour
     private void LateUpdate()
     {
         Physics.SyncTransforms();
+
+        //Leave Chair
+        if (situp == true)
+        {
+            if(lastTarget){
+                if(lastTarget.gameObject.layer == LayerMask.NameToLayer("Chair") )
+                {
+                    Target.Translate(Vector3.forward * 0.2f);
+                }
+                if (lastTarget.gameObject.layer == LayerMask.NameToLayer("Fridge") || lastTarget.gameObject.layer == LayerMask.NameToLayer("Microwave"))
+                {
+                    lastTarget.gameObject.SetActive(true);
+                }
+            }
+
+            gameObject.GetComponent<Animator>().SetBool("sitWithLaptop", false);
+            gameObject.GetComponent<Animator>().SetBool("sitAtTable", false);
+            gameObject.GetComponent<Animator>().SetBool("microwave", false);
+            gameObject.GetComponent<Animator>().SetBool("Teach", false);
+            gameObject.GetComponent<Animator>().SetBool("Fridge", false);
+
+
+            gameObject.GetComponent<Collider>().enabled = true;
+            gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = true;
+            gameObject.GetComponent<Rigidbody>().WakeUp();
+            situp = false;
+        }
+
         //Chair
         if ((Vector3.Distance(transform.position, Target.position) < 1) && situp == false
             && gameObject.GetComponent<Animator>().GetBool("sitAtTable") == false
@@ -99,6 +127,27 @@ public class NPC : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, 180, 0);
 
             gameObject.GetComponent<Animator>().SetBool("sitWithLaptop", true);
+        }
+
+        //Amphitheater chair
+        if ((Vector3.Distance(transform.position, Target.position) < 1) && situp == false
+            && gameObject.GetComponent<Animator>().GetBool("Toillet") == false
+            && Target.gameObject.layer == LayerMask.NameToLayer("Toilet"))
+        {
+            gameObject.GetComponent<Collider>().enabled = false;
+            gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
+            gameObject.GetComponent<Rigidbody>().useGravity = false;
+
+            lastTarget = Target;
+
+            transform.position = new Vector3(
+                Target.transform.position.x,
+                Target.transform.position.y,
+                Target.transform.position.z);
+
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+
+            gameObject.GetComponent<Animator>().SetBool("Toilet", true);
         }
 
         if ((Vector3.Distance(transform.position, Target.position) < 1) && situp == false
@@ -152,34 +201,6 @@ public class NPC : MonoBehaviour
             transform.rotation = Target.rotation;
             Target.gameObject.SetActive(false);
             gameObject.GetComponent<Animator>().SetBool("microwave", true);
-        }
-
-
-        //Leave Chair
-        if (situp == true)
-        {
-            if(lastTarget){
-                if(lastTarget.gameObject.layer == LayerMask.NameToLayer("Chair") )
-                {
-                    Target.Translate(Vector3.forward * 0.2f);
-                }
-                if (lastTarget.gameObject.layer == LayerMask.NameToLayer("Fridge") || lastTarget.gameObject.layer == LayerMask.NameToLayer("Microwave"))
-                {
-                    lastTarget.gameObject.SetActive(true);
-                }
-            }
-
-            gameObject.GetComponent<Animator>().SetBool("sitWithLaptop", false);
-            gameObject.GetComponent<Animator>().SetBool("sitAtTable", false);
-            gameObject.GetComponent<Animator>().SetBool("microwave", false);
-            gameObject.GetComponent<Animator>().SetBool("Teach", false);
-            gameObject.GetComponent<Animator>().SetBool("Fridge", false);
-
-
-            gameObject.GetComponent<Collider>().enabled = true;
-            gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = true;
-            gameObject.GetComponent<Rigidbody>().WakeUp();
-            situp = false;
         }
     }
 

@@ -128,7 +128,7 @@ public class Rain : MonoBehaviour
 
     private IEnumerator Teach(){
         for(int i = 0; i < toInitTeach.Length; i++){
-            GameObject obj = Instantiate(toInitTeach[i], new Vector3(Random.Range(recept.position.x-12, recept.position.x+12), recept.position.y,Random.Range(recept.position.z-12, recept.position.z+12)), Quaternion.identity) as GameObject;
+            GameObject obj = Instantiate(toInitTeach[i], new Vector3(Random.Range(recept.position.x-20, recept.position.x+20), recept.position.y,Random.Range(recept.position.z-10, recept.position.z+10)), Quaternion.identity) as GameObject;
             Color Sk = Skin[Random.Range(0,4)];
             int[] act = new int[]{Random.Range(0,4), 4, Random.Range(5,7)};
             for (int child = 0; child < 7; child++){
@@ -158,8 +158,8 @@ public class Rain : MonoBehaviour
     }
 
     private IEnumerator InvocationCorou(int persona, Personae p){
-        GameObject obj = Instantiate(toInit[persona], new Vector3(Random.Range(recept.position.x-12, recept.position.x+12), recept.position.y,Random.Range(recept.position.z-12, recept.position.z+12)), Quaternion.identity) as GameObject;
-        Color Sk = Skin[Random.Range(0,4)]; 
+        GameObject obj = Instantiate(toInit[persona], new Vector3(Random.Range(recept.position.x-22, recept.position.x+22), recept.position.y,Random.Range(recept.position.z-14, recept.position.z+14)), Quaternion.identity) as GameObject;
+        Color Sk = Skin[Random.Range(0,4)];
         int[] act = new int[]{Random.Range(0,4), 4, Random.Range(5,7)};
         for (int child = 0; child < 7; child++){
             obj.transform.GetChild(child).gameObject.SetActive(false);

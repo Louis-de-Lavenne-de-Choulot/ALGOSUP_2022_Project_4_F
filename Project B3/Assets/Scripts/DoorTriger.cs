@@ -67,7 +67,7 @@ public class DoorTriger : MonoBehaviour
 
             door.SetBool("hasScanned", true);
 
-            if (scanerR.transform.tag == "Main gate" || scanerR.transform.tag == "Comon room")
+            if (scanerR.transform.parent.tag == "Main gate" || scanerR.transform.parent.tag == "Comon room")
             {
                 scanerR.SetBool("isScan", true);
                 scanerL.SetBool("isScan", true);
@@ -83,7 +83,7 @@ public class DoorTriger : MonoBehaviour
                     break;
 
                 case 1:
-                    if (scanerR.transform.tag == "CNAM")
+                    if (scanerR.transform.parent.tag == "CNAM")
                     {
                         scanerR.SetBool("isScan", true);
                         scanerL.SetBool("isScan", true);
@@ -95,8 +95,8 @@ public class DoorTriger : MonoBehaviour
                 //only alow personae to enter class in wich they are supposed to be
 
                 case 2:
-                    if (scanerR.transform.tag == "CmptSci" || scanerR.transform.tag == "Amptheater" || scanerR.transform.tag == "student rest"
-                        || scanerR.transform.tag == $"WC_{bathroom}" || scanerR.transform.tag == "SoftSkill" || scanerR.transform.tag == "English" || scanerR.transform.tag == "library")
+                    if (scanerR.transform.parent.tag == "CmptSci" || scanerR.transform.parent.tag == "Amptheater" || scanerR.transform.parent.tag == "student rest"
+                        || scanerR.transform.parent.tag == $"WC_{bathroom}" || scanerR.transform.parent.tag == "SoftSkill" || scanerR.transform.parent.tag == "English" || scanerR.transform.parent.tag == "library")
                     {
                         scanerR.SetBool("isScan", true);
                         scanerL.SetBool("isScan", true);
@@ -105,8 +105,8 @@ public class DoorTriger : MonoBehaviour
                     }
                     break;
                 case 3:
-                    if (scanerR.transform.tag == $"WC_{bathroom}" || scanerR.transform.tag == "English" ||
-                        scanerR.transform.tag == "Staff rest" || scanerR.transform.tag == "library")
+                    if (scanerR.transform.parent.tag == $"WC_{bathroom}" || scanerR.transform.parent.tag == "English" ||
+                        scanerR.transform.parent.tag == "Staff rest" || scanerR.transform.parent.tag == "library")
                     {
                         scanerR.SetBool("isScan", true);
                         scanerL.SetBool("isScan", true);
@@ -114,8 +114,8 @@ public class DoorTriger : MonoBehaviour
                     }
                     break;
                 case 4:
-                    if (scanerR.transform.tag == $"WC_{bathroom}" || scanerR.transform.tag == "SoftSkill" || scanerR.transform.tag == "Amptheater" ||
-                        scanerR.transform.tag == "Staff rest" || scanerR.transform.tag == "library")
+                    if (scanerR.transform.parent.tag == $"WC_{bathroom}" || scanerR.transform.parent.tag == "SoftSkill" || scanerR.transform.parent.tag == "Amptheater" ||
+                        scanerR.transform.parent.tag == "Staff rest" || scanerR.transform.parent.tag == "library")
                     {
                         scanerR.SetBool("isScan", true);
                         scanerL.SetBool("isScan", true);
@@ -124,8 +124,8 @@ public class DoorTriger : MonoBehaviour
                     }
                     break;
                 case 5:
-                    if (scanerR.transform.tag == $"WC_{bathroom}" || scanerR.transform.tag == "Amptheater" || scanerR.transform.tag == "CmptSci" ||
-                        scanerR.transform.tag == "Staff rest" || scanerR.transform.tag == "library")
+                    if (scanerR.transform.parent.tag == $"WC_{bathroom}" || scanerR.transform.parent.tag == "Amptheater" || scanerR.transform.parent.tag == "CmptSci" ||
+                        scanerR.transform.parent.tag == "Staff rest" || scanerR.transform.parent.tag == "library")
                     {
                         scanerR.SetBool("isScan", true);
                         scanerL.SetBool("isScan", true);
@@ -134,13 +134,13 @@ public class DoorTriger : MonoBehaviour
                     break;
             }
 
-            if (drone_access && scanerR.transform.tag == "Drone")
+            if (drone_access && scanerR.transform.parent.tag == "Drone")
             {
                 scanerR.SetBool("isScan", true);
                 scanerL.SetBool("isScan", true);
                 door.SetBool("hasScanned", true);
             }
-            else if (drone_access! && scanerR.transform.tag == "Drone")
+            else if (drone_access! && scanerR.transform.parent.tag == "Drone")
             {
                 scanerR.SetBool("isScan", true);
                 scanerL.SetBool("isScan", true);
