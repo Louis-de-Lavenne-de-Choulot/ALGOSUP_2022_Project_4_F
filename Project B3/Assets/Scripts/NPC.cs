@@ -16,7 +16,8 @@ public class NPC : MonoBehaviour
     Vector2 velocity = Vector2.zero;
     protected Animator anim;
     private int timeNumber;
-    private bool situp = false;
+    [HideInInspector]
+    public bool situp = false;
     int timeTable = 1;
     [HideInInspector]
     public bool inScenario = false;

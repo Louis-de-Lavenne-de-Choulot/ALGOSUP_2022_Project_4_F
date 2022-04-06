@@ -109,7 +109,7 @@ public class Lunch : ScenarioBase
                         yield return new WaitUntil(() => Vector2.Distance(npc.transform.position, Fridge.position) < 10F);
                         yield return new WaitForSeconds(5);
                         FridgeUsed = false;
-                        npc.ChangeGoal();
+                        npc.ChangeGoal(Chairs[seat]);
                     }
                     if (usedfridge)
                     {
@@ -132,6 +132,7 @@ public class Lunch : ScenarioBase
                             {
                                 npc.ChangeGoal(Chairs[seat]);
                                 yield return new WaitUntil(() => Vector2.Distance(npc.transform.position, Chairs[seat].position) < 10F);
+                                npc.situp = false;
                                 yield return new WaitForSeconds(5);
                                 npc.ChangeGoal();
                                 yield break;
@@ -139,6 +140,7 @@ public class Lunch : ScenarioBase
                             yield return new WaitForSeconds(Random.Range(2, 5));
                         }
                     }
+                    if(npc.goal == Chairs[0] && Vector2.Distance(npc.transform.position ,npc.goal.position) < 5f)   npc.situp = false;
                     yield return new WaitForSeconds(Random.Range(2, 5));
                 }
         }
