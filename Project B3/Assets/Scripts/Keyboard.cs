@@ -13,7 +13,6 @@ public class Keyboard : MonoBehaviour
         if (other.gameObject.tag == "NPC")
         {
             npc++;
-            Debug.Log("aaauhsfjcuboecdsfiourbhquisdhfixyswdguijkefh!odiukguizehjyiuhezhj<fdbvcghdswvcghjed");
             audioSource.Play();
         }
     }

@@ -17,7 +17,7 @@ public class Talks : MonoBehaviour
         }else{
             clips = Resources.LoadAll<AudioClip>("Audio/VoiceActors/M");
         }
-        period = Random.Range(0, 7f);
+        period = Random.Range(0, 10);
     }
 
     // Update is called once per frame
@@ -25,7 +25,7 @@ public class Talks : MonoBehaviour
     {
         if(Time.time > period)
         {
-            cooldown = Random.Range(8f, 13f);
+            cooldown = Random.Range(10f, 30f);
             int ran = Random.Range(0, clips.Length);
             GetComponent<AudioSource>().clip = clips[ran];
             GetComponent<AudioSource>().Play();
