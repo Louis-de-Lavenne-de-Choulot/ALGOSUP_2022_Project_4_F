@@ -2,6 +2,8 @@
 
 BERNARD Max - DESVAUX Brendon - MOLNAR Ivan - DE LAVENNE Louis - CUAHONTE-CUEVAS David - CHAPUT Mathieu - PRIOL Eloi
 
+## Glosary
+
 ## Objective
 The objective of this project is to simulate the B3 in order to highlight possible problems that may arise within ALGOSUPs new shool building
 
@@ -13,5 +15,31 @@ The project must be realized in Virtual Reality.
 
 This project has been proposed by ALGOSUP's leadership.
 
-## Context or Background
-We need to highlight the possible problems with the B3 in order to convince the 
+## Solutions
+### Current or Existing Solution
+There is alredy a way to visit the building in VR. But there is no simulation of the scenario or NPC in the existing solution.
+
+### Suggested or Proposed Solution
+#### Unity
+- We are familiar with C#
+- We have a teacher for Unity
+- VR integration is relatively easy
+- Asset Store
+- Animation
+- Free
+
+#### Photon Pun
+- Multiplayer
+- Relatively easy to setup
+- Team alredy know the system
+- Free
+
+#### Reworking 3D Model
+- Remove detail
+- Remove almost everything but wall from the 2nd floor
+- replace close together wall and windows by one single rectangle
+
+#### NPC and Pathfinding
+- use Unity NavMesh Adgent
+- bake the terrain
+- use navMesh obstacle on doors
