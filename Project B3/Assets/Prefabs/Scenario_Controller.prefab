@@ -280,6 +280,7 @@ GameObject:
   m_Component:
   - component: {fileID: 884554917151121443}
   - component: {fileID: 631147635}
+  - component: {fileID: 303016303}
   m_Layer: 0
   m_Name: ToiletRush
   m_TagString: Untagged
@@ -377,6 +378,55 @@ MonoBehaviour:
   - {fileID: 4781548084860415852}
   - {fileID: 4781548083797203173}
   - {fileID: 4781548084690986944}
+  bspots: 
+--- !u!114 &303016303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884554917151121442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fda68b8e04edb9945b495ae80ec7dbdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 0
+  npcs: []
+  targets: []
+  spots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 884554916374587918}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 884554916339469284}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   bspots: 
 --- !u!1 &884554917561208706
 GameObject:

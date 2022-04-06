@@ -94,11 +94,10 @@ public class Lunch : ScenarioBase
             case 'B':
                 bool usedfridge = false;
                 bool usedmicrowave = false;
-                int seat = GetChair();
                 npc.ChangeGoal(InsideRally);
                 yield return new WaitUntil(() => Vector2.Distance(npc.transform.position, InsideRally.position) < 100F);
+                int seat = GetChair();
                 npc.ChangeGoal(Chairs[seat]);
-                ChairUsed[seat] = false;
                 while (true)
                 {
                     if (!FridgeUsed && !usedfridge)
@@ -133,15 +132,21 @@ public class Lunch : ScenarioBase
                                 npc.ChangeGoal(Chairs[seat]);
                                 yield return new WaitUntil(() => Vector2.Distance(npc.transform.position, Chairs[seat].position) < 10F);
                                 npc.situp = false;
-                                yield return new WaitForSeconds(5);
+                                yield return new WaitForSeconds(Random.Range(2, 5));
                                 npc.ChangeGoal();
                                 yield break;
                             }
+                            yield return new WaitUntil(() => Vector2.Distance(npc.transform.position, Chairs[seat].position) < 10F);
+                            npc.situp = false;
                             yield return new WaitForSeconds(Random.Range(2, 5));
                         }
                     }
-                    if(npc.goal == Chairs[0] && Vector2.Distance(npc.transform.position ,npc.goal.position) < 5f)   npc.situp = false;
-                    yield return new WaitForSeconds(Random.Range(2, 5));
+                    else
+                    {
+                        yield return new WaitUntil(() => Vector2.Distance(npc.transform.position, Chairs[seat].position) < 10F);
+                        npc.situp = false;
+                        yield return new WaitForSeconds(Random.Range(2, 5));
+                    }
                 }
         }
         yield break;
