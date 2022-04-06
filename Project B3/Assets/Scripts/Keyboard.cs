@@ -13,7 +13,8 @@ public class Keyboard : MonoBehaviour
         if (other.gameObject.tag == "NPC")
         {
             npc++;
-            Debug.Log("aaauhsfjcuboecdsfiourbhquisdhfixyswdguijkefh!odiukguizehjyiuhezhj<fdbvcghdswvcghjed");
+            Debug.Log("YES");
+            other.GetComponent<Talks>().clips = other.GetComponent<Talks>().clipPf;
             audioSource.Play();
         }
     }
@@ -23,6 +24,8 @@ public class Keyboard : MonoBehaviour
         if (other.gameObject.tag == "NPC")
         {
             npc--;
+            Debug.Log("End");
+            other.GetComponent<Talks>().clips = other.GetComponent<Talks>().clipf;
         }
         if (npc == 0){
             audioSource.Stop();
