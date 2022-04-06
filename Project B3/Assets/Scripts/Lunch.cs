@@ -122,7 +122,7 @@ public class Lunch : ScenarioBase
                                     microwaveUsed[i] = true;
                                     usedmicrowave = true;
                                     yield return new WaitUntil(() => Vector2.Distance(npc.transform.position, microwaves[i].position) < 10F);
-                                    yield return new WaitForSeconds(5);
+                                    yield return new WaitForSeconds(12);
                                     microwaveUsed[i] = false;
                                     break;
                                 }
