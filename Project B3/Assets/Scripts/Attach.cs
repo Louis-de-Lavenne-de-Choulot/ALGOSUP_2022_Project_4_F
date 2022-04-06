@@ -32,6 +32,8 @@ public class Attach : MonoBehaviour
                         handr.GetComponent<OVRGrabber>().m_parentTransform = handr.parent;
                         handl.position = handl.parent.position;
                         handr.position = handr.parent.position;
+                        handl.rotation = handl.parent.rotation;
+                        handr.rotation = handr.parent.rotation;
                         handl.GetComponent<VRcontrolls>().cam = handl.parent.parent.GetChild(1);
                         handr.GetComponent<VRcontrolls>().cam = handr.parent.parent.GetChild(1);
                     }
