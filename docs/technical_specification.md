@@ -2,50 +2,73 @@
 
 BERNARD Max - DESVAUX Brendon - MOLNAR Ivan - DE LAVENNE Louis - CUAHONTE-CUEVAS David - CHAPUT Mathieu - PRIOL Eloi
 
-## Glosary
+## Glossary
 
 ## Objective
-The objective of this project is to simulate the B3 in order to highlight possible problems that may arise within ALGOSUPs new shool building
+The objective of this project is to simulate the B3 in order to highlight possible problems that may arise within ALGOSUPs new school building
 
-The simulation must take place within the new school building, must contain characters (controlled by simple AI) to simulate students, speakers, teachers and administrative staff. It also needs to be able to launch various scenarios which could highlight the more foreseeable problems that may appear in the future.
+The simulation must take place within the new school building and must contain characters (controlled by simple AI) to simulate students, speakers, teachers, and administrative staff. It also needs to be able to launch various scenarios which could highlight the more foreseeable problems that may appear in the future.
 
 The non-user characters must follow a pre-planned schedule ensuring the day-to-day functionality of the building. These schedules must be only interrupted when the user launches a scenario, in which case they should start to act according to it.
 
-The project must be realized in Virtual Reality.
+The project must have a Virtual Reality environment.
 
 This project has been proposed by ALGOSUP's leadership.
 
 ## Solutions
 ### Current or Existing Solution
-There is alredy a way to visit the building in VR. But there is no simulation of the scenario or NPC in the existing solution.
+There is already a way to visit the building in VR. But there is no simulation of the scenario or NPC in the existing solution.
 
 ### Suggested or Proposed Solution
 #### Unity
 - We are familiar with C#
 - We have a teacher for Unity
-- VR integration is relatively easy
+- VR integration can be accomplished easily
 - Asset Store
-- Animation
+- Animations
 - Free
 
 #### Photon Pun
 - Multiplayer
-- Relatively easy to setup
-- Team alredy know the system
+- Relatively easy to set up
+- The Team already knows the system
 - Free
 
 #### Reworking 3D Model
-- Remove detail
-- Remove almost everything but wall from the 2nd floor
-- replace close together wall and windows by one single rectangle
+- Remove details
+- Remove almost everything but the wall from the 2nd floor
+- replace walls that are close together and also the windows with one single rectangle
 
 #### NPC and Pathfinding
-- use Unity NavMesh Adgent
-- bake the NavMesh with Navigation Static
-- use navMesh obstacle on doors
+- Use Unity NavMesh Agent
+- Bake the NavMesh with Navigation Static
+- Use navMesh obstacle on doors
+- Have NPC aim at the transformation of their seat
 
 #### Door Access
-- NPC should have a triger box colider at their feet
-- when trigger it should check if layer corespond to door
-- check tag and compare to what AI is allowed to do
-- If player check if player scaned his phone first
+- NPC should have a trigger box collider at their feet
+- When triggered it should check if the layer corresponds to the door
+- Check the tag and compare it to the AI’s that are allowed to access 
+- For the player check if the player scanned his phone first
+- Phone is grabbable (using existing OVR Grabbable)
+
+#### NPC interaction
+- Create animation
+- When the NPC is close to a target the animation will start.
+- Transform the NPC so that it can have the best position for the animation
+- If the NPC needs to interact with outside objects,  the NPC will carry the deactivated object
+
+#### Sound
+- Use the Audio Manager for the doors with the sound file
+- Use a script to take random sound files and then play the theme for the NPC’s
+- Take sound files from different folders depending on the gender and the specific situation
+
+#### Scenario
+- Each scenario should have a set of transforms and an order of priorities
+- AI’s must aim for the highest priority transform that isn’t taken by an other AI
+- Scenario will switch based on a global clock
+- If an AI is done with the task that has been placed on it,  before the end of the scenario, the AI will go back to the highest priority transform.
+
+#### VR
+- We will use XR plugin and OVR to make most VR functionality
+- It only works with Oculus Quest 2 VR headset
