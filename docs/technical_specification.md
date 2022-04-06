@@ -64,11 +64,30 @@ There is already a way to visit the building in VR. But there is no simulation o
 - Take sound files from different folders depending on the gender and the specific situation
 
 #### Scenario
+- Scenarios will all inherit from a base class to allow for an easier schedule modification
 - Each scenario should have a set of transforms and an order of priorities
 - AI’s must aim for the highest priority transform that isn’t taken by an other AI
 - Scenario will switch based on a global clock
 - If an AI is done with the task that has been placed on it,  before the end of the scenario, the AI will go back to the highest priority transform.
 
 #### VR
-- We will use XR plugin and OVR to make most VR functionality
-- It only works with Oculus Quest 2 VR headset
+- We will use XR plugin and also the OVR to make most of the VR functional
+- It will only work with Oculus Quest 2 VR headset
+
+### Test Plan
+Our tests will consist of a combination of running the simulation to see if everything works well, along with smaller point by point tests on new features. Using different debug tools to catch the less visible bug.
+
+### Monitoring
+We use GitHub to observe and maintain the state of our project and to facilitate the work with other members of the team. 
+
+## Further Consideration
+
+### Third-party services and platforms considerations
+We use Github for hosting and sharing the project. Our project is public and there are no privacy concerns. If our files are too big we may be at risk of getting removed from GitHub but if we rework well the B3’s 3D model it shouldn’t be an issue. <br>
+Photon Pun has a limited number of connections per month and only up to 16 connections simultaneously. This should not be an issue under expected use (a few demonstration).
+
+### Accessibility consideration
+The simulation is meant to be ran in VR and can only be ran with an Oculus Quest headset. Most people don’t have a VR headset but it should not be an issue in the expected use case. If the final product has too low FPS it could cause nosea.
+
+### Risks
+If the simulation accidentally over play an issue with the building or doesn’t show an actual issue it could lead to the wrong issue being solved in the final building.
