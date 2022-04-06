@@ -26,7 +26,7 @@ public class Talks : MonoBehaviour
         if(Time.time > period)
         {
             cooldown = Random.Range(8f, 13f);
-            int ran = Random.Range(0, clips.Length);
+            int ran = Random.Range(0, clips.Length-1);
             GetComponent<AudioSource>().clip = clips[ran];
             GetComponent<AudioSource>().Play();
             period = Time.time + cooldown;
