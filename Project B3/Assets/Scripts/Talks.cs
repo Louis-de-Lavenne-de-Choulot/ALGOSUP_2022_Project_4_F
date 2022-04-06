@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class Talks : MonoBehaviour
 {
-    public AudioClip[] clips;
+    private AudioClip[] clips;
     float cooldown;
     float period;
 
@@ -26,7 +26,7 @@ public class Talks : MonoBehaviour
         if(Time.time > period)
         {
             cooldown = Random.Range(8f, 13f);
-            int ran = Random.Range(0, clips.Length-1);
+            int ran = Random.Range(0, clips.Length);
             GetComponent<AudioSource>().clip = clips[ran];
             GetComponent<AudioSource>().Play();
             period = Time.time + cooldown;
