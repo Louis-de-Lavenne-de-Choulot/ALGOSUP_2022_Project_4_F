@@ -24,6 +24,7 @@ public class NPC : MonoBehaviour
     private Transform Target;
     private Transform lastTarget;
     private bool sandwichMricowave = false;
+    public char lunch;
 
     void Start () {
         anim = gameObject.GetComponent<Animator>();

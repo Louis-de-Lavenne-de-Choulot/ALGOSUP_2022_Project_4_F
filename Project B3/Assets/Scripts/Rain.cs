@@ -42,7 +42,7 @@ public class Rain : MonoBehaviour
     public Transform recept;
     Color[] Skin = new Color[4]{new Color(0.254717f, 0.1748036f, 0.08290314f), new Color(0.727f, 0.6063917f, 0.4154285f), new Color(0.1792453f, 0.07965653f, 0.03297437f), new Color(0.8235294f, 0.6969679f, 0.5583529f)};
     int timeNumber = 0;
-    int[] times = new int[7]{99, 119, 189, 259, 329, 359, 429}; //? around 35s all AI are in their class. 70s of class then 30s of break, finally 70s for lunch. -1s to be sure the code takes the update.
+    int[] times = new int[7]{20, 119, 189, 259, 329, 359, 429}; //? around 35s all AI are in their class. 70s of class then 30s of break, finally 70s for lunch. -1s to be sure the code takes the update.
     // G = get/order food, O = outside, I = inside, B = bring his meal
     private Personae johnnyTT = new Personae('G', 'E', 'P', 'S', 'S', 'P', 'P', 'C', 'C', 'P', 'P');
 
@@ -77,12 +77,12 @@ public class Rain : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        maxNumber = PlayerPrefs.GetInt("MaxAi", 0);
+        maxNumber = 20;//PlayerPrefs.GetInt("MaxAi", 0);
         johnny = PlayerPrefs.GetInt("Johnny", 0);
         steph = PlayerPrefs.GetInt("Steph", 0);
         alexandre = PlayerPrefs.GetInt("Alexandre", 0);
         janka = PlayerPrefs.GetInt("Janka", 0);
-        nick = PlayerPrefs.GetInt("Nick", 0);
+        nick = 20;//PlayerPrefs.GetInt("Nick", 0);
         lindzy = PlayerPrefs.GetInt("Lindzy", 0);
         denis = PlayerPrefs.GetInt("Denis", 0);
         lana = PlayerPrefs.GetInt("Lana", 0);
@@ -182,6 +182,7 @@ public class Rain : MonoBehaviour
             script.goals[day*2] = StartingDay(morning,day);
             script.goals[day*2+1] = StartingDay(afternoon,day+5);
         }
+        script.lunch = p._lunch;
         obj.transform.SetParent(gameObject.transform);
         yield return null;
     }
@@ -220,10 +221,10 @@ public class Rain : MonoBehaviour
                 if (!npc.inScenario) npc.TimeChange(timeNumber);
             }
             timeNumber++;
-            // if(timeNumber == 1)
-            // {
-            //     scenario.StartScenario();
-            // }
+            if(timeNumber == 1)
+            {
+                scenario.StartScenario();
+            }
             if (timeNumber+1%7 ==0)
             {
                 timeNumber = 0;
