@@ -22,12 +22,13 @@ public class Lunch : ScenarioBase
     public override void StartScenario()
     {
         active = true;
-        microwaveUsed = Enumerable.Repeat(false, microwaves.Count).ToList();
         FridgeUsed = false;
+        FoodTruckUsed = false;
+        microwaveUsed = Enumerable.Repeat(false, microwaves.Count).ToList();
         ChairUsed = Enumerable.Repeat(false, Chairs.Count).ToList();
         SittingSpotUsed = Enumerable.Repeat(false, SittingSpots.Count).ToList();
-        FoodTruckUsed = false;
         FoodTruckWaitUsed = Enumerable.Repeat(false, FoodTruckWait.Count).ToList();
+        targets = new List<string>() { "Male 1(Clone)", "Male 2(Clone)", "Male 3(Clone)", "Male 4(Clone)", "Female 1(Clone)", "Female 2(Clone)", "Female 3(Clone)", "Female 4(Clone)" };
         npcs = GetNPCs();
         foreach (NPC npc in npcs)
         {
@@ -93,17 +94,13 @@ public class Lunch : ScenarioBase
             case 'B':
                 bool usedfridge = false;
                 bool usedmicrowave = false;
-                bool ate = false;
-                int seat = -1;
+                int seat = GetChair();
                 npc.ChangeGoal(InsideRally);
-                yield return new WaitUntil(() => Vector2.Distance(npc.transform.position, InsideRally.position) < 1000F);
+                yield return new WaitUntil(() => Vector2.Distance(npc.transform.position, InsideRally.position) < 100F);
+                npc.ChangeGoal(Chairs[seat]);
+                ChairUsed[seat] = false;
                 while (true)
                 {
-                    if(ate)
-                    {
-                        npc.ChangeGoal();
-                        yield break;
-                    }
                     if (!FridgeUsed && !usedfridge)
                     {
                         npc.ChangeGoal(Fridge);
@@ -112,45 +109,52 @@ public class Lunch : ScenarioBase
                         yield return new WaitUntil(() => Vector2.Distance(npc.transform.position, Fridge.position) < 10F);
                         yield return new WaitForSeconds(5);
                         FridgeUsed = false;
+                        npc.ChangeGoal();
                     }
                     if (usedfridge)
                     {
-                        for (int i = 0; i < microwaves.Count; i++)
+                        while (true)
                         {
-                            if (!microwaveUsed[i])
+                            for (int i = 0; i < microwaves.Count; i++)
                             {
-                                npc.ChangeGoal(microwaves[i]);
-                                microwaveUsed[i] = true;
-                                yield return new WaitUntil(() => Vector2.Distance(npc.transform.position, microwaves[i].position) < 10F);
-                                yield return new WaitForSeconds(5);
-                                microwaveUsed[i] = false;
-                                break;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        if (seat != -1)
-                        {
-                            for (int i = 0; i < Chairs.Count; i++)
-                            {
-                                if (!ChairUsed[i])
+                                if (!microwaveUsed[i])
                                 {
-                                    npc.ChangeGoal(Chairs[i]);
-                                    ChairUsed[i] = true;
-                                    seat = i;
+                                    npc.ChangeGoal(microwaves[i]);
+                                    microwaveUsed[i] = true;
+                                    usedmicrowave = true;
+                                    yield return new WaitUntil(() => Vector2.Distance(npc.transform.position, microwaves[i].position) < 10F);
+                                    yield return new WaitForSeconds(5);
+                                    microwaveUsed[i] = false;
                                     break;
                                 }
                             }
+                            if (usedmicrowave)
+                            {
+                                npc.ChangeGoal(Chairs[seat]);
+                                yield return new WaitUntil(() => Vector2.Distance(npc.transform.position, Chairs[seat].position) < 10F);
+                                yield return new WaitForSeconds(5);
+                                npc.ChangeGoal();
+                                yield break;
+                            }
+                            yield return new WaitForSeconds(Random.Range(2, 5));
                         }
-                        npc.ChangeGoal(Chairs[seat]);
-                        yield return new WaitUntil(() => Vector2.Distance(npc.transform.position, Chairs[seat].position) < 10F);
-                        yield return new WaitForSeconds(5);
-                        ChairUsed[seat] = false;
-                        if (usedfridge && usedmicrowave) ate = true;
                     }
+                    yield return new WaitForSeconds(Random.Range(2, 5));
                 }
         }
         yield break;
+    }
+
+    public int GetChair()
+    {
+        for (int i = 0; i < Chairs.Count; i++)
+        {
+            if (!ChairUsed[i])
+            {
+                ChairUsed[i] = true;
+                return i;
+            }
+        }
+        return -1;
     }
 }

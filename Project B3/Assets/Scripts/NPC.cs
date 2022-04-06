@@ -24,6 +24,8 @@ public class NPC : MonoBehaviour
     private Transform Target;
     private Transform lastTarget;
     private bool sandwichMricowave = false;
+    [HideInInspector]
+    public bool eating;
     public char lunch;
 
     void Start () {
@@ -130,6 +132,27 @@ public class NPC : MonoBehaviour
             gameObject.GetComponent<Animator>().SetBool("sitWithLaptop", true);
         }
 
+        //Eat
+        if ((Vector3.Distance(transform.position, Target.position) < 1) && situp == false
+            && gameObject.GetComponent<Animator>().GetBool("sitWithLaptop") == false
+            && Target.gameObject.layer == LayerMask.NameToLayer("Eat"))
+        {
+            gameObject.GetComponent<Collider>().enabled = false;
+            gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
+            gameObject.GetComponent<Rigidbody>().useGravity = false;
+
+            lastTarget = Target;
+
+            transform.position = new Vector3(
+                Target.transform.position.x,
+                Target.transform.position.y,
+                Target.transform.position.z);
+
+            transform.rotation = Target.rotation;
+
+            gameObject.GetComponent<Animator>().SetBool("Eat", true);
+        }
+
         //Amphitheater chair
         if ((Vector3.Distance(transform.position, Target.position) < 1) && situp == false
             && gameObject.GetComponent<Animator>().GetBool("Toillet") == false
@@ -146,7 +169,7 @@ public class NPC : MonoBehaviour
                 Target.transform.position.y,
                 Target.transform.position.z);
 
-            transform.rotation = Quaternion.Euler(0, 180, 0);
+            transform.rotation = Target.rotation;
 
             gameObject.GetComponent<Animator>().SetBool("Toilet", true);
         }
