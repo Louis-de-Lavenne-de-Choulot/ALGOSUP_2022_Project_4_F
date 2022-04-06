@@ -77,12 +77,12 @@ public class Rain : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        maxNumber = PlayerPrefs.GetInt("MaxAi", 0);
-        johnny = 20; //PlayerPrefs.GetInt("Johnny", 0);
+        maxNumber = 20;//PlayerPrefs.GetInt("MaxAi", 0);
+        johnny = PlayerPrefs.GetInt("Johnny", 0);
         steph = PlayerPrefs.GetInt("Steph", 0);
         alexandre = PlayerPrefs.GetInt("Alexandre", 0);
-        janka = 20; //PlayerPrefs.GetInt("Janka", 0);
-        nick = PlayerPrefs.GetInt("Nick", 0);
+        janka = PlayerPrefs.GetInt("Janka", 0);
+        nick = 20;//PlayerPrefs.GetInt("Nick", 0);
         lindzy = PlayerPrefs.GetInt("Lindzy", 0);
         denis = PlayerPrefs.GetInt("Denis", 0);
         lana = PlayerPrefs.GetInt("Lana", 0);
@@ -182,6 +182,7 @@ public class Rain : MonoBehaviour
             script.goals[day*2] = StartingDay(morning,day);
             script.goals[day*2+1] = StartingDay(afternoon,day+5);
         }
+        script.lunch = p._lunch;
         obj.transform.SetParent(gameObject.transform);
         yield return null;
     }
