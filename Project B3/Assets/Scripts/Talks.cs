@@ -5,7 +5,9 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class Talks : MonoBehaviour
 {
-    private AudioClip[] clips;
+    public AudioClip[] clipf;
+    public AudioClip[] clipPf;
+    public AudioClip[] clips;
     float cooldown;
     float period;
 
@@ -13,9 +15,13 @@ public class Talks : MonoBehaviour
     void Start()
     {
         if (gameObject.name[0] == 'F'){
-            clips = Resources.LoadAll<AudioClip>("Audio/VoiceActors/F");
+            clipf = Resources.LoadAll<AudioClip>("Audio/VoiceActors/F");
+            clips = clipf;
+            clipPf = Resources.LoadAll<AudioClip>("Audio/VoiceActors/PF");
         }else{
-            clips = Resources.LoadAll<AudioClip>("Audio/VoiceActors/M");
+            clipf = Resources.LoadAll<AudioClip>("Audio/VoiceActors/M");
+            clips = clipf;
+            clipPf = Resources.LoadAll<AudioClip>("Audio/VoiceActors/PM");
         }
         period = Random.Range(0, 10);
     }
