@@ -23,7 +23,7 @@ public class NPC : MonoBehaviour
 
     private Transform Target;
     private Transform lastTarget;
-    private bool sandwichMricowave = false;
+
     [HideInInspector]
     public bool eating;
     public char lunch;
@@ -145,12 +145,20 @@ public class NPC : MonoBehaviour
 
             transform.position = new Vector3(
                 Target.transform.position.x,
-                Target.transform.position.y,
+                Target.transform.position.y + 0.6f,
                 Target.transform.position.z);
 
             transform.rotation = Target.rotation;
+            transform.Rotate(Vector3.up * -90);
 
-            gameObject.GetComponent<Animator>().SetBool("Eat", true);
+            if (eating)
+            {
+                gameObject.GetComponent<Animator>().SetBool("Eat", true);
+            }
+            else
+            {
+                gameObject.GetComponent<Animator>().SetBool("Toillet", true);
+            }
         }
 
         //Amphitheater chair
@@ -171,9 +179,10 @@ public class NPC : MonoBehaviour
 
             transform.rotation = Target.rotation;
 
-            gameObject.GetComponent<Animator>().SetBool("Toilet", true);
+            gameObject.GetComponent<Animator>().SetBool("Toillet", true);
         }
 
+        //Teach
         if ((Vector3.Distance(transform.position, Target.position) < 1) && situp == false
         && gameObject.GetComponent<Animator>().GetBool("Teach") == false
         && Target.gameObject.layer == LayerMask.NameToLayer("Teach"))
@@ -192,6 +201,7 @@ public class NPC : MonoBehaviour
             gameObject.GetComponent<Animator>().SetBool("Teach", true);
         }
 
+        //Fridge
         if ((Vector3.Distance(transform.position, Target.position) < 1) && situp == false
         && gameObject.GetComponent<Animator>().GetBool("Fridge") == false
         && Target.gameObject.layer == LayerMask.NameToLayer("Fridge"))
@@ -203,13 +213,16 @@ public class NPC : MonoBehaviour
             lastTarget = Target;
 
             transform.position = Target.position;
-            Target.Translate(Vector3.back * 0.5f);
-
             transform.rotation = Target.rotation;
-            Target.gameObject.SetActive(false);
+
+            transform.Rotate(Vector3.up * -90);
+
+            transform.Translate(Vector3.back * 1.1f);
+
             gameObject.GetComponent<Animator>().SetBool("Fridge", true);
         }
 
+        //Microwave
         if ((Vector3.Distance(transform.position, Target.position) < 1) && situp == false
         && gameObject.GetComponent<Animator>().GetBool("microwave") == false
         && Target.gameObject.layer == LayerMask.NameToLayer("Microwave"))
