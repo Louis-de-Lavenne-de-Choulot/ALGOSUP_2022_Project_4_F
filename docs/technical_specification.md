@@ -41,5 +41,11 @@ There is alredy a way to visit the building in VR. But there is no simulation of
 
 #### NPC and Pathfinding
 - use Unity NavMesh Adgent
-- bake the terrain
+- bake the NavMesh with Navigation Static
 - use navMesh obstacle on doors
+
+#### Door Access
+- NPC should have a triger box colider at their feet
+- when trigger it should check if layer corespond to door
+- check tag and compare to what AI is allowed to do
+- If player check if player scaned his phone first
