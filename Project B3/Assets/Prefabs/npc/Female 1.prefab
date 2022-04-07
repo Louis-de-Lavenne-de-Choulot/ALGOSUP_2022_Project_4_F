@@ -2613,7 +2613,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  situp: 0
   inScenario: 0
+  eating: 0
+  lunch: 0
 --- !u!114 &7934781970205032131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2626,6 +2629,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff10008ab914646a99379130d0387800, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clipf: []
+  clipPf: []
   clips: []
 --- !u!82 &7299842298129500018
 AudioSource:
@@ -2952,7 +2957,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 2, y: 1, z: 1.5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6149572575997013841
 MonoBehaviour:

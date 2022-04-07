@@ -71,9 +71,9 @@ public class NPC : MonoBehaviour
             if(lastTarget){
                 if(lastTarget.gameObject.layer == LayerMask.NameToLayer("Chair") )
                 {
-                    Target.Translate(Vector3.forward * 0.2f);
+                    lastTarget.Translate(Vector3.forward * 0.1f);
                 }
-                if (lastTarget.gameObject.layer == LayerMask.NameToLayer("Fridge") || lastTarget.gameObject.layer == LayerMask.NameToLayer("Microwave"))
+                if (lastTarget.gameObject.layer == LayerMask.NameToLayer("Microwave"))
                 {
                     lastTarget.gameObject.SetActive(true);
                 }
@@ -135,9 +135,30 @@ public class NPC : MonoBehaviour
             gameObject.GetComponent<Animator>().SetBool("sitWithLaptop", true);
         }
 
+        //soft skill
+        if ((Vector3.Distance(transform.position, Target.position) < 1) && situp == false
+        && gameObject.GetComponent<Animator>().GetBool("sitWithLaptop") == false
+        && Target.gameObject.layer == LayerMask.NameToLayer("Soft Skill"))
+        {
+            gameObject.GetComponent<Collider>().enabled = false;
+            gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
+            gameObject.GetComponent<Rigidbody>().useGravity = false;
+
+            lastTarget = Target;
+
+            transform.position = new Vector3(
+                Target.transform.position.x,
+                Target.transform.position.y + 0.637f,
+                Target.transform.position.z);
+
+            transform.rotation = Target.rotation;
+
+            gameObject.GetComponent<Animator>().SetBool("sitWithLaptop", true);
+        }
+
         //Eat
         if ((Vector3.Distance(transform.position, Target.position) < 1) && situp == false
-            && gameObject.GetComponent<Animator>().GetBool("sitWithLaptop") == false
+            && gameObject.GetComponent<Animator>().GetBool("Eat") == false
             && Target.gameObject.layer == LayerMask.NameToLayer("Eat"))
         {
             gameObject.GetComponent<Collider>().enabled = false;
@@ -165,7 +186,7 @@ public class NPC : MonoBehaviour
         }
 
         if ((Vector3.Distance(transform.position, Target.position) < 1) && situp == false
-        && gameObject.GetComponent<Animator>().GetBool("sitWithLaptop") == false
+        && gameObject.GetComponent<Animator>().GetBool("Eat") == false
         && Target.gameObject.layer == LayerMask.NameToLayer("Eat backward"))
         {
             gameObject.GetComponent<Collider>().enabled = false;
@@ -180,7 +201,7 @@ public class NPC : MonoBehaviour
                 Target.transform.position.z);
 
             transform.rotation = Target.rotation;
-            transform.Rotate(Vector3.up * -90);
+            transform.Rotate(Vector3.up * 90);
 
             if (eating)
             {
@@ -192,7 +213,7 @@ public class NPC : MonoBehaviour
             }
         }
 
-        //Amphitheater chair
+        //Toillet
         if ((Vector3.Distance(transform.position, Target.position) < 1) && situp == false
             && gameObject.GetComponent<Animator>().GetBool("Toillet") == false
             && Target.gameObject.layer == LayerMask.NameToLayer("Toilet"))
@@ -233,7 +254,7 @@ public class NPC : MonoBehaviour
         }
 
         //Fridge
-        if ((Vector3.Distance(transform.position, Target.position) < 1) && situp == false
+        if ((Vector3.Distance(transform.position, Target.position) < 2.5) && situp == false
         && gameObject.GetComponent<Animator>().GetBool("Fridge") == false
         && Target.gameObject.layer == LayerMask.NameToLayer("Fridge"))
         {
@@ -254,7 +275,7 @@ public class NPC : MonoBehaviour
         }
 
         //Microwave
-        if ((Vector3.Distance(transform.position, Target.position) < 1) && situp == false
+        if ((Vector3.Distance(transform.position, Target.position) < 2) && situp == false
         && gameObject.GetComponent<Animator>().GetBool("microwave") == false
         && Target.gameObject.layer == LayerMask.NameToLayer("Microwave"))
         {
@@ -267,6 +288,10 @@ public class NPC : MonoBehaviour
             transform.position = Target.position;
 
             transform.rotation = Target.rotation;
+            transform.Rotate(Vector3.up * 180);
+            transform.Translate(Vector3.back * 0.884f);
+            transform.Translate(Vector3.down * 0.312f);
+
             Target.gameObject.SetActive(false);
             gameObject.GetComponent<Animator>().SetBool("microwave", true);
         }
