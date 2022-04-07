@@ -127,7 +127,7 @@ public class NPC : MonoBehaviour
 
             transform.position = new Vector3(
                 Target.transform.position.x,
-                Target.transform.position.y + 0.637f,
+                Target.transform.position.y,
                 Target.transform.position.z);
 
             transform.rotation = Quaternion.Euler(0, 180, 0);
@@ -213,7 +213,7 @@ public class NPC : MonoBehaviour
             }
         }
 
-        //Amphitheater chair
+        //Toillet
         if ((Vector3.Distance(transform.position, Target.position) < 1) && situp == false
             && gameObject.GetComponent<Animator>().GetBool("Toillet") == false
             && Target.gameObject.layer == LayerMask.NameToLayer("Toilet"))
