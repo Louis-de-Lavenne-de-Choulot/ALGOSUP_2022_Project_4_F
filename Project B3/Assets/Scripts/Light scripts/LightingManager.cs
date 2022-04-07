@@ -15,12 +15,12 @@ public class LightingManager : MonoBehaviour
         if (Preset == null)
             return;
 
-         if(Application.isPlaying)
+        if(Application.isPlaying)
         {
             TimeOfDay += Time.deltaTime/120 * speedMultiplier;
             TimeOfDay %= 24; //clamp between 0-24
             UpdateLighting(TimeOfDay / 24f);
-            if(TimeOfDay > 18f)
+            if(TimeOfDay > 18f || TimeOfDay < 6)
             {
                 speedMultiplier = 20;
             }
