@@ -4,7 +4,7 @@ BERNARD Max - DESVAUX Brendon - MOLNAR Ivan - DE LAVENNE Louis - CUAHONTE-CUEVAS
 
 ## Glossary
 
-## Objective
+## Objective 
 The objective of this project is to simulate the B3 in order to highlight possible problems that may arise within ALGOSUPs new school building
 
 The simulation must take place within the new school building and must contain characters (controlled by simple AI) to simulate students, speakers, teachers, and administrative staff. It also needs to be able to launch various scenarios which could highlight the more foreseeable problems that may appear in the future.
