@@ -106,7 +106,7 @@ public class Lunch : ScenarioBase
                         usedfridge = true;
                         FridgeUsed = true;
                         yield return new WaitUntil(() => Vector2.Distance(npc.transform.position, Fridge.position) < 10F);
-                        yield return new WaitForSeconds(5);
+                        yield return new WaitForSeconds(2);
                         FridgeUsed = false;
                         npc.ChangeGoal(Chairs[seat]);
                     }
