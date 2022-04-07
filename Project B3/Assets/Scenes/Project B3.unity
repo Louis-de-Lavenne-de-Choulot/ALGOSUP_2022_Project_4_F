@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.14796168, g: 0.16555613, b: 0.16953084, a: 1}
+  m_IndirectSpecularColor: {r: 0.14801231, g: 0.16559134, b: 0.16949059, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -123,11 +123,73 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 0d4c07ffc3a9b4445a3cd8e418bc6ff6, type: 2}
+--- !u!1 &20876869
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 20876870}
+  m_Layer: 0
+  m_Name: SmokingSpot (12)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &20876870
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 20876869}
+  m_LocalRotation: {x: -0.1683083, y: 0.69881314, z: -0.6728882, w: -0.17479682}
+  m_LocalPosition: {x: 29.14, y: 28.52713, z: -150.65}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1271278004}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &24439828 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7378657254018166525, guid: faebee7d077c9e447963feb17dd23cbb, type: 3}
   m_PrefabInstance: {fileID: 643098281}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &41760708
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 41760709}
+  m_Layer: 0
+  m_Name: SmokingSpot (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &41760709
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 41760708}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 45.04, y: 26.978, z: -251.09}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1271278004}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &53640520 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2552411607886500995, guid: faebee7d077c9e447963feb17dd23cbb, type: 3}
@@ -163,6 +225,68 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2100799932337786806, guid: faebee7d077c9e447963feb17dd23cbb, type: 3}
   m_PrefabInstance: {fileID: 643098281}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &178621094
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 178621095}
+  m_Layer: 0
+  m_Name: BreakSpot (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &178621095
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 178621094}
+  m_LocalRotation: {x: 0.13921294, y: 0.66946465, z: -0.12979123, w: 0.7180468}
+  m_LocalPosition: {x: 48.17, y: 27.613804, z: -172.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1286131219}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &191633764
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 191633765}
+  m_Layer: 0
+  m_Name: SmokingSpot (13)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &191633765
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 191633764}
+  m_LocalRotation: {x: -0.1683083, y: 0.69881314, z: -0.6728882, w: -0.17479682}
+  m_LocalPosition: {x: 29.14, y: 28.52713, z: -152.14}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1271278004}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &199504717 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7831502611033146234, guid: faebee7d077c9e447963feb17dd23cbb, type: 3}
@@ -190,10 +314,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1181822108, guid: f77c6532742eb774e9cbd42e9356115e, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 1181822109, guid: f77c6532742eb774e9cbd42e9356115e, type: 3}
       propertyPath: Fridge
       value: 
@@ -202,10 +322,6 @@ PrefabInstance:
       propertyPath: InsideRally
       value: 
       objectReference: {fileID: 643098282}
-    - target: {fileID: 1181822109, guid: f77c6532742eb774e9cbd42e9356115e, type: 3}
-      propertyPath: Chairs.Array.size
-      value: 47
-      objectReference: {fileID: 0}
     - target: {fileID: 1181822109, guid: f77c6532742eb774e9cbd42e9356115e, type: 3}
       propertyPath: Chairs.Array.data[0]
       value: 
@@ -395,10 +511,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1976806375}
     - target: {fileID: 1181822109, guid: f77c6532742eb774e9cbd42e9356115e, type: 3}
-      propertyPath: microwaves.Array.size
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1181822109, guid: f77c6532742eb774e9cbd42e9356115e, type: 3}
       propertyPath: microwaves.Array.data[0]
       value: 
       objectReference: {fileID: 306665220}
@@ -478,8 +590,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 884554916973780922, guid: f77c6532742eb774e9cbd42e9356115e, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f77c6532742eb774e9cbd42e9356115e, type: 3}
 --- !u!114 &303016269 stripped
 MonoBehaviour:
@@ -492,69 +603,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfdcc27696f9c6e40b7d75419a1bd31d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &303016278 stripped
+--- !u!4 &303016270 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 884554916339469284, guid: f77c6532742eb774e9cbd42e9356115e, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1758043072721047574, guid: f77c6532742eb774e9cbd42e9356115e, type: 3}
   m_PrefabInstance: {fileID: 303016268}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &303016297 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 884554916374587918, guid: f77c6532742eb774e9cbd42e9356115e, type: 3}
-  m_PrefabInstance: {fileID: 303016268}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &303016302 stripped
+--- !u!1 &303016271 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 884554917151121442, guid: f77c6532742eb774e9cbd42e9356115e, type: 3}
+  m_CorrespondingSourceObject: {fileID: 5760409077873762608, guid: f77c6532742eb774e9cbd42e9356115e, type: 3}
   m_PrefabInstance: {fileID: 303016268}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &303016303
+--- !u!114 &303016272
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 303016302}
+  m_GameObject: {fileID: 303016271}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fda68b8e04edb9945b495ae80ec7dbdc, type: 3}
+  m_Script: {fileID: 11500000, guid: e7d9f3807d102574e9d804e2a8d7b04a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   active: 0
   npcs: []
   targets: []
-  spots:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 303016297}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 303016278}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  spots: []
   bspots: 
 --- !u!4 &306665220 stripped
 Transform:
@@ -587,6 +661,37 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0.287, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!1 &353537460
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 353537461}
+  m_Layer: 0
+  m_Name: BreakSpot (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &353537461
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 353537460}
+  m_LocalRotation: {x: 0.13921294, y: 0.66946465, z: -0.12979123, w: 0.7180468}
+  m_LocalPosition: {x: 48.1, y: 27.613804, z: -170.64}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1286131219}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &355253388 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 165288832228369908, guid: faebee7d077c9e447963feb17dd23cbb, type: 3}
@@ -608,21 +713,207 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0.021000002, y: 0.647, z: 0}
   m_TimeToStationary: 0.5
+--- !u!1 &380029193
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 380029194}
+  m_Layer: 0
+  m_Name: BreakSpot (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &380029194
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 380029193}
+  m_LocalRotation: {x: 0.13921294, y: 0.66946465, z: -0.12979123, w: 0.7180468}
+  m_LocalPosition: {x: 49, y: 27.613804, z: -173.71996}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1286131219}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &391682427
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 391682428}
+  m_Layer: 0
+  m_Name: BreakSpot (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &391682428
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 391682427}
+  m_LocalRotation: {x: 0.13921294, y: 0.66946465, z: -0.12979123, w: 0.7180468}
+  m_LocalPosition: {x: 47.526707, y: 27.613804, z: -174.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1286131219}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &399338800
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 399338801}
+  m_Layer: 0
+  m_Name: BreakSpot (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &399338801
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 399338800}
+  m_LocalRotation: {x: 0.13921294, y: 0.66946465, z: -0.12979123, w: 0.7180468}
+  m_LocalPosition: {x: 45.85, y: 27.613804, z: -173.71996}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1286131219}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &415509652 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8150731111671042901, guid: faebee7d077c9e447963feb17dd23cbb, type: 3}
   m_PrefabInstance: {fileID: 643098281}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &441488610
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 441488611}
+  m_Layer: 0
+  m_Name: SmokingSpot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &441488611
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 441488610}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 46.695, y: 26.978, z: -248.919}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1271278004}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &458537188 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4945286923115642887, guid: faebee7d077c9e447963feb17dd23cbb, type: 3}
   m_PrefabInstance: {fileID: 643098281}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &494945565
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 494945566}
+  m_Layer: 0
+  m_Name: BreakSpot (8)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &494945566
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 494945565}
+  m_LocalRotation: {x: 0.13921294, y: 0.66946465, z: -0.12979123, w: 0.7180468}
+  m_LocalPosition: {x: 46.42, y: 27.613804, z: -176.14}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1286131219}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &531688194 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1323087198044169860, guid: faebee7d077c9e447963feb17dd23cbb, type: 3}
   m_PrefabInstance: {fileID: 643098281}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &535299517
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 535299518}
+  m_Layer: 0
+  m_Name: SmokingSpot (15)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &535299518
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 535299517}
+  m_LocalRotation: {x: -0.1683083, y: 0.69881314, z: -0.6728882, w: -0.17479682}
+  m_LocalPosition: {x: 37.27, y: 28.52713, z: -149.48}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1271278004}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &627798269 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3719338803772596852, guid: faebee7d077c9e447963feb17dd23cbb, type: 3}
@@ -968,11 +1259,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7342591185824524133, guid: faebee7d077c9e447963feb17dd23cbb, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.002281473
+      value: 0.002281471
       objectReference: {fileID: 0}
     - target: {fileID: 7342591185824524133, guid: faebee7d077c9e447963feb17dd23cbb, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.02607734
+      value: -0.026077313
       objectReference: {fileID: 0}
     - target: {fileID: 7342591185824524134, guid: faebee7d077c9e447963feb17dd23cbb, type: 3}
       propertyPath: m_RenderMode
@@ -1005,6 +1296,10 @@ PrefabInstance:
     - target: {fileID: 7755656518101455450, guid: faebee7d077c9e447963feb17dd23cbb, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8034198050274251899, guid: faebee7d077c9e447963feb17dd23cbb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 73.85
       objectReference: {fileID: 0}
     - target: {fileID: 8267613263292744942, guid: faebee7d077c9e447963feb17dd23cbb, type: 3}
       propertyPath: m_Layer
@@ -1130,6 +1425,37 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0.021000002, y: 0.647, z: 0}
   m_TimeToStationary: 0.5
+--- !u!1 &812683713
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 812683714}
+  m_Layer: 0
+  m_Name: BreakSpot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &812683714
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 812683713}
+  m_LocalRotation: {x: 0.13921294, y: 0.66946465, z: -0.12979123, w: 0.7180468}
+  m_LocalPosition: {x: 47.526707, y: 27.613804, z: -173.71996}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1286131219}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &879572665 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8752257248318702341, guid: faebee7d077c9e447963feb17dd23cbb, type: 3}
@@ -1283,6 +1609,130 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &906819954
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 906819955}
+  m_Layer: 0
+  m_Name: SmokingSpot (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &906819955
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 906819954}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 43.04, y: 26.978, z: -251.09}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1271278004}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &937148242
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 937148243}
+  m_Layer: 0
+  m_Name: SmokingSpot (7)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &937148243
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 937148242}
+  m_LocalRotation: {x: -0.1683083, y: 0.69881314, z: -0.6728882, w: -0.17479682}
+  m_LocalPosition: {x: 33.764557, y: 28.52713, z: -147.39218}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1271278004}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &943220181
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 943220182}
+  m_Layer: 0
+  m_Name: SmokingSpot (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &943220182
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943220181}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 42.12, y: 26.978, z: -249.62}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1271278004}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &965535746
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 965535747}
+  m_Layer: 0
+  m_Name: SmokingSpot (9)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &965535747
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 965535746}
+  m_LocalRotation: {x: -0.1683083, y: 0.69881314, z: -0.6728882, w: -0.17479682}
+  m_LocalPosition: {x: 32.25, y: 28.52713, z: -149.07}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1271278004}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &975924774 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5642381138063215409, guid: faebee7d077c9e447963feb17dd23cbb, type: 3}
@@ -1293,6 +1743,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7468740309453538339, guid: faebee7d077c9e447963feb17dd23cbb, type: 3}
   m_PrefabInstance: {fileID: 643098281}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1067870664
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1067870665}
+  m_Layer: 0
+  m_Name: SmokingSpot (14)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1067870665
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1067870664}
+  m_LocalRotation: {x: -0.1683083, y: 0.69881314, z: -0.6728882, w: -0.17479682}
+  m_LocalPosition: {x: 37.27, y: 28.52713, z: -152.14}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1271278004}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1098480744 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5667424878934334983, guid: faebee7d077c9e447963feb17dd23cbb, type: 3}
@@ -1417,16 +1898,198 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3816868208518504013, guid: faebee7d077c9e447963feb17dd23cbb, type: 3}
   m_PrefabInstance: {fileID: 643098281}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1271278003
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1271278004}
+  m_Layer: 0
+  m_Name: SmokingSpots
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1271278004
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1271278003}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 441488611}
+  - {fileID: 2039540884}
+  - {fileID: 41760709}
+  - {fileID: 906819955}
+  - {fileID: 1548221576}
+  - {fileID: 943220182}
+  - {fileID: 1722441211}
+  - {fileID: 937148243}
+  - {fileID: 1278543313}
+  - {fileID: 965535747}
+  - {fileID: 1388342280}
+  - {fileID: 1587848755}
+  - {fileID: 20876870}
+  - {fileID: 191633765}
+  - {fileID: 1067870665}
+  - {fileID: 535299518}
+  m_Father: {fileID: 303016270}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1278543312
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1278543313}
+  m_Layer: 0
+  m_Name: SmokingSpot (8)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1278543313
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1278543312}
+  m_LocalRotation: {x: -0.1683083, y: 0.69881314, z: -0.6728882, w: -0.17479682}
+  m_LocalPosition: {x: 32.25, y: 28.52713, z: -147.39218}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1271278004}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1286131218
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1286131219}
+  m_Layer: 0
+  m_Name: BreakSpots
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1286131219
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1286131218}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 812683714}
+  - {fileID: 380029194}
+  - {fileID: 391682428}
+  - {fileID: 399338801}
+  - {fileID: 178621095}
+  - {fileID: 353537461}
+  - {fileID: 1607199698}
+  - {fileID: 1705974610}
+  - {fileID: 494945566}
+  - {fileID: 1306586723}
+  - {fileID: 1787435672}
+  m_Father: {fileID: 303016270}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1305811575 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3372389673544297981, guid: faebee7d077c9e447963feb17dd23cbb, type: 3}
   m_PrefabInstance: {fileID: 643098281}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1306586722
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1306586723}
+  m_Layer: 0
+  m_Name: BreakSpot (9)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1306586723
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1306586722}
+  m_LocalRotation: {x: 0.13921294, y: 0.66946465, z: -0.12979123, w: 0.7180468}
+  m_LocalPosition: {x: 44.98, y: 27.613804, z: -174.846}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1286131219}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1311515111 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3274740854467751593, guid: faebee7d077c9e447963feb17dd23cbb, type: 3}
   m_PrefabInstance: {fileID: 643098281}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1388342279
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1388342280}
+  m_Layer: 0
+  m_Name: SmokingSpot (10)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1388342280
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1388342279}
+  m_LocalRotation: {x: -0.1683083, y: 0.69881314, z: -0.6728882, w: -0.17479682}
+  m_LocalPosition: {x: 32.86, y: 28.52713, z: -149.07}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1271278004}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1390976734 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1981585596257422855, guid: faebee7d077c9e447963feb17dd23cbb, type: 3}
@@ -1494,6 +2157,37 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0.021000002, y: 0.647, z: 0}
   m_TimeToStationary: 0.5
+--- !u!1 &1548221575
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1548221576}
+  m_Layer: 0
+  m_Name: SmokingSpot (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1548221576
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1548221575}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 43.04, y: 26.978, z: -249.62}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1271278004}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1549724940 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7447550569758421792, guid: faebee7d077c9e447963feb17dd23cbb, type: 3}
@@ -1504,6 +2198,68 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6409627178822629785, guid: faebee7d077c9e447963feb17dd23cbb, type: 3}
   m_PrefabInstance: {fileID: 643098281}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1587848754
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1587848755}
+  m_Layer: 0
+  m_Name: SmokingSpot (11)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1587848755
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1587848754}
+  m_LocalRotation: {x: -0.1683083, y: 0.69881314, z: -0.6728882, w: -0.17479682}
+  m_LocalPosition: {x: 32.86, y: 28.52713, z: -150.65}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1271278004}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1607199697
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1607199698}
+  m_Layer: 0
+  m_Name: BreakSpot (6)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1607199698
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1607199697}
+  m_LocalRotation: {x: 0.13921294, y: 0.66946465, z: -0.12979123, w: 0.7180468}
+  m_LocalPosition: {x: 47.526707, y: 27.613804, z: -175.03}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1286131219}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1633669039 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 751845570486719480, guid: faebee7d077c9e447963feb17dd23cbb, type: 3}
@@ -1545,11 +2301,73 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0.287, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!1 &1705974609
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1705974610}
+  m_Layer: 0
+  m_Name: BreakSpot (7)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1705974610
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705974609}
+  m_LocalRotation: {x: 0.13921294, y: 0.66946465, z: -0.12979123, w: 0.7180468}
+  m_LocalPosition: {x: 47.526707, y: 27.613804, z: -176.22}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1286131219}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1712168082 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8036525808175415997, guid: faebee7d077c9e447963feb17dd23cbb, type: 3}
   m_PrefabInstance: {fileID: 643098281}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1722441210
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1722441211}
+  m_Layer: 0
+  m_Name: SmokingSpot (6)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1722441211
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1722441210}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 42.12, y: 26.978, z: -251.61}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1271278004}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1732490408 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5450287587838509756, guid: faebee7d077c9e447963feb17dd23cbb, type: 3}
@@ -1565,6 +2383,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7337196032827467176, guid: faebee7d077c9e447963feb17dd23cbb, type: 3}
   m_PrefabInstance: {fileID: 643098281}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1787435671
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1787435672}
+  m_Layer: 0
+  m_Name: BreakSpot (10)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1787435672
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1787435671}
+  m_LocalRotation: {x: 0.13921294, y: 0.66946465, z: -0.12979123, w: 0.7180468}
+  m_LocalPosition: {x: 47.526707, y: 27.613804, z: -178.161}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1286131219}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1818031340 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3369234238301415601, guid: faebee7d077c9e447963feb17dd23cbb, type: 3}
@@ -1647,6 +2496,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9220206991825317669, guid: faebee7d077c9e447963feb17dd23cbb, type: 3}
   m_PrefabInstance: {fileID: 643098281}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2039540883
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2039540884}
+  m_Layer: 0
+  m_Name: SmokingSpot (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2039540884
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2039540883}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 45.04, y: 26.978, z: -248.919}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1271278004}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2096656840 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3202773547939827591, guid: faebee7d077c9e447963feb17dd23cbb, type: 3}
