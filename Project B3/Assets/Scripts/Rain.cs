@@ -73,17 +73,19 @@ public class Rain : MonoBehaviour
 
     private char lunvch_branden = 'O';
 
+    ScenarioBase currentScenario;
+
     private int _day;
     private List<string> Schedule = new List<string>() { "Break", "Toilet Rush", "Break", "Toilet Rush", "Break", "Break", "Toilet Rush", "Break", "Break", "Break" };
     // Start is called before the first frame update
     void Start()
     {
-        maxNumber = 20;//PlayerPrefs.GetInt("MaxAi", 0);
+        maxNumber = PlayerPrefs.GetInt("MaxAi", 0);
         johnny = PlayerPrefs.GetInt("Johnny", 0);
         steph = PlayerPrefs.GetInt("Steph", 0);
         alexandre = PlayerPrefs.GetInt("Alexandre", 0);
         janka = PlayerPrefs.GetInt("Janka", 0);
-        nick = 20;//PlayerPrefs.GetInt("Nick", 0);
+        nick = PlayerPrefs.GetInt("Nick", 0);
         lindzy = PlayerPrefs.GetInt("Lindzy", 0);
         denis = PlayerPrefs.GetInt("Denis", 0);
         lana = PlayerPrefs.GetInt("Lana", 0);
@@ -136,7 +138,7 @@ public class Rain : MonoBehaviour
         _day = PlayerPrefs.GetInt("day", 0);
         StartCoroutine(Teach());
         Invocation();
-        InvokeRepeating("TimeCheck", 20f, 5f);
+        InvokeRepeating("TimeCheck", 2f, 1f);
     }
 
     private IEnumerator Teach()
@@ -249,25 +251,42 @@ public class Rain : MonoBehaviour
         if (GameTime.intTimer > times[timeNumber])
         {
             timeNumber++;
+            if (timeNumber == 7)
+            {
+                if(_day == 4)
+                {
+                    SceneManager.LoadScene(0,LoadSceneMode.Single);
+                }
+                _day++;
+                PlayerPrefs.SetInt("day", _day);
+                timeNumber = 0;
+                GameTime.intTimer = 0;
+            }
             switch (timeNumber)
             {
                 case 1:
-                    GameObject.Find($"{Schedule[_day*2]}").GetComponent<ScenarioBase>().StartScenario();
+                    Debug.Log($"{Schedule[_day*2]}");
+                    currentScenario = GameObject.Find($"{Schedule[_day*2]}").GetComponent<ScenarioBase>();
+                    currentScenario.StartScenario();
                     break;
                 case 3:
-                    GameObject.Find("Lunch").GetComponent<ScenarioBase>().StartScenario();
+                    currentScenario = GameObject.Find("Lunch").GetComponent<ScenarioBase>();
+                    currentScenario.StartScenario();
                     break;
                 case 5:
-                    GameObject.Find($"{Schedule[_day*2+1]}").GetComponent<ScenarioBase>().StartScenario();
+                    currentScenario = GameObject.Find($"{Schedule[_day*2+1]}").GetComponent<ScenarioBase>();
+                    currentScenario.StartScenario();
                     break;
                 case 7:
-                    GameObject.Find("Return Home").GetComponent<ScenarioBase>().StartScenario();
+                    currentScenario = GameObject.Find("Return Home").GetComponent<ScenarioBase>();
+                    currentScenario.StartScenario();
                     break;
                 default:
+                    currentScenario.EndScenario();
                     for (int child = 0; child < transform.childCount; child++)
                     {
                         NPC npc = transform.GetChild(child).GetComponent<NPC>();
-                        if (!npc.inScenario) npc.TimeChange(timeNumber);
+                        if (!npc.inScenario) npc.TimeChange(timeNumber > 3 ? 2 * _day : _day * 2 + 1);
                     }
                     break;
             }
@@ -282,11 +301,6 @@ public class Rain : MonoBehaviour
                 PlayerPrefs.SetInt("day", _day);
                 timeNumber = 0;
                 GameTime.intTimer = 0;
-                for (int child = 0; child < transform.childCount; child++)
-                    {
-                        NPC npc = transform.GetChild(child).GetComponent<NPC>();
-                        if (!npc.inScenario) npc.TimeChange(timeNumber);
-                    }
             }
         }
     }
