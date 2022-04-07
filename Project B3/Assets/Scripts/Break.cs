@@ -50,6 +50,10 @@ public class Break : ScenarioBase
                         yield return new WaitForSeconds(Random.Range(1, 3));
                         break;
                     }
+                    if(SmokingSpotsOccupied.All(x => !x))
+                    {
+                        break;
+                    }
                 }
             }
             else
@@ -65,10 +69,15 @@ public class Break : ScenarioBase
                         yield return new WaitForSeconds(Random.Range(1, 3));
                         break;
                     }
+                    if(BreakSpotsOccupied.All(x => !x))
+                    {
+                        break;
+                    }
                 }
             }
         }
         npc.ChangeGoal();
+        npc.inScenario = false;
         yield break;
     }
 }

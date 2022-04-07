@@ -76,6 +76,11 @@ public class Lunch : ScenarioBase
                                 yield break;
                             }
                         }
+                        if(SittingSpotUsed.All(x => !x))
+                        {
+                            npc.ChangeGoal();
+                            yield break;
+                        }
                     }
                     for (int i = 0; i < FoodTruckWait.Count; i++)
                     {
@@ -97,6 +102,12 @@ public class Lunch : ScenarioBase
                 npc.ChangeGoal(InsideRally);
                 yield return new WaitUntil(() => Vector2.Distance(npc.transform.position, InsideRally.position) < 100F);
                 int seat = GetChair();
+                if(seat == -1)
+                {
+                    npc.ChangeGoal();
+                    npc.inScenario = false;
+                    yield break;
+                }
                 npc.ChangeGoal(Chairs[seat]);
                 while (true)
                 {
@@ -106,7 +117,7 @@ public class Lunch : ScenarioBase
                         usedfridge = true;
                         FridgeUsed = true;
                         yield return new WaitUntil(() => Vector2.Distance(npc.transform.position, Fridge.position) < 10F);
-                        yield return new WaitForSeconds(5);
+                        yield return new WaitForSeconds(2);
                         FridgeUsed = false;
                         npc.ChangeGoal(Chairs[seat]);
                     }
