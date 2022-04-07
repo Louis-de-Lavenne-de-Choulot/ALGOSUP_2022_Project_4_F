@@ -127,10 +127,31 @@ public class NPC : MonoBehaviour
 
             transform.position = new Vector3(
                 Target.transform.position.x,
-                Target.transform.position.y,
+                Target.transform.position.y + 0.637f,
                 Target.transform.position.z);
 
             transform.rotation = Quaternion.Euler(0, 180, 0);
+
+            gameObject.GetComponent<Animator>().SetBool("sitWithLaptop", true);
+        }
+
+        //soft skill
+        if ((Vector3.Distance(transform.position, Target.position) < 1) && situp == false
+        && gameObject.GetComponent<Animator>().GetBool("sitWithLaptop") == false
+        && Target.gameObject.layer == LayerMask.NameToLayer("Soft Skill"))
+        {
+            gameObject.GetComponent<Collider>().enabled = false;
+            gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
+            gameObject.GetComponent<Rigidbody>().useGravity = false;
+
+            lastTarget = Target;
+
+            transform.position = new Vector3(
+                Target.transform.position.x,
+                Target.transform.position.y + 0.637f,
+                Target.transform.position.z);
+
+            transform.rotation = Target.rotation;
 
             gameObject.GetComponent<Animator>().SetBool("sitWithLaptop", true);
         }
