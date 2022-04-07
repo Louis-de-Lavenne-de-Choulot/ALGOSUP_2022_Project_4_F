@@ -588,12 +588,24 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1458138813}
     m_Modifications:
     - target: {fileID: 1181822109, guid: f77c6532742eb774e9cbd42e9356115e, type: 3}
       propertyPath: Fridge
       value: 
       objectReference: {fileID: 726019989}
+    - target: {fileID: 1181822109, guid: f77c6532742eb774e9cbd42e9356115e, type: 3}
+      propertyPath: FoodTruck
+      value: 
+      objectReference: {fileID: 1458138815}
+    - target: {fileID: 1181822109, guid: f77c6532742eb774e9cbd42e9356115e, type: 3}
+      propertyPath: InsideRally
+      value: 
+      objectReference: {fileID: 1458138814}
+    - target: {fileID: 1181822109, guid: f77c6532742eb774e9cbd42e9356115e, type: 3}
+      propertyPath: OutsideRally
+      value: 
+      objectReference: {fileID: 1458138815}
     - target: {fileID: 1181822109, guid: f77c6532742eb774e9cbd42e9356115e, type: 3}
       propertyPath: Chairs.Array.size
       value: 47
@@ -788,8 +800,40 @@ PrefabInstance:
       objectReference: {fileID: 726019942}
     - target: {fileID: 1181822109, guid: f77c6532742eb774e9cbd42e9356115e, type: 3}
       propertyPath: microwaves.Array.size
-      value: 16
+      value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 1181822109, guid: f77c6532742eb774e9cbd42e9356115e, type: 3}
+      propertyPath: microwaves.Array.data[0]
+      value: 
+      objectReference: {fileID: 726019997}
+    - target: {fileID: 1181822109, guid: f77c6532742eb774e9cbd42e9356115e, type: 3}
+      propertyPath: microwaves.Array.data[1]
+      value: 
+      objectReference: {fileID: 726019996}
+    - target: {fileID: 1181822109, guid: f77c6532742eb774e9cbd42e9356115e, type: 3}
+      propertyPath: microwaves.Array.data[2]
+      value: 
+      objectReference: {fileID: 726019995}
+    - target: {fileID: 1181822109, guid: f77c6532742eb774e9cbd42e9356115e, type: 3}
+      propertyPath: microwaves.Array.data[3]
+      value: 
+      objectReference: {fileID: 726019994}
+    - target: {fileID: 1181822109, guid: f77c6532742eb774e9cbd42e9356115e, type: 3}
+      propertyPath: microwaves.Array.data[4]
+      value: 
+      objectReference: {fileID: 726019993}
+    - target: {fileID: 1181822109, guid: f77c6532742eb774e9cbd42e9356115e, type: 3}
+      propertyPath: microwaves.Array.data[5]
+      value: 
+      objectReference: {fileID: 726019992}
+    - target: {fileID: 1181822109, guid: f77c6532742eb774e9cbd42e9356115e, type: 3}
+      propertyPath: microwaves.Array.data[6]
+      value: 
+      objectReference: {fileID: 726019991}
+    - target: {fileID: 1181822109, guid: f77c6532742eb774e9cbd42e9356115e, type: 3}
+      propertyPath: microwaves.Array.data[7]
+      value: 
+      objectReference: {fileID: 726019990}
     - target: {fileID: 1181822109, guid: f77c6532742eb774e9cbd42e9356115e, type: 3}
       propertyPath: microwaves.Array.data[8]
       value: 
@@ -828,7 +872,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 884554916973780923, guid: f77c6532742eb774e9cbd42e9356115e, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 884554916973780923, guid: f77c6532742eb774e9cbd42e9356115e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -848,15 +892,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 884554916973780923, guid: f77c6532742eb774e9cbd42e9356115e, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 884554916973780923, guid: f77c6532742eb774e9cbd42e9356115e, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 884554916973780923, guid: f77c6532742eb774e9cbd42e9356115e, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 884554916973780923, guid: f77c6532742eb774e9cbd42e9356115e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -872,6 +916,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f77c6532742eb774e9cbd42e9356115e, type: 3}
+--- !u!4 &1458138813 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 367279027977889379, guid: faebee7d077c9e447963feb17dd23cbb, type: 3}
+  m_PrefabInstance: {fileID: 726019941}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1458138814 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5423177894591284710, guid: faebee7d077c9e447963feb17dd23cbb, type: 3}
+  m_PrefabInstance: {fileID: 726019941}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1458138815 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7078186044000032458, guid: faebee7d077c9e447963feb17dd23cbb, type: 3}
+  m_PrefabInstance: {fileID: 726019941}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1922269741
 GameObject:
   m_ObjectHideFlags: 0
