@@ -74,6 +74,11 @@ There is already a way to visit the building in VR. But there is no simulation o
 - We will use XR plugin and also the OVR to make most of the VR functional
 - It will only work with Oculus Quest 2 VR headset
 
+### Costs
+- The VR Headset is provided to us by the school.
+- We don’t have to use any kind of paid asset.
+- If the school wants to scale up the multi-user we would need some help 
+
 ### Test Plan
 Our tests will consist of a combination of running the simulation to see if everything works well, along with smaller point-by-point tests on new features. Using different debug tools to catch the less visible bug.
 
@@ -84,16 +89,18 @@ We use GitHub to observe and maintain the state of our project and to facilitate
 
 ### Third-party services and platforms considerations
 We use Github for hosting and sharing the project. Our project is public and there are no privacy concerns. If our files are too big we may be at risk of getting removed from GitHub but if we rework well the B3’s 3D model it shouldn’t be an issue. <br>
-Photon Pun has a limited number of connections per month and only up to 16 connections simultaneously. This should not be an issue under expected use (a few demonstrations).
+Photon Pun has a limited number of connections per month and only up to 16 connections simultaneously. This should not be an issue under expected use (a few demonstrations).<br>
+In the future this application could be worked on again in order to try different layouts or renovation of the building before really doing it.
 
 ### Accessibility consideration
-The simulation is meant to be run in VR and can only be run with an Oculus Quest headset. Most people don’t have a VR headset but it should not be an issue in the expected use case. If the final product has too low FPS it could cause nausea.
+The simulation is meant to run in VR and it should be able to only run with an Oculus Quest headset. Most people don’t have a VR headset but it should not be an issue in this expected use case. If the final product has too low FPS it could cause nausea.
 
 ### Risks
-If the simulation accidentally overplays an issue with the building or doesn’t show an actual issue it could lead to the wrong issue being solved in the final building.
+If the simulation accidentally overdoes an issue with the building or misses an actual danger it could lead to the wrong issue being solved in the final building.
 
 ## Success Evaluation
 ### Impact
+The impact of the application should be on the decision making of ALGOSUP. Our application will be made to help them try scenarios and see some of the problems that they could have missed otherwise.
 We will know if the project had an impact either by getting feedback by ALGOSUP or when we move into the new building.
 
 ### Metrics
@@ -101,6 +108,6 @@ We will know if the project had an impact either by getting feedback by ALGOSUP 
 - Positive feedback at the end of the presentation
 
 ## Work
-
-See trello at 
+In order to have a timetable, know the time that each task takes and to know who works on each task , we will use trello.
+To see our trello, here is the link: 
 https://trello.com/b/6FXIYZsX/b3-vr-simulation
