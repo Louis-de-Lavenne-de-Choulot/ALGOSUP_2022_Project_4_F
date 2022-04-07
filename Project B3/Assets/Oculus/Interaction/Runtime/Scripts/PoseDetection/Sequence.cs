@@ -216,13 +216,14 @@ namespace Oculus.Interaction.PoseDetection
 
         private void EnterNextStep(float time)
         {
+            var currentStep = _stepsToActivate[CurrentActivationStep];
+
             CurrentActivationStep++;
             _currentStepWasActive = false;
+            _stepFailedTime = time + currentStep.MaxStepTime;
 
-            if (CurrentActivationStep < _stepsToActivate.Length)
+            if (CurrentActivationStep != _stepsToActivate.Length)
             {
-                var currentStep = _stepsToActivate[CurrentActivationStep];
-                _stepFailedTime = time + currentStep.MaxStepTime;
                 return;
             }
 

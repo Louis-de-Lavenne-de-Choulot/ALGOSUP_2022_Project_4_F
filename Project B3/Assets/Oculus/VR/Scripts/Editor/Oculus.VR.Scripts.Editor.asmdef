@@ -1,11 +1,8 @@
 {
     "name": "Oculus.VR.Scripts.Editor",
-    "rootNamespace": "",
     "references": [
         "Oculus.VR",
-        "Oculus.VR.Editor",
-        "Unity.XR.OpenXR",
-        "Unity.XR.OpenXR.Editor"
+        "Oculus.VR.Editor"
     ],
     "includePlatforms": [
         "Editor"
@@ -26,11 +23,6 @@
             "name": "com.unity.xr.oculus",
             "expression": "",
             "define": "USING_XR_SDK_OCULUS"
-        },
-        {
-            "name": "com.unity.xr.openxr",
-            "expression": "",
-            "define": "USING_XR_SDK_OPENXR"
         },
         {
             "name": "com.unity.xr.oculus",

@@ -21,7 +21,7 @@ namespace Oculus.Interaction.HandPosing.Visuals
     /// <summary>
     /// This component is used to drive the HandGrabModifier.
     /// It sets the desired fingers and wrist positions of the hand structure
-    /// in the SyntheticHand, informing it of any changes coming from the HandGrabInteractor.
+    /// in the modifier, informing it of any changes coming from the HandGrabInteractor.
     /// </summary>
     public class HandGrabInteractorVisual : MonoBehaviour
     {
@@ -34,20 +34,36 @@ namespace Oculus.Interaction.HandPosing.Visuals
         private List<MonoBehaviour> _snappers;
         private List<ISnapper> Snappers;
 
+        private ITrackingToWorldTransformer Transformer;
+
         /// <summary>
-        /// The syntheticHand is part of the InputDataStack and this
+        /// The modifier is part of the InputDataStack and this
         /// class will set its values each frame.
         /// </summary>
         [SerializeField]
-        private SyntheticHand _syntheticHand;
+        private SyntheticHandModifier _modifier;
 
         private bool _areFingersFree = true;
         private bool _isWristFree = true;
 
-        private ITrackingToWorldTransformer Transformer;
         private ISnapper _currentSnapper;
 
         protected bool _started = false;
+
+        #region manual initialization
+        public static HandGrabInteractorVisual Create(
+           GameObject gameObject,
+           List<ISnapper> snappers,
+           ITrackingToWorldTransformer transformer,
+           SyntheticHandModifier modifier)
+        {
+            HandGrabInteractorVisual component = gameObject.AddComponent<HandGrabInteractorVisual>();
+            component.Snappers = snappers;
+            component.Transformer = transformer;
+            component._modifier = modifier;
+            return component;
+        }
+        #endregion
 
         protected virtual void Awake()
         {
@@ -62,8 +78,8 @@ namespace Oculus.Interaction.HandPosing.Visuals
                 Assert.IsNotNull(snapper);
             }
 
-            Assert.IsNotNull(_syntheticHand);
-            Transformer = _syntheticHand.GetData().Config.TrackingToWorldTransformer;
+            Assert.IsNotNull(_modifier);
+            Transformer = _modifier.Config.TrackingToWorldTransformer;
             Assert.IsNotNull(Transformer);
 
             this.EndStart(ref _started);
@@ -73,11 +89,7 @@ namespace Oculus.Interaction.HandPosing.Visuals
         {
             if (_started)
             {
-                foreach (ISnapper snapper in _snappers)
-                {
-                    snapper.WhenSnapStarted += HandleSnapStarted;
-                    snapper.WhenSnapEnded += HandleSnapEnded;
-                }
+                RegisterCallbacks(true);
             }
         }
 
@@ -85,20 +97,37 @@ namespace Oculus.Interaction.HandPosing.Visuals
         {
             if (_started)
             {
-                foreach (ISnapper snapper in _snappers)
-                {
-                    snapper.WhenSnapStarted -= HandleSnapStarted;
-                    snapper.WhenSnapEnded -= HandleSnapEnded;
-                }
+                RegisterCallbacks(false);
             }
         }
 
         private void LateUpdate()
         {
             UpdateHand(_currentSnapper);
-            _syntheticHand.MarkInputDataRequiresUpdate();
+            _modifier.MarkInputDataRequiresUpdate();
         }
 
+        private void RegisterCallbacks(bool register)
+        {
+            if (register)
+            {
+                foreach (ISnapper snapper in _snappers)
+                {
+                    snapper.WhenSnapStarted += HandleSnapStarted;
+                    snapper.WhenSnapEnded += HandleSnapEnded;
+                }
+
+            }
+            else
+            {
+                foreach (ISnapper snapper in _snappers)
+                {
+                    snapper.WhenSnapStarted -= HandleSnapStarted;
+                    snapper.WhenSnapEnded -= HandleSnapEnded;
+                }
+
+            }
+        }
         private void HandleSnapStarted(ISnapper snapper)
         {
             _currentSnapper = snapper;
@@ -111,6 +140,7 @@ namespace Oculus.Interaction.HandPosing.Visuals
                 _currentSnapper = null;
             }
         }
+
 
         private void UpdateHand(ISnapper constrainingSnapper)
         {
@@ -129,25 +159,25 @@ namespace Oculus.Interaction.HandPosing.Visuals
         private void ConstrainingForce(ISnapper snapper, out float fingersConstraint, out float wristConstraint)
         {
             ISnapData snap = snapper.SnapData;
-
             fingersConstraint = wristConstraint = 0;
-            if (snap == null)
+            if (snap == null || snap.HandPose == null)
             {
                 return;
             }
 
             bool isSnapping = snapper.IsSnapping;
 
-            if (isSnapping && snap.SnapType != SnapType.None)
-            {
-                fingersConstraint = snap.HandPose != null ? 1f : 0f;
-                wristConstraint = 1f;
-            }
-            else if (snap.SnapType == SnapType.HandToObject
+            if (snap.SnapType == SnapType.HandToObject
                 || snap.SnapType == SnapType.HandToObjectAndReturn)
             {
-                fingersConstraint = snap.HandPose != null ? snapper.SnapStrength : 0f;
+                fingersConstraint = snapper.SnapStrength;
                 wristConstraint = snapper.SnapStrength;
+            }
+            else if (isSnapping
+                && snap.SnapType == SnapType.ObjectToHand)
+            {
+                fingersConstraint = 1f;
+                wristConstraint = 1f;
             }
 
             if (fingersConstraint >= 1f && !isSnapping)
@@ -165,15 +195,7 @@ namespace Oculus.Interaction.HandPosing.Visuals
         {
             ISnapData snap = snapper.SnapData;
 
-            if (snap == null)
-            {
-                FreeFingers();
-                FreeWrist();
-                return;
-            }
-
-            if (fingersConstraint > 0f
-                && snap.HandPose != null)
+            if (fingersConstraint > 0f)
             {
                 UpdateFingers(snap.HandPose, snapper.SnappingFingers(), fingersConstraint);
                 _areFingersFree = false;
@@ -185,9 +207,9 @@ namespace Oculus.Interaction.HandPosing.Visuals
 
             if (wristConstraint > 0f)
             {
-                Pose wristLocalPose = GetWristPose(snap.WorldSnapPose, snapper.WristToSnapOffset);
-                Pose wristPose = Transformer.ToTrackingPose(wristLocalPose);
-                _syntheticHand.LockWristPose(wristPose, wristConstraint);
+                Pose wristPose = GetWristPose(snap.WorldSnapPose, snapper.WristToGripOffset);
+                wristPose = Transformer.ToTrackingPose(wristPose);
+                _modifier.LockWristPose(wristPose, wristConstraint);
                 _isWristFree = false;
             }
             else
@@ -198,14 +220,14 @@ namespace Oculus.Interaction.HandPosing.Visuals
 
         /// <summary>
         /// Writes the desired rotation values for each joint based on the provided SnapAddress.
-        /// Apart from the rotations it also writes in the syntheticHand if it should allow rotations
+        /// Apart from the rotations it also writes in the modifier if it should allow rotations
         /// past that.
         /// When no snap is provided, it frees all fingers allowing unconstrained tracked motion.
         /// </summary>
         private void UpdateFingers(HandPose handPose, HandFingerFlags grabbingFingers, float strength)
         {
             Quaternion[] desiredRotations = handPose.JointRotations;
-            _syntheticHand.OverrideAllJoints(desiredRotations, strength);
+            _modifier.OverrideAllJoints(desiredRotations, strength);
 
             for (int fingerIndex = 0; fingerIndex < Constants.NUM_FINGERS; fingerIndex++)
             {
@@ -216,15 +238,15 @@ namespace Oculus.Interaction.HandPosing.Visuals
                 {
                     fingerFreedom = JointFreedom.Locked;
                 }
-                _syntheticHand.SetFingerFreedom((HandFinger)fingerIndex, fingerFreedom);
+                _modifier.SetFingerFreedom((HandFinger)fingerIndex, fingerFreedom);
             }
         }
 
-        private Pose GetWristPose(Pose gripPoint, Pose offset)
+        private Pose GetWristPose(Pose gripPoint, Pose wristToGripOffset)
         {
-            Pose wristOffset = offset;
-            wristOffset.Invert();
-            gripPoint.Premultiply(wristOffset);
+            Pose gripToWrist = wristToGripOffset;
+            gripToWrist.Invert();
+            gripPoint.Premultiply(gripToWrist);
             return gripPoint;
         }
 
@@ -232,7 +254,7 @@ namespace Oculus.Interaction.HandPosing.Visuals
         {
             if (!_areFingersFree)
             {
-                _syntheticHand.FreeAllJoints();
+                _modifier.FreeAllJoints();
                 _areFingersFree = true;
                 return true;
             }
@@ -243,29 +265,28 @@ namespace Oculus.Interaction.HandPosing.Visuals
         {
             if (!_isWristFree)
             {
-                _syntheticHand.FreeWrist();
+                _modifier.FreeWrist();
                 _isWristFree = true;
                 return true;
             }
             return false;
         }
-
         #region Inject
-
-        public void InjectAllHandGrabInteractorVisual(List<ISnapper> snappers, SyntheticHand syntheticHand)
-        {
-            InjectSnappers(snappers);
-            InjectSyntheticHand(syntheticHand);
-        }
 
         public void InjectSnappers(List<ISnapper> snappers)
         {
             _snappers = snappers.ConvertAll(mono => mono as MonoBehaviour);
             Snappers = snappers;
         }
-        public void InjectSyntheticHand(SyntheticHand syntheticHand)
+        public void InjectModifier(SyntheticHandModifier modifier)
         {
-            _syntheticHand = syntheticHand;
+            _modifier = modifier;
+        }
+
+        public void InjectAllHandGrabInteractorVisual(List<ISnapper> snappers, SyntheticHandModifier modifier)
+        {
+            InjectSnappers(snappers);
+            InjectModifier(modifier);
         }
 
         #endregion

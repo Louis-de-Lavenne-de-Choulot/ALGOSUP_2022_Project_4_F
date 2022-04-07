@@ -10,8 +10,10 @@ ANY KIND, either express or implied. See the License for the specific language g
 permissions and limitations under the License.
 ************************************************************************************/
 
+using System;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.Serialization;
 
 namespace Oculus.Interaction.Input
 {
@@ -70,7 +72,7 @@ namespace Oculus.Interaction.Input
             {
                 case OVRPlugin.SystemHeadset.Oculus_Quest_2:
                 case OVRPlugin.SystemHeadset.Oculus_Link_Quest_2:
-                    LocalPointerPose = QUEST2_POINTERS[(int)handedness];
+                    LocalPointerPose =  QUEST2_POINTERS[(int)handedness];
                     break;
                 default:
                     LocalPointerPose = QUEST1_POINTERS[(int)handedness];
@@ -79,7 +81,7 @@ namespace Oculus.Interaction.Input
         }
     }
 
-    public class FromOVRControllerDataSource : DataSource<ControllerDataAsset>
+    public class FromOVRControllerDataSource : DataSource<ControllerDataAsset, ControllerDataSourceConfig>
     {
         [Header("OVR Data Source")]
         [SerializeField, Interface(typeof(IOVRCameraRigRef))]
@@ -93,9 +95,9 @@ namespace Oculus.Interaction.Input
         private MonoBehaviour _trackingToWorldTransformer;
         private ITrackingToWorldTransformer TrackingToWorldTransformer;
 
-        [SerializeField, Interface(typeof(IDataSource<HmdDataAsset>))]
+        [SerializeField, Interface(typeof(IDataSource<HmdDataAsset, HmdDataSourceConfig>))]
         private MonoBehaviour _hmdData;
-        private IDataSource<HmdDataAsset> HmdData;
+        private IDataSource<HmdDataAsset, HmdDataSourceConfig> HmdData;
 
         private readonly ControllerDataAsset _controllerDataAsset = new ControllerDataAsset();
         private OVRInput.Controller _ovrController;
@@ -132,10 +134,8 @@ namespace Oculus.Interaction.Input
         protected void Awake()
         {
             TrackingToWorldTransformer = _trackingToWorldTransformer as ITrackingToWorldTransformer;
-            HmdData = _hmdData as IDataSource<HmdDataAsset>;
+            HmdData = _hmdData as IDataSource<HmdDataAsset, HmdDataSourceConfig>;
             CameraRigRef = _cameraRigRef as IOVRCameraRigRef;
-
-            UpdateConfig();
         }
 
         protected override void Start()
@@ -157,38 +157,25 @@ namespace Oculus.Interaction.Input
                 _ovrController = OVRInput.Controller.RTouch;
             }
             _pointerPoseSelector = new OVRPointerPoseSelector(_handedness);
-
-            UpdateConfig();
         }
 
-        private ControllerDataSourceConfig Config
+        private void InitConfig()
         {
-            get
+            if (_config != null)
             {
-                if (_config != null)
-                {
-                    return _config;
-                }
-
-                _config = new ControllerDataSourceConfig()
-                {
-                    Handedness = _handedness
-                };
-
-                return _config;
+                return;
             }
-        }
 
-        private void UpdateConfig()
-        {
-            Config.Handedness = _handedness;
-            Config.TrackingToWorldTransformer = TrackingToWorldTransformer;
-            Config.HmdData = HmdData;
+            _config = new ControllerDataSourceConfig()
+            {
+                Handedness = _handedness,
+                TrackingToWorldTransformer = TrackingToWorldTransformer,
+                HmdData = HmdData
+            };
         }
 
         protected override void UpdateData()
         {
-            _controllerDataAsset.Config = Config;
             var worldToTrackingSpace = CameraRigRef.CameraRig.transform.worldToLocalMatrix;
             Transform ovrController = _ovrControllerAnchor;
 
@@ -247,11 +234,26 @@ namespace Oculus.Interaction.Input
 
         protected override ControllerDataAsset DataAsset => _controllerDataAsset;
 
+        // It is important that this creates an object on the fly, as it is possible it is called
+        // from other components Awake methods.
+        public override ControllerDataSourceConfig Config
+        {
+            get
+            {
+                if (_config == null)
+                {
+                    InitConfig();
+                }
+
+                return _config;
+            }
+        }
+
         #region Inject
 
         public void InjectAllFromOVRControllerDataSource(UpdateModeFlags updateMode, IDataSource updateAfter,
             Handedness handedness, ITrackingToWorldTransformer trackingToWorldTransformer,
-            IDataSource<HmdDataAsset> hmdData)
+            IDataSource<HmdDataAsset, HmdDataSourceConfig> hmdData)
         {
             base.InjectAllDataSource(updateMode, updateAfter);
             InjectHandedness(handedness);
@@ -270,7 +272,7 @@ namespace Oculus.Interaction.Input
             TrackingToWorldTransformer = trackingToWorldTransformer;
         }
 
-        public void InjectHmdData(IDataSource<HmdDataAsset> hmdData)
+        public void InjectHmdData(IDataSource<HmdDataAsset,HmdDataSourceConfig> hmdData)
         {
             _hmdData = hmdData as MonoBehaviour;
             HmdData = hmdData;

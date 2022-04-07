@@ -24,6 +24,8 @@ namespace Oculus.Interaction.Throw
         [SerializeField, Interface(typeof(IController))]
         private MonoBehaviour _controller;
         public IController Controller { get; private set; }
+        [SerializeField]
+        private Transform _trackingSpaceTransform;
 
         public bool IsInputValid =>
             Controller.IsConnected &&
@@ -55,6 +57,7 @@ namespace Oculus.Interaction.Throw
         protected virtual void Start()
         {
             Assert.IsNotNull(_controller);
+            Assert.IsNotNull(_trackingSpaceTransform);
         }
 
         public (Vector3, Vector3) GetExternalVelocities()
@@ -65,15 +68,22 @@ namespace Oculus.Interaction.Throw
         #region Inject
 
         public void InjectAllControllerPoseInputDevice(
-            IController controller)
+            IController controller,
+            Transform trackingSpaceTransform)
         {
             InjectController(controller);
+            InjectTrackingSpaceTransform(trackingSpaceTransform);
         }
 
         public void InjectController(IController controller)
         {
             _controller = controller as MonoBehaviour;
             Controller = controller;
+        }
+
+        public void InjectTrackingSpaceTransform(Transform trackingSpaceTransform)
+        {
+            _trackingSpaceTransform = trackingSpaceTransform;
         }
 
         #endregion

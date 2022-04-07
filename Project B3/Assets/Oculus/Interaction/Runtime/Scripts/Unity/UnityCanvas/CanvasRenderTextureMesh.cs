@@ -27,7 +27,7 @@ namespace Oculus.Interaction.UnityCanvas
         protected CanvasRenderTexture _canvasRenderTexture;
 
         [SerializeField, Optional]
-        protected MeshCollider _meshCollider = null;
+        private MeshCollider _meshCollider = null;
 
         [Tooltip("If non-zero it will cause the position of the canvas to be offset by this amount at runtime, while " +
          "the renderer will remain where it was at edit time. This can be used to prevent the two representations from overlapping.")]
@@ -58,9 +58,8 @@ namespace Oculus.Interaction.UnityCanvas
         {
             Vector3 localToImposter =
                 _imposterFilter.transform.InverseTransformPoint(worldPosition);
-            Vector3 canvasLocalPosition = MeshInverseTransform(localToImposter) /
-                                          _canvasRenderTexture.transform.localScale.x;
-            Vector3 transformedWorldPosition = _canvasRenderTexture.transform.TransformPoint(canvasLocalPosition);
+            Vector3 canvasLocalPosition = MeshInverseTransform(localToImposter);
+            Vector3 transformedWorldPosition = _canvasRenderTexture.transform.TransformPoint(canvasLocalPosition / _canvasRenderTexture.transform.lossyScale.x);
             return transformedWorldPosition;
         }
 
@@ -127,7 +126,7 @@ namespace Oculus.Interaction.UnityCanvas
             UpdateImposter();
         }
 
-        protected virtual void UpdateImposter()
+        protected void UpdateImposter()
         {
             Profiler.BeginSample("InterfaceRenderer.UpdateImposter");
             try

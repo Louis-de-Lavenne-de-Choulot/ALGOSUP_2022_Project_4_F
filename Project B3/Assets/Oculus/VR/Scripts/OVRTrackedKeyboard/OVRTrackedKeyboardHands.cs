@@ -197,6 +197,8 @@ public class OVRTrackedKeyboardHands : MonoBehaviour
 
 	private void Start()
 	{
+		enabled = false;
+
 		cameraRig_ = FindObjectOfType<OVRCameraRig>();
 		leftHand_ = cameraRig_.leftHandAnchor.GetComponentInChildren<OVRHand>();
 		rightHand_ = cameraRig_.rightHandAnchor.GetComponentInChildren<OVRHand>();
@@ -226,9 +228,8 @@ public class OVRTrackedKeyboardHands : MonoBehaviour
 		leftHand.SetActive(false);
 		rightHand.SetActive(false);
 
-#if !UNITY_EDITOR  // Initialized in LateUpdate() in editor
+#if !UNITY_EDITOR  // GameObject trees for hands only available on-device
 		RetargetHandTrackingToHandPresence();
-		enabled = false;
 #endif
 	}
 
@@ -237,20 +238,6 @@ public class OVRTrackedKeyboardHands : MonoBehaviour
 
 	private void LateUpdate()
 	{
-#if UNITY_EDITOR
-		if (!handPresenceInitialized_)
-		{
-			if (leftHandSkeleton_.IsInitialized && rightHandSkeleton_.IsInitialized)
-			{
-				RetargetHandTrackingToHandPresence();
-			}
-			else
-			{
-				return;
-			}
-		}
-#endif
-
 		if (AreControllersActive)
 		{
 			DisableHandObjects();
@@ -505,7 +492,7 @@ public class OVRTrackedKeyboardHands : MonoBehaviour
 					$"[tracked_keyboard] - unhandled state: TrackedKeyboardVisibilityChanged {e.State}"
 				);
 		}
-	}
+}
 
 	public struct TrackedKeyboardHandsVisibilityChangedEvent
 	{

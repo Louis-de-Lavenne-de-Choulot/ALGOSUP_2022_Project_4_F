@@ -36,11 +36,6 @@ namespace Oculus.Interaction.HandPosing
         private HandPose _handPose = new HandPose();
         private Pose _snapPoint;
 
-        public void Set(SnapAddress<TSnappable> other)
-        {
-            Set(other.Interactable, other.HandPose, other._snapPoint, other.SnappedToPinch);
-        }
-
         public void Set(TSnappable snapInteractable, HandPose pose, in Pose snapPoint, bool usedPinchPoint)
         {
             Interactable = snapInteractable;

@@ -10,11 +10,35 @@ ANY KIND, either express or implied. See the License for the specific language g
 permissions and limitations under the License.
 ************************************************************************************/
 
-using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-namespace Oculus.Interaction.Deprecated
+namespace Oculus.Interaction
 {
-    [Obsolete]
-    public class SnapPoint : MonoBehaviour { }
+    public class SnapPoint : MonoBehaviour
+    {
+        [SerializeField, Optional]
+        private Collider _collider;
+        public Collider Collider => _collider;
+
+        [SerializeField]
+        private float _distanceThreshold;
+        public float DistanceThreshold => _distanceThreshold;
+
+        #region Inject
+
+        public void InjectOptionalCollider(Collider collider)
+        {
+            _collider = collider;
+        }
+
+        public void InjectOptionalDistanceThreshold(float distanceThreshold)
+        {
+            _distanceThreshold = distanceThreshold;
+        }
+
+        #endregion
+    }
 }

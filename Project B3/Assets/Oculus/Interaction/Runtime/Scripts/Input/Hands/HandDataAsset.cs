@@ -32,7 +32,6 @@ namespace Oculus.Interaction.Input
         public Pose PointerPose;
         public PoseOrigin PointerPoseOrigin;
         public bool IsDominantHand;
-        public HandDataSourceConfig Config = new HandDataSourceConfig();
 
         public bool IsDataValidAndConnected => IsDataValid && IsConnected;
 
@@ -43,7 +42,6 @@ namespace Oculus.Interaction.Input
             IsTracked = source.IsTracked;
             IsHighConfidence = source.IsHighConfidence;
             IsDominantHand = source.IsDominantHand;
-            Config = source.Config;
             CopyPosesFrom(source);
         }
 
@@ -59,7 +57,6 @@ namespace Oculus.Interaction.Input
             HandScale = source.HandScale;
             PointerPose = source.PointerPose;
             PointerPoseOrigin = source.PointerPoseOrigin;
-            Config = source.Config;
         }
     }
 }

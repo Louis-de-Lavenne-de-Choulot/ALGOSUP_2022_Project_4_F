@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Car : NPC
+public class Car : MonoBehaviour
 {
 
     // public AudioClip _engine;
@@ -17,7 +17,6 @@ public class Car : NPC
     //     Engine.clip = _engine;
     //     Honk.clip = _honk;
     // }
-    
     // void LateUpdate()
     // {
     //     if (anim.GetBool("IsMoving") && !Engine.isPlaying)

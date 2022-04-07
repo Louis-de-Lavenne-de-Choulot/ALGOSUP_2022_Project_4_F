@@ -114,7 +114,7 @@ namespace Oculus.Interaction.PoseDetection
         {
             if (_started)
             {
-                Hand.WhenHandUpdated += HandDataAvailable;
+                Hand.HandUpdated += HandDataAvailable;
                 ReadStateThresholds();
             }
         }
@@ -123,7 +123,7 @@ namespace Oculus.Interaction.PoseDetection
         {
             if (_started)
             {
-                Hand.WhenHandUpdated -= HandDataAvailable;
+                Hand.HandUpdated -= HandDataAvailable;
                 _handJointPoses = ReadOnlyHandJointPoses.Empty;
             }
         }

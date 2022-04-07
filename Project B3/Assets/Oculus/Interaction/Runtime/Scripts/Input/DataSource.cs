@@ -13,6 +13,7 @@ permissions and limitations under the License.
 using System;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.Serialization;
 
 namespace Oculus.Interaction.Input
 {
@@ -23,12 +24,13 @@ namespace Oculus.Interaction.Input
         event Action InputDataAvailable;
     }
 
-    public interface IDataSource<TData> : IDataSource
+    public interface IDataSource<TData, TConfig> : IDataSource
     {
         TData GetData();
+        TConfig Config { get; }
     }
 
-    public abstract class DataSource<TData> : MonoBehaviour, IDataSource<TData>
+    public abstract class DataSource<TData, TConfig> : MonoBehaviour, IDataSource<TData, TConfig>
         where TData : class, ICopyFrom<TData>, new()
     {
         public bool Started { get; private set; }
@@ -151,7 +153,7 @@ namespace Oculus.Interaction.Input
 
         protected bool RequiresUpdate()
         {
-            return _requiresUpdate;
+            return Started && _requiresUpdate && isActiveAndEnabled;
         }
 
         /// <summary>
@@ -174,6 +176,9 @@ namespace Oculus.Interaction.Input
         /// Null if no call to GetData has been made since this data source was initialized.
         /// </returns>
         protected abstract TData DataAsset { get; }
+
+        public abstract TConfig Config { get; }
+
 
         #region Inject
         public void InjectAllDataSource(UpdateModeFlags updateMode, IDataSource updateAfter)

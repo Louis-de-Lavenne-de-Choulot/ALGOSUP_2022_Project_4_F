@@ -18,14 +18,14 @@ namespace Oculus.Interaction.Input
 {
     public class HandSkeletonOVR : MonoBehaviour, IHandSkeletonProvider
     {
-        private readonly HandSkeleton[] _skeletons = { new HandSkeleton(), new HandSkeleton() };
+        private readonly HandSkeleton[] _skeletons = { null, null };
 
         public HandSkeleton this[Handedness handedness] => _skeletons[(int)handedness];
 
         protected void Awake()
         {
-            ApplyToSkeleton(OVRSkeletonData.LeftSkeleton, _skeletons[0]);
-            ApplyToSkeleton(OVRSkeletonData.RightSkeleton, _skeletons[1]);
+            _skeletons[0] = CreateSkeletonData(Handedness.Left);
+            _skeletons[1] = CreateSkeletonData(Handedness.Right);
         }
 
         public static HandSkeleton CreateSkeletonData(Handedness handedness)

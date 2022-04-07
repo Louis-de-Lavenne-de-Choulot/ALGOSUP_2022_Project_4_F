@@ -15,7 +15,6 @@ using System.Linq;
 using System.Reflection;
 using UnityEngine;
 using UnityEditor;
-using System.Collections.Generic;
 
 namespace Oculus.Interaction.InterfaceSupport
 {
@@ -37,8 +36,6 @@ namespace Oculus.Interaction.InterfaceSupport
                 EditorGUI.LabelField(position, label.text, "InterfaceType Attribute can only be used with MonoBehaviour Components.");
                 return;
             }
-
-            EditorGUI.BeginProperty(position, label, property);
 
             Type[] attTypes = GetInterfaceTypes(property);
 
@@ -63,8 +60,7 @@ namespace Oculus.Interaction.InterfaceSupport
                 }
             }
 
-            Component currentComponent = EditorGUI.ObjectField(position, label, oldComponent, typeof(Component), true) as Component;
-            MonoBehaviour currentMono = currentComponent as MonoBehaviour;
+            MonoBehaviour currentComponent = EditorGUI.ObjectField(position, label, oldComponent, typeof(MonoBehaviour), true) as MonoBehaviour;
 
             if (Event.current.type == EventType.Repaint)
             {
@@ -75,57 +71,35 @@ namespace Oculus.Interaction.InterfaceSupport
             }
 
             // If a component is assigned, make sure it is the interface we are looking for.
-            if (currentMono != null)
+            if (currentComponent != null)
             {
                 // Make sure component is of the right interface
-                if (!IsAssignableFromTypes(currentMono.GetType(), attTypes))
+                if(!IsAssignableFromTypes(currentComponent.GetType(), attTypes))
                     // Component failed. Check game object.
                     foreach (Type attType in attTypes)
                     {
-                        currentMono = currentMono.gameObject.GetComponent(attType) as MonoBehaviour;
-                        if (currentMono == null)
+                        currentComponent = currentComponent.gameObject.GetComponent(attType) as MonoBehaviour;
+                        if (currentComponent == null)
                         {
                             break;
                         }
                     }
 
                 // Item failed test. Do not override old component
-                if (currentMono == null)
+                if (currentComponent == null)
                 {
                     if (oldComponent != null && !IsAssignableFromTypes(oldComponent.GetType(), attTypes))
                     {
                         temporaryGameObject = new GameObject("None (" + attTypesName + ")");
                         MonoBehaviour temporaryComponent = temporaryGameObject.AddComponent<InterfaceMono>();
-                        currentMono = EditorGUI.ObjectField(position, label, temporaryComponent, typeof(MonoBehaviour), true) as MonoBehaviour;
+                        currentComponent = EditorGUI.ObjectField(position, label, temporaryComponent, typeof(MonoBehaviour), true) as MonoBehaviour;
                         GameObject.DestroyImmediate(temporaryGameObject);
                     }
                 }
             }
-            else if (currentComponent is Transform)
-            {
-                // If assigned component is a Transform, this means a GameObject was dragged into the property field.
-                // Find all matching components on the transform's GameObject and open the picker window.
 
-                List<MonoBehaviour> monos = new List<MonoBehaviour>();
-                monos.AddRange(currentComponent.gameObject.GetComponents<MonoBehaviour>().
-                    Where((mono) => IsAssignableFromTypes(mono.GetType(), attTypes)));
-
-                if (monos.Count > 1)
-                {
-                    EditorApplication.delayCall += () => InterfacePicker.Show(property, monos);
-                }
-                else
-                {
-                    currentMono = monos.Count == 1 ? monos[0] : null;
-                }
-            }
-
-            if (currentComponent == null || currentMono != null)
-            {
-                property.objectReferenceValue = currentMono;
-            }
-
-            EditorGUI.EndProperty();
+            property.objectReferenceValue = currentComponent;
+            property.serializedObject.ApplyModifiedProperties();
         }
 
         private bool IsAssignableFromTypes(Type source, Type[] targets)
@@ -197,7 +171,7 @@ namespace Oculus.Interaction.InterfaceSupport
             return t ?? singleMonoBehaviourType;
         }
 
-        private static readonly Type[] singleMonoBehaviourType = new Type[1] { typeof(MonoBehaviour) };
+        private static readonly Type[] singleMonoBehaviourType = new Type[1] {typeof(MonoBehaviour)};
     }
 
 

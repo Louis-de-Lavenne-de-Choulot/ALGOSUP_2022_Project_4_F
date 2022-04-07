@@ -37,13 +37,13 @@ namespace Facebook.WitAi.CallbackHandlers
             {
                 if (handler.wit is IWitRuntimeConfigProvider provider && null != provider.RuntimeConfiguration && provider.RuntimeConfiguration.witConfiguration)
                 {
-                    provider.RuntimeConfiguration.witConfiguration.RefreshData();
+                    provider.RuntimeConfiguration.witConfiguration.UpdateData();
                     intentNames = provider.RuntimeConfiguration.witConfiguration.intents.Select(i => i.name).ToArray();
                     intentIndex = Array.IndexOf(intentNames, handler.intent);
                 }
             }
 
-            WitEditorUI.LayoutSerializedObjectPopup(serializedObject, "intent",
+            WitEditorUI.FallbackPopup(serializedObject, "intent",
                 intentNames, ref intentIndex);
 
 

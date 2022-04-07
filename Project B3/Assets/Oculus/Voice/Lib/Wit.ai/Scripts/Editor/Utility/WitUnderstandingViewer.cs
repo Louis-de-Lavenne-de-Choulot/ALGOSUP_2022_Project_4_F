@@ -12,13 +12,12 @@ using Facebook.WitAi.Configuration;
 using Facebook.WitAi.Data;
 using Facebook.WitAi.Data.Configuration;
 using Facebook.WitAi.Lib;
-using Facebook.WitAi.Utilities;
 using UnityEditor;
 using UnityEngine;
 
-namespace Facebook.WitAi.Windows
+namespace Facebook.WitAi.Utilities
 {
-    public class WitUnderstandingViewer : WitConfigurationWindow
+    public class WitUnderstandingViewer : BaseWitWindow
     {
         [SerializeField] private Texture2D witHeader;
         [SerializeField] private string responseText;
@@ -26,6 +25,7 @@ namespace Facebook.WitAi.Windows
         private WitResponseNode response;
         private Dictionary<string, bool> foldouts;
 
+        private Vector2 scroll;
         private DateTime submitStart;
         private TimeSpan requestLength;
         private string status;
@@ -54,8 +54,32 @@ namespace Facebook.WitAi.Windows
             }
         }
 
-        protected override GUIContent Title => WitStyles.UnderstandingTitleContent;
-        protected override WitStyles.WitAppEndpointType HeaderEndpointType => WitStyles.WitAppEndpointType.Understanding;
+        static void Init()
+        {
+            BaseWitWindow.RefreshConfigList();
+            bool hasConfig = false;
+            for (int i = 0; i < witConfigs.Length; i++)
+            {
+                if (!string.IsNullOrEmpty(witConfigs[i].clientAccessToken))
+                {
+                    hasConfig = true;
+                    break;
+                }
+            }
+            if (hasConfig)
+            {
+                WitUnderstandingViewer window =
+                    EditorWindow.GetWindow(
+                        typeof(WitUnderstandingViewer)) as WitUnderstandingViewer;
+                window.titleContent = new GUIContent("Understanding Viewer", WitStyles.WitIcon);
+                window.autoRepaintOnSceneChange = true;
+                window.Show();
+            }
+            else
+            {
+                WitWelcomeWizard.ShowWizard(Init);
+            }
+        }
 
         protected override void OnEnable()
         {
@@ -66,7 +90,8 @@ namespace Facebook.WitAi.Windows
             {
                 response = WitResponseNode.Parse(responseText);
             }
-            status = WitStyles.Texts.UnderstandingViewerPromptLabel;
+
+            status = "Enter an utterance and hit Send to see what your app will return.";
         }
 
         protected override void OnDisable()
@@ -138,43 +163,37 @@ namespace Facebook.WitAi.Windows
             Repaint();
         }
 
-        // On gui
-        protected override void OnGUI()
+        protected override void OnDrawContent()
         {
-            base.OnGUI();
-            WitEditorUI.LayoutStatusLabel(status);
-        }
-
-        protected override void LayoutContent()
-        {
-            // Layout wit select
-            base.LayoutContent();
-
-            // Need configuration
-            if (!witConfiguration)
+            if (!witConfiguration || witConfigs.Length > 1)
             {
-                WitEditorUI.LayoutErrorLabel(WitStyles.Texts.UnderstandingViewerMissingConfigLabel);
-                return;
-            }
-            // Need app id
-            string appID = WitConfigurationUtility.GetAppID(witConfiguration);
-            if (string.IsNullOrEmpty(appID))
-            {
-                WitEditorUI.LayoutErrorLabel(WitStyles.Texts.UnderstandingViewerNoAppLabel);
-                GUILayout.BeginHorizontal();
-                GUILayout.FlexibleSpace();
-                if (WitEditorUI.LayoutTextButton(WitStyles.Texts.UnderstandingViewerSettingsButtonLabel))
+                DrawWitConfigurationPopup();
+
+                if (!witConfiguration)
                 {
+                    GUILayout.Label(
+                        "A Wit configuration must be available and selected to test utterances.", EditorStyles.helpBox);
+                    return;
+                }
+            }
+
+            if (string.IsNullOrEmpty(witConfiguration.clientAccessToken))
+            {
+                GUILayout.Label(
+                    "Your wit configuration has not yet been linked to a wit application. Make sure you have linked your account with Wit.ai.", WitStyles.WordwrappedLabel);
+
+                if (GUILayout.Button("Select Configuration"))
+                {
+                    EditorGUIUtility.PingObject(witConfiguration);
                     Selection.activeObject = witConfiguration;
                 }
-                GUILayout.EndHorizontal();
                 return;
             }
-            bool updated = false;
-            WitEditorUI.LayoutTextField(new GUIContent(WitStyles.Texts.UnderstandingViewerUtteranceLabel), ref utterance, ref updated);
+
+            utterance = EditorGUILayout.TextField("Utterance", utterance);
             GUILayout.BeginHorizontal();
             GUILayout.FlexibleSpace();
-            if (WitEditorUI.LayoutTextButton(WitStyles.Texts.UnderstandingViewerSubmitButtonLabel) && (null == request || !request.IsActive))
+            if (GUILayout.Button("Send", GUILayout.Width(75)) && (null == request || !request.IsActive))
             {
                 responseText = "";
                 if (!string.IsNullOrEmpty(utterance))
@@ -189,47 +208,60 @@ namespace Facebook.WitAi.Windows
 
             if (EditorApplication.isPlaying && wit)
             {
-                if (!wit.Active && WitEditorUI.LayoutTextButton(WitStyles.Texts.UnderstandingViewerActivateButtonLabel))
+                if (!wit.Active && GUILayout.Button("Activate", GUILayout.Width(75)))
                 {
                     wit.Activate();
                 }
 
-                if (wit.Active && WitEditorUI.LayoutTextButton(WitStyles.Texts.UnderstandingViewerDeactivateButtonLabel))
+                if (wit.Active && GUILayout.Button("Deactivate", GUILayout.Width(75)))
                 {
                     wit.Deactivate();
                 }
 
-                if (wit.Active && WitEditorUI.LayoutTextButton(WitStyles.Texts.UnderstandingViewerAbortButtonLabel))
+                if (wit.Active && GUILayout.Button("Abort", GUILayout.Width(75)))
                 {
                     wit.DeactivateAndAbortRequest();
                 }
             }
+
             GUILayout.EndHorizontal();
 
-            // Results
-            GUILayout.BeginVertical(EditorStyles.helpBox);
             if (wit && wit.MicActive)
             {
-                WitEditorUI.LayoutWrapLabel(WitStyles.Texts.UnderstandingViewerListeningLabel);
+                BeginCenter();
+                GUILayout.Label("Listening...");
+                EndCenter();
             }
             else if (wit && wit.IsRequestActive)
             {
-                WitEditorUI.LayoutWrapLabel(WitStyles.Texts.UnderstandingViewerLoadingLabel);
+                BeginCenter();
+                GUILayout.Label("Loading...");
+                EndCenter();
             }
-            else if (response != null)
+            else if (null != response)
             {
+                GUILayout.BeginVertical(EditorStyles.helpBox, GUILayout.ExpandHeight(true));
                 DrawResponse();
-            }
-            else if (string.IsNullOrEmpty(responseText))
-            {
-                WitEditorUI.LayoutWrapLabel(WitStyles.Texts.UnderstandingViewerPromptLabel);
+                GUILayout.EndVertical();
             }
             else
             {
-                WitEditorUI.LayoutWrapLabel(responseText);
+                GUILayout.BeginVertical(EditorStyles.helpBox);
+                if (!string.IsNullOrEmpty(responseText))
+                {
+                    GUILayout.Label(responseText);
+                }
+                else
+                {
+                    GUILayout.Label(
+                        "Enter an utterance and hit Send to see what your app will return.");
+                }
+
+                GUILayout.EndVertical();
             }
+
             GUILayout.FlexibleSpace();
-            GUILayout.EndVertical();
+            GUILayout.Label(status, WitStyles.BackgroundBlack25P);
         }
 
         private void SubmitUtterance()
@@ -239,13 +271,8 @@ namespace Facebook.WitAi.Windows
                 SetDefaultWit();
             }
 
-            // Remove response
-            response = null;
-
             if (wit && Application.isPlaying)
             {
-                status = WitStyles.Texts.UnderstandingViewerListeningLabel;
-                responseText = status;
                 wit.Activate(utterance);
                 // Hack to watch for loading to complete. Response does not
                 // come back on the main thread so Repaint in onResponse in
@@ -254,21 +281,15 @@ namespace Facebook.WitAi.Windows
             }
             else
             {
-                status = WitStyles.Texts.UnderstandingViewerLoadingLabel;
-                responseText = status;
+                // Hack to watch for loading to complete. Response does not
+                // come back on the main thread so Repaint in onResponse in
+                // the editor does nothing.
+                EditorApplication.update += WatchForResponse;
+
                 submitStart = System.DateTime.Now;
                 request = witConfiguration.MessageRequest(utterance, new WitRequestOptions());
                 request.onResponse = OnResponse;
                 request.Request();
-            }
-        }
-
-        private void WatchForWitResponse()
-        {
-            if (wit && !wit.Active)
-            {
-                Repaint();
-                EditorApplication.update -= WatchForWitResponse;
             }
         }
 
@@ -292,6 +313,7 @@ namespace Facebook.WitAi.Windows
             {
                 responseText = "No response. Status: " + request.StatusCode;
             }
+            Repaint();
         }
 
         private void ShowResponse(WitResponseNode r)
@@ -302,9 +324,29 @@ namespace Facebook.WitAi.Windows
             status = $"Response time: {requestLength}";
         }
 
+        private void WatchForResponse()
+        {
+            if (null == request || !request.IsActive)
+            {
+                Repaint();
+                EditorApplication.update -= WatchForResponse;
+            }
+        }
+
+        private void WatchForWitResponse()
+        {
+            if (wit && !wit.Active)
+            {
+                Repaint();
+                EditorApplication.update -= WatchForResponse;
+            }
+        }
+
         private void DrawResponse()
         {
+            scroll = GUILayout.BeginScrollView(scroll);
             DrawResponseNode(response);
+            GUILayout.EndScrollView();
         }
 
         private void DrawResponseNode(WitResponseNode witResponseNode, string path = "")
@@ -327,10 +369,6 @@ namespace Facebook.WitAi.Windows
 
         private void DrawNode(WitResponseNode childNode, string child, string path, bool isArrayElement = false)
         {
-            if (childNode == null)
-            {
-                return;
-            }
             string childPath;
 
             if (path.Length > 0)

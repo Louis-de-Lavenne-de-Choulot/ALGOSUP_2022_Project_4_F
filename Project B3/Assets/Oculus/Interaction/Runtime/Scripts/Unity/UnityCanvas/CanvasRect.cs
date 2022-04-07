@@ -47,15 +47,11 @@ namespace Oculus.Interaction.UnityCanvas
             uvs = new List<Vector2>();
 
             var resolution = _canvasRenderTexture.GetBaseResolutionToUse();
-            Vector2 worldSize = new Vector2(
-                _canvasRenderTexture.PixelsToUnits(Mathf.RoundToInt(resolution.x)),
-                _canvasRenderTexture.PixelsToUnits(Mathf.RoundToInt(resolution.y))
-                ) / transform.lossyScale;
 
-            float xPos = worldSize.x * 0.5f;
+            float xPos = _canvasRenderTexture.PixelsToUnits(Mathf.RoundToInt(resolution.x)) * 0.5f;
             float xNeg = -xPos;
 
-            float yPos = worldSize.y * 0.5f;
+            float yPos = _canvasRenderTexture.PixelsToUnits(Mathf.RoundToInt(resolution.y)) * 0.5f;
             float yNeg = -yPos;
 
             verts.Add(new Vector3(xNeg, yNeg, 0));

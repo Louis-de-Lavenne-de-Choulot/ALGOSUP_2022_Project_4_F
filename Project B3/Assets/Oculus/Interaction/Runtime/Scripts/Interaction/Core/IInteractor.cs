@@ -11,7 +11,6 @@ permissions and limitations under the License.
 ************************************************************************************/
 
 using System;
-using UnityEngine;
 
 namespace Oculus.Interaction
 {
@@ -24,7 +23,7 @@ namespace Oculus.Interaction
     /// <summary>
     /// IInteractorView defines the view for an object that can interact with other objects.
     /// </summary>
-    public interface IInteractorView : IComponent
+    public interface IInteractorView
     {
         int Identifier { get; }
         bool HasInteractable { get; }

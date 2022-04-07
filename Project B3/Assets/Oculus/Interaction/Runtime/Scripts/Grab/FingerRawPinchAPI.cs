@@ -24,7 +24,8 @@ namespace Oculus.Interaction.GrabAPI
 
             public float PinchStrength;
             public bool IsPinching;
-            public bool IsPinchingChanged { get; private set; }
+            public bool IsPinchingChanged;
+
             public Vector3 TipPosition { get; private set; }
 
             public FingerPinchData(HandFinger fingerId)
@@ -45,16 +46,8 @@ namespace Oculus.Interaction.GrabAPI
             {
                 PinchStrength = hand.GetFingerPinchStrength(_finger);
                 bool isPinching = hand.GetFingerIsPinching(_finger);
-                if(isPinching != IsPinching)
-                {
-                    IsPinchingChanged = true;
-                }
+                IsPinchingChanged = isPinching != IsPinching;
                 IsPinching = isPinching;
-            }
-
-            public void ClearState()
-            {
-                IsPinchingChanged = false;
             }
         }
 
@@ -105,19 +98,11 @@ namespace Oculus.Interaction.GrabAPI
 
         public void Update(IHand hand)
         {
-            ClearState();
             for (int i = 0; i < Constants.NUM_FINGERS; ++i)
             {
                 _fingersPinchData[i].UpdateIsPinching(hand);
             }
-        }
 
-        private void ClearState()
-        {
-            for (int i = 0; i < Constants.NUM_FINGERS; ++i)
-            {
-                _fingersPinchData[i].ClearState();
-            }
         }
     }
 }

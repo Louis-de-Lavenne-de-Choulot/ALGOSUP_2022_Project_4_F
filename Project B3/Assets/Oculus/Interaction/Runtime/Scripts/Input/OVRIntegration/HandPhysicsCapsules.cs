@@ -13,6 +13,7 @@ permissions and limitations under the License.
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.Serialization;
 
 namespace Oculus.Interaction.Input
 {

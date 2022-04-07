@@ -20,13 +20,16 @@ namespace Oculus.Interaction.Editor
     [CustomEditor(typeof(HandWristOffset))]
     public class HandWristOffsetEditor : UnityEditor.Editor
     {
+        private Transform _gripPoint;
         private HandWristOffset _wristOffset;
 
         private SerializedProperty _offsetPositionProperty;
         private SerializedProperty _rotationProperty;
-        private SerializedProperty _relativeTransformProperty;
+        private SerializedProperty _handProperty;
 
         private Pose _cachedPose;
+
+        private const float THICKNESS = 2f;
 
         private void Awake()
         {
@@ -34,42 +37,30 @@ namespace Oculus.Interaction.Editor
 
             _offsetPositionProperty = serializedObject.FindProperty("_offset");
             _rotationProperty = serializedObject.FindProperty("_rotation");
-            _relativeTransformProperty = serializedObject.FindProperty("_relativeTransform");
+            _handProperty = serializedObject.FindProperty("_hand");
         }
 
         public override void OnInspectorGUI()
         {
             base.OnInspectorGUI();
 
-            _offsetPositionProperty.vector3Value = EditorGUILayout.Vector3Field("Offset", _offsetPositionProperty.vector3Value);
-            Vector3 euler = EditorGUILayout.Vector3Field("Rotation", _rotationProperty.quaternionValue.eulerAngles);
-            _rotationProperty.quaternionValue = Quaternion.Euler(euler);
-
-            EditorGUILayout.PropertyField(_relativeTransformProperty);
-            Transform gripPoint = _relativeTransformProperty.objectReferenceValue as Transform;
-            if (gripPoint != null)
+            Transform point = EditorGUILayout.ObjectField("Optional Calculate Offset To", _gripPoint, typeof(Transform), true) as Transform;
+            if (point != _gripPoint)
             {
-                Pose offset;
-                if (gripPoint != _wristOffset.transform)
+                _gripPoint = point;
+                if (_gripPoint != null)
                 {
-                    offset = _wristOffset.transform.RelativeOffset(gripPoint);
+                    Pose offset = _wristOffset.transform.RelativeOffset(_gripPoint);
+                    _rotationProperty.quaternionValue = FromOVRHandDataSource.WristFixupRotation * offset.rotation;
+                    _offsetPositionProperty.vector3Value = FromOVRHandDataSource.WristFixupRotation * offset.position;
+                    serializedObject.ApplyModifiedProperties();
                 }
-                else
-                {
-                    offset = _wristOffset.transform.GetPose(Space.Self);
-                }
-                _rotationProperty.quaternionValue = FromOVRHandDataSource.WristFixupRotation * offset.rotation;
-                _offsetPositionProperty.vector3Value = FromOVRHandDataSource.WristFixupRotation * offset.position;
             }
-
-            serializedObject.ApplyModifiedProperties();
         }
 
         private void OnSceneGUI()
         {
-            _cachedPose.position = _wristOffset.Offset;
-            _cachedPose.rotation = _wristOffset.Rotation;
-
+            GetEditorOffset(ref _cachedPose);
             Pose wristPose = _wristOffset.transform.GetPose();
             wristPose.rotation = wristPose.rotation * FromOVRHandDataSource.WristFixupRotation;
             _cachedPose.Postmultiply(wristPose);
@@ -82,11 +73,11 @@ namespace Oculus.Interaction.Editor
 
 #if UNITY_2020_2_OR_NEWER
             Handles.color = Color.red;
-            Handles.DrawLine(pose.position, pose.position + pose.right * scale, EditorConstants.LINE_THICKNESS);
+            Handles.DrawLine(pose.position, pose.position + pose.right * scale, THICKNESS);
             Handles.color = Color.green;
-            Handles.DrawLine(pose.position, pose.position + pose.up * scale, EditorConstants.LINE_THICKNESS);
+            Handles.DrawLine(pose.position, pose.position + pose.up * scale, THICKNESS);
             Handles.color = Color.blue;
-            Handles.DrawLine(pose.position, pose.position + pose.forward * scale, EditorConstants.LINE_THICKNESS);
+            Handles.DrawLine(pose.position, pose.position + pose.forward * scale, THICKNESS);
 #else
             Handles.color = Color.red;
             Handles.DrawLine(pose.position, pose.position + pose.right * scale);
@@ -95,6 +86,22 @@ namespace Oculus.Interaction.Editor
             Handles.color = Color.blue;
             Handles.DrawLine(pose.position, pose.position + pose.forward * scale);
 #endif
+        }
+
+        private void GetEditorOffset(ref Pose pose)
+        {
+            pose.position = _offsetPositionProperty.vector3Value;
+            pose.rotation = _rotationProperty.quaternionValue;
+
+            IHand hand = _handProperty?.objectReferenceValue as IHand;
+            if (hand != null)
+            {
+                if (hand.Handedness == Handedness.Left)
+                {
+                    pose.position = -pose.position;
+                    pose.rotation = Quaternion.Inverse(pose.rotation);
+                }
+            }
         }
     }
 }

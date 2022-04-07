@@ -13,6 +13,7 @@ permissions and limitations under the License.
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 namespace Oculus.Interaction.Input
 {
@@ -20,32 +21,27 @@ namespace Oculus.Interaction.Input
     // Rather than sourcing data directly from the runtime layer, provides one
     // level of abstraction so that the aforementioned data can be injected
     // from other sources.
-    public class Hand : DataModifier<HandDataAsset>, IHand
+    public class Hand : DataModifier<HandDataAsset, HandDataSourceConfig>, IHand
     {
         [SerializeField]
-        [Tooltip(
-            "Provides access to additional functionality on top of what the IHand interface provides." +
-            "For example, this list can be used to provide access to the SkinnedMeshRenderer through " +
-            "the IHand.GetHandAspect method.")]
+        [Tooltip("Provides access to additional functionality on top of what the IHand interface provides." +
+                 "For example, this list can be used to provide access to the SkinnedMeshRenderer through " +
+                 "the IHand.GetHandAspect method.")]
         private Component[] _aspects;
 
         public IReadOnlyList<Component> Aspects => _aspects;
 
-        public Handedness Handedness => GetData().Config.Handedness;
-
         public ITrackingToWorldTransformer TrackingToWorldTransformer =>
-            GetData().Config.TrackingToWorldTransformer;
-
-        public HandSkeleton HandSkeleton => GetData().Config.HandSkeleton;
-        public IDataSource<HmdDataAsset> HmdData => GetData().Config.HmdData;
+            Config.TrackingToWorldTransformer;
 
         private HandJointCache _jointPosesCache;
 
-        public event Action WhenHandUpdated = delegate { };
+        public event Action HandUpdated = delegate { };
 
         public bool IsConnected => GetData().IsDataValidAndConnected;
         public bool IsHighConfidence => GetData().IsHighConfidence;
         public bool IsDominantHand => GetData().IsDominantHand;
+        public Handedness Handedness => Config.Handedness;
         public float Scale => GetData().HandScale * TrackingToWorldTransformer.Transform.localScale.x;
 
         private static readonly Vector3 PALM_LOCAL_OFFSET = new Vector3(0.08f, -0.01f, 0.0f);
@@ -62,7 +58,7 @@ namespace Oculus.Interaction.Input
             if (Started)
             {
                 InitializeJointPosesCache();
-                WhenHandUpdated.Invoke();
+                HandUpdated.Invoke();
             }
         }
 
@@ -70,7 +66,7 @@ namespace Oculus.Interaction.Input
         {
             if (_jointPosesCache == null && GetData().IsDataValidAndConnected)
             {
-                _jointPosesCache = new HandJointCache(HandSkeleton);
+                _jointPosesCache = new HandJointCache(Config.HandSkeleton);
             }
         }
 
@@ -196,11 +192,11 @@ namespace Oculus.Interaction.Input
             return ValidatePose(currentData.Root, currentData.RootPoseOrigin, out pose);
         }
 
-        public bool IsCenterEyePoseValid => HmdData.GetData().IsTracked;
+        public bool IsCenterEyePoseValid => Config.HmdData.GetData().IsTracked;
 
         public bool GetCenterEyePose(out Pose pose)
         {
-            HmdDataAsset hmd = HmdData.GetData();
+            HmdDataAsset hmd = Config.HmdData.GetData();
             if (!hmd.IsTracked)
             {
                 pose = new Pose();
@@ -261,7 +257,7 @@ namespace Oculus.Interaction.Input
         #region Inject
 
         public void InjectAllHand(UpdateModeFlags updateMode, IDataSource updateAfter,
-            DataModifier<HandDataAsset> modifyDataFromSource, bool applyModifier,
+            DataModifier<HandDataAsset, HandDataSourceConfig> modifyDataFromSource, bool applyModifier,
             Component[] aspects)
         {
             base.InjectAllDataModifier(updateMode, updateAfter, modifyDataFromSource, applyModifier);

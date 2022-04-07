@@ -22,34 +22,15 @@ namespace Oculus.Interaction.HandPosing
     /// </summary>
     public class GrabPointsPoseFinder
     {
-        /// <summary>
-        /// List of HandGrabPoints that can move the provided _relativeTo Transform
-        /// </summary>
         private List<HandGrabPoint> _handGrabPoints;
-        /// <summary>
-        /// Target Transform that is grabbed
-        /// </summary>
-        private Transform _relativeTo;
-        /// <summary>
-        /// When no HandGrabPoints are provided. This transform is used
-        /// as a HandGrabPoint without HandPose or Handedness.
-        /// </summary>
-        private Transform _fallbackTransform;
-        /// <summary>
-        /// Cached relative pose from the target object to the fallbacktransform
-        /// to save computation when the _fallbackTransform is used.
-        /// </summary>
-        private Pose _cachedFallbackPose;
+        private Transform _fallbackPoint;
 
         private InterpolationCache _interpolationCache = new InterpolationCache();
 
-        public GrabPointsPoseFinder(List<HandGrabPoint> handGrabPoints, Transform relativeTo, Transform fallbackTransform)
+        public GrabPointsPoseFinder(List<HandGrabPoint> handGrabPoints, Transform fallbackPoint = null)
         {
             _handGrabPoints = handGrabPoints;
-            _relativeTo = relativeTo;
-            _fallbackTransform = fallbackTransform;
-
-            _cachedFallbackPose = _relativeTo.RelativeOffset(fallbackTransform);
+            _fallbackPoint = fallbackPoint;
         }
 
         public bool UsesHandPose()
@@ -83,12 +64,17 @@ namespace Oculus.Interaction.HandPosing
                 return CalculateBestScaleInterpolatedPose(userPose, handedness, handScale,
                     ref bestHandPose, ref bestSnapPoint, scoringModifier, out usesHandPose, out score);
             }
+            else if (_fallbackPoint != null)
+            {
+                usesHandPose = false;
+                score = PoseUtils.Similarity(userPose, _fallbackPoint.GetPose(), scoringModifier);
+                return true;
+            }
             else
             {
                 usesHandPose = false;
-                bestSnapPoint = new Pose(_cachedFallbackPose.position, Quaternion.Inverse(_relativeTo.rotation) * userPose.rotation);
-                score = PoseUtils.Similarity(userPose, _fallbackTransform.GetPose(), scoringModifier);
-                return true;
+                score = float.NaN;
+                return false;
             }
         }
 

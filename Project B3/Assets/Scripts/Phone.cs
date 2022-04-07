@@ -65,7 +65,7 @@ public class Phone : MonoBehaviour
             Animator scanR = collision[0].transform.parent.parent.GetChild(1).gameObject.GetComponent(typeof(Animator)) as Animator;
             Animator scanL = collision[0].transform.parent.parent.GetChild(0).gameObject.GetComponent(typeof(Animator)) as Animator;
 
-            if (collision[0].transform.tag == "Main gate" || collision[0].transform.tag == "Comon room")
+            if (collision[0].transform.parent.parent.tag == "Main gate" || collision[0].transform.parent.parent.tag == "Comon room")
             {
                 scaner.SetBool("isGreen", true);
                 door.SetBool("hasScanned", true);
@@ -79,7 +79,7 @@ public class Phone : MonoBehaviour
                     break;
 
                 case 1:
-                    if (collision[0].transform.tag == "CNAM")
+                    if (collision[0].transform.parent.parent.tag == "CNAM")
                     {
                         scaner.SetBool("isGreen", true);
                         door.SetBool("hasScanned", true);
@@ -90,8 +90,8 @@ public class Phone : MonoBehaviour
                 //only alow personae to enter class in wich they are supposed to be
 
                 case 2:
-                    if (collision[0].transform.tag == "CmptSci" || collision[0].transform.tag == "Amptheater" || collision[0].transform.tag == "student rest"
-                        || collision[0].transform.tag == $"WC_{bathroom}" || collision[0].transform.tag == "SoftSkill" || collision[0].transform.tag == "English" || collision[0].transform.tag == "library")
+                    if (collision[0].transform.parent.parent.tag == "CmptSci" || collision[0].transform.parent.parent.tag == "Amptheater" || collision[0].transform.parent.parent.tag == "student rest"
+                        || collision[0].transform.parent.parent.tag == $"WC_{bathroom}" || collision[0].transform.parent.parent.tag == "SoftSkill" || collision[0].transform.parent.parent.tag == "English" || collision[0].transform.parent.parent.tag == "library")
                     {
                         scaner.SetBool("isGreen", true);
                         door.SetBool("hasScanned", true);
@@ -99,16 +99,16 @@ public class Phone : MonoBehaviour
                     }
                     break;
                 case 3:
-                    if (collision[0].transform.tag == $"WC_{bathroom}" || collision[0].transform.tag == "English" ||
-                        collision[0].transform.tag == "Staff rest" || collision[0].transform.tag == "library")
+                    if (collision[0].transform.parent.parent.tag == $"WC_{bathroom}" || collision[0].transform.parent.parent.tag == "English" ||
+                        collision[0].transform.parent.parent.tag == "Staff rest" || collision[0].transform.parent.parent.tag == "library")
                     {
                         scaner.SetBool("isGreen", true);
                         door.SetBool("hasScanned", true);
                     }
                     break;
                 case 4:
-                    if (collision[0].transform.tag == $"WC_{bathroom}" || collision[0].transform.tag == "SoftSkill" || collision[0].transform.tag == "Amptheater" ||
-                        collision[0].transform.tag == "Staff rest" || collision[0].transform.tag == "library")
+                    if (collision[0].transform.parent.parent.tag == $"WC_{bathroom}" || collision[0].transform.parent.parent.tag == "SoftSkill" || collision[0].transform.parent.parent.tag == "Amptheater" ||
+                        collision[0].transform.parent.parent.tag == "Staff rest" || collision[0].transform.parent.parent.tag == "library")
                     {
                         scaner.SetBool("isGreen", true);
                         door.SetBool("hasScanned", true);
@@ -116,8 +116,8 @@ public class Phone : MonoBehaviour
                     }
                     break;
                 case 5:
-                    if (collision[0].transform.tag == $"WC_{bathroom}" || collision[0].transform.tag == "Amptheater" || collision[0].transform.tag == "CmptSci" ||
-                        collision[0].transform.tag == "Staff rest" || collision[0].transform.tag == "library")
+                    if (collision[0].transform.parent.parent.tag == $"WC_{bathroom}" || collision[0].transform.parent.parent.tag == "Amptheater" || collision[0].transform.parent.parent.tag == "CmptSci" ||
+                        collision[0].transform.parent.parent.tag == "Staff rest" || collision[0].transform.parent.parent.tag == "library")
                     {
                         scaner.SetBool("isGreen", true);
                         door.SetBool("hasScanned", true);
@@ -125,24 +125,24 @@ public class Phone : MonoBehaviour
                     break;
             }
 
-            if (drone_access && collision[0].transform.tag == "Drone")
+            if (drone_access && collision[0].transform.parent.parent.tag == "Drone")
             {
                 scaner.SetBool("isGreen", true);
                 door.SetBool("hasScanned", true);
             }
-            else if (drone_access! && collision[0].transform.tag == "Drone")
+            else if (drone_access! && collision[0].transform.parent.parent.tag == "Drone")
             {
                 scaner.SetBool("isGreen", false);
                 door.SetBool("hasScanned", false);
             }
 
-            if (scaner.GetInteger("RoomID") == 0 && collision[0].transform.CompareTag("Project"))
+            if (scaner.GetInteger("RoomID") == 0 && collision[0].transform.parent.parent.CompareTag("Project"))
             {
                 scanL.SetInteger("RoomID", Project_room);
                 scanR.SetInteger("RoomID", Project_room);
             }
 
-            if (scaner.GetBool("reScan") == false && collision[0].transform.CompareTag("Project"))
+            if (scaner.GetBool("reScan") == false && collision[0].transform.parent.parent.CompareTag("Project"))
             {
                 if (scaner.GetInteger("count") == 0)
                 {
@@ -158,13 +158,13 @@ public class Phone : MonoBehaviour
                 }
             }
 
-            if (Project_room == scaner.GetInteger("RoomID") && collision[0].transform.CompareTag("Project"))
+            if (Project_room == scaner.GetInteger("RoomID") && collision[0].transform.parent.parent.CompareTag("Project"))
             {
                 scaner.SetBool("isGreen", true);
                 
                 door.SetBool("hasScanned", true);
             }
-            else if (Project_room != scaner.GetInteger("RoomID") && collision[0].transform.CompareTag("Project"))
+            else if (Project_room != scaner.GetInteger("RoomID") && collision[0].transform.parent.parent.CompareTag("Project"))
             {
                 scaner.SetBool("isGreen", false);
                 door.SetBool("hasScanned", false);

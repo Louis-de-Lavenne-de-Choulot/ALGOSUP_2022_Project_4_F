@@ -136,7 +136,7 @@ public class OVRDirectComposition : OVRCameraComposition
 			else
 			{
 				OVRPose worldSpacePose = new OVRPose();
-				worldSpacePose = OVRExtensions.ToWorldSpacePose(trackingSpacePose, mainCamera);
+				worldSpacePose = OVRExtensions.ToWorldSpacePose(trackingSpacePose);
 				directCompositionCamera.transform.FromOVRPose(worldSpacePose);
 			}
 		}
@@ -159,7 +159,7 @@ public class OVRDirectComposition : OVRCameraComposition
 				}
 				else
 				{
-					OVRPose worldSpacePose = ComputeCameraWorldSpacePose(extrinsics, mainCamera);
+					OVRPose worldSpacePose = ComputeCameraWorldSpacePose(extrinsics);
 					directCompositionCamera.transform.FromOVRPose(worldSpacePose);
 				}
 			}
