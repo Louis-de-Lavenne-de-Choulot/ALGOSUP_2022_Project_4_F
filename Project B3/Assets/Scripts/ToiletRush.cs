@@ -86,6 +86,13 @@ public class ToiletRush : ScenarioBase
                             break;
                         }
                     }
+                    if(MToiletsWait.All( x => !x))
+                    {
+                        npc.inScenario = false;
+                        npc.ChangeGoal();
+                        npcs.Remove(npc);
+                        yield break;
+                    }
                     break;
                 case "Female 1(Clone)":
                 case "Female 2(Clone)":
@@ -117,6 +124,13 @@ public class ToiletRush : ScenarioBase
                             npcs.Remove(npc);
                             yield break;
                         }
+                    }
+                    if(FToiletsWait.All( x => !x))
+                    {
+                        npc.inScenario = false;
+                        npc.ChangeGoal();
+                        npcs.Remove(npc);
+                        yield break;
                     }
                     break;
             }
