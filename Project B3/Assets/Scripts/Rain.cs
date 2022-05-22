@@ -43,7 +43,7 @@ public class Rain : MonoBehaviour
     public Transform recept;
     Color[] Skin = new Color[4] { new Color(0.254717f, 0.1748036f, 0.08290314f), new Color(0.727f, 0.6063917f, 0.4154285f), new Color(0.1792453f, 0.07965653f, 0.03297437f), new Color(0.8235294f, 0.6969679f, 0.5583529f) };
     int timeNumber = 0;
-    int[] times = new int[8] {120, 150, 360, 540, 630, 690, 840, 900}; //? around 35s all AI are in their class. 70s of class then 30s of break, finally 70s for lunch. -1s to be sure the code takes the update.
+    int[] times = new int[8] {120, 150, 360, 540, 630, 690, 840, 900}; //? around 35s all AI are in their class. 70s of class then 30s of break, finally 70s for lunch. 
     // G = get/order food, O = outside, I = inside, B = bring his meal
     private Personae johnnyTT = new Personae('G', 'E', 'P', 'S', 'S', 'P', 'P', 'C', 'C', 'P', 'P');
 
@@ -80,17 +80,17 @@ public class Rain : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        maxNumber = PlayerPrefs.GetInt("MaxAi", 0);
-        johnny = PlayerPrefs.GetInt("Johnny", 0);
-        steph = PlayerPrefs.GetInt("Steph", 0);
-        alexandre = PlayerPrefs.GetInt("Alexandre", 0);
-        janka = PlayerPrefs.GetInt("Janka", 0);
-        nick = PlayerPrefs.GetInt("Nick", 0);
-        lindzy = PlayerPrefs.GetInt("Lindzy", 0);
-        denis = PlayerPrefs.GetInt("Denis", 0);
-        lana = PlayerPrefs.GetInt("Lana", 0);
-        sam = PlayerPrefs.GetInt("Sam", 0);
-        basics = PlayerPrefs.GetInt("Basic", 0);
+        // maxNumber = PlayerPrefs.GetInt("MaxAi", 0);
+        johnny = 20;
+        steph = 30;
+        alexandre = 20;
+        janka = 0;//PlayerPrefs.GetInt("Janka", 0);
+        nick = 0;//PlayerPrefs.GetInt("Nick", 0);
+        lindzy = 0;//PlayerPrefs.GetInt("Lindzy", 0);
+        denis = 0;//PlayerPrefs.GetInt("Denis", 0);
+        lana = 0;//PlayerPrefs.GetInt("Lana", 0);
+        sam = 0;//PlayerPrefs.GetInt("Sam", 0);
+        basics = 0;//PlayerPrefs.GetInt("Basic", 0);
         personaeNumber = new int[10] { johnny, steph, alexandre, janka, nick, lindzy, denis, lana, sam, basics };
         foreach (Transform englishRoom in englishRooms)
         {
