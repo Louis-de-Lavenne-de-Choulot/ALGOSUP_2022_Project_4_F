@@ -58,35 +58,30 @@ public class DoorTriger : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Door") && is_AI)
         {
-            Animator scanerR = other.transform.parent.parent.GetChild(1).gameObject.GetComponent(typeof(Animator)) as Animator;
-            Animator scanerL = other.transform.parent.parent.GetChild(0).gameObject.GetComponent(typeof(Animator)) as Animator;
-            Animator door = other.transform.parent.parent.gameObject.GetComponent(typeof(Animator)) as Animator;
+            Animator scaner = other.transform.parent.GetChild(1).GetChild(1).gameObject.GetComponent(typeof(Animator)) as Animator;
+            Animator door = other.transform.parent.gameObject.GetComponent(typeof(Animator)) as Animator;
 
-            scanerR.SetBool("isScan", true);
-            scanerL.SetBool("isScan", true);
+            scaner.SetBool("isScan", true);
 
             door.SetBool("hasScanned", true);
 
-            if (scanerR.transform.parent.tag == "Main gate" || scanerR.transform.parent.tag == "Comon room")
+            if (scaner.transform.parent.tag == "Main gate" || scaner.transform.parent.tag == "Comon room")
             {
-                scanerR.SetBool("isScan", true);
-                scanerL.SetBool("isScan", true);
+                scaner.SetBool("isScan", true);
                 door.SetBool("hasScanned", true);
             }
 
             switch ((int)door_access)
             {
                 case 0:
-                    scanerR.SetBool("isScan", true);
-                    scanerL.SetBool("isScan", true);
+                    scaner.SetBool("isScan", true);
                     door.SetBool("hasScanned", true);
                     break;
 
                 case 1:
-                    if (scanerR.transform.parent.tag == "CNAM")
+                    if (scaner.transform.parent.tag == "CNAM")
                     {
-                        scanerR.SetBool("isScan", true);
-                        scanerL.SetBool("isScan", true);
+                        scaner.SetBool("isScan", true);
                         door.SetBool("hasScanned", true);
                     }
                     break;
@@ -95,96 +90,82 @@ public class DoorTriger : MonoBehaviour
                 //only alow personae to enter class in wich they are supposed to be
 
                 case 2:
-                    if (scanerR.transform.parent.tag == "CmptSci" || scanerR.transform.parent.tag == "Amptheater" || scanerR.transform.parent.tag == "student rest"
-                        || scanerR.transform.parent.tag == $"WC_{bathroom}" || scanerR.transform.parent.tag == "SoftSkill" || scanerR.transform.parent.tag == "English" || scanerR.transform.parent.tag == "library")
+                    if (scaner.transform.parent.tag == "CmptSci" || scaner.transform.parent.tag == "Amptheater" || scaner.transform.parent.tag == "student rest"
+                        || scaner.transform.parent.tag == $"WC_{bathroom}" || scaner.transform.parent.tag == "SoftSkill" || scaner.transform.parent.tag == "English" || scaner.transform.parent.tag == "library")
                     {
-                        scanerR.SetBool("isScan", true);
-                        scanerL.SetBool("isScan", true);
+                        scaner.SetBool("isScan", true);
                         door.SetBool("hasScanned", true);
                         //implement more advanced logic latter
                     }
                     break;
                 case 3:
-                    if (scanerR.transform.parent.tag == $"WC_{bathroom}" || scanerR.transform.parent.tag == "English" ||
-                        scanerR.transform.parent.tag == "Staff rest" || scanerR.transform.parent.tag == "library")
+                    if (scaner.transform.parent.tag == $"WC_{bathroom}" || scaner.transform.parent.tag == "English" ||
+                        scaner.transform.parent.tag == "Staff rest" || scaner.transform.parent.tag == "library")
                     {
-                        scanerR.SetBool("isScan", true);
-                        scanerL.SetBool("isScan", true);
+                        scaner.SetBool("isScan", true);
                         door.SetBool("hasScanned", true);
                     }
                     break;
                 case 4:
-                    if (scanerR.transform.parent.tag == $"WC_{bathroom}" || scanerR.transform.parent.tag == "SoftSkill" || scanerR.transform.parent.tag == "Amptheater" ||
-                        scanerR.transform.parent.tag == "Staff rest" || scanerR.transform.parent.tag == "library")
+                    if (scaner.transform.parent.tag == $"WC_{bathroom}" || scaner.transform.parent.tag == "SoftSkill" || scaner.transform.parent.tag == "Amptheater" ||
+                        scaner.transform.parent.tag == "Staff rest" || scaner.transform.parent.tag == "library")
                     {
-                        scanerR.SetBool("isScan", true);
-                        scanerL.SetBool("isScan", true);
+                        scaner.SetBool("isScan", true);
                         door.SetBool("hasScanned", true);
                         // **/!\** verify if any soft skill is held in Amptheater
                     }
                     break;
                 case 5:
-                    if (scanerR.transform.parent.tag == $"WC_{bathroom}" || scanerR.transform.parent.tag == "Amptheater" || scanerR.transform.parent.tag == "CmptSci" ||
-                        scanerR.transform.parent.tag == "Staff rest" || scanerR.transform.parent.tag == "library")
+                    if (scaner.transform.parent.tag == $"WC_{bathroom}" || scaner.transform.parent.tag == "Amptheater" || scaner.transform.parent.tag == "CmptSci" ||
+                        scaner.transform.parent.tag == "Staff rest" || scaner.transform.parent.tag == "library")
                     {
-                        scanerR.SetBool("isScan", true);
-                        scanerL.SetBool("isScan", true);
+                        scaner.SetBool("isScan", true);
                         door.SetBool("hasScanned", true);
                     }
                     break;
             }
 
-            if (drone_access && scanerR.transform.parent.tag == "Drone")
+            if (drone_access && scaner.transform.parent.tag == "Drone")
             {
-                scanerR.SetBool("isScan", true);
-                scanerL.SetBool("isScan", true);
+                scaner.SetBool("isScan", true);
                 door.SetBool("hasScanned", true);
             }
-            else if (drone_access! && scanerR.transform.parent.tag == "Drone")
+            else if (drone_access! && scaner.transform.parent.tag == "Drone")
             {
-                scanerR.SetBool("isScan", true);
-                scanerL.SetBool("isScan", true);
+                scaner.SetBool("isScan", true);
                 door.SetBool("hasScanned", false);
             }
 
-            if (scanerR.GetInteger("RoomID") == 0 && scanerR.transform.CompareTag("Project"))
+            if (scaner.GetInteger("RoomID") == 0 && scaner.transform.CompareTag("Project"))
             {
-                scanerL.SetInteger("RoomID", Project_room);
-                scanerR.SetInteger("RoomID", Project_room);
-                scanerR.SetBool("isScan", true);
-                scanerL.SetBool("isScan", true);
+                scaner.SetInteger("RoomID", Project_room);
+                scaner.SetBool("isScan", true);
             }
 
-            if (scanerR.GetBool("reScan") == false && scanerR.transform.CompareTag("Project"))
+            if (scaner.GetBool("reScan") == false && scaner.transform.CompareTag("Project"))
             {
-                if (scanerR.GetInteger("count") == 0)
+                if (scaner.GetInteger("count") == 0)
                 {
-                    scanerR.SetInteger("count", 1);
-                    scanerL.SetInteger("count", 1);
+                    scaner.SetInteger("count", 1);
                 }
                 else
                 {
-                    scanerR.SetBool("isScan", true);
-                    scanerL.SetBool("isScan", true);
+                    scaner.SetBool("isScan", true);
                     door.SetBool("hasScanned", false);
-                    scanerL.SetInteger("RoomID", 0);
-                    scanerR.SetInteger("RoomID", 0);
-                    scanerL.SetInteger("count", 0);
-                    scanerR.SetInteger("RoomID", 0);
+                    scaner.SetInteger("RoomID", 0);
+                    scaner.SetInteger("RoomID", 0);
                 }
             }
 
-            if (Project_room == scanerR.GetInteger("RoomID") && scanerR.transform.CompareTag("Project"))
+            if (Project_room == scaner.GetInteger("RoomID") && scaner.transform.CompareTag("Project"))
             {
-                scanerR.SetBool("isScan", true);
-                scanerL.SetBool("isScan", true);
+                scaner.SetBool("isScan", true);
 
                 door.SetBool("hasScanned", true);
             }
-            else if (Project_room != scanerR.GetInteger("RoomID") && scanerR.transform.CompareTag("Project"))
+            else if (Project_room != scaner.GetInteger("RoomID") && scaner.transform.CompareTag("Project"))
             {
-                scanerR.SetBool("isScan", true);
-                scanerL.SetBool("isScan", true);
+                scaner.SetBool("isScan", true);
                 door.SetBool("hasScanned", false);
             }
         }
@@ -194,7 +175,7 @@ public class DoorTriger : MonoBehaviour
     {
         if(other.gameObject.layer == LayerMask.NameToLayer("Door"))
         {
-            Animator door = other.transform.parent.parent.gameObject.GetComponent(typeof(Animator)) as Animator;
+            Animator door = other.transform.parent.gameObject.GetComponent(typeof(Animator)) as Animator;
             door.SetBool("doorOpen", true);
         }
     }
@@ -208,26 +189,19 @@ public class DoorTriger : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Door"))
         {
-            Animator door = other.transform.parent.parent.gameObject.GetComponent(typeof(Animator)) as Animator;
-            Animator scanerR = other.transform.parent.parent.GetChild(1).gameObject.GetComponent(typeof(Animator)) as Animator;
-            Animator scanerL = other.transform.parent.parent.GetChild(0).gameObject.GetComponent(typeof(Animator)) as Animator;
+            Animator door = other.transform.parent.gameObject.GetComponent(typeof(Animator)) as Animator;
+            Animator scaner = other.transform.parent.GetChild(1).GetChild(1).gameObject.GetComponent(typeof(Animator)) as Animator;
 
-            scanerR.SetBool("isScan", false);
-            scanerR.SetBool("isScan fail", false);
-            scanerR.SetBool("reScan", false);
-            scanerR.SetInteger("count", 0);
-            scanerR.SetBool("isGreen", false);
-
-            scanerL.SetBool("isScan", false);
-            scanerL.SetBool("isScan fail", false);
-            scanerL.SetBool("reScan", false);
-            scanerL.SetInteger("count", 0);
-            scanerL.SetBool("isGreen", false);
+            scaner.SetBool("isScan", false);
+            scaner.SetBool("isScan fail", false);
+            scaner.SetBool("reScan", false);
+            scaner.SetInteger("count", 0);
+            scaner.SetBool("isGreen", false);
 
             door.SetBool("hasScanned", false);
             door.SetBool("doorOpen", false);
 
-            other.transform.parent.parent.gameObject.GetComponent<Animator>().SetFloat("time", 0f);
+            other.transform.parent.gameObject.GetComponent<Animator>().SetFloat("time", 0f);
         }
     }
 }
