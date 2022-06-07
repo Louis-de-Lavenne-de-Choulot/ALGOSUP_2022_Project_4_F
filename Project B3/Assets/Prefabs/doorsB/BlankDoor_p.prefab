@@ -133,7 +133,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4243465282581654831}
   - component: {fileID: 8832229675179314615}
-  m_Layer: 0
+  - component: {fileID: 8156459798613481485}
+  m_Layer: 9
   m_Name: scaner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,6 +180,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &8156459798613481485
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2293086441972332496}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.0455894, y: 1.5363172, z: 1.5696731}
+  m_Center: {x: -0.004944912, y: 0.2681585, z: -19.350294}
 --- !u!1 &3017064787324427300
 GameObject:
   m_ObjectHideFlags: 0
@@ -190,7 +204,7 @@ GameObject:
   - component: {fileID: 2346865188975706572}
   - component: {fileID: 752358262807092567}
   - component: {fileID: 287612495848928305}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Cylinder.007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -273,7 +287,7 @@ GameObject:
   - component: {fileID: 3067097812653888798}
   - component: {fileID: 8384827827718725292}
   - component: {fileID: 5564750818563518238}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: wall scanner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
