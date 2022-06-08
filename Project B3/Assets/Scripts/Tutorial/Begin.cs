@@ -11,8 +11,8 @@ namespace Tuto
     {
         public GameObject[] canvas;
         public Button[] play;
+        public Button excep;
         int iter = 0;
-
 
         public void Start()
         {
@@ -21,6 +21,7 @@ namespace Tuto
                 canvas[i+1].SetActive(false);
                 play[i].onClick.AddListener(delegate { Next(); });
             }
+            excep.onClick.AddListener(delegate { Next(); });
         }
 
         public void Next()
