@@ -9,20 +9,25 @@ namespace Tuto
 {
     public class Begin : MonoBehaviour
     {
-        public Canvas canvas;
-        public Button play;
-        public Canvas next;
+        public GameObject[] canvas;
+        public Button[] play;
+        int iter = 0;
 
 
         public void Start()
         {
-            play.onClick.AddListener(delegate{Next();});
+            for (int i = 0; i < play.Length; i++)
+            {
+                canvas[i+1].SetActive(false);
+                play[i].onClick.AddListener(delegate { Next(); });
+            }
         }
 
         public void Next()
         {
-            canvas.enabled = false;
-            next.enabled = true;
+            canvas[iter].SetActive(false);
+            canvas[iter+1].SetActive(true);
+            iter++;
         }
 
 
