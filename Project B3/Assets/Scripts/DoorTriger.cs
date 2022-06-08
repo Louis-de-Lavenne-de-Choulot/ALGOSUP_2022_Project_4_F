@@ -56,9 +56,28 @@ public class DoorTriger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Door") && is_AI)
+        if (other.gameObject.layer == LayerMask.NameToLayer("DoorR"))
         {
-            Animator scaner = other.transform.parent.GetChild(1).GetChild(1).gameObject.GetComponent(typeof(Animator)) as Animator;
+            Animator door = other.transform.parent.gameObject.GetComponent(typeof(Animator)) as Animator;
+            if (door.GetBool("doorOpenR") == false && door.GetBool("doorOpenL") == false)
+            {
+                door.SetBool("doorOpenR", true);
+            }
+        }
+
+        if (other.gameObject.layer == LayerMask.NameToLayer("DoorL"))
+        {
+            Animator door = other.transform.parent.gameObject.GetComponent(typeof(Animator)) as Animator;
+            if (door.GetBool("doorOpenR") == false && door.GetBool("doorOpenL") == false)
+            {
+                door.SetBool("doorOpenL", true);
+            }
+        }
+
+
+        if ((other.gameObject.layer == LayerMask.NameToLayer("DoorR") || other.gameObject.layer == LayerMask.NameToLayer("DoorL")) && is_AI)
+        {
+            Animator scaner = other.transform.parent.GetChild(2).GetChild(1).gameObject.GetComponent(typeof(Animator)) as Animator;
             Animator door = other.transform.parent.gameObject.GetComponent(typeof(Animator)) as Animator;
 
             scaner.SetBool("isScan", true);
@@ -171,15 +190,6 @@ public class DoorTriger : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay(Collider other)
-    {
-        if(other.gameObject.layer == LayerMask.NameToLayer("Door"))
-        {
-            Animator door = other.transform.parent.gameObject.GetComponent(typeof(Animator)) as Animator;
-            door.SetBool("doorOpen", true);
-        }
-    }
-
     private void Update()
     {
         
@@ -187,10 +197,10 @@ public class DoorTriger : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Door"))
+        if (other.gameObject.layer == LayerMask.NameToLayer("DoorR") || other.gameObject.layer == LayerMask.NameToLayer("DoorL"))
         {
             Animator door = other.transform.parent.gameObject.GetComponent(typeof(Animator)) as Animator;
-            Animator scaner = other.transform.parent.GetChild(1).GetChild(1).gameObject.GetComponent(typeof(Animator)) as Animator;
+            Animator scaner = other.transform.parent.GetChild(2).GetChild(1).gameObject.GetComponent(typeof(Animator)) as Animator;
 
             scaner.SetBool("isScan", false);
             scaner.SetBool("isScan fail", false);
@@ -199,7 +209,8 @@ public class DoorTriger : MonoBehaviour
             scaner.SetBool("isGreen", false);
 
             door.SetBool("hasScanned", false);
-            door.SetBool("doorOpen", false);
+            door.SetBool("doorOpenR", false);
+            door.SetBool("doorOpenL", false);
 
             other.transform.parent.gameObject.GetComponent<Animator>().SetFloat("time", 0f);
         }
