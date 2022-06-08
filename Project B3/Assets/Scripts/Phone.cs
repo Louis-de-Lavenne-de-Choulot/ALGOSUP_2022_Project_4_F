@@ -56,14 +56,11 @@ public class Phone : MonoBehaviour
 
         if (collision.Length != 0)
         {
-            Animator scaner = collision[0].transform.parent.gameObject.GetComponent(typeof(Animator)) as Animator;
+            Animator scaner = collision[0].transform.gameObject.GetComponent(typeof(Animator)) as Animator;
             Animator door = collision[0].transform.parent.parent.gameObject.GetComponent(typeof(Animator)) as Animator;
 
             scaner.SetBool("isGreen", false);
             door.SetBool("hasScanned", false);
-
-            Animator scanR = collision[0].transform.parent.parent.GetChild(1).gameObject.GetComponent(typeof(Animator)) as Animator;
-            Animator scanL = collision[0].transform.parent.parent.GetChild(0).gameObject.GetComponent(typeof(Animator)) as Animator;
 
             if (collision[0].transform.parent.parent.tag == "Main gate" || collision[0].transform.parent.parent.tag == "Comon room")
             {
@@ -138,8 +135,7 @@ public class Phone : MonoBehaviour
 
             if (scaner.GetInteger("RoomID") == 0 && collision[0].transform.parent.parent.CompareTag("Project"))
             {
-                scanL.SetInteger("RoomID", Project_room);
-                scanR.SetInteger("RoomID", Project_room);
+                scaner.SetInteger("RoomID", Project_room);
             }
 
             if (scaner.GetBool("reScan") == false && collision[0].transform.parent.parent.CompareTag("Project"))
@@ -151,9 +147,8 @@ public class Phone : MonoBehaviour
                 else
                 {
                     scaner.SetBool("isGreen", false);
-                    door.SetBool("hasScanned", false);
-                    scanL.SetInteger("RoomID", 0);
-                    scanR.SetInteger("RoomID", 0);
+                    door.SetBool("hasScanned", false);;
+                    scaner.SetInteger("RoomID", 0);
                     scaner.SetInteger("count", 0);
                 }
             }
