@@ -9,8 +9,9 @@ namespace Tuto
 {
     public class Welcome : MonoBehaviour
     {
-        public Canvas canvas;
         public Button skip;
+        public Camera cam;
+        public Camera maincam;
 
         public void Start()
         {
@@ -19,6 +20,7 @@ namespace Tuto
 
         public void Launch()
         {
+            maincam.enabled = false;
             SceneManager.LoadScene(1,LoadSceneMode.Single);
         }
 

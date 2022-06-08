@@ -247,7 +247,6 @@ public class Rain : MonoBehaviour
 
     void TimeCheck()
     {
-        Debug.Log(GameTime.intTimer);
         if (GameTime.intTimer > times[timeNumber])
         {
             timeNumber++;
