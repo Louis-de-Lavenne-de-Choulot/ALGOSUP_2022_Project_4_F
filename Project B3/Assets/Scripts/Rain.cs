@@ -81,7 +81,7 @@ public class Rain : MonoBehaviour
     void Start()
     {
         // maxNumber = PlayerPrefs.GetInt("MaxAi", 0);
-        johnny = 10;
+        johnny = 0;
         steph = 20;
         alexandre = 10;
         janka = 0;//PlayerPrefs.GetInt("Janka", 0);
@@ -264,7 +264,6 @@ public class Rain : MonoBehaviour
             switch (timeNumber)
             {
                 case 1:
-                    Debug.Log($"{Schedule[_day*2]}");
                     currentScenario = GameObject.Find($"{Schedule[_day*2]}").GetComponent<ScenarioBase>();
                     currentScenario.StartScenario();
                     break;
