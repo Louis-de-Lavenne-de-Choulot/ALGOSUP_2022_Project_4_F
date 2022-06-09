@@ -1153,6 +1153,7 @@ MonoBehaviour:
   clipf: []
   clipPf: []
   clips: []
+  sS: 0
 --- !u!82 &4738198935156830457
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2941,8 +2942,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6825554166962919976}
   - component: {fileID: 4315453070888236120}
-  - component: {fileID: 3489680658364258414}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2957,8 +2957,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5778895189233046692}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.5, z: 1.12383}
+  m_LocalPosition: {x: 0, y: 0, z: 0.306}
+  m_LocalScale: {x: 0.2, y: 0.5, z: 1.2551321}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2726485272258472331}
@@ -2977,23 +2977,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 1, z: 1.5}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3489680658364258414
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5778895189233046692}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0417f9966dff84b89a2cd04d344f77b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  door_access: 2
-  WC: 1
-  drone_access: 1
-  Project_room: 5
-  is_AI: 1
 --- !u!1001 &4157634392187529153
 PrefabInstance:
   m_ObjectHideFlags: 0
