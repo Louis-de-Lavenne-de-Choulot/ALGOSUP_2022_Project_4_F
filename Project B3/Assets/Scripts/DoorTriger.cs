@@ -9,11 +9,11 @@ public class DoorTriger : MonoBehaviour
     private float timer = 0f;
     private float timerLimit = 1.5f;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("CaracterDetection") && open == false)
         {
-            timerLimit = 1.5f;
+            timerLimit = 0.5f;
 
             Animator door = transform.parent.gameObject.GetComponent(typeof(Animator)) as Animator;
             Animator scaner = transform.parent.GetChild(1).GetChild(1).gameObject.GetComponent(typeof(Animator)) as Animator;
@@ -59,7 +59,7 @@ public class DoorTriger : MonoBehaviour
             Animator door = transform.parent.gameObject.GetComponent(typeof(Animator)) as Animator;
             Animator scaner = transform.parent.GetChild(1).GetChild(1).gameObject.GetComponent(typeof(Animator)) as Animator;
 
-            timerLimit = 3f;
+            timerLimit = 2f;
 
             open = true;
 
