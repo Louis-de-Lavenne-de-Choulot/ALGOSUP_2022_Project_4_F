@@ -20,7 +20,10 @@ namespace Tuto
 
         public void Launch()
         {
-            maincam.enabled = false;
+            for (int i = 0; i < Camera.allCameras.Length; i++)
+            {
+                Camera.allCameras[i].enabled = false;
+            }
             cam.enabled = true;
             SceneManager.LoadScene(1,LoadSceneMode.Single);
         }
