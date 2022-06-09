@@ -13,6 +13,10 @@ namespace Tuto {
 
         // Start is called before the first frame update
         void Start() {
+            for (int i = 0; i < en.Length; i++) {
+                en[i].gameObject.SetActive(false);
+                fr[i].gameObject.SetActive(true);
+            }
             engbtn.onClick.AddListener(delegate {
                 LanguageUpdate();
             });
