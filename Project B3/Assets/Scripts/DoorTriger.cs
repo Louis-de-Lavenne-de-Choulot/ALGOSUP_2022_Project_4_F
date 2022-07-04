@@ -24,32 +24,21 @@ public class DoorTriger : MonoBehaviour
 
             var CrTransform = other.transform.parent;
 
-            Vector3 relativePoint = CrTransform.InverseTransformPoint(transform.position);
+            Vector3 relativePoint = transform.InverseTransformPoint(CrTransform.position);
 
-            float X = relativePoint.x;
+            float X = Mathf.Atan2(relativePoint.x, relativePoint.z) * Mathf.Rad2Deg;
 
+            //X = X - transform.parent.rotation.y;
 
-            if(transform.parent.gameObject.layer == LayerMask.NameToLayer("inverted"))
+            //Debug.Log(X);
+
+            if (X < 0)
             {
-                if (X < 0)
-                {
-                    door.SetBool("doorOpenR", true);
-                }
-                else
-                {
-                    door.SetBool("doorOpenL", true);
-                }
+                door.SetBool("doorOpenR", true);
             }
             else
             {
-                if (X < 0)
-                {
-                    door.SetBool("doorOpenL", true);
-                }
-                else
-                {
-                    door.SetBool("doorOpenR", true);
-                }
+                door.SetBool("doorOpenL", true);
             }
 
         }
