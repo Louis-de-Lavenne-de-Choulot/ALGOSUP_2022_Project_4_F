@@ -2695,13 +2695,11 @@ MonoBehaviour:
   - {fileID: 161549737}
   - {fileID: 1229113397}
   - {fileID: 1160679024}
-  - {fileID: 1096741477}
   - {fileID: 272408538}
   play:
   - {fileID: 910096604}
   - {fileID: 438661202}
   - {fileID: 1495140493}
-  - {fileID: 1505014204}
   - {fileID: 431800203}
   excep: {fileID: 1259553423}
 --- !u!1 &431800201
@@ -7819,7 +7817,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1096741478
 Transform:
   m_ObjectHideFlags: 0
@@ -17035,6 +17033,14 @@ PrefabInstance:
     - target: {fileID: 3176692406741578801, guid: 1d0e953f6670840af80bbff553aaab32, type: 3}
       propertyPath: m_CullingMask.m_Bits
       value: 4159487
+      objectReference: {fileID: 0}
+    - target: {fileID: 4357795902423819437, guid: 1d0e953f6670840af80bbff553aaab32, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7515139127187752773, guid: 1d0e953f6670840af80bbff553aaab32, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7515139127376318776, guid: 1d0e953f6670840af80bbff553aaab32, type: 3}
       propertyPath: m_Name
